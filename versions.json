@@ -2,8 +2,8 @@
     "versions": [
         {
             "package_version": "0.1.1",
-            "download_url": "https://github.com/Br00ty/pseudeoregalia_brooty/releases/download/0.1.1/pseudoregalia_brooty.zip",
-            "sha256": "01205CD8EE48911FF1DFA679AC4DF9CB1A05C21894A73E166C1245E6E0607922",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.1/pseudoregalia_brooty.zip",
+            "sha256": "BCCD83A60CAE8D4A01A504B359BBE6689AAF5A9B43F2523DEDFF6C93B93DDB4B",
             "changelog": [
                 "changed logic for `Floater In Courtyard` to require bounce and either a kick or a plunge",
                 "changed logic for `Theatre Main` function and replaced `can_bounce` with `(cling and (greaves or can_slidejump)`"
@@ -11,7 +11,7 @@
         },
         {
             "package_version": "0.1",
-            "download_url": "https://github.com/Br00ty/pseudeoregalia_brooty/releases/download/0.1/pseudoregalia_brooty.zip",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1/pseudoregalia_brooty.zip",
             "sha256": "D193ED78A7602EA7AEF8799753F33FB25CD50176FA29364D71727AE50B08AB9D",
             "changelog": [
                 "Initial impelemantion of logic, locations, items, etc..."
