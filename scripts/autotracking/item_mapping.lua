@@ -2,8 +2,21 @@
 -- first value is the code of the target item and the second is the item type (currently only "toggle", "progressive" and "consumable" but feel free to expand for your needs!)
 -- here are the SM items as an example: https://github.com/Cyb3RGER/sm_ap_tracker/blob/main/scripts/autotracking/item_mapping.lua
 ITEM_MAPPING = {
-    [00000] = {"toggle", "toggle"},
-    [00001] = {"progressive", "progressive"},
-    [00002] = {"consumable", "consumable"},
-    [00003] = {"progressive_toggle", "progressive"} -- progressive_toggle should work with the progressive type but might need additional code to work for your needs
+    [2365810001] = {"breaker", "toggle"},
+    [2365810003] = {"greaves", "toggle"},
+    [2365810004] = {"slide", "toggle"},
+    [2365810005] = {"solar", "toggle"},
+    [2365810006] = {"sunsetter", "toggle"},
+    [2365810007] = {"strikebreak", "toggle"},
+    [2365810008] = {"cling", "toggle"},
+    [2365810009] = {"ascendant", "toggle"},
+    [2365810010] = {"cutter", "toggle"},
+    [2365810011] = {"heliacal", "toggle"},
+
+    [2365810020] = {"smallkey", "consumable"},
+    [2365810021] = {"majorkey", "consumable"},
+    [2365810022] = {"majorkey", "consumable"},
+    [2365810023] = {"majorkey", "consumable"},
+    [2365810024] = {"majorkey", "consumable"},
+    [2365810025] = {"majorkey", "consumable"}
 }

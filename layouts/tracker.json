@@ -1,6 +1,4 @@
-﻿//sets the trackers layout
-//more info: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#layouts 
-{
+﻿{
     "tracker_default": {
         "type": "container",
         "background": "#000000",
@@ -28,71 +26,11 @@
                     "type": "tabbed",
                     "tabs": [
                         {
-                            "title": "Map 1",
+                            //"title": "Full Map",
                             "content": {
                                 "type": "map",
                                 "maps": [
-                                    "map1"
-                                ]
-                            }
-                        },
-                        {
-                            "title": "Map 2",
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "map2"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    "tracker_horizontal": {
-        "type": "container",
-        "background": "#000000",
-        "content": {
-            "type": "dock",
-            "dropshadow": true,
-            "content": [
-                {
-                    "type": "dock",
-                    "dock": "bottom",
-                    "content": [
-                        {
-                            "type": "group",
-                            "header": "Items",
-                            "dock": "left",
-                            "margin": "0,0,3,0",
-                            "content": {
-                                "type": "layout",
-                                "h_alignment": "center",
-                                "v_alignment": "center",
-                                "key": "shared_item_grid"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "tabbed",
-                    "tabs": [
-                        {
-                            "title": "Map 1",
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "map1"
-                                ]
-                            }
-                        },
-                        {
-                            "title": "Map 2",
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "map2"
+                                    "full_map"
                                 ]
                             }
                         }

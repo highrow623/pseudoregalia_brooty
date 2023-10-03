@@ -1,57 +1,1015 @@
 [
     {
-        "name": "Example Parent",
+        "name": "Dilapitaded Dungeon",
         "children": [
             {
-                "name": "Example Location 1",
-                "access_rules": [
-                    //read as: progressive_2 or toggle                    
-                    "progressive_2",
-                    "toggle"                    
-                ],
+                "name": "Dream Breaker",
+                "access_rules": [],
                 "sections": [
                     {
-                        "name": "Example Section 1",
                         "item_count": 1
-                    },
-                    {
-                        "name": "Example Section 2",
-                        "item_count": 3
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "map1",
-                        "x": 1750,
-                        "y": 700
-                    },
-                    {
-                        "map": "map2",
-                        "x": 1000,
-                        "y": 500
+                        "map": "full_map",
+                        "x": 467,
+                        "y": 2030
                     }
                 ]
             },
             {
-                "name": "Example Location 2",
-                "access_rules": [
-                    //read as: progressive_toggle_2 and has more then 4 consumable
-                    "progressive_toggle_2, $has_more_then_n_consumable|4"                   
-                ],
+                "name": "Slide",
+                "access_rules": ["breaker"],
                 "sections": [
                     {
-                        "name": "Example Section 1",
                         "item_count": 1
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "map1",
-                        "x": 1500,
-                        "y": 400
+                        "map": "full_map",
+                        "x": 1457,
+                        "y": 1968
                     }
                 ]
-            }            
+            },
+            {
+                "name": "Dark Orbs",
+                "access_rules": [
+                    "cling",
+                    "$can_bounce,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 408,
+                        "y": 2524
+                    }
+                ]
+            },
+            {
+                "name": "Rafters",
+                "access_rules": [
+                    "$dungeon_strong_eyes,cling",
+                    "$dungeon_strong_eyes,$can_slidejump,greaves",
+                    "$dungeon_strong_eyes,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 914,
+                        "y": 2094
+                    }
+                ]
+            },
+            {
+                "name": "Strong Eyes",
+                "access_rules": ["$dungeon_strong_eyes"],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1215,
+                        "y": 1771
+                    }
+                ]
+            },
+            {
+                "name": "Alcove Near Mirror",
+                "access_rules": [
+                    "$can_slidejump",
+                    "$can_bounce",
+                    "sunsetter",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 962,
+                        "y": 1847
+                    }
+                ]
+            },
+            {
+                "name": "Past Poles",
+                "access_rules": [
+                    "$dungeon_strong_eyes,greaves",
+                    "$dungeon_strong_eyes,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1222,
+                        "y": 2185
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Castle Sansa",
+        "access_rules": [
+            "$dungeon_strong_eyes,$has_small_keys",
+            "$empty_bailey"
+    ],
+        "children": [
+            {
+                "name": "Indignation",
+                "access_rules": [],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2518,
+                        "y": 1897
+                    }
+                ]
+            },
+            {
+                "name": "Floater In Courtyard",
+                "access_rules": [
+                    "$can_bounce",
+                    "$more_kicks",
+                    "cling,heliacal",
+                    "cling,greaves",
+                    "cling,$can_slidejump",
+                    "cling,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2165,
+                        "y": 1758
+                    }
+                ]
+            },
+            {
+                "name": "Near Theatre Front",
+                "access_rules": [
+                    "cling,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2438,
+                        "y": 2718
+                    }
+                ]
+            },
+            {
+                "name": "High Climb From Courtyard",
+                "access_rules": [
+                    "cling",
+                    "$can_slidejump,greaves",
+                    "$can_slidejump,heliacal"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2144,
+                        "y": 2237
+                    }
+                ]
+            },
+            {
+                "name": "Locked Door",
+                "access_rules": [
+                    "$has_small_keys"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2422,
+                        "y": 1754
+                    }
+                ]
+            },
+            {
+                "name": "Platform In Main Halls",
+                "access_rules": [
+                    "$can_slidejump",
+                    "greaves",
+                    "heliacal",
+                    "sunsetter",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2624,
+                        "y": 1897
+                    }
+                ]
+            },
+            {
+                "name": "Tall Room Near Wheel Crawlers",
+                "access_rules": [
+                    "cling",
+                    "greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2192,
+                        "y": 1408
+                    }
+                ]
+            },
+            {
+                "name": "Alcove Near Dungeon",
+                "access_rules": [
+                    "greaves",
+                    "heliacal",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2377,
+                        "y": 2144
+                    }
+                ]
+            },
+            {
+                "name": "Corner Corridor",
+                "access_rules": [
+                    "cling",
+                    "$more_kicks"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2787,
+                        "y": 1877
+                    }
+                ]
+            },
+            {
+                "name": "Wheel Crawlers",
+                "access_rules": [
+                    "$can_bounce",
+                    "greaves",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1925,
+                        "y": 1585
+                    }
+                ]
+            },
+            {
+                "name": "Alcove Near Scythe Corridor",
+                "access_rules": [
+                    "$can_slidejump,$more_kicks",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1899,
+                        "y": 2622
+                    }
+                ]
+            },
+            {
+                "name": "Balcony",
+                "access_rules": [
+                    "$can_slidejump,$more_kicks",
+                    "cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3040,
+                        "y": 1995
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Sansa Keep",
+        "access_rules": [],
+        "children": [
+            {
+                "name": "Sunsetter",
+                "access_rules": [
+                    "$keep_sunsetter,breaker"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1434,
+                        "y": 1078
+                    }
+                ]
+            },
+            {
+                "name": "Strikebreak",
+                "access_rules": [
+                    "$keep_main,slide,$can_slidejump",
+                    "$keep_main,slide,greaves",
+                    "$keep_main,slide,heliacal",
+                    "$keep_main,slide,cling",
+                    "$keep_main,$can_strikebreak,$can_slidejump",
+                    "$keep_main,$can_strikebreak,greaves",
+                    "$keep_main,$can_strikebreak,heliacal",
+                    "$keep_main,$can_strikebreak,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 889,
+                        "y": 1262
+                    }
+                ]
+            },
+            {
+                "name": "Near Theatre",
+                "access_rules": [
+                    "$keep_main,sunsetter",
+                    "$keep_main,cling",
+                    "$keep_main,greaves",
+                    "$keep_main,heliacal"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1471,
+                        "y": 1528
+                    }
+                ]
+            },
+            {
+                "name": "Levers Room",
+                "access_rules": [
+                    "$keep_main,breaker"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1263,
+                        "y": 784
+                    }
+                ]
+            },
+            {
+                "name": "Alcove Near Locked Door",
+                "access_rules": [
+                    "$keep_main,$can_slidejump",
+                    "$keep_main,greaves",
+                    "$keep_main,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1265,
+                        "y": 1174
+                    }
+                ]
+            },
+            {
+                "name": "Major Key",
+                "access_rules": [
+                    "$keep_main,cling,sunsetter,$can_bounce",
+                    "$keep_main,cling,$can_bounce,greaves",
+                    "$keep_main,cling,sunsetter,$can_bounce,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 772,
+                        "y": 1306
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Listless Library",
+        "access_rules": [],
+        "children": [
+            {
+                "name": "Sun Greaves",
+                "access_rules": [
+                    "$library_main,slide,breaker",
+                    "$library_main,cling,breaker",
+                    "$library_main,$more_kicks",
+                    "$library_main,$can_slidejump"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1918,
+                        "y": 690
+                    }
+                ]
+            },
+            {
+                "name": "Locked Door Across",
+                "access_rules": [
+                    "$library_locked,can_slidejump",
+                    "$library_locked,heliacal",
+                    "$library_locked,greaves",
+                    "$library_locked,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2929,
+                        "y": 940
+                    }
+                ]
+            },
+            {
+                "name": "Upper Back",
+                "access_rules": [
+                    "$library_main,greaves",
+                    "$library_main,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2677,
+                        "y": 384
+                    }
+                ]
+            },
+            {
+                "name": "Locked Door Left",
+                "access_rules": [
+                    "$library_locked,greaves",
+                    "$library_locked,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2815,
+                        "y": 807
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Twilight Theatre",
+        "access_rules": [],
+        "children": [
+            {
+                "name": "Soul Cutter",
+                "access_rules": [
+                    "$theatre_main,$can_strikebreak"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 4058,
+                        "y": 4213
+                    }
+                ]
+            },
+            {
+                "name": "Corner Beam",
+                "access_rules": [
+                    "$theatre_pillar,cling,greaves",
+                    "$theatre_pillar,cling,$can_slidejump",
+                    "$theatre_pillar,$can_slidejump,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3646,
+                        "y": 2913
+                    }
+                ]
+            },
+            {
+                "name": "Locked Door",
+                "access_rules": [
+                    "$theatre_main,$has_small_keys,cling,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 4168,
+                        "y": 3643
+                    }
+                ]
+            },
+            {
+                "name": "Murderous Goat",
+                "access_rules": [
+                    "$theatre_main"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 4529,
+                        "y": 3150
+                    }
+                ]
+            },
+            {
+                "name": "Back Of Auditorium",
+                "access_rules": [
+                    "$theatre_main,greaves",
+                    "$theatre_main,cling"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3931,
+                        "y": 3638
+                    }
+                ]
+            },
+            {
+                "name": "Major Key",
+                "access_rules": [
+                    "$theatre_main,$can_soulcutter,cling,$can_slidejump",
+                    "$theatre_main,$can_soulcutter,cling,heliacal",
+                    "$theatre_main,$can_soulcutter,cling,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3927,
+                        "y": 4011
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Empty Bailey",
+        "access_rules": ["$empty_bailey"],
+        "children": [
+            {
+                "name": "Solar Wind",
+                "access_rules": [
+                    "slide"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3109,
+                        "y": 2525
+                    }
+                ]
+            },
+            {
+                "name": "Cheese Bell",
+                "access_rules": [
+                    "$can_slidejump,sunsetter,heliacal",
+                    "$can_slidejump,sunsetter,greaves",
+                    "$can_slidejump,cling",
+                    "sunsetter,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3622,
+                        "y": 2264
+                    }
+                ]
+            },
+            {
+                "name": "Inside Building",
+                "access_rules": [
+                    "slide"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3428,
+                        "y": 2165
+                    }
+                ]
+            },
+            {
+                "name": "Center Steeple",
+                "access_rules": [
+                    "greaves",
+                    "sunsetter,slide"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3535,
+                        "y": 2264
+                    }
+                ]
+            },
+            {
+                "name": "Major Key",
+                "access_rules": [
+                    "sunsetter",
+                    "cling",
+                    "greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3169,
+                        "y": 2236
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Underbelly",
+        "access_rules": [],
+        "children": [
+            {
+                "name": "Ascendant Light",
+                "access_rules": [
+                    "$underbelly_main,$can_bounce",
+                    "$underbelly_main,greaves",
+                    "$underbelly_main,cling",
+                    "$underbelly_main,$can_slidejump,heliacal"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2997,
+                        "y": 4461
+                    }
+                ]
+            },
+            {
+                "name": "Locked Door",
+                "access_rules": [
+                    "$underbelly_main,$has_small_keys,slide,greaves",
+                    "$underbelly_main,$has_small_keys,slide,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1108,
+                        "y": 4243
+                    }
+                ]
+            },
+            {
+                "name": "Strikebreak Wall",
+                "access_rules": [
+                    "$underbelly_main,$can_strikebreak,$can_bounce,$can_slidejump",
+                    "$underbelly_main,$can_strikebreak,$can_bounce,heliacal",
+                    "$underbelly_main,$can_strikebreak,$can_bounce,greaves",
+                    "$underbelly_main,$can_strikebreak,$can_bounce,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1612,
+                        "y": 4158
+                    }
+                ]
+            },
+            {
+                "name": "Main Room",
+                "access_rules": [
+                    "$underbelly_main,sunsetter",
+                    "$underbelly_main,$can_slidejump"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2461,
+                        "y": 3643
+                    }
+                ]
+            },
+            {
+                "name": "Rafters Near Keep",
+                "access_rules": [
+                    "$underbelly_hole,greaves",
+                    "$underbelly_hole,heliacal,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1072,
+                        "y": 3580
+                    }
+                ]
+            },
+            {
+                "name": "Building Near Little Guy",
+                "access_rules": [
+                    "$underbelly_main,greaves",
+                    "$underbelly_main,sunsetter"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2811,
+                        "y": 3298
+                    }
+                ]
+            },
+            {
+                "name": "Alcove Behind Pillars",
+                "access_rules": [
+                    "$underbelly_main"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2892,
+                        "y": 4250
+                    }
+                ]
+            },
+            {
+                "name": "Major Key",
+                "access_rules": [
+                    "$underbelly_hole,sunsetter,$can_soulcutter,$can_bounce",
+                    "$underbelly_hole,sunsetter,$can_soulcutter,cling",
+                    "$underbelly_hole,sunsetter,$can_slidejump,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 311,
+                        "y": 3183
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Tower Remains",
+        "access_rules": ["$tower_remains"],
+        "children": [
+            {
+                "name": "Cling Gem",
+                "access_rules": [
+                    "greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 4101,
+                        "y": 1123
+                    }
+                ]
+            },
+            {
+                "name": "Major Key",
+                "access_rules": [
+                    "cling,greaves"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 4101,
+                        "y": 885
+                    }
+                ]
+            }
         ]
     }
 ]

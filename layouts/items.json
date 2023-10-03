@@ -14,16 +14,33 @@
                     {
                         "type": "itemgrid",
                         "item_margin": "10, 10",
+                        "item_size": 50,
                         "h_alignment": "left",
                         "rows": [
                             [
-                                "toggle",
-                                "progressive"           
+                                "breaker",
+                                "greaves"           
                             ],
                             [
-                                "consumable",
-                                "progressive_toggle"
-                            ]
+                                "slide",
+                                "solar"
+                            ],
+                            [
+                                "sunsetter",
+                                "strikebreak"           
+                            ],
+                            [
+                                "cling",
+                                "ascendant"           
+                            ],
+                            [
+                                "cutter",
+                                "heliacal"           
+                            ],
+                            [
+                                "smallkey",
+                                "majorkey"           
+                            ],
                         ]
                     }
                 ]

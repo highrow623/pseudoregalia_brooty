@@ -1,12 +1,15 @@
-# Template Pack for PopTracker
+# Pseudoregalia Map Tracker (AP)
 
-This a template tracker package for PopTracker.
-
-Includes examples for AP and SNES memory autotracking and beginner-friendly explanations in the pack.
+This is a map tracker pack designed for use with the Archipelago implementation of Pseudoregalia.
+This pack features location/item auto-tracking by connecting to the Archipelago server.
 
 ## Installation
 
-Just download the lastest build or source and put in your packs folder (unpacked).
+Visit the `Releases` page for the latest/greatest, download, and then move the zip into `/poptracker/packs`. This pack does include auto-updating, so once you download the pack once, anytime there is an update, Poptracker will prompt you with an update.
+
+## Connecting to AP
+
+To connect to the AP server for auto-tracking, click on the `AP` button at the top of the tracker and a seperate window should pop up asking for you to "__enter archipelago server port__", in which you should type in `archipelago.gg:PORT_NUMBER` (or whatever ip/port combination you're connecting to), select `OK` and then continue to enter in your __Slot name__ and the __password__ to the room (if there is one). Once complete, the `AP` button at the top of the tracker window should turn "Green" meaning you are now auto-tracking!
 
 ## More Info
 
@@ -16,4 +19,4 @@ Still having trouble realizing your pack and looking for help or just want more 
 
 ## License
 
-Feel free to use this template without credit for all your PopTracker packs!
+Oh yeah officer, I have one of those.

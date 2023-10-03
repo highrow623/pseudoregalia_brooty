@@ -1,11 +1,90 @@
 //more info: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#items
 [
     {
-        "name": "Toggle",
+        "name": "Dream Breaker",
         "type": "toggle",
-        "img": "images/items/toggle.png",
-        "codes": "toggle"
+        "img": "images/items/Dream_Breaker.png",
+        "codes": "breaker"
     },
+    {
+        "name": "Sun Greaves",
+        "type": "toggle",
+        "img": "images/items/Sun_Greaves.png",
+        "codes": "greaves"
+    },
+    {
+        "name": "Slide",
+        "type": "toggle",
+        "img": "images/items/Slide.png",
+        "codes": "slide"
+    },
+    {
+        "name": "Solar Wind",
+        "type": "toggle",
+        "img": "images/items/Solar_Wind.png",
+        "codes": "solar"
+    },
+    {
+        "name": "Sunsetter",
+        "type": "toggle",
+        "img": "images/items/Sunsetter.png",
+        "codes": "sunsetter"
+    },
+    {
+        "name": "Strikebreak",
+        "type": "toggle",
+        "img": "images/items/Strikebreak.png",
+        "codes": "strikebreak"
+    },
+    {
+        "name": "Cling Gem",
+        "type": "toggle",
+        "img": "images/items/Cling_Gem.png",
+        "codes": "cling"
+    },
+    {
+        "name": "Ascendant Light",
+        "type": "toggle",
+        "img": "images/items/Ascendant_Light.png",
+        "codes": "ascendant"
+    },
+    {
+        "name": "Soul Cutter",
+        "type": "toggle",
+        "img": "images/items/Soul_Cutter.png",
+        "codes": "cutter"
+    },
+    {
+        "name": "Heliacal Power",
+        "type": "toggle",
+        "img": "images/items/Heliacal_Power.png",
+        "codes": "heliacal"
+    },
+    {
+        "name": "Small Key",
+        "type": "consumable",
+        "img": "images/items/Small_Key.png",
+        "max_quantity": 7,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        //"overlay_background": "#000000",
+        "overlay_font_size": 8,
+        "codes": "smallkey"
+    },
+    {
+        "name": "Major Key",
+        "type": "consumable",
+        "img": "images/items/Major_Key.png",
+        "max_quantity": 5,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        //"overlay_background": "#000000",
+        "overlay_font_size": 8,
+        "codes": "majorkey"
+    },
+    // EXAMPLE CODE
     {
         "name": "Progressive",
         "type": "progressive",
