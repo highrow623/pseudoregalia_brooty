@@ -157,7 +157,8 @@
             {
                 "name": "Floater In Courtyard",
                 "access_rules": [
-                    "$can_bounce",
+                    "$can_bounce,heliacal",
+                    "$can_bounce,sunsetter",
                     "$more_kicks",
                     "cling,heliacal",
                     "cling,greaves",

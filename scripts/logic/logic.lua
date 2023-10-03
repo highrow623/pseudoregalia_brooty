@@ -98,10 +98,10 @@ end
 
 function theatre_main()
     return (breaker() and cling()) or (breaker() and greaves()) or (breaker() and heliacal() and can_slidejump()) or
-               (cling() and greaves() and keep_main()) or (cling() and keep_main() and can_slidejump()) or
+               (cling() and (greaves() or can_slidejump()) and keep_main()) or
                (cling() and castle_sansa()) or (cling() and theatre_pillar() and sunsetter()) or
                (castle_sansa() and more_kicks() and can_slidejump()) or
-               (more_kicks() and theatre_pillar() and sunsetter()) or can_bounce()
+               (more_kicks() and theatre_pillar() and sunsetter()) or (cling() and (greaves() or can_slidejump()))
 end
 
 function castle_sansa()
