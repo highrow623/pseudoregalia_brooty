@@ -931,7 +931,7 @@
                 ]
             },
             {
-                "name": "Alcove Behind Pillars",
+                "name": "Alcove Near Light",
                 "access_rules": [
                     "$underbelly_main"
                 ],
