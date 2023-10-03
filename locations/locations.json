@@ -37,8 +37,8 @@
             {
                 "name": "Dark Orbs",
                 "access_rules": [
-                    "cling",
-                    "$can_bounce,greaves"
+                    "cling,breaker",
+                    "$can_bounce,greaves,breaker"
                 ],
                 "sections": [
                     {
@@ -94,7 +94,7 @@
                 "access_rules": [
                     "$can_slidejump",
                     "$can_bounce",
-                    "sunsetter",
+                    "$can_sunsetter",
                     "cling"
                 ],
                 "sections": [
@@ -158,7 +158,9 @@
                 "name": "Floater In Courtyard",
                 "access_rules": [
                     "$can_bounce,heliacal",
+                    "$can_bounce,greaves",
                     "$can_bounce,sunsetter",
+                    "ascendant,slide,solar",
                     "$more_kicks",
                     "cling,heliacal",
                     "cling,greaves",

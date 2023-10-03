@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.2",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.2/pseudoregalia_brooty.zip",
+            "sha256": "BEA4236F66B1CE57C3145866420A269D922E5E05003CF3A656D8E1FD82B269BE",
+            "changelog": [
+                "very small logic update",
+                "fixed some locations showing without having Dream Breaker, as you cannot leave the starting area without it"
+            ]
+        },
+        {
             "package_version": "0.1.1",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.1/pseudoregalia_brooty.zip",
             "sha256": "BCCD83A60CAE8D4A01A504B359BBE6689AAF5A9B43F2523DEDFF6C93B93DDB4B",
