@@ -3,7 +3,7 @@
         {
             "package_version": "0.1",
             "download_url": "https://github.com/Br00ty/pseudeoregalia_brooty/releases/download/0.1/pseudoregalia_brooty.zip",
-            "sha256": "98920E72F7CAFE476F0CFFBC38D79F874C962169136AB86EEF50605FA92213D5",
+            "sha256": "798D23FD7FC004D2836C1C7F9002C05EAB7F24E5FEB5BCB3FD2847AFFC46D805",
             "changelog": [
                 "Initial impelemantion of logic, locations, items, etc..."
             ]
