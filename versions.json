@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.3.1",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.1/pseudoregalia_brooty.zip",
+            "sha256": "16C651FCE901E8CF1BF7AD580BF3A5319F90D6E30AD29B7288D9B28E3C999A09",
+            "changelog": [
+                "ACTUALLY fixed reconnection issues when reconnecting with a saved tracker state active"
+            ]
+        },
+        {
             "package_version": "0.1.3",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3/pseudoregalia_brooty.zip",
             "sha256": "E24CE6AEC3A1AD8BDAE0DCF281CEFDCD6BB131A6467658A7D1E0B67D8ADFBF18",

@@ -60,8 +60,6 @@ function onClear(slot_data)
     end
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
-    local refresh = Tracker:FindObjectForCode("Refresh")
-    refresh.Active = not refresh.Active
 end
 
 -- called when an item gets collected

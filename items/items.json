@@ -1,4 +1,3 @@
-//more info: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#items
 [
     {
         "name": "Dream Breaker",
@@ -68,7 +67,6 @@
         "increment": 1,
         "decrement": 1,
         "initial_quantity": 0,
-        //"overlay_background": "#000000",
         "overlay_font_size": 8,
         "codes": "smallkey"
     },
@@ -80,7 +78,6 @@
         "increment": 1,
         "decrement": 1,
         "initial_quantity": 0,
-        //"overlay_background": "#000000",
         "overlay_font_size": 8,
         "codes": "majorkey"
     },
