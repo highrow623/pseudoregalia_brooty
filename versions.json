@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.3",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3/pseudoregalia_brooty.zip",
+            "sha256": "E24CE6AEC3A1AD8BDAE0DCF281CEFDCD6BB131A6467658A7D1E0B67D8ADFBF18",
+            "changelog": [
+                "added a 'Beat the Game' location so the user knows when they are in go mode",
+                "made it so poptracker will refresh upon reconnecting"
+            ]
+        },
+        {
             "package_version": "0.1.2",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.2/pseudoregalia_brooty.zip",
             "sha256": "BEA4236F66B1CE57C3145866420A269D922E5E05003CF3A656D8E1FD82B269BE",

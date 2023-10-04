@@ -1014,5 +1014,31 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "Distorted Memory",
+        "access_rules": ["$the_great_door"],
+        "children": [
+            {
+                "name": "Beat the Game!!",
+                "access_rules": [
+                    "majorkey:5"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3407,
+                        "y": 517,
+                        "size": 150,
+                        "border_thickness": 25
+                    }
+                ]
+            }
+        ]
     }
 ]
