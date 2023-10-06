@@ -1020,12 +1020,13 @@
         "access_rules": ["$the_great_door"],
         "children": [
             {
-                "name": "Beat the Game!!",
+                "name": "D S T RT ED M M O   Y",
                 "access_rules": [
                     "majorkey:5"
                 ],
                 "sections": [
                     {
+                        "name": "Beat the Game!!",
                         "item_count": 1
                     }
                 ],
