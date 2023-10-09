@@ -1,13 +1,13 @@
 -- entry point for all lua code of the pack
 -- more info on the lua API: https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md#lua-interface
-ENABLE_DEBUG_LOG = true
+ENABLE_DEBUG_LOG = false
 -- get current variant
 local variant = Tracker.ActiveVariantUID
 -- check variant info
 IS_ITEMS_ONLY = variant:find("itemsonly")
 
-print("-- Example Tracker --")
-print("Loaded variant: ", variant)
+print("Pseudoregalia Map Tracker")
+-- print("Loaded variant: ", variant)
 if ENABLE_DEBUG_LOG then
     print("Debug logging is enabled!")
 end

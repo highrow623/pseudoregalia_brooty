@@ -7,7 +7,9 @@
                 "access_rules": [],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -23,7 +25,9 @@
                 "access_rules": ["breaker"],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -42,7 +46,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -62,7 +68,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -78,7 +86,9 @@
                 "access_rules": ["$dungeon_strong_eyes"],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -91,15 +101,12 @@
             },
             {
                 "name": "Alcove Near Mirror",
-                "access_rules": [
-                    "$can_slidejump",
-                    "$can_bounce",
-                    "$can_sunsetter",
-                    "cling"
-                ],
+                "access_rules": ["breaker"],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -118,7 +125,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -143,7 +152,9 @@
                 "access_rules": [],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -169,7 +180,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -187,7 +200,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -207,7 +222,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -225,7 +242,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -247,7 +266,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -266,7 +287,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -286,7 +309,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -305,7 +330,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -325,7 +352,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -344,7 +373,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -363,7 +394,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -387,7 +420,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -412,7 +447,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -433,7 +470,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -451,7 +490,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -471,7 +512,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -491,7 +534,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Major_Key.png",
+                        "chest_unopened_img": "images/items/Major_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -518,7 +563,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -558,7 +605,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -577,7 +626,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -601,7 +652,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -621,7 +674,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -639,7 +694,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -657,7 +714,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -676,7 +735,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -696,7 +757,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Major_Key.png",
+                        "chest_unopened_img": "images/items/Major_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -720,7 +783,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -741,7 +806,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -759,7 +826,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -778,7 +847,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -798,7 +869,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Major_Key.png",
+                        "chest_unopened_img": "images/items/Major_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -818,14 +891,13 @@
             {
                 "name": "Ascendant Light",
                 "access_rules": [
-                    "$underbelly_main,$can_bounce",
-                    "$underbelly_main,greaves",
-                    "$underbelly_main,cling",
-                    "$underbelly_main,$can_slidejump,heliacal"
+                    "$underbelly_main"
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -844,7 +916,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -865,7 +939,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -884,7 +960,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Small_Key.png",
+                        "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -903,7 +981,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -922,7 +1002,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -940,7 +1022,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -960,7 +1044,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Major_Key.png",
+                        "chest_unopened_img": "images/items/Major_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -984,7 +1070,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1002,7 +1090,9 @@
                 ],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/Major_Key.png",
+                        "chest_unopened_img": "images/items/Major_Key_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1027,7 +1117,7 @@
                 "sections": [
                     {
                         "name": "Beat the Game!!",
-                        "item_count": 1
+                        "hosted_item": "gameover"
                     }
                 ],
                 "map_locations": [

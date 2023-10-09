@@ -81,6 +81,12 @@
         "overlay_font_size": 8,
         "codes": "majorkey"
     },
+    {
+        "name": "Game Over",
+        "type": "toggle",
+        "img": "images/items/gameover.png",
+        "codes": "gameover"
+    },
     // EXAMPLE CODE
     {
         "name": "Progressive",

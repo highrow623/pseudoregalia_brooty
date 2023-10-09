@@ -1,8 +1,3 @@
--- this is an example/ default implementation for AP autotracking
--- it will use the mappings defined in item_mapping.lua and location_mapping.lua to track items and locations via thier ids
--- it will also load the AP slot data in the global SLOT_DATA, keep track of the current index of on_item messages in CUR_INDEX
--- addition it will keep track of what items are local items and which one are remote using the globals LOCAL_ITEMS and GLOBAL_ITEMS
--- this is useful since remote items will not reset but local items might
 ScriptHost:LoadScript("scripts/autotracking/item_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/location_mapping.lua")
 
@@ -10,6 +5,12 @@ CUR_INDEX = -1
 SLOT_DATA = nil
 LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
+
+function onSetReply(key, value, old)
+    if key == "Game Complete" then
+        Tracker:FindObjectForCode("gameover", ITEMS).Active = true
+    end
+end
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
@@ -60,6 +61,9 @@ function onClear(slot_data)
     end
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
+
+    --Tracker:FindObjectForCode("event_track").CurrentStage = 1
+    Archipelago:SetNotify({"Game Complete"})
 end
 
 -- called when an item gets collected
@@ -154,10 +158,6 @@ function onLocation(location_id, location_name)
     elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("onLocation: could not find object for code %s", v[1]))
     end
-    if location_name == "D S T RT ED M M O   Y" then
-        obj = Tracker:FindObjectForCode("@Distorted Memory/D S T RT ED M M O   Y/Beat the Game!!")
-        obj.AvailableChestCount = obj.AvailableChestCount - 1
-end
 end
 
 -- called when a locations is scouted
@@ -186,5 +186,6 @@ end
 if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
+Archipelago:AddSetReplyHandler("set reply handler", onSetReply)
 -- Archipelago:AddScoutHandler("scout handler", onScout)
 -- Archipelago:AddBouncedHandler("bounce handler", onBounce)

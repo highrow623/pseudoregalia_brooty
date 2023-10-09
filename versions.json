@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.3.3",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.3/pseudoregalia_brooty.zip",
+            "sha256": "291B0FD21AC333491EC9E8DB7A90E81F2FE5E46C73F0279BF4569DF71F41C822",
+            "changelog": [
+                "added images for locations to show what would usually be there vanilla, just for some added flavor",
+                "clearing the game is fixed and actually autotracks now"
+            ]
+        },
+        {
             "package_version": "0.1.3.2",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.2/pseudoregalia_brooty.zip",
             "sha256": "D644747364F14DEB4AB7767F2FFA18F76A43F0546988209F813F7B28B5E4B9DE",
