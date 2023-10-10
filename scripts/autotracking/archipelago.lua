@@ -7,7 +7,7 @@ LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
 
 function onSetReply(key, value, old)
-    if key == "Game Complete" then
+    if key == "Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete" then
         Tracker:FindObjectForCode("gameover", ITEMS).Active = true
     end
 end
@@ -63,7 +63,7 @@ function onClear(slot_data)
     GLOBAL_ITEMS = {}
 
     --Tracker:FindObjectForCode("event_track").CurrentStage = 1
-    Archipelago:SetNotify({"Game Complete"})
+    Archipelago:SetNotify({"Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete"})
 end
 
 -- called when an item gets collected
