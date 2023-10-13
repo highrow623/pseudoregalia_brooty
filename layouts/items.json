@@ -17,23 +17,23 @@
                         "rows": [
                             [
                                 "breaker",
-                                "greaves"           
-                            ],
-                            [
-                                "slide",
-                                "solar"
+                                "slide"           
                             ],
                             [
                                 "sunsetter",
-                                "strikebreak"           
+                                "strikebreak"
                             ],
                             [
-                                "cling",
-                                "ascendant"           
+                                "greaves",
+                                "heliacal"           
                             ],
                             [
                                 "cutter",
-                                "heliacal"           
+                                "solar"           
+                            ],
+                            [
+                                "ascendant",
+                                "cling"           
                             ],
                             [
                                 "smallkey",

@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.3.7.1",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.7.1/pseudoregalia_brooty.zip",
+            "sha256": "01c50650d4c37abb8ec2dd4501b19a1b5b348ff8450c3402b480f7888be32290",
+            "changelog": [
+                "adjusted item 'disabled' images as the last edits ended up terrible"
+            ]
+        },
+        {
             "package_version": "0.1.3.7",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.7/pseudoregalia_brooty.zip",
             "sha256": "549ba58d174be98176c5d028a37dd604ce211146ee53ec993f7af8da8035c4e7",

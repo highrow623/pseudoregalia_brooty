@@ -2,61 +2,71 @@
     {
         "name": "Dream Breaker",
         "type": "toggle",
-        "img": "images/items/Dream_Breaker.png",
+        "img": "images/icons/icon_attack.png",
+        "disabled_img": "images/icons/icon_attack_grey.png",
         "codes": "breaker"
     },
     {
         "name": "Sun Greaves",
         "type": "toggle",
-        "img": "images/items/Sun_Greaves.png",
+        "img": "images/icons/icon_greaves.png",
+        "disabled_img": "images/icons/icon_greaves_grey.png",
         "codes": "greaves"
     },
     {
         "name": "Slide",
         "type": "toggle",
-        "img": "images/items/Slide.png",
+        "img": "images/icons/icon_slide.png",
+        "disabled_img": "images/icons/icon_slide_grey.png",
         "codes": "slide"
     },
     {
         "name": "Solar Wind",
         "type": "toggle",
-        "img": "images/items/Solar_Wind.png",
+        "img": "images/icons/icon_slideJump.png",
+        "disabled_img": "images/icons/icon_slideJump_grey.png",
         "codes": "solar"
     },
     {
         "name": "Sunsetter",
         "type": "toggle",
-        "img": "images/items/Sunsetter.png",
+        "img": "images/icons/icon_plunge.png",
+        "disabled_img": "images/icons/icon_plunge_grey.png",
         "codes": "sunsetter"
     },
     {
         "name": "Strikebreak",
         "type": "toggle",
-        "img": "images/items/Strikebreak.png",
+        "img": "images/icons/icon_chargeAttack.png",
+        "disabled_img": "images/icons/icon_chargeAttack_grey.png",
         "codes": "strikebreak"
     },
     {
         "name": "Cling Gem",
         "type": "toggle",
-        "img": "images/items/Cling_Gem.png",
+        "img": "images/icons/icon_clingGem.png",
+        "disabled_img": "images/icons/icon_clingGem_grey.png",
         "codes": "cling"
     },
     {
         "name": "Ascendant Light",
         "type": "toggle",
-        "img": "images/items/Ascendant_Light.png",
+        "img": "images/icons/icon_Light.png",
+        "disabled_img": "images/icons/icon_Light_grey.png",
         "codes": "ascendant"
     },
     {
         "name": "Soul Cutter",
         "type": "toggle",
-        "img": "images/items/Soul_Cutter.png",
+        "img": "images/icons/icon_Projectile.png",
+        "disabled_img": "images/icons/icon_Projectile_grey.png",
         "codes": "cutter"
     },
     {
         "name": "Heliacal Power",
         "type": "toggle",
-        "img": "images/items/Heliacal_Power.png",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
         "codes": "heliacal"
     },
     {
