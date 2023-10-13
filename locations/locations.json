@@ -64,7 +64,7 @@
                 "access_rules": [
                     "$dungeon_strong_eyes,cling",
                     "$dungeon_strong_eyes,$can_slidejump,greaves",
-                    "$dungeon_strong_eyes,sunsetter"
+                    "$dungeon_strong_eyes,greaves,sunsetter"
                 ],
                 "sections": [
                     {
