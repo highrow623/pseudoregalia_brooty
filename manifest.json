@@ -1,7 +1,7 @@
 ﻿{
     "name": "Pseudoregalia",
     "game_name": "Pseudoregalia",
-    "package_version": "0.1.3.6",
+    "package_version": "0.1.3.7",
     "package_uid": "pseudoregalia_brooty",
     "platform": "pc",
     "author": "Br00ty",
@@ -19,5 +19,6 @@
             ]
         }
     },
-    "versions_url": "https://raw.githubusercontent.com/Br00ty/pseudoregalia_brooty/master/versions.json"
+    "versions_url": "https://raw.githubusercontent.com/Br00ty/pseudoregalia_brooty/master/versions.json",
+    "min_poptracker_version": "0.25.3"
 }
