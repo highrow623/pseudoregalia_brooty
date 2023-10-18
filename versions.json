@@ -1,6 +1,18 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4/pseudoregalia_brooty.zip",
+            "sha256": "01956b3404795f02e622f819df012be0f1a22957ca5394ded8fa57b405f59cc1",
+            "changelog": [
+                "start of logic updates",
+                "castle logic updated",
+                "updated logic of various other locations",
+                "added difficulty/obscure toggles",
+                "added autotracking for difficulty/obscure toggles"
+            ]
+        },
+        {
             "package_version": "0.1.3.7.1",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.3.7.1/pseudoregalia_brooty.zip",
             "sha256": "01c50650d4c37abb8ec2dd4501b19a1b5b348ff8450c3402b480f7888be32290",

@@ -6,7 +6,7 @@
         "content": [
             {
                 "type": "array",
-                "orientation": "horizontal",
+                "orientation": "vertical",
                 "margin": "0,0",
                 "content": [
                     {
@@ -38,6 +38,21 @@
                             [
                                 "smallkey",
                                 "majorkey"           
+                            ]
+                        ]
+                    },
+                    {
+                        "type": "itemgrid",
+                        //"margin": "0,40",
+                        "item_margin": "0,5",
+                        "item_size": "140, 46", 
+                        "h_alignment": "left",
+                        "rows": [
+                            [
+                                "normal"
+                            ],
+                            [
+                                "obscure"
                             ]
                         ]
                     }

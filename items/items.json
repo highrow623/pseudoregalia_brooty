@@ -97,6 +97,42 @@
         "img": "images/items/gameover.png",
         "codes": "gameover"
     },
+    // LOGIC
+    {
+        "name": "Logic Levels",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 0,
+        "loop": true,
+        "stages": [
+            {
+                "img": "images/logic_settings/normal.png",
+                "codes": "logic,normal",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/logic_settings/hard.png",
+                "codes": "logic,hard",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/logic_settings/expert.png",
+                "codes": "logic,expert",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/logic_settings/lunatic.png",
+                "codes": "logic,lunatic",
+                "inherit_codes": true
+            }
+        ]
+    },
+    {
+        "name": "Obscure Knowledge",
+        "type": "toggle",
+        "img": "images/logic_settings/obscure.png",
+        "codes": "obscure"
+    },
     // EXAMPLE CODE
     {
         "name": "Progressive",

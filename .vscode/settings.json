@@ -1,0 +1,18 @@
+{
+    "Lua.diagnostics.globals": [
+        "Tracker",
+        "ScriptHost",
+        "onSetReply",
+        "onClear",
+        "Archipelago",
+        "onItem",
+        "onLocation",
+        "onScout",
+        "onBounce",
+        "PopVersion",
+        "AutoTracker"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
+}

@@ -1,5 +1,4 @@
-﻿//sets the layout for the broadcast view
-{
+﻿{
     "tracker_broadcast": {
         "type": "array",
         "orientation": "vertical",
@@ -7,12 +6,40 @@
         "content": [
             {
                 "type": "array",
-                "orientation": "horizontal",
+                "orientation": "vertical",
                 "margin": "0,0",
                 "content": [
                     {
-                        "type": "layout",
-                        "key": "shared_item_grid"
+                        "type": "itemgrid",
+                        "item_margin": "5, 7",
+                        "item_size": 60,
+                        "h_alignment": "left",
+                        "rows": [
+                            [
+                                "breaker",
+                                "slide"           
+                            ],
+                            [
+                                "sunsetter",
+                                "strikebreak"
+                            ],
+                            [
+                                "greaves",
+                                "heliacal"           
+                            ],
+                            [
+                                "cutter",
+                                "solar"           
+                            ],
+                            [
+                                "ascendant",
+                                "cling"           
+                            ],
+                            [
+                                "smallkey",
+                                "majorkey"           
+                            ]
+                        ]
                     }
                 ]
             }

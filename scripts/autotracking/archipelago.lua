@@ -59,6 +59,28 @@ function onClear(slot_data)
             end
         end
     end
+
+    if slot_data["logic_level"] then
+        print("slot_data['logic_level']: " .. slot_data['logic_level'])
+        if slot_data["logic_level"] == 1 then
+            Tracker:FindObjectForCode("logic").CurrentStage = 0
+        elseif slot_data["logic_level"] == 2 then
+            Tracker:FindObjectForCode("logic").CurrentStage = 1
+        elseif slot_data["logic_level"] == 3 then
+            Tracker:FindObjectForCode("logic").CurrentStage = 2
+        elseif slot_data["logic_level"] == 4 then
+            Tracker:FindObjectForCode("logic").CurrentStage = 3
+        end
+    end
+
+    if slot_data.obscure_tricks then
+        print("slot_data.obscure_tricks: " .. tostring(slot_data.obscure_tricks))
+        local obj = Tracker:FindObjectForCode("obscure")
+        if obj then
+            obj.Active = slot_data.obscure_tricks
+        end
+    end
+
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
 

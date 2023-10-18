@@ -42,7 +42,7 @@
                 "name": "Dark Orbs",
                 "access_rules": [
                     "cling,breaker",
-                    "$can_bounce,greaves,breaker"
+                    "$can_bounce,$Getkicks|3,breaker"
                 ],
                 "sections": [
                     {
@@ -63,8 +63,8 @@
                 "name": "Rafters",
                 "access_rules": [
                     "$dungeon_strong_eyes,cling",
-                    "$dungeon_strong_eyes,$can_slidejump,greaves",
-                    "$dungeon_strong_eyes,greaves,sunsetter"
+                    "$dungeon_strong_eyes,$can_slidejump,$Getkicks|3",
+                    "$dungeon_strong_eyes,$Getkicks|3,sunsetter"
                 ],
                 "sections": [
                     {
@@ -120,7 +120,7 @@
             {
                 "name": "Past Poles",
                 "access_rules": [
-                    "$dungeon_strong_eyes,greaves",
+                    "$dungeon_strong_eyes,$Getkicks|3",
                     "$dungeon_strong_eyes,cling"
                 ],
                 "sections": [
@@ -168,15 +168,7 @@
             {
                 "name": "Floater In Courtyard",
                 "access_rules": [
-                    "$can_bounce,heliacal",
-                    "$can_bounce,greaves",
-                    "$can_bounce,sunsetter",
-                    "ascendant,slide,solar",
-                    "$more_kicks",
-                    "cling,heliacal",
-                    "cling,greaves",
-                    "cling,$can_slidejump",
-                    "cling,sunsetter"
+                    "$Floater_in_courtyard"
                 ],
                 "sections": [
                     {
@@ -196,7 +188,7 @@
             {
                 "name": "Near Theatre Front",
                 "access_rules": [
-                    "cling,greaves"
+                    "$Castle_theatre_front"
                 ],
                 "sections": [
                     {
@@ -238,7 +230,7 @@
             {
                 "name": "Locked Door",
                 "access_rules": [
-                    "[$has_small_keys],smallkey:1"
+                    "[$has_small_keys],smallkey:1,$Castle_locked_door"
                 ],
                 "sections": [
                     {
@@ -258,11 +250,7 @@
             {
                 "name": "Platform In Main Halls",
                 "access_rules": [
-                    "$can_slidejump",
-                    "greaves",
-                    "heliacal",
-                    "sunsetter",
-                    "cling"
+                    "$Castle_platform_main"
                 ],
                 "sections": [
                     {
@@ -282,8 +270,7 @@
             {
                 "name": "Tall Room Near Wheel Crawlers",
                 "access_rules": [
-                    "cling",
-                    "greaves"
+                    "$Castle_tall_room_wheel_crawlers"
                 ],
                 "sections": [
                     {
@@ -303,9 +290,7 @@
             {
                 "name": "Alcove Near Dungeon",
                 "access_rules": [
-                    "greaves",
-                    "heliacal",
-                    "cling"
+                    "$Castle_alcove_near_dungeon"
                 ],
                 "sections": [
                     {
@@ -325,8 +310,7 @@
             {
                 "name": "Corner Corridor",
                 "access_rules": [
-                    "cling",
-                    "$more_kicks"
+                    "$Castle_corner_corridor"
                 ],
                 "sections": [
                     {
@@ -346,9 +330,7 @@
             {
                 "name": "Wheel Crawlers",
                 "access_rules": [
-                    "$can_bounce",
-                    "greaves",
-                    "cling"
+                    "$Castle_wheel_crawler"
                 ],
                 "sections": [
                     {
@@ -368,8 +350,7 @@
             {
                 "name": "Alcove Near Scythe Corridor",
                 "access_rules": [
-                    "$can_slidejump,$more_kicks",
-                    "cling"
+                    "$Castle_alcove_scythe"
                 ],
                 "sections": [
                     {
@@ -389,8 +370,7 @@
             {
                 "name": "Balcony",
                 "access_rules": [
-                    "$can_slidejump,$more_kicks",
-                    "cling"
+                    "$Castle_balcony"
                 ],
                 "sections": [
                     {
@@ -437,12 +417,10 @@
                 "name": "Strikebreak",
                 "access_rules": [
                     "$keep_main,slide,$can_slidejump",
-                    "$keep_main,slide,greaves",
-                    "$keep_main,slide,heliacal",
+                    "$keep_main,slide,$Getkicks|1",
                     "$keep_main,slide,cling",
                     "$keep_main,$can_strikebreak,$can_slidejump",
-                    "$keep_main,$can_strikebreak,greaves",
-                    "$keep_main,$can_strikebreak,heliacal",
+                    "$keep_main,$can_strikebreak,$Getkicks|3",
                     "$keep_main,$can_strikebreak,cling"
                 ],
                 "sections": [
@@ -463,10 +441,8 @@
             {
                 "name": "Near Theatre",
                 "access_rules": [
-                    "$keep_main,sunsetter",
-                    "$keep_main,cling",
-                    "$keep_main,greaves",
-                    "$keep_main,heliacal"
+                    "$keep_main,$Kickorplunge|1",
+                    "$keep_main,cling"
                 ],
                 "sections": [
                     {
@@ -507,7 +483,7 @@
                 "name": "Alcove Near Locked Door",
                 "access_rules": [
                     "$keep_main,$can_slidejump",
-                    "$keep_main,greaves",
+                    "$keep_main,$Getkicks|3",
                     "$keep_main,sunsetter"
                 ],
                 "sections": [
@@ -529,8 +505,7 @@
                 "name": "Major Key",
                 "access_rules": [
                     "$keep_main,cling,sunsetter,$can_bounce",
-                    "$keep_main,cling,$can_bounce,greaves",
-                    "$keep_main,cling,sunsetter,$can_bounce,greaves"
+                    "$keep_main,cling,$can_bounce,$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -558,7 +533,7 @@
                 "access_rules": [
                     "$library_main,slide,breaker",
                     "$library_main,cling,breaker",
-                    "$library_main,$more_kicks",
+                    "$library_main,$Getkicks|4",
                     "$library_main,$can_slidejump"
                 ],
                 "sections": [
@@ -580,8 +555,7 @@
                 "name": "Locked Door Across",
                 "access_rules": [
                     "$library_locked,[$has_small_keys],smallkey:1,can_slidejump",
-                    "$library_locked,[$has_small_keys],smallkey:1,heliacal",
-                    "$library_locked,[$has_small_keys],smallkey:1,greaves",
+                    "$library_locked,[$has_small_keys],smallkey:1,$Getkicks|1",
                     "$library_locked,[$has_small_keys],smallkey:1,cling"
                 ],
                 "sections": [
@@ -600,7 +574,7 @@
             {
                 "name": "Upper Back",
                 "access_rules": [
-                    "$library_main,greaves",
+                    "$library_main,$Getkicks|3",
                     "$library_main,cling"
                 ],
                 "sections": [
@@ -621,7 +595,7 @@
             {
                 "name": "Locked Door Left",
                 "access_rules": [
-                    "$library_locked,[$has_small_keys],smallkey:1,greaves",
+                    "$library_locked,[$has_small_keys],smallkey:1,$Getkicks|3",
                     "$library_locked,[$has_small_keys],smallkey:1,cling"
                 ],
                 "sections": [
@@ -668,9 +642,9 @@
             {
                 "name": "Corner Beam",
                 "access_rules": [
-                    "$theatre_pillar,cling,greaves",
+                    "$theatre_pillar,cling,$Getkicks|3",
                     "$theatre_pillar,cling,$can_slidejump",
-                    "$theatre_pillar,$can_slidejump,greaves"
+                    "$theatre_pillar,$can_slidejump,$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -690,7 +664,8 @@
             {
                 "name": "Locked Door",
                 "access_rules": [
-                    "$theatre_main,[$has_small_keys],smallkey:1,cling,greaves"
+                    "$theatre_main,[$has_small_keys],smallkey:1,cling",
+                    "$theatre_main,[$has_small_keys],smallkey:1,$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -730,7 +705,7 @@
             {
                 "name": "Back Of Auditorium",
                 "access_rules": [
-                    "$theatre_main,greaves",
+                    "$theatre_main,$Getkicks|3",
                     "$theatre_main,cling"
                 ],
                 "sections": [
@@ -752,8 +727,7 @@
                 "name": "Major Key",
                 "access_rules": [
                     "$theatre_main,$can_soulcutter,cling,$can_slidejump",
-                    "$theatre_main,$can_soulcutter,cling,heliacal",
-                    "$theatre_main,$can_soulcutter,cling,greaves"
+                    "$theatre_main,$can_soulcutter,cling,$Getkicks|1"
                 ],
                 "sections": [
                     {
@@ -799,10 +773,9 @@
             {
                 "name": "Cheese Bell",
                 "access_rules": [
-                    "$can_slidejump,sunsetter,heliacal",
-                    "$can_slidejump,sunsetter,greaves",
+                    "$can_slidejump,sunsetter,$Getkicks|1",
                     "$can_slidejump,cling",
-                    "sunsetter,greaves"
+                    "sunsetter,$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -842,7 +815,7 @@
             {
                 "name": "Center Steeple",
                 "access_rules": [
-                    "greaves",
+                    "$Getkicks|3",
                     "sunsetter,slide"
                 ],
                 "sections": [
@@ -865,7 +838,7 @@
                 "access_rules": [
                     "sunsetter",
                     "cling",
-                    "greaves"
+                    "$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -911,7 +884,7 @@
             {
                 "name": "Locked Door",
                 "access_rules": [
-                    "$underbelly_main,[$has_small_keys],smallkey:1,slide,greaves",
+                    "$underbelly_main,[$has_small_keys],smallkey:1,slide,$Getkicks|3",
                     "$underbelly_main,[$has_small_keys],smallkey:1,slide,sunsetter"
                 ],
                 "sections": [
@@ -933,9 +906,7 @@
                 "name": "Strikebreak Wall",
                 "access_rules": [
                     "$underbelly_main,$can_strikebreak,$can_bounce,$can_slidejump",
-                    "$underbelly_main,$can_strikebreak,$can_bounce,heliacal",
-                    "$underbelly_main,$can_strikebreak,$can_bounce,greaves",
-                    "$underbelly_main,$can_strikebreak,$can_bounce,sunsetter"
+                    "$underbelly_main,$can_strikebreak,$can_bounce,$Kickorplunge|1"
                 ],
                 "sections": [
                     {
@@ -976,8 +947,8 @@
             {
                 "name": "Rafters Near Keep",
                 "access_rules": [
-                    "$underbelly_hole,greaves",
-                    "$underbelly_hole,heliacal,sunsetter"
+                    "$underbelly_hole,$Getkicks|3",
+                    "$underbelly_hole,sunsetter"
                 ],
                 "sections": [
                     {
@@ -997,7 +968,7 @@
             {
                 "name": "Building Near Little Guy",
                 "access_rules": [
-                    "$underbelly_main,greaves",
+                    "$underbelly_main,$Getkicks|3",
                     "$underbelly_main,sunsetter"
                 ],
                 "sections": [
@@ -1040,7 +1011,7 @@
                 "access_rules": [
                     "$underbelly_hole,sunsetter,$can_soulcutter,$can_bounce",
                     "$underbelly_hole,sunsetter,$can_soulcutter,cling",
-                    "$underbelly_hole,sunsetter,$can_slidejump,greaves"
+                    "$underbelly_hole,sunsetter,$can_slidejump,$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -1066,7 +1037,7 @@
             {
                 "name": "Cling Gem",
                 "access_rules": [
-                    "greaves"
+                    "$Getkicks|3"
                 ],
                 "sections": [
                     {
@@ -1086,7 +1057,7 @@
             {
                 "name": "Major Key",
                 "access_rules": [
-                    "cling,greaves"
+                    "cling,$Getkicks|3"
                 ],
                 "sections": [
                     {
