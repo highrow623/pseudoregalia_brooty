@@ -165,7 +165,8 @@ function theatre_main(n)
     -- print("theatre_main")
     return (cling(n) and (greaves(n) or can_slidejump(n))) or
         (cling(n) and (greaves(n) or can_slidejump(n)) and keep_main(n)) or 
-        ((sunsetter(n) and cling(n)) or (sunsetter(n) and Getkicks(4)) and theatre_pillar(n))
+        ((sunsetter(n) and cling(n)) or (sunsetter(n) and Getkicks(4)) and theatre_pillar(n)) or
+        Theatre_front(n)
 end
 
 function castle_sansa(n)
@@ -173,7 +174,7 @@ function castle_sansa(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     -- print("castle_sansa")
-    return (has_small_keys(n) and dungeon_strong_eyes(n)) or (empty_bailey(n))
+    return (has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
 end
 
 function library_main(n)
@@ -190,7 +191,7 @@ function keep_main(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     -- print("keep_main")
-    return cling(n) and theatre_main(n)
+    return (cling(n) and theatre_main(n)) or castle_sansa(n)
 end
 
 function empty_bailey(n)

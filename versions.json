@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.1.1",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.1.1/pseudoregalia_brooty.zip",
+            "sha256": "b87c13dadc1cf1ab35af5165a06e8e2d7869bc51c2821a4e9a6ffbdfd15ed452",
+            "changelog": [
+                "'keep main' was missing 'castle sansa' in logic"
+            ]
+        },
+        {
             "package_version": "0.1.4.1",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.1/pseudoregalia_brooty.zip",
             "sha256": "83c203c7febc1b509bb855fad4b11e4940f86336e9f856fbb5f90a488217af9c",
