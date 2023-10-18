@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.1",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.1/pseudoregalia_brooty.zip",
+            "sha256": "83c203c7febc1b509bb855fad4b11e4940f86336e9f856fbb5f90a488217af9c",
+            "changelog": [
+                "some logic typos",
+                "added the ability to see checks out of logic, identified by 'yellow'"
+            ]
+        },
+        {
             "package_version": "0.1.4",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4/pseudoregalia_brooty.zip",
             "sha256": "01956b3404795f02e622f819df012be0f1a22957ca5394ded8fa57b405f59cc1",

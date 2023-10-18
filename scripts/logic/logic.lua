@@ -69,7 +69,7 @@ function Expert(n)
 end
 
 function Lunatic(n)
-    return has("normal")
+    return has("lunatic")
 end
 
 -- Quick Functions
@@ -302,107 +302,142 @@ function Castle_moon_room(n)
     n = n + 1
     return (Normal(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2))) and Theatre_front(n)) or
         (Hard(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2)) or Getkicks(4)) and Theatre_front(n)) or
-        ((Expert(n) or Lunatic(n)) and (cling(n) or slide(n) or Getkicks(4)) and Theatre_front(n))
+        (Expert(n) and (cling(n) or slide(n) or Getkicks(4)) and Theatre_front(n))
 end
 
 -- LOCATION LOGIC
 
-function Floater_in_courtyard(n)
+function Floater_in_courtyard(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+    --print(outOflogic)
+    --print(((can_bounce(n) and (Kickorplunge(1) or slide(n))) or (slide(n) and Getkicks(1)) or Getkicks(3) or cling(n)))
+        return ((can_bounce(n) and (Kickorplunge(1) or slide(n))) or (slide(n) and Getkicks(1)) or Getkicks(3) or cling(n))
+    end
     return (Normal(n) and ((can_bounce(n) and sunsetter(n)) or (can_bounce(n) and Getkicks(2)) or (cling(n) and Getkicks(2)) or (cling(n) and sunsetter(n)) or Getkicks(4))) or
         (Hard(n) and ((can_bounce(n) and sunsetter(n)) or (can_bounce(n) and Getkicks(1)) or Kickorplunge(4) or cling(n))) or
-        ((Expert(n) or Lunatic(n)) and ((can_bounce(n) and (Kickorplunge(1) or slide(n))) or (slide(n) and Getkicks(1)) or Getkicks(3) or cling(n)))
+        (Expert(n) and ((can_bounce(n) and (Kickorplunge(1) or slide(n))) or (slide(n) and Getkicks(1)) or Getkicks(3) or cling(n)))
 end
 
-function Castle_locked_door(n)
+function Castle_locked_door(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return can_attack(n)
+    end
     return (Normal(n) and (breaker(n) or (Knows_obscure(n) and can_attack(n)))) or
         (Expert(n) and can_attack(n))
 end
 
-function Castle_platform_main(n)
+function Castle_platform_main(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (Kickorplunge(1) or cling(n) or slide(n) or can_bounce(n))
+    end
     return (Normal(n) and (sunsetter(n) or cling(n) or Getkicks(2))) or
         (Hard(n) and (Kickorplunge(1) or cling(n))) or
         (Expert(n) and (Kickorplunge(1) or cling(n) or slide(n))) or
         (Lunatic(n) and (Kickorplunge(1) or cling(n) or slide(n) or can_bounce(n)))
 end
 
-function Castle_tall_room_wheel_crawlers(n)
+function Castle_tall_room_wheel_crawlers(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(1) or slide(n))
+    end
     return (Normal(n) and (Getkicks(2) or (cling(n) and Kickorplunge(1)))) or
         (Hard(n) and (cling(n) or Getkicks(1) or (Knows_obscure(n) and can_slidejump(n) and sunsetter(n)))) or
         (Expert(n) and (cling(n) or Getkicks(1) or slide(n)))
 end
 
-function Castle_alcove_near_dungeon(n)
+function Castle_alcove_near_dungeon(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Kickorplunge(1) or slide(n))
+    end
     return (Normal(n) and (Kickorplunge(2) or (cling(n) and Kickorplunge(1)))) or
         (Hard(n) and (cling(n) or Kickorplunge(1))) or
         (Expert(n) and (cling(n) or Kickorplunge(1) or slide(n)))
 end
 
-function Castle_balcony(n)
+function Castle_balcony(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(3) or (slide(n) or (sunsetter(n) and Getkicks(1))))
+    end
     return (Normal(n) and (cling(n) or Kickorplunge(3) or (can_slidejump(n) and Kickorplunge(2)))) or
         (Hard(n) and (cling(n) or Kickorplunge(3) or (slide(n) and sunsetter(n)) or (slide(n) and Getkicks(1) and breaker(n)))) or
         (Expert(n) and (cling(n) or Getkicks(3) or (slide(n) or (sunsetter(n) and Getkicks(1)))))
 end
 
-function Castle_corner_corridor(n)
+function Castle_corner_corridor(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(3) or (Getkicks(1) and slide(n)))
+    end
     return (Normal(n) and (cling(n) or Getkicks(4))) or
         (Hard(n) and (cling(n) or Getkicks(3))) or
         (Expert(n) and (cling(n) or Getkicks(3) or (Getkicks(2) and slide(n)))) or
         (Lunatic(n) and (cling(n) or Getkicks(3) or (Getkicks(1) and slide(n))))
 end
 
-function Castle_wheel_crawler(n)
+function Castle_wheel_crawler(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (can_bounce(n) or cling(n) or Kickorplunge(1) or slide(1))
+    end
     return (Normal(n) and (can_bounce(n) or cling(n) or (Getkicks(2) or (Getkicks(1) and can_slidejump(n))))) or
         (Hard(n) and (can_bounce(n) or cling(n) or Getkicks(1) or (can_slidejump(n) and sunsetter(n)) or (Knows_obscure(n) and sunsetter(n)))) or
         (Expert(n) and (can_bounce(n) or cling(n) or Kickorplunge(1) or slide(1)))
 end
 
-function Castle_alcove_scythe(n)
+function Castle_alcove_scythe(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Kickorplunge(1))
+    end
     return (Normal(n) and (Kickorplunge(4) or (cling(n) and Getkicks(1) and sunsetter(n)))) or
         (Hard(n) and (cling(n) or (Getkicks(2) and sunsetter(n)))) or
         (Expert(n) and (cling(n) or Kickorplunge(3) or (slide(n) and Kickorplunge(1)))) or
-        (Lunatic(n) and (cling(n) or (Kickorplunge(1))))
+        (Lunatic(n) and (cling(n) or Kickorplunge(1)))
 end
 
-function Castle_theatre_front(n)
+function Castle_theatre_front(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or slide(n) or Getkicks(4) or (Getkicks(2) and sunsetter(n)))
+    end
     return (Normal(n) and (Getkicks(4) or (Getkicks(2) and sunsetter(n)))) or
         (Hard(n) and (cling(n) or Getkicks(4) or (Getkicks(2) and sunsetter(n)))) or
         (Expert(n) and (cling(n) or slide(n) or Getkicks(4) or (Getkicks(2) and sunsetter(n))))
 end
 
-function Castle_courtyard_high_climb(n)
+function Castle_courtyard_high_climb(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (Getkicks(2) or cling(n) or slide(n) or (can_attack(n) and Getkicks(1)))
+    end
     return (Normal(n) and (Getkicks(2) or (cling(n) and sunsetter(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)))) or
         (Hard(n) and (Getkicks(2) or cling(n) or (sunsetter(n) and can_slidejump(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)))) or
         (Expert(n) and (Getkicks(2) or cling(n) or slide(n) or (can_attack(n) and Getkicks(1))))

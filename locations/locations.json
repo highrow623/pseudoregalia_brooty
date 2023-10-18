@@ -168,7 +168,7 @@
             {
                 "name": "Floater In Courtyard",
                 "access_rules": [
-                    "$Floater_in_courtyard"
+                    "$Floater_in_courtyard|true, [$Floater_in_courtyard]"
                 ],
                 "sections": [
                     {
@@ -188,7 +188,7 @@
             {
                 "name": "Near Theatre Front",
                 "access_rules": [
-                    "$Castle_theatre_front"
+                    "$Castle_theatre_front|true, [$Castle_theatre_front]"
                 ],
                 "sections": [
                     {
@@ -208,9 +208,7 @@
             {
                 "name": "High Climb From Courtyard",
                 "access_rules": [
-                    "cling",
-                    "$can_slidejump,greaves",
-                    "$can_slidejump,heliacal"
+                    "$Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"
                 ],
                 "sections": [
                     {
@@ -230,7 +228,7 @@
             {
                 "name": "Locked Door",
                 "access_rules": [
-                    "[$has_small_keys],smallkey:1,$Castle_locked_door"
+                    "[$has_small_keys],smallkey:1,$Castle_locked_door|true, [$Castle_locked_door]"
                 ],
                 "sections": [
                     {
@@ -250,7 +248,7 @@
             {
                 "name": "Platform In Main Halls",
                 "access_rules": [
-                    "$Castle_platform_main"
+                    "$Castle_platform_main|true, [$Castle_platform_main]"
                 ],
                 "sections": [
                     {
@@ -270,7 +268,7 @@
             {
                 "name": "Tall Room Near Wheel Crawlers",
                 "access_rules": [
-                    "$Castle_tall_room_wheel_crawlers"
+                    "$Castle_tall_room_wheel_crawlers|true, [$Castle_tall_room_wheel_crawlers]"
                 ],
                 "sections": [
                     {
@@ -290,7 +288,7 @@
             {
                 "name": "Alcove Near Dungeon",
                 "access_rules": [
-                    "$Castle_alcove_near_dungeon"
+                    "$Castle_alcove_near_dungeon|true, [$Castle_alcove_near_dungeon]"
                 ],
                 "sections": [
                     {
@@ -310,7 +308,7 @@
             {
                 "name": "Corner Corridor",
                 "access_rules": [
-                    "$Castle_corner_corridor"
+                    "$Castle_corner_corridor|true, [$Castle_corner_corridor]"
                 ],
                 "sections": [
                     {
@@ -330,7 +328,7 @@
             {
                 "name": "Wheel Crawlers",
                 "access_rules": [
-                    "$Castle_wheel_crawler"
+                    "$Castle_wheel_crawler|true, [$Castle_wheel_crawler]"
                 ],
                 "sections": [
                     {
@@ -350,7 +348,7 @@
             {
                 "name": "Alcove Near Scythe Corridor",
                 "access_rules": [
-                    "$Castle_alcove_scythe"
+                    "$Castle_alcove_scythe|true, [$Castle_alcove_scythe]"
                 ],
                 "sections": [
                     {
@@ -370,7 +368,7 @@
             {
                 "name": "Balcony",
                 "access_rules": [
-                    "$Castle_balcony"
+                    "$Castle_balcony|true, [$Castle_balcony]"
                 ],
                 "sections": [
                     {
