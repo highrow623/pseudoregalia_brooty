@@ -143,8 +143,7 @@
     {
         "name": "Castle Sansa",
         "access_rules": [
-            "$dungeon_strong_eyes,[$has_small_keys],smallkey:1",
-            "$empty_bailey"
+            "$castle_sansa|true, [$castle_sansa]"
     ],
         "children": [
             {
@@ -182,46 +181,6 @@
                         "map": "full_map",
                         "x": 2165,
                         "y": 1758
-                    }
-                ]
-            },
-            {
-                "name": "Near Theatre Front",
-                "access_rules": [
-                    "$Castle_theatre_front|true, [$Castle_theatre_front]"
-                ],
-                "sections": [
-                    {
-                        "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map",
-                        "x": 2438,
-                        "y": 2718
-                    }
-                ]
-            },
-            {
-                "name": "High Climb From Courtyard",
-                "access_rules": [
-                    "$Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"
-                ],
-                "sections": [
-                    {
-                        "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map",
-                        "x": 2144,
-                        "y": 2237
                     }
                 ]
             },
@@ -346,9 +305,55 @@
                 ]
             },
             {
+                "name": "Balcony",
+                "access_rules": [
+                    "$Castle_balcony|true, [$Castle_balcony]"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 3040,
+                        "y": 1995
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Upper Castle Sansa",
+        "access_rules": [],
+        "children": [
+            {
+                "name": "High Climb From Courtyard",
+                "access_rules": [
+                    "$Castle_high_climb, $Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2144,
+                        "y": 2237
+                    }
+                ]
+            },
+            {
                 "name": "Alcove Near Scythe Corridor",
                 "access_rules": [
-                    "$Castle_alcove_scythe|true, [$Castle_alcove_scythe]"
+                    "$Scythe_corridor, $Castle_alcove_scythe|true, [$Castle_alcove_scythe]"
                 ],
                 "sections": [
                     {
@@ -366,22 +371,22 @@
                 ]
             },
             {
-                "name": "Balcony",
+                "name": "Near Theatre Front",
                 "access_rules": [
-                    "$Castle_balcony|true, [$Castle_balcony]"
+                    "$Theatre_front, $Castle_theatre_front|true, [$Castle_theatre_front]"
                 ],
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/healthup.png",
-                        "chest_unopened_img": "images/items/healthup_gray.png"
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
                     {
                         "map": "full_map",
-                        "x": 3040,
-                        "y": 1995
+                        "x": 2438,
+                        "y": 2718
                     }
                 ]
             }

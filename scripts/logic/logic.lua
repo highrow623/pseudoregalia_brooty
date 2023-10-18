@@ -169,10 +169,13 @@ function theatre_main(n)
         Theatre_front(n)
 end
 
-function castle_sansa(n)
+function castle_sansa(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (has("smallkey",1) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
+    end
     -- print("castle_sansa")
     return (has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
 end

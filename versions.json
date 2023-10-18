@@ -1,6 +1,16 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.2",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.2/pseudoregalia_brooty.zip",
+            "sha256": "125e68be11731c4b9f4a3656593da2bb16cdf81bfa6d1b0c811a19fc074edcb9",
+            "changelog": [
+                "moved settings to a seperate popup for future proofing (more settings to come)",
+                "moved all 'Upper Castle Sansa' checks into their own section, along with logic changes for those",
+                "adjusted auto-tracking to accomodate those newly moved locations"
+            ]
+        },
+        {
             "package_version": "0.1.4.1.1",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.1.1/pseudoregalia_brooty.zip",
             "sha256": "b87c13dadc1cf1ab35af5165a06e8e2d7869bc51c2821a4e9a6ffbdfd15ed452",

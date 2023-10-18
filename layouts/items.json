@@ -40,23 +40,30 @@
                                 "majorkey"           
                             ]
                         ]
-                    },
-                    {
-                        "type": "itemgrid",
-                        //"margin": "0,40",
-                        "item_margin": "0,5",
-                        "item_size": "140, 46", 
-                        "h_alignment": "left",
-                        "rows": [
-                            [
-                                "normal"
-                            ],
-                            [
-                                "obscure"
-                            ]
-                        ]
                     }
                 ]
+            }
+        ]
+    },
+    "settings_popup": {
+        "type": "array",
+        "background": "#000000",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+            {
+                    "type": "itemgrid",
+                    "item_margin": "0,5",
+                    "item_size": "200, 80", 
+                    "h_alignment": "left",
+                    "rows": [
+                        [
+                            "normal"
+                        ],
+                        [
+                            "obscure"
+                        ]
+                    ]
             }
         ]
     }
