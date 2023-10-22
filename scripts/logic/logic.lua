@@ -118,7 +118,10 @@ function can_attack(n)
     return breaker(n) or sunsetter(n)
 end
 
-function Kickorplunge(count)
+function Kickorplunge(count, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     local total = 0
     if has("greaves") then
       total = total + 3
@@ -131,7 +134,10 @@ function Kickorplunge(count)
     return (total >= count)
   end
 
-function Getkicks(count)
+function Getkicks(count, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     local kicks = 0
     if has("greaves") then
         kicks = kicks + 3
@@ -147,7 +153,7 @@ function dungeon_mirror(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("dungeon_mirror")
+    --print("dungeon_mirror")
     return breaker(n)
 end
 
@@ -158,7 +164,7 @@ function dungeon_strong_eyes(outOflogic, n)
     if outOflogic then
         return (slide(n) and breaker(n)) or (has("smallkey",1) and (empty_bailey(n) or Castle_spiral_climb(n)) and dungeon_mirror(n))
     end
-    -- print("dungeon_strong_eyes")
+    --print("dungeon_strong_eyes")
     return (slide(n) and dungeon_mirror(n)) or (has_small_keys(n) and (empty_bailey(n) or Castle_spiral_climb(n)) and dungeon_mirror(n))
 end
 
@@ -167,7 +173,7 @@ function underbelly_main(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("underbelly_main")
+    --print("underbelly_main")
     return breaker(n) or (sunsetter(n) and (tower_remains(n) or underbelly_hole(n)))
 end
 
@@ -175,89 +181,84 @@ function underbelly_hole(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("underbelly_hole")
-    return Kickorplunge(1) and keep_main(n)
+    --print("underbelly_hole")
+    return Kickorplunge(1) and ((cling(n) and theatre_main(n)) or ((has_small_keys(n) and dungeon_strong_eyes(n)) or Castle_spiral_climb(n)))
+    --return Kickorplunge(1) and keep_main(n)
 end
 
---
+-- Theatre
 function theatre_main(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("theatre_main")
+    --print("theatre_main")
     return (cling(n) and (Getkicks(3) or can_slidejump(n)) and dungeon_mirror(n)) or
-        (cling(n) and (Getkicks(3) or can_slidejump(n)) and castle_sansa(n)) or -- castle_sansa() = reduced keep_main() rule, i reduced this because its irrelevant to call theatre_main again to reduce looping
+        (cling(n) and (Getkicks(3) or can_slidejump(n)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or ((sunsetter(n) or breaker(n)) and (breaker(n) or (sunsetter(n) and tower_remains(n)))) or Castle_spiral_climb(n))) or -- castle_sansa() = reduced keep_main() rule, and then reduced castle_sansa more to help more recurssions
         ((sunsetter(n) and cling(n)) or (sunsetter(n) and Getkicks(4)) and theatre_pillar(n)) or
         Theatre_front(n)
-end
-
-function castle_sansa(outOflogic, n)
-    if n == nil then; n = 0; end
-    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
-    n = n + 1
-    if outOflogic then
-        return (has("smallkey",1) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
-    end
-    -- print("castle_sansa")
-    return (has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
-end
-
-function library_main(n)
-    if n == nil then; n = 0; end
-    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
-    n = n + 1
-    -- print("library_main")
-    return (Normal(n) and (breaker(n) or (Knows_obscure(n) and can_attack(n))) and castle_sansa(n)) or
-        (Expert(n) and can_attack(n) and castle_sansa(n))
-end
-
-function keep_main(n)
-    if n == nil then; n = 0; end
-    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
-    n = n + 1
-    -- print("keep_main")
-    return (cling(n) and theatre_main(n)) or castle_sansa(n)
-end
-
-function empty_bailey(n)
-    if n == nil then; n = 0; end
-    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
-    n = n + 1
-    -- print("empty_bailey")
-    return (sunsetter(n) or breaker(n)) and underbelly_main(n)
 end
 
 function theatre_pillar(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("theatre_pillar")
+    --print("theatre_pillar")
     return (empty_bailey(n)) or (Normal(n) and (Kickorplunge(2) or (cling(n) and Kickorplunge(1))) and castle_sansa(n)) or
         (Hard(n) and (cling(n) or (Kickorplunge(1))) and castle_sansa(n)) or
         ((Expert(n) or Lunatic(n)) and (cling(n) or slide(n) or Kickorplunge(1)) and castle_sansa(n))
 end
 
-function keep_sunsetter(n)
+-- Library
+function library_main(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("keep_sunsetter")
-    return (cling(n) or has_small_keys(n) or greaves(n)) and keep_main(n)
+    --print("library_main")
+    return (Normal(n) and (breaker(n) or (Knows_obscure(n) and can_attack(n))) and castle_sansa(n)) or
+        (Expert(n) and can_attack(n) and castle_sansa(n))
 end
 
 function library_locked(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("library_locked")
+    --print("library_locked")
     return library_main(n) --and has_small_keys(n) --removed for yellow checks
 end
 
+-- Keep
+function keep_main(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("keep_main")
+    return (cling(n) and theatre_main(n)) or castle_sansa(n)
+end
+
+function keep_sunsetter(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("keep_sunsetter")
+    return (cling(n) or has_small_keys(n) or greaves(n)) and keep_main(n)
+end
+
+-- Bailey
+function empty_bailey(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("empty_bailey")
+    return (sunsetter(n) or breaker(n)) and (breaker(n) or (sunsetter(n) and underbelly_hole(n))) -- reduced underbelly_main to `breaker(n) or (sunsetter(n) and (tower_remains(n) or underbelly_hole(n)))` and then removed the 'tower_remains' to help eliminate recurssions
+    --return (sunsetter(n) or breaker(n)) and underbelly_main(n)
+end
+
+-- Tower
 function tower_remains(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("tower_remains")
+    --print("tower_remains")
     return (cling(n) or Getkicks(1) or (slide(n) and sunsetter(n))) and empty_bailey(n)
 end
 
@@ -265,14 +266,27 @@ function the_great_door(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
-    -- print("the_great_door")
+    --print("the_great_door")
     return cling(n) and Getkicks(3) and tower_remains(n)
+end
+
+-- Castle
+function castle_sansa(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (has("smallkey",1) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
+    end
+    --print("castle_sansa")
+    return (has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
 end
 
 function Castle_spiral_climb(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    --print("Castle_spiral_climb")
     return (Normal(n) and (Getkicks(2) or (cling(n) and sunsetter(n))) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or -- reduced castle_sansa
         (Normal(n) and (cling(n) or (Getkicks(4) and sunsetter(n))) and Scythe_corridor(n)) or 
         (Hard(n) and (cling(n) or Kickorplunge(2) or (can_slidejump(n) and sunsetter(n))) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or -- reduced castle_sansa
@@ -280,27 +294,11 @@ function Castle_spiral_climb(n)
         (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) -- reduced castle_sansa
 end
 
---function Castle_spiral_climb(n)
-    --if n == nil then; n = 0; end
-    --if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
-    --n = n + 1
-    --return (cling(n) and Expert(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or -- ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n)) = castle_sansa()
-        --(cling(n) and Hard(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or
-        --(cling(n) and Hard(n) and Scythe_corridor(n)) or
-        --(cling(n) and Normal(n) and sunsetter(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or
-        --(cling(n) and Normal(n) and Scythe_corridor(n)) or
-        --(slide(n) and Expert(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or
-        --(Expert(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n)) and Kickorplunge(2)) or
-        --(Hard(n) and can_slidejump(n) and sunsetter(n) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or
-        --(Hard(n) and Getkicks(3) and Scythe_corridor(n)) or (Hard(n) and Kickorplunge(2) and castle_sansa(n)) or
-        --(Getkicks(4) and Normal(n) and castle_sansa(n)) or
-        --(Getkicks(4) and Normal(n) and sunsetter(n) and Scythe_corridor(n))
---end
-
 function Castle_high_climb(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    --print("Castle_high_climb")
     return (Normal(n) and ((Getkicks(3) and sunsetter(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1))) and Castle_spiral_climb(n)) or
         (Normal(n) and (cling(n) or Getkicks(4) or (Getkicks(2) and sunsetter(n)) or (Getkicks(1) and sunsetter(n) and can_slidejump(n))) and Scythe_corridor(n)) or
         (Hard(n) and (cling(n) or Kickorplunge(3) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)) or (Knows_obscure(n) and can_attack(n) and can_slidejump(n))) and Castle_spiral_climb(n)) or
@@ -313,6 +311,7 @@ function Scythe_corridor(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    --print("Scythe_corridor")
     return (Normal(n) and cling(n) and Castle_spiral_climb(n)) or
         (Normal(n) and (cling(n) or (can_slidejump(n) and Getkicks(1)) or Getkicks(4)) and Theatre_front(n)) or
         (Expert(n) and (cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
@@ -335,6 +334,7 @@ function Theatre_front(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    --print("Theatre_front")
     return (Normal(n) and cling(n) and Kickorplunge(2) and ((Normal(n) and cling(n) and Castle_spiral_climb(n)) or -- "reduced" Scythe_corridor to help with recurssions. see old code above
             (Expert(n) and (cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
             (Lunatic(n) and (cling(n) or Getkicks(3)) and Castle_spiral_climb(n)))) or
@@ -353,6 +353,7 @@ function Castle_moon_room(n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    --print("Castle_moon_room")
     return (Normal(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2))) and Theatre_front(n)) or
         (Hard(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2)) or Getkicks(4)) and Theatre_front(n)) or
         (Expert(n) and (cling(n) or slide(n) or Getkicks(4)) and Theatre_front(n))
