@@ -62,9 +62,9 @@
             {
                 "name": "Rafters",
                 "access_rules": [
-                    "$dungeon_strong_eyes,cling",
-                    "$dungeon_strong_eyes,$can_slidejump,$Getkicks|3",
-                    "$dungeon_strong_eyes,$Getkicks|3,sunsetter"
+                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],cling",
+                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$can_slidejump,$Getkicks|3",
+                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$Getkicks|3,sunsetter"
                 ],
                 "sections": [
                     {
@@ -83,7 +83,7 @@
             },
             {
                 "name": "Strong Eyes",
-                "access_rules": ["$dungeon_strong_eyes"],
+                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -120,8 +120,8 @@
             {
                 "name": "Past Poles",
                 "access_rules": [
-                    "$dungeon_strong_eyes,$Getkicks|3",
-                    "$dungeon_strong_eyes,cling"
+                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$Getkicks|3",
+                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],cling"
                 ],
                 "sections": [
                     {
@@ -419,11 +419,10 @@
             {
                 "name": "Strikebreak",
                 "access_rules": [
-                    "$keep_main,slide,$can_slidejump",
+                    "$keep_main,$can_slidejump",
                     "$keep_main,slide,$Getkicks|1",
                     "$keep_main,slide,cling",
-                    "$keep_main,$can_strikebreak,$can_slidejump",
-                    "$keep_main,$can_strikebreak,$Getkicks|3",
+                    "$keep_main,$can_strikebreak,$Getkicks|1",
                     "$keep_main,$can_strikebreak,cling"
                 ],
                 "sections": [
