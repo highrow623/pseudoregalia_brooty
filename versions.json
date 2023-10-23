@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.2.1",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.2.1/pseudoregalia_brooty.zip",
+            "sha256": "b7f4f1bf8e0499616dd8250d38cb0b106476541f6393d9f5280c176ab6c35abd",
+            "changelog": [
+                "fixed lua functions to rid of recursions",
+                "update logic for 'Keep - Strikebreak' to match changes on ap branch"
+            ]
+        },
+        {
             "package_version": "0.1.4.2",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.2/pseudoregalia_brooty.zip",
             "sha256": "125e68be11731c4b9f4a3656593da2bb16cdf81bfa6d1b0c811a19fc074edcb9",
