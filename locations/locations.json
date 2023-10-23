@@ -419,11 +419,10 @@
             {
                 "name": "Strikebreak",
                 "access_rules": [
-                    "$keep_main,slide,$can_slidejump",
+                    "$keep_main,$can_slidejump",
                     "$keep_main,slide,$Getkicks|1",
                     "$keep_main,slide,cling",
-                    "$keep_main,$can_strikebreak,$can_slidejump",
-                    "$keep_main,$can_strikebreak,$Getkicks|3",
+                    "$keep_main,$can_strikebreak,$Getkicks|1",
                     "$keep_main,$can_strikebreak,cling"
                 ],
                 "sections": [
