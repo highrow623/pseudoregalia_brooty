@@ -11,7 +11,7 @@ end
 
 -- Abilities
 function breaker(n)
-    return has("breaker")
+    return has("breaker") or has("breaker1")
 end
 
 function greaves(n)
@@ -19,11 +19,11 @@ function greaves(n)
 end
 
 function slide(n)
-    return has("slide")
+    return has("slide") or has("slide1")
 end
 
 function solar(n)
-    return has("solar")
+    return has("solar") or has("slide2")
 end
 
 function sunsetter(n)
@@ -31,7 +31,7 @@ function sunsetter(n)
 end
 
 function strikebreak(n)
-    return has("strikebreak")
+    return has("strikebreak") or has("breaker2")
 end
 
 function cling(n)
@@ -43,11 +43,15 @@ function ascendant(n)
 end
 
 function cutter(n)
-    return has("cutter")
+    return has("cutter") or has("breaker3")
 end
 
 function heliacal(n)
     return Tracker:ProviderCountForCode("heliacal")
+end
+
+function progkick(n)
+    return Tracker:ProviderCountForCode("airkick")
 end
 
 -- Difficulty Settings
@@ -83,14 +87,14 @@ function can_bounce(n)
     return breaker(n) and ascendant(n)
 end
 
-function more_kicks(n)
+--function more_kicks(n) -- i think this is unused now
     -- print("more_kicks")
-    return greaves(n) and heliacal(n)
-end
+    --return greaves(n) and heliacal(n)
+--end
 
 function can_slidejump(n)
     -- print("can_slidejump")
-    return slide(n) and solar(n)
+    return (slide(n) and solar(n)) or has("slide2")
 end
 
 function navigate_darkrooms(n)
@@ -100,12 +104,12 @@ end
 
 function can_strikebreak(n)
     -- print("can_strikebreak")
-    return breaker(n) and strikebreak(n)
+    return (breaker(n) and strikebreak(n)) or has("breaker2")
 end
 
 function can_soulcutter(n)
     -- print("can_soulcutter")
-    return breaker(n) and strikebreak(n) and cutter(n)
+    return (breaker(n) and strikebreak(n) and cutter(n)) or has("breaker3")
 end
 
 function can_sunsetter(n)
@@ -130,6 +134,7 @@ function Kickorplunge(count, n)
       total = total + 1
     end
     total = total + heliacal() --see note
+    total = total + progkick() --see note
     count = tonumber(count)
     return (total >= count)
   end
@@ -143,6 +148,7 @@ function Getkicks(count, n)
         kicks = kicks + 3
     end
     kicks = kicks + heliacal()
+    kicks = kicks + progkick()
     count = tonumber(count)
     return (kicks >= count)
 end
@@ -154,7 +160,9 @@ function dungeon_mirror(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     --print("dungeon_mirror")
-    return breaker(n)
+    return (Normal(n) and can_attack(n) and ((slide(n) and dungeon_strong_eyes(n)) or
+        (can_attack(n) and dungeon_escape_lower(n)))) or -- reduced dungeon_slide
+        dungeon_to_castle(n)
 end
 
 function dungeon_strong_eyes(outOflogic, n)
@@ -162,10 +170,57 @@ function dungeon_strong_eyes(outOflogic, n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     if outOflogic then
-        return (slide(n) and breaker(n)) or (has("smallkey",1) and (empty_bailey(n) or Castle_spiral_climb(n)) and dungeon_mirror(n))
+        return (Normal(n) and has("smallkey",1) and dungeon_to_castle(n))
     end
     --print("dungeon_strong_eyes")
-    return (slide(n) and dungeon_mirror(n)) or (has_small_keys(n) and (empty_bailey(n) or Castle_spiral_climb(n)) and dungeon_mirror(n))
+    return (Normal(n) and can_attack(n) and dungeon_escape_upper(n)) or -- reduced dungeon_slide AND reduced dungeon_escape_lower -> dungeon_escape_upper
+        (Normal(n) and has_small_keys(n) and dungeon_to_castle(n))
+end
+
+function dungeon_slide(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("dungeon_slide")
+    return (Normal(n) and can_attack(n) and dungeon_mirror(n)) or
+        (Normal(n) and slide(n) and dungeon_strong_eyes(n)) or
+        (Normal(n) and can_attack(n) and dungeon_escape_lower(n))
+end
+
+function dungeon_escape_lower(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("dungeon_escape_lower")
+    return (Normal(n) and can_attack(n) and navigate_darkrooms(n) and slide(n) and dungeon_strong_eyes(n)) or -- reduced dungeon_slide
+        dungeon_escape_upper(n)
+end
+
+function dungeon_to_castle(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (Normal(n) and has("smallkey",1) and can_attack(n) and dungeon_escape_upper(n))
+    end
+    --print("dungeon_to_castle")
+    return (Normal(n) and has_small_keys(n) and can_attack(n) and dungeon_escape_upper(n)) or
+        castle_sansa(n)
+end
+
+function dungeon_escape_upper(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("dungeon_escape_upper")
+    return (Normal(n) and (can_bounce(n) or (Getkicks(1) and sunsetter(n)) or Getkicks(3)) and ((Normal(n) and can_attack(n) and navigate_darkrooms(n) and ((Normal(n) and can_attack(n) and dungeon_mirror(n)) or
+        (Normal(n) and slide(n) and dungeon_strong_eyes(n)))))) or
+        (Hard(n) and (can_bounce(n) or cling(n) or Kickorplunge(2)) and ((Normal(n) and can_attack(n) and navigate_darkrooms(n) and ((Normal(n) and can_attack(n) and dungeon_mirror(n)) or
+        (Normal(n) and slide(n) and dungeon_strong_eyes(n)))))) or
+        (Expert(n) and (can_bounce(n) or cling(n) or Kickorplunge(2) or (slide(n) and Getkicks(1))) and ((Normal(n) and can_attack(n) and navigate_darkrooms(n) and ((Normal(n) and can_attack(n) and dungeon_mirror(n)) or
+        (Normal(n) and slide(n) and dungeon_strong_eyes(n)))))) or
+        (Lunatic(n) and (can_bounce(n) or cling(n) or Kickorplunge(2) or (slide(n) and Kickorplunge(1))) and ((Normal(n) and can_attack(n) and navigate_darkrooms(n) and ((Normal(n) and can_attack(n) and dungeon_mirror(n)) or
+        (Normal(n) and slide(n) and dungeon_strong_eyes(n)))))) -- all reduced dungeon_escape_lower
 end
 
 -- Underbelly
@@ -182,7 +237,7 @@ function underbelly_hole(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     --print("underbelly_hole")
-    return Kickorplunge(1) and ((cling(n) and theatre_main(n)) or ((has_small_keys(n) and dungeon_strong_eyes(n)) or Castle_spiral_climb(n)))
+    return Kickorplunge(1) and ((cling(n) and theatre_main(n)) or (dungeon_to_castle(n) or Castle_spiral_climb(n)))
     --return Kickorplunge(1) and keep_main(n)
 end
 
@@ -192,8 +247,7 @@ function theatre_main(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     --print("theatre_main")
-    return (cling(n) and (Getkicks(3) or can_slidejump(n)) and dungeon_mirror(n)) or
-        (cling(n) and (Getkicks(3) or can_slidejump(n)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or ((sunsetter(n) or breaker(n)) and (breaker(n) or (sunsetter(n) and tower_remains(n)))) or Castle_spiral_climb(n))) or -- castle_sansa() = reduced keep_main() rule, and then reduced castle_sansa more to help more recurssions
+    return (((cling(n) and Getkicks(3)) or (cling(n) and can_slidejump(n))) and theatre_outside_scythe_corridor(n)) or
         ((sunsetter(n) and cling(n)) or (sunsetter(n) and Getkicks(4)) and theatre_pillar(n)) or
         Theatre_front(n)
 end
@@ -206,6 +260,16 @@ function theatre_pillar(n)
     return (empty_bailey(n)) or (Normal(n) and (Kickorplunge(2) or (cling(n) and Kickorplunge(1))) and castle_sansa(n)) or
         (Hard(n) and (cling(n) or (Kickorplunge(1))) and castle_sansa(n)) or
         ((Expert(n) or Lunatic(n)) and (cling(n) or slide(n) or Kickorplunge(1)) and castle_sansa(n))
+end
+
+function theatre_outside_scythe_corridor(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("theatre_pillar")
+    return (((cling(n) and Getkicks(3)) or (cling(n) and can_slidejump(n))) and keep_main(n)) or
+        (Normal(n) and (can_bounce(n) or Kickorplunge(1) or cling(n)) and dungeon_escape_upper(n)) or
+        (Expert(n) and (can_bounce(n) or Kickorplunge(1) or cling(n) or slide(n)) and dungeon_escape_upper(n))
 end
 
 -- Library
@@ -224,6 +288,31 @@ function library_locked(n)
     n = n + 1
     --print("library_locked")
     return library_main(n) --and has_small_keys(n) --removed for yellow checks
+end
+
+function library_greaves(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("library_greaves")
+    return (Normal(n) and slide(n) and library_main(n)) or
+        (Normal(n) and ((cling(n) and Kickorplunge(1)) or (Getkicks(3) and sunsetter(n)) or (Getkicks(3) and can_bounce(n))) and library_top(n)) or
+        (Hard(n) and (cling(n) or Getkicks(3) or (Getkicks(2) and sunsetter(n) and can_bounce(n))) and library_top(n)) or
+        (Expert(n) and (cling(n) or Getkicks(2)) and library_top(n)) or
+        (Lunatic(n) and (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n))
+end
+
+function library_top(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    --print("library_top")
+    return (Normal(n) and (Kickorplunge(4) or (Knows_obscure(n) and Getkicks(1) and sunsetter(n))) and library_main(n)) or
+        (Normal(n) and (cling(n) or Getkicks(2)) and library_greaves(n)) or
+        (Hard(n) and (cling(n) or Kickorplunge(4) or (Knows_obscure(n) and Kickorplunge(2))) and library_main(n)) or
+        (Hard(n) and (cling(n) or Getkicks(1)) and library_greaves(n)) or
+        (Expert(n) and (cling(n) or Kickorplunge(2) or slide(n)) and library_main(n)) or
+        (Expert() and (cling(n) or Getkicks(1) or slide(n)) and library_greaves(n))
 end
 
 -- Keep
@@ -276,10 +365,10 @@ function castle_sansa(outOflogic, n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     if outOflogic then
-        return (has("smallkey",1) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
+        return (Normal(n) and has("smallkey",1) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
     end
     --print("castle_sansa")
-    return (has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
+    return (Normal(n) and has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n) or Castle_spiral_climb(n)
 end
 
 function Castle_spiral_climb(n)
@@ -287,11 +376,11 @@ function Castle_spiral_climb(n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     --print("Castle_spiral_climb")
-    return (Normal(n) and (Getkicks(2) or (cling(n) and sunsetter(n))) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or -- reduced castle_sansa
+    return (Normal(n) and (Getkicks(2) or (cling(n) and sunsetter(n))) and (dungeon_to_castle(n) or empty_bailey(n))) or -- reduced castle_sansa
         (Normal(n) and (cling(n) or (Getkicks(4) and sunsetter(n))) and Scythe_corridor(n)) or 
-        (Hard(n) and (cling(n) or Kickorplunge(2) or (can_slidejump(n) and sunsetter(n))) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or -- reduced castle_sansa
+        (Hard(n) and (cling(n) or Kickorplunge(2) or (can_slidejump(n) and sunsetter(n))) and (dungeon_to_castle(n) or empty_bailey(n))) or -- reduced castle_sansa
         (Hard(n) and (cling(n) or Getkicks(3)) and Scythe_corridor(n)) or
-        (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) -- reduced castle_sansa
+        (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and (dungeon_to_castle(n) or empty_bailey(n))) -- reduced castle_sansa
 end
 
 function Castle_high_climb(n)

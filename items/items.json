@@ -7,6 +7,31 @@
         "codes": "breaker"
     },
     {
+        "name": "Progressive Breaker",
+        "type": "progressive",
+        "allow_disabled": true,
+        //"initial_stage_idx": 0,
+        "loop": true,
+        "stages": [
+            {
+                "img": "images/icons/icon_attack.png",
+                "disabled_img": "images/icons/icon_attack_grey.png",
+                "codes": "progbreaker,breaker1",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_chargeAttack.png",
+                "codes": "progbreaker,breaker2",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_Projectile.png",
+                "codes": "progbreaker,breaker3",
+                "inherit_codes": true
+            }
+        ]
+    },
+    {
         "name": "Sun Greaves",
         "type": "toggle",
         "img": "images/icons/icon_greaves.png",
@@ -14,11 +39,72 @@
         "codes": "greaves"
     },
     {
+        "name": "Split Kicks",
+        "type": "consumable",
+        "img": "images/items/Small_Key.png",
+        "max_quantity": 4,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_font_size": 8,
+        "codes": "splitkick,airkick"
+    },
+    //{
+        //"name": "Split Kicks",
+        //"type": "progressive",
+        //"allow_disabled": true,
+        //"initial_stage_idx": 0,
+        //"loop": true,
+        //"stages": [
+            //{
+                //"img": "images/icons/icon_HeliacalPower.png",
+                //"disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+                //"codes": "splitkick,airkick",
+                //"inherit_codes": true
+            //},
+            //{
+                //"img": "images/icons/icon_HeliacalPower.png",
+                //"codes": "splitkick,airkick",
+                //"inherit_codes": true
+            //},
+            //{
+                //"img": "images/icons/icon_HeliacalPower.png",
+                //"codes": "splitkick,airkick",
+                //"inherit_codes": true
+            //},
+            //{
+                //"img": "images/icons/icon_HeliacalPower.png",
+                //"codes": "splitkick,airkick",
+                //"inherit_codes": true
+            //}
+        //]
+    //},
+    {
         "name": "Slide",
         "type": "toggle",
         "img": "images/icons/icon_slide.png",
         "disabled_img": "images/icons/icon_slide_grey.png",
         "codes": "slide"
+    },
+    {
+        "name": "Progressive Slide",
+        "type": "progressive",
+        "allow_disabled": true,
+        //"initial_stage_idx": 0,
+        "loop": true,
+        "stages": [
+            {
+                "img": "images/icons/icon_slide.png",
+                "disabled_img": "images/icons/icon_slide_grey.png",
+                "codes": "progslide,slide1",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_slideJump.png",
+                "codes": "progslide,slide2",
+                "inherit_codes": true
+            }
+        ]
     },
     {
         "name": "Solar Wind",
