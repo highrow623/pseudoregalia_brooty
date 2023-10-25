@@ -56,5 +56,9 @@ LOCATION_MAPPING = {
     [2365810047] = {"@Underbelly/Major Key/"},
     [2365810048] = {"@Tower Remains/Major Key/"},
     [2365810049] = {"@Sansa Keep/Major Key/"},
-    [2365810050] = {"@Twilight Theatre/Major Key/"}
+    [2365810050] = {"@Twilight Theatre/Major Key/"},
+
+    [2365810051] = {"@Listless Library/Sun Greaves Split/"},
+    [2365810052] = {"@Listless Library/Sun Greaves Split/"},
+    [2365810053] = {"@Listless Library/Sun Greaves Split/"}
 }

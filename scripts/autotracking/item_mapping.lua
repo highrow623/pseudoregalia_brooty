@@ -21,5 +21,9 @@ ITEM_MAPPING = {
     [2365810022] = {"majorkey", "consumable"},
     [2365810023] = {"majorkey", "consumable"},
     [2365810024] = {"majorkey", "consumable"},
-    [2365810025] = {"majorkey", "consumable"}
+    [2365810025] = {"majorkey", "consumable"},
+
+    [2365810026] = {"progslide", "progressive"},
+    [2365810027] = {"airkick", "consumable"},
+    [2365810028] = {"progbreaker", "progressive"},
 }

@@ -1,0 +1,47 @@
+{
+    "shared_item_grid": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "vertical",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "item_margin": "5, 7",
+                        "item_size": 60,
+                        "h_alignment": "left",
+                        "rows": [
+                            [
+                                "breaker",
+                                "progslide"           
+                            ],
+                            [
+                                "sunsetter",
+                                "strikebreak"
+                            ],
+                            [
+                                "greaves",
+                                "heliacal"           
+                            ],
+                            [
+                                "cutter",
+                                "ascendant"
+                            ],
+                            [
+                                "cling"           
+                            ],
+                            [
+                                "smallkey",
+                                "majorkey"           
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

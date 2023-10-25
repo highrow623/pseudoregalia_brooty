@@ -5,6 +5,7 @@ CUR_INDEX = -1
 SLOT_DATA = nil
 LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
+HOSTED = {gameover=1}
 
 function onSetReply(key, value, old)
     if key == "Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete" then
@@ -59,6 +60,13 @@ function onClear(slot_data)
             end
         end
     end
+    -- reset hosted items
+    for k, _ in pairs(HOSTED) do
+        local obj = Tracker:FindObjectForCode(k)
+        if obj then
+            obj.Active = false
+        end
+    end
 
     if slot_data["logic_level"] then
         print("slot_data['logic_level']: " .. slot_data['logic_level'])
@@ -73,18 +81,89 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.obscure_tricks then
-        print("slot_data.obscure_tricks: " .. tostring(slot_data.obscure_tricks))
+    if slot_data.obscure_logic then
+        print("slot_data.obscure_logic: " .. tostring(slot_data.obscure_logic))
         local obj = Tracker:FindObjectForCode("obscure")
         if obj then
-            obj.Active = slot_data.obscure_tricks
+            obj.Active = slot_data.obscure_logic
+        end
+    end
+    
+    if slot_data.progressive_breaker then
+        print("slot_data.progressive_breaker: " .. tostring(slot_data.progressive_breaker))
+        local obj = Tracker:FindObjectForCode("op_progbreaker")
+        if obj then
+            obj.Active = slot_data.progressive_breaker
+        end
+    end
+
+    if slot_data.progressive_slide then
+        print("slot_data.progressive_slide: " .. tostring(slot_data.progressive_slide))
+        local obj = Tracker:FindObjectForCode("op_progslide")
+        if obj then
+            obj.Active = slot_data.progressive_slide
+        end
+    end
+
+    --if slot_data.split_sun_greaves then
+        --print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
+        --local obj = Tracker:FindObjectForCode("op_splitkick_on")
+        --if obj then
+            --obj.Active = slot_data.split_sun_greaves
+        --end
+    --end
+
+    if slot_data.split_sun_greaves then
+        print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
+        if slot_data.split_sun_greaves == false then
+            Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 0
+        elseif slot_data.split_sun_greaves == true then
+            Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 1
+        end
+    end
+
+    -- Layout Toggles
+    if slot_data.progressive_breaker and slot_data.progressive_slide and slot_data.split_sun_greaves then
+        local obj = Tracker:FindObjectForCode("progsandsplitLayout")
+        if obj then
+            obj.Active = slot_data.progressive_breaker and slot_data.progressive_slide and slot_data.split_sun_greaves
+        end
+    elseif slot_data.progressive_breaker and slot_data.progressive_slide then
+        local obj = Tracker:FindObjectForCode("progbreakerprogslideLayout")
+        if obj then
+            obj.Active = slot_data.progressive_breaker and slot_data.progressive_slide
+        end
+    elseif slot_data.progressive_breaker and slot_data.split_sun_greaves then
+        local obj = Tracker:FindObjectForCode("progbreakersplitkickLayout")
+        if obj then
+            obj.Active = slot_data.progressive_breaker and slot_data.split_sun_greaves
+        end
+    elseif slot_data.progressive_slide and slot_data.split_sun_greaves then
+        local obj = Tracker:FindObjectForCode("progslidesplitkickLayout")
+        if obj then
+            obj.Active = slot_data.progressive_slide and slot_data.split_sun_greaves
+        end
+    elseif slot_data.progressive_breaker then
+        local obj = Tracker:FindObjectForCode("progbreakerLayout")
+        if obj then
+            obj.Active = slot_data.progressive_breaker
+        end
+    elseif slot_data.progressive_slide then
+        local obj = Tracker:FindObjectForCode("progslideLayout")
+        if obj then
+            obj.Active = slot_data.progressive_slide
+        end
+    elseif slot_data.split_sun_greaves then
+        local obj = Tracker:FindObjectForCode("splitkickLayout")
+        if obj then
+            obj.Active = slot_data.split_sun_greaves
         end
     end
 
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
 
-    --Tracker:FindObjectForCode("event_track").CurrentStage = 1
+    --Tracker:FindObjectForCode("apLayout").Active = true
     Archipelago:SetNotify({"Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete"})
 end
 

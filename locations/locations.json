@@ -22,7 +22,7 @@
             },
             {
                 "name": "Slide",
-                "access_rules": ["breaker"],
+                "access_rules": ["$breaker"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -40,10 +40,7 @@
             },
             {
                 "name": "Dark Orbs",
-                "access_rules": [
-                    "cling,breaker",
-                    "$can_bounce,$Getkicks|3,breaker"
-                ],
+                "access_rules": ["$dungeon_dark_orbs|true,[$dungeon_dark_orbs]"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -61,14 +58,11 @@
             },
             {
                 "name": "Rafters",
-                "access_rules": [
-                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],cling",
-                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$can_slidejump,$Getkicks|3",
-                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$Getkicks|3,sunsetter"
-                ],
+                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$dungeon_rafters|true,[$dungeon_rafters]"],
                         "chest_opened_img": "images/items/Small_Key.png",
                         "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
@@ -87,6 +81,7 @@
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$strong_eyes_in_dungeon|true,[$strong_eyes_in_dungeon]"],
                         "chest_opened_img": "images/items/Small_Key.png",
                         "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
@@ -101,7 +96,7 @@
             },
             {
                 "name": "Alcove Near Mirror",
-                "access_rules": ["breaker"],
+                "access_rules": ["$breaker"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -119,13 +114,11 @@
             },
             {
                 "name": "Past Poles",
-                "access_rules": [
-                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],$Getkicks|3",
-                    "$dungeon_strong_eyes|true,[$dungeon_strong_eyes],cling"
-                ],
+                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$dungeon_past_poles|true,[$dungeon_past_poles]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -399,7 +392,7 @@
             {
                 "name": "Sunsetter",
                 "access_rules": [
-                    "$keep_sunsetter,breaker"
+                    "$keep_sunsetter,$breaker"
                 ],
                 "sections": [
                     {
@@ -420,8 +413,8 @@
                 "name": "Strikebreak",
                 "access_rules": [
                     "$keep_main,$can_slidejump",
-                    "$keep_main,slide,$Getkicks|1",
-                    "$keep_main,slide,cling",
+                    "$keep_main,$slide,$Getkicks|1",
+                    "$keep_main,$slide,cling",
                     "$keep_main,$can_strikebreak,$Getkicks|1",
                     "$keep_main,$can_strikebreak,cling"
                 ],
@@ -464,7 +457,7 @@
             {
                 "name": "Levers Room",
                 "access_rules": [
-                    "$keep_main,breaker"
+                    "$keep_main,$breaker"
                 ],
                 "sections": [
                     {
@@ -533,14 +526,35 @@
             {
                 "name": "Sun Greaves",
                 "access_rules": [
-                    "$library_main,slide,breaker",
-                    "$library_main,cling,breaker",
-                    "$library_main,$Getkicks|4",
-                    "$library_main,$can_slidejump"
+                    "$library_greaves|true,[$library_greaves]"
                 ],
+                "visibility_rules": ["op_splitkick_off"],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$library_sun_greaves|true,[$library_sun_greaves]"],
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1918,
+                        "y": 690
+                    }
+                ]
+            },
+            {
+                "name": "Sun Greaves Split",
+                "access_rules": [
+                    "$library_greaves|true,[$library_greaves]"
+                ],
+                "visibility_rules": ["op_splitkick_on"],
+                "sections": [
+                    {
+                        "item_count": 3,
+                        "access_rules": ["$library_sun_greaves|true,[$library_sun_greaves]"],
                         "chest_opened_img": "images/items/ability.png",
                         "chest_unopened_img": "images/items/ability_gray.png"
                     }
@@ -556,12 +570,11 @@
             {
                 "name": "Locked Door Across",
                 "access_rules": [
-                    "$library_locked,[$has_small_keys],smallkey:1,can_slidejump",
-                    "$library_locked,[$has_small_keys],smallkey:1,$Getkicks|1",
-                    "$library_locked,[$has_small_keys],smallkey:1,cling"
+                    "$library_locked|true,[$library_locked]"
                 ],
                 "sections": [
                     {
+                        "access_rules": ["$library_locked_across|true,[$library_locked_across]"],
                         "item_count": 1
                     }
                 ],
@@ -574,35 +587,14 @@
                 ]
             },
             {
-                "name": "Upper Back",
-                "access_rules": [
-                    "$library_main,$Getkicks|3",
-                    "$library_main,cling"
-                ],
-                "sections": [
-                    {
-                        "item_count": 1,
-                        "chest_opened_img": "images/items/healthup.png",
-                        "chest_unopened_img": "images/items/healthup_gray.png"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map",
-                        "x": 2677,
-                        "y": 384
-                    }
-                ]
-            },
-            {
                 "name": "Locked Door Left",
                 "access_rules": [
-                    "$library_locked,[$has_small_keys],smallkey:1,$Getkicks|3",
-                    "$library_locked,[$has_small_keys],smallkey:1,cling"
+                    "$library_locked|true,[$library_locked]"
                 ],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$library_locked_left|true,[$library_locked_left]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -612,6 +604,27 @@
                         "map": "full_map",
                         "x": 2815,
                         "y": 807
+                    }
+                ]
+            },
+            {
+                "name": "Upper Back",
+                "access_rules": [
+                    "$library_top|true,[$library_top]"
+                ],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "access_rules": ["$library_upper_back|true,[$library_upper_back]"],
+                        "chest_opened_img": "images/items/healthup.png",
+                        "chest_unopened_img": "images/items/healthup_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2677,
+                        "y": 384
                     }
                 ]
             }
@@ -755,7 +768,7 @@
             {
                 "name": "Solar Wind",
                 "access_rules": [
-                    "slide"
+                    "$slide"
                 ],
                 "sections": [
                     {
@@ -797,7 +810,7 @@
             {
                 "name": "Inside Building",
                 "access_rules": [
-                    "slide"
+                    "$slide"
                 ],
                 "sections": [
                     {
@@ -818,7 +831,7 @@
                 "name": "Center Steeple",
                 "access_rules": [
                     "$Getkicks|3",
-                    "sunsetter,slide"
+                    "sunsetter,$slide"
                 ],
                 "sections": [
                     {
@@ -886,8 +899,8 @@
             {
                 "name": "Locked Door",
                 "access_rules": [
-                    "$underbelly_main,[$has_small_keys],smallkey:1,slide,$Getkicks|3",
-                    "$underbelly_main,[$has_small_keys],smallkey:1,slide,sunsetter"
+                    "$underbelly_main,[$has_small_keys],smallkey:1,$slide,$Getkicks|3",
+                    "$underbelly_main,[$has_small_keys],smallkey:1,$slide,sunsetter"
                 ],
                 "sections": [
                     {

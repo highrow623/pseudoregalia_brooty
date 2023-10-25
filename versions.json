@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.3",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.3/pseudoregalia_brooty.zip",
+            "sha256": "7af4726e2abc718ab5ea93374e4a18afdabecbb191ebce0002340a723acf0eb7",
+            "changelog": [
+                "HUGE UPDATE, LOTS OF NEW THINGS",
+                "added seven new layouts (compatible with layout switching only)",
+                "added layout switching depending settings youve chosen",
+                "added settings toggles for 'Progressive Dream Breaker', 'Progressive Slide', and 'Split Greaves'",
+                "updated logic for Listless Library Locations only (no regions yet)",
+                "updated logic for Dilapidated Dungeon Locations only (no regions yet)",
+                "added autotracking for the new items in game"
+            ]
+        },
+        {
             "package_version": "0.1.4.2.1",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.2.1/pseudoregalia_brooty.zip",
             "sha256": "b7f4f1bf8e0499616dd8250d38cb0b106476541f6393d9f5280c176ab6c35abd",

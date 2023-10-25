@@ -1,19 +1,13 @@
 ﻿{
     "name": "Pseudoregalia",
     "game_name": "Pseudoregalia",
-    "package_version": "0.1.4.2.1",
+    "package_version": "0.1.4.3",
     "package_uid": "pseudoregalia_brooty",
     "platform": "pc",
     "author": "Br00ty",
     "variants": {
         "standard": {
             "display_name": "Map Tracker",
-            "flags": [
-                "ap"
-            ]
-        },
-        "var_itemsonly": {
-            "display_name": "Items Only",
             "flags": [
                 "ap"
             ]

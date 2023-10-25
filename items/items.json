@@ -7,6 +7,31 @@
         "codes": "breaker"
     },
     {
+        "name": "Progressive Breaker",
+        "type": "progressive",
+        "allow_disabled": true,
+        //"initial_stage_idx": 0,
+        "loop": false,
+        "stages": [
+            {
+                "img": "images/icons/icon_attack.png",
+                "disabled_img": "images/icons/icon_attack_grey.png",
+                "codes": "progbreaker,breaker1",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_chargeAttack.png",
+                "codes": "progbreaker,breaker2",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_Projectile.png",
+                "codes": "progbreaker,breaker3",
+                "inherit_codes": true
+            }
+        ]
+    },
+    {
         "name": "Sun Greaves",
         "type": "toggle",
         "img": "images/icons/icon_greaves.png",
@@ -14,11 +39,43 @@
         "codes": "greaves"
     },
     {
+        "name": "Split Kicks",
+        "type": "consumable",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "max_quantity": 4,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_font_size": 8,
+        "codes": "splitkick,airkick"
+    },
+    {
         "name": "Slide",
         "type": "toggle",
         "img": "images/icons/icon_slide.png",
         "disabled_img": "images/icons/icon_slide_grey.png",
         "codes": "slide"
+    },
+    {
+        "name": "Progressive Slide",
+        "type": "progressive",
+        "allow_disabled": true,
+        //"initial_stage_idx": 0,
+        "loop": false,
+        "stages": [
+            {
+                "img": "images/icons/icon_slide.png",
+                "disabled_img": "images/icons/icon_slide_grey.png",
+                "codes": "progslide,slide1",
+                "inherit_codes": true
+            },
+            {
+                "img": "images/icons/icon_slideJump.png",
+                "codes": "progslide,slide2",
+                "inherit_codes": true
+            }
+        ]
     },
     {
         "name": "Solar Wind",
@@ -127,11 +184,92 @@
             }
         ]
     },
+    // SETTINGS
     {
         "name": "Obscure Knowledge",
         "type": "toggle",
         "img": "images/logic_settings/obscure.png",
         "codes": "obscure"
+    },
+    {
+        "name": "Progressive Breaker Setting",
+        "type": "toggle",
+        "img": "images/logic_settings/progbreaker.png",
+        "codes": "op_progbreaker"
+    },
+    {
+        "name": "Progressive Slide Setting",
+        "type": "toggle",
+        "img": "images/logic_settings/progslide.png",
+        "codes": "op_progslide"
+    },
+    {
+        "name": "Split Kicks Setting",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 0,
+        "stages": [
+            {
+                "img": "images/logic_settings/splitgreaves_grey.png",
+                "codes": "op_splitkick_off,op_splitkick",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/splitgreaves.png",
+                "codes": "op_splitkick_on,op_splitkick",
+                "inherit_codes": false
+            }
+        ]
+    },
+    // LAYOUTS
+    {
+        "name": "Progressive Breaker Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_attack.png",
+        "disabled_img": "images/icons/icon_attack_grey.png",
+        "codes": "progbreakerLayout"
+    },
+    {
+        "name": "Progressive Slide Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_slide.png",
+        "disabled_img": "images/icons/icon_slide_grey.png",
+        "codes": "progslideLayout"
+    },
+    {
+        "name": "Split Kicks Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "codes": "splitkickLayout"
+    },
+    {
+        "name": "Progressive Breaker and Progressive Slide Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "codes": "progbreakerprogslideLayout"
+    },
+    {
+        "name": "Progressive Breaker and Split Kick Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "codes": "progbreakersplitkickLayout"
+    },
+    {
+        "name": "Progressive Slide and Split Kick Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "codes": "progslidesplitkickLayout"
+    },
+    {
+        "name": "All Progressives and Split Kick Layout",
+        "type": "toggle",
+        "img": "images/icons/icon_HeliacalPower.png",
+        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
+        "codes": "progsandsplitLayout"
     },
     // EXAMPLE CODE
     {

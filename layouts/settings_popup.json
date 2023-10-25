@@ -1,0 +1,34 @@
+{
+    "settings_popup": {
+        "type": "array",
+        "background": "#000000",
+        "orientation": "horizontal",
+        "margin": "0,0",
+        "content": [
+            {
+                "name": "Settings",
+                "type": "itemgrid",
+                "item_margin": "0,5",
+                "item_size": "200, 80",
+                "h_alignment": "left",
+                "rows": [
+                    [
+                        "normal"
+                    ],
+                    [
+                        "obscure"
+                    ],
+                    [
+                        "op_progbreaker"
+                    ],
+                    [
+                        "op_progslide"
+                    ],
+                    [
+                        "op_splitkick_off"
+                    ]
+                ]
+            }
+        ]
+    }
+}

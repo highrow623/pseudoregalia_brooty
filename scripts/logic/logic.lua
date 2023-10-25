@@ -11,7 +11,7 @@ end
 
 -- Abilities
 function breaker(n)
-    return has("breaker")
+    return has("breaker") or has("breaker1")
 end
 
 function greaves(n)
@@ -19,11 +19,11 @@ function greaves(n)
 end
 
 function slide(n)
-    return has("slide")
+    return has("slide") or has("slide1")
 end
 
 function solar(n)
-    return has("solar")
+    return has("solar") or has("slide2")
 end
 
 function sunsetter(n)
@@ -31,7 +31,7 @@ function sunsetter(n)
 end
 
 function strikebreak(n)
-    return has("strikebreak")
+    return has("strikebreak") or has("breaker2")
 end
 
 function cling(n)
@@ -43,11 +43,15 @@ function ascendant(n)
 end
 
 function cutter(n)
-    return has("cutter")
+    return has("cutter") or has("breaker3")
 end
 
 function heliacal(n)
     return Tracker:ProviderCountForCode("heliacal")
+end
+
+function progkick(n)
+    return Tracker:ProviderCountForCode("airkick")
 end
 
 -- Difficulty Settings
@@ -83,14 +87,14 @@ function can_bounce(n)
     return breaker(n) and ascendant(n)
 end
 
-function more_kicks(n)
+--function more_kicks(n)
     -- print("more_kicks")
-    return greaves(n) and heliacal(n)
-end
+    --return greaves(n) and heliacal(n)
+--
 
 function can_slidejump(n)
     -- print("can_slidejump")
-    return slide(n) and solar(n)
+    return (slide(n) and solar(n)) or has("slide2")
 end
 
 function navigate_darkrooms(n)
@@ -100,12 +104,12 @@ end
 
 function can_strikebreak(n)
     -- print("can_strikebreak")
-    return breaker(n) and strikebreak(n)
+    return (breaker(n) and strikebreak(n)) or has("breaker2")
 end
 
 function can_soulcutter(n)
     -- print("can_soulcutter")
-    return breaker(n) and strikebreak(n) and cutter(n)
+    return (breaker(n) and strikebreak(n) and cutter(n)) or has("breaker3")
 end
 
 function can_sunsetter(n)
@@ -130,6 +134,7 @@ function Kickorplunge(count, n)
       total = total + 1
     end
     total = total + heliacal() --see note
+    total = total + progkick() --see note
     count = tonumber(count)
     return (total >= count)
   end
@@ -143,6 +148,7 @@ function Getkicks(count, n)
         kicks = kicks + 3
     end
     kicks = kicks + heliacal()
+    kicks = kicks + progkick()
     count = tonumber(count)
     return (kicks >= count)
 end
@@ -209,21 +215,59 @@ function theatre_pillar(n)
 end
 
 -- Library
-function library_main(n)
+function library_main(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return can_attack(n) and castle_sansa(n)
+    end
     --print("library_main")
     return (Normal(n) and (breaker(n) or (Knows_obscure(n) and can_attack(n))) and castle_sansa(n)) or
         (Expert(n) and can_attack(n) and castle_sansa(n))
 end
 
-function library_locked(n)
+function library_locked(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (has("smallkey",1) and library_main(n))
+    end
     --print("library_locked")
-    return library_main(n) --and has_small_keys(n) --removed for yellow checks
+    return (Normal(n) and has_small_keys(n) and library_main(n))
+end
+
+function library_greaves(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n)
+    end
+    --print("library_greaves")
+    return (Normal(n) and slide(n) and library_main(n)) or
+        (Normal(n) and ((cling(n) and Kickorplunge(1)) or (Getkicks(3) and sunsetter(n)) or Getkicks(3) and can_bounce(n)) and library_top(n)) or
+        (Hard(n) and (cling(n) or Getkicks(3) or (Getkicks(2) and sunsetter(n) and can_bounce(n))) and library_top(n)) or
+        (Expert(n) and (cling(n) or Getkicks(2)) and library_top(n)) or
+        (Lunatic(n) and (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n))
+end
+
+function library_top(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return ((cling(n) or (Kickorplunge(2) or slide(n))) and library_main(n)) or
+        (cling(n) or (Getkicks(1) or slide(n))) and slide(n) and library_main(n)
+    end
+    --print("library_top")
+    return (Normal(n) and (Kickorplunge(4) or (Knows_obscure(n) and Getkicks(1) and sunsetter(n))) and library_main(n)) or
+        (Normal(n) and (cling(n) or (Getkicks(2))) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
+        (Hard(n) and (cling(n) or Kickorplunge(4) or (Knows_obscure(n) and Kickorplunge(2))) and library_main(n)) or
+        (Hard(n) and (cling(n) or (Getkicks(1))) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
+        (Expert(n) and (cling(n) or (Kickorplunge(2) or slide(n))) and library_main(n)) or
+        (Expert(n) and (cling(n) or (Getkicks(1) or slide(n))) and slide(n) and library_main(n)) -- reduced library_greaves for recurssions
 end
 
 -- Keep
@@ -360,7 +404,58 @@ function Castle_moon_room(n)
 end
 
 -- LOCATION LOGIC
+-- DUNGEON // NO FUNCTIONS FOR 'DREAM BREAKER', 'SLIDE', AND 'ALCOVE NEAR MIRROR'
+function dungeon_dark_orbs(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or (Getkicks(1) and can_bounce(n)) or (Getkicks(3) and sunsetter(n)) or (slide(n) and Getkicks(1)) or (slide(n) and can_bounce(n)))
+    end
+    return (Normal(n) and ((cling(n) and can_bounce(n)) or (cling(n) and Kickorplunge(3)) or (Getkicks(2) and can_bounce(n)) or (can_slidejump(n) and Getkicks(1) and can_bounce(n)))) or
+        (Hard(n) and (cling(n) or (Getkicks(1) and can_bounce(n)) or (can_slidejump(n) and sunsetter(n) and can_bounce(n)) or (Getkicks(3) and sunsetter(n)))) or
+        (Expert(n) and (cling(n) or (Getkicks(1) and can_bounce(n)) or (Getkicks(3) and sunsetter(n)) or (slide(n) and Getkicks(1)) or (slide(n) and can_bounce(n))))
+end
 
+function dungeon_rafters(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or Kickorplunge(2) or (can_bounce(n) and Kickorplunge(1)) or slide(n))
+    end
+    return (Normal(n) and (Kickorplunge(3) or (Knows_obscure(n) and can_bounce(n) and cling(n)))) or
+        (Hard(n) and (cling(n) or Getkicks(3) or (Getkicks(1) and sunsetter(n)) or (Getkicks(1) and can_bounce(n)))) or
+        (Expert(n) and (cling(n) or Kickorplunge(2) or (can_bounce(n) and Getkicks(1)) or (slide(n) and Kickorplunge(1)))) or
+        (Lunatic(n) and (cling(n) or Kickorplunge(2) or (can_bounce(n) and Kickorplunge(1)) or slide(n)))
+end
+
+function strong_eyes_in_dungeon(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (breaker(n) or cling(n) or (slide(n) and Kickorplunge(1)))
+    end
+    return (Normal(n) and (breaker(n) or (Knows_obscure(n) and ((cling(n) and Getkicks(1) and sunsetter(n)) or (cling(n) and Getkicks(3)))))) or
+        (Hard(n) and (breaker(n) or (Knows_obscure(n) and cling(n) and Kickorplunge(2)))) or
+        (Expert(n) and (breaker(n) or cling(n) or (slide(n) and Getkicks(1)))) or
+        (Lunatic(n) and (breaker(n) or cling(n) or (slide(n) and Kickorplunge(1))))
+end
+
+function dungeon_past_poles(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(2) or (slide(n) and Getkicks(1) and sunsetter(n)))
+    end
+    return (Normal(n) and (Getkicks(3) or (cling(n) and Kickorplunge(1)))) or
+        (Hard(n) and (cling(n) or Getkicks(2))) or
+        (Lunatic(n) and (cling(n) or Getkicks(2) or (slide(n) and Getkicks(1) and sunsetter(n))))
+end
+
+-- CASTLE
 function Floater_in_courtyard(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
@@ -496,3 +591,155 @@ function Castle_courtyard_high_climb(outOflogic, n)
         (Hard(n) and (Getkicks(2) or cling(n) or (sunsetter(n) and can_slidejump(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)))) or
         (Expert(n) and (Getkicks(2) or cling(n) or slide(n) or (can_attack(n) and Getkicks(1))))
 end
+
+function Castle_courtyard_high_climb(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (Getkicks(2) or cling(n) or slide(n) or (can_attack(n) and Getkicks(1)))
+    end
+    return (Normal(n) and (Getkicks(2) or (cling(n) and sunsetter(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)))) or
+        (Hard(n) and (Getkicks(2) or cling(n) or (sunsetter(n) and can_slidejump(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)))) or
+        (Expert(n) and (Getkicks(2) or cling(n) or slide(n) or (can_attack(n) and Getkicks(1))))
+end
+
+-- LISTLESS LIBRARY
+function library_sun_greaves(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return can_attack(n)
+    end
+    return (Normal(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n)))) or
+        (Expert(n) and can_attack(n))
+end
+
+function library_upper_back(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2) or slide(n))
+    end
+    return (Normal(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and ((cling(n) and Kickorplunge(1)) or Kickorplunge(2))) or
+        (Hard(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2))) or
+        (Expert(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2) or slide(n)))
+end
+
+function library_locked_across(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or Kickorplunge(1) or slide(n))
+    end
+    return (Normal(n) and (cling(n) or Getkicks(1) or can_slidejump(n))) or
+        (Hard(n) and (cling(n) or Kickorplunge(1) or can_slidejump(n))) or
+        (Expert(n) and (cling(n) or Kickorplunge(1) or slide(n)))
+end
+
+function library_locked_left(outOflogic, n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
+    if outOflogic then
+        return (cling(n) or Kickorplunge(2) or (slide(n) and Kickorplunge(1)))
+    end
+    return (Normal(n) and (cling(n) or Kickorplunge(3) or (can_slidejump(n) and Getkicks(1)))) or
+        (Expert(n) and (cling(n) or Kickorplunge(2) or (slide(n) and Kickorplunge(1))))
+end
+
+-- LAYOUT SWITCHING
+function apLayoutChange1()
+    local progBreaker = Tracker:FindObjectForCode("progbreakerLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progBreaker.Active then
+            Tracker:AddLayouts("layouts/items_only_progbreaker.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange2()
+    local progSlide = Tracker:FindObjectForCode("progslideLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progSlide.Active then
+            Tracker:AddLayouts("layouts/items_only_progslide.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange3()
+    local splitKick = Tracker:FindObjectForCode("splitkickLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if splitKick.Active then
+            Tracker:AddLayouts("layouts/items_only_splitkick.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange4()
+    local progBprogS = Tracker:FindObjectForCode("progbreakerprogslideLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progBprogS.Active then
+            Tracker:AddLayouts("layouts/items_progbreaker_and_progslide.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange5()
+    local progBsplitK = Tracker:FindObjectForCode("progbreakersplitkickLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progBsplitK.Active then
+            Tracker:AddLayouts("layouts/items_progbreaker_and_splitkick.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange6()
+    local progSsplitK = Tracker:FindObjectForCode("progslidesplitkickLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progSsplitK.Active then
+            Tracker:AddLayouts("layouts/items_progslide_and_splitkick.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+
+function apLayoutChange7()
+    local progBSsplitK = Tracker:FindObjectForCode("progsandsplitLayout")
+    if (string.find(Tracker.ActiveVariantUID, "standard")) then
+        if progBSsplitK.Active then
+            Tracker:AddLayouts("layouts/items_progs_and_split.json")
+            --Tracker:AddLayouts("layouts/broadcast_horizontal_AP.json") -- ADD LATER
+        else
+            Tracker:AddLayouts("layouts/items_standard.json")
+        end
+    end
+end
+  
+ScriptHost:AddWatchForCode("useApLayout1", "progbreakerLayout", apLayoutChange1)
+ScriptHost:AddWatchForCode("useApLayout2", "progslideLayout", apLayoutChange2)
+ScriptHost:AddWatchForCode("useApLayout3", "splitkickLayout", apLayoutChange3)
+ScriptHost:AddWatchForCode("useApLayout4", "progbreakerprogslideLayout", apLayoutChange4)
+ScriptHost:AddWatchForCode("useApLayout5", "progbreakersplitkickLayout", apLayoutChange5)
+ScriptHost:AddWatchForCode("useApLayout6", "progslidesplitkickLayout", apLayoutChange6)
+ScriptHost:AddWatchForCode("useApLayout7", "progsandsplitLayout", apLayoutChange7)
