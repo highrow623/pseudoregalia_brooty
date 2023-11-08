@@ -11,78 +11,132 @@ end
 
 -- Abilities
 function breaker(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("breaker") or has("breaker1")
 end
 
 function greaves(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("greaves")
 end
 
 function slide(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("slide") or has("slide1")
 end
 
 function solar(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("solar") or has("slide2")
 end
 
 function sunsetter(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("sunsetter")
 end
 
 function strikebreak(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("strikebreak") or has("breaker2")
 end
 
 function cling(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("cling")
 end
 
 function ascendant(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("ascendant")
 end
 
 function cutter(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("cutter") or has("breaker3")
 end
 
 function heliacal(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return Tracker:ProviderCountForCode("heliacal")
 end
 
 function progkick(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return Tracker:ProviderCountForCode("airkick")
 end
 
 -- Difficulty Settings
 
 function Knows_obscure(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("obscure")
 end
 
 function Normal(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("normal")
 end
 
 function Hard(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("hard")
 end
 
 function Expert(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("expert")
 end
 
 function Lunatic(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     return has("lunatic")
 end
 
 -- Quick Functions
 function has_small_keys(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("has_small_keys")
     return has("smallkey",7)
 end
 
 function can_bounce(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_bounce")
     return breaker(n) and ascendant(n)
 end
@@ -93,31 +147,49 @@ end
 --
 
 function can_slidejump(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_slidejump")
     return (slide(n) and solar(n)) or has("slide2")
 end
 
 function navigate_darkrooms(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("navigate_darkrooms")
     return (breaker(n) or ascendant(n))
 end
 
 function can_strikebreak(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_strikebreak")
     return (breaker(n) and strikebreak(n)) or has("breaker2")
 end
 
 function can_soulcutter(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_soulcutter")
     return (breaker(n) and strikebreak(n) and cutter(n)) or has("breaker3")
 end
 
 function can_sunsetter(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_sunsetter")
     return breaker(n) and sunsetter(n)
 end
 
 function can_attack(n)
+    if n == nil then; n = 0; end
+    if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    n = n + 1
     -- print("can_sunsetter")
     return breaker(n) or sunsetter(n)
 end
@@ -220,7 +292,7 @@ function library_main(outOflogic, n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     if outOflogic then
-        return can_attack(n) and castle_sansa(n)
+        return (can_attack(n) and castle_sansa(n))
     end
     --print("library_main")
     return (Normal(n) and (breaker(n) or (Knows_obscure(n) and can_attack(n))) and castle_sansa(n)) or
@@ -243,11 +315,12 @@ function library_greaves(outOflogic, n)
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
     if outOflogic then
-        return (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n)
+        return (slide(n) and library_main(n)) or
+            (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n)
     end
     --print("library_greaves")
     return (Normal(n) and slide(n) and library_main(n)) or
-        (Normal(n) and ((cling(n) and Kickorplunge(1)) or (Getkicks(3) and sunsetter(n)) or Getkicks(3) and can_bounce(n)) and library_top(n)) or
+        (Normal(n) and ((cling(n) and Kickorplunge(1)) or (Getkicks(3) and sunsetter(n)) or (Getkicks(3) and can_bounce(n))) and library_top(n)) or
         (Hard(n) and (cling(n) or Getkicks(3) or (Getkicks(2) and sunsetter(n) and can_bounce(n))) and library_top(n)) or
         (Expert(n) and (cling(n) or Getkicks(2)) and library_top(n)) or
         (Lunatic(n) and (cling(n) or Getkicks(2) or (can_bounce(n) and Getkicks(1) and sunsetter(n))) and library_top(n))
@@ -263,11 +336,11 @@ function library_top(outOflogic, n)
     end
     --print("library_top")
     return (Normal(n) and (Kickorplunge(4) or (Knows_obscure(n) and Getkicks(1) and sunsetter(n))) and library_main(n)) or
-        (Normal(n) and (cling(n) or (Getkicks(2))) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
+        (Normal(n) and (cling(n) or Getkicks(2)) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
         (Hard(n) and (cling(n) or Kickorplunge(4) or (Knows_obscure(n) and Kickorplunge(2))) and library_main(n)) or
-        (Hard(n) and (cling(n) or (Getkicks(1))) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
-        (Expert(n) and (cling(n) or (Kickorplunge(2) or slide(n))) and library_main(n)) or
-        (Expert(n) and (cling(n) or (Getkicks(1) or slide(n))) and slide(n) and library_main(n)) -- reduced library_greaves for recurssions
+        (Hard(n) and (cling(n) or Getkicks(1)) and slide(n) and library_main(n)) or -- reduced library_greaves for recurssions
+        (Expert(n) and (cling(n) or Kickorplunge(2) or slide(n)) and library_main(n)) or
+        (Expert(n) and (cling(n) or Getkicks(1) or slide(n)) and slide(n) and library_main(n)) -- reduced library_greaves for recurssions
 end
 
 -- Keep
@@ -338,29 +411,54 @@ function Castle_spiral_climb(n)
         (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) -- reduced castle_sansa
 end
 
-function Castle_high_climb(n)
+function Castle_high_climb(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return Castle_spiral_climb(n) or
+        (cling(n) or slide(n) or Kickorplunge(2)) and Scythe_corridor(n)
+    end
     --print("Castle_high_climb")
     return (Normal(n) and ((Getkicks(3) and sunsetter(n)) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1))) and Castle_spiral_climb(n)) or
         (Normal(n) and (cling(n) or Getkicks(4) or (Getkicks(2) and sunsetter(n)) or (Getkicks(1) and sunsetter(n) and can_slidejump(n))) and Scythe_corridor(n)) or
         (Hard(n) and (cling(n) or Kickorplunge(3) or (breaker(n) and Getkicks(1)) or (Knows_obscure(n) and sunsetter(n) and Getkicks(1)) or (Knows_obscure(n) and can_attack(n) and can_slidejump(n))) and Castle_spiral_climb(n)) or
         (Hard(n) and (cling(n) or Getkicks(4) or (Getkicks(3) and breaker(n)) or (Getkicks(1) and sunsetter(n))) and Scythe_corridor(n)) or
         (Expert(n) and Castle_spiral_climb(n)) or
-        (Expert(n) and (cling(n) or (slide(n) or Kickorplunge(2))) and Scythe_corridor(n))
+        (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and Scythe_corridor(n))
 end
 
-function Scythe_corridor(n)
+--function Scythe_corridor(outOflogic, n) -- ORIGINAL
+    --if n == nil then; n = 0; end
+    --if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
+    --n = n + 1
+    --if outOflogic then
+        --return (cling(n) or Getkicks(3)) and Castle_spiral_climb(n) or
+        --(cling(n) or slide(n) or Getkicks(3)) and Theatre_front(n)
+    --end
+    --print("Scythe_corridor")
+    --return (Normal(n) and cling(n) and Castle_spiral_climb(n)) or
+        --(Normal(n) and (cling(n) or (can_slidejump(n) and Getkicks(1)) or Getkicks(4)) and Theatre_front(n)) or
+        --(Expert(n) and (cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
+        --(Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and Theatre_front(n)) or
+        --(Lunatic(n) and (cling(n) or Getkicks(3)) and Castle_spiral_climb(n)) or
+        --(Lunatic(n) and (cling(n) or slide(n) or Getkicks(3)) and Theatre_front(n))
+--end
+
+function Scythe_corridor(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or Getkicks(3)) and ((cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n))) or
+        (cling(n) or slide(n) or Getkicks(3)) and Theatre_front(n)
+    end
     --print("Scythe_corridor")
-    return (Normal(n) and cling(n) and Castle_spiral_climb(n)) or
+    return (Normal(n) and cling(n) and ((Getkicks(2) or (cling(n) and sunsetter(n))) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n)))) or
         (Normal(n) and (cling(n) or (can_slidejump(n) and Getkicks(1)) or Getkicks(4)) and Theatre_front(n)) or
-        (Expert(n) and (cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
+        (Expert(n) and (cling(n) or Kickorplunge(4)) and ((cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n)))) or
         (Expert(n) and (cling(n) or slide(n) or Kickorplunge(2)) and Theatre_front(n)) or
-        (Lunatic(n) and (cling(n) or Getkicks(3)) and Castle_spiral_climb(n)) or
+        (Lunatic(n) and (cling(n) or Getkicks(3)) and ((cling(n) or slide(n) or Kickorplunge(2)) and ((has_small_keys(n) and dungeon_strong_eyes(n)) or empty_bailey(n)))) or
         (Lunatic(n) and (cling(n) or slide(n) or Getkicks(3)) and Theatre_front(n))
 end
 
@@ -374,10 +472,15 @@ end
         --(Lunatic(n) and (cling(n) or (slide(n) and Kickorplunge(2))) and Scythe_corridor(n))
 --end
 
-function Theatre_front(n)
+function Theatre_front(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or (slide(n) and Kickorplunge(2))) and ((cling(n) and Castle_spiral_climb(n)) or
+            ((cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
+            ((cling(n) or Getkicks(3)) and Castle_spiral_climb(n)))
+    end
     --print("Theatre_front")
     return (Normal(n) and cling(n) and Kickorplunge(2) and ((Normal(n) and cling(n) and Castle_spiral_climb(n)) or -- "reduced" Scythe_corridor to help with recurssions. see old code above
             (Expert(n) and (cling(n) or Kickorplunge(4)) and Castle_spiral_climb(n)) or
@@ -393,10 +496,13 @@ function Theatre_front(n)
             (Lunatic(n) and (cling(n) or Getkicks(3)) and Castle_spiral_climb(n))))
 end
 
-function Castle_moon_room(n)
+function Castle_moon_room(outOflogic, n)
     if n == nil then; n = 0; end
     if n > 10 then; return false; end -- detect 10th step when trying to resolve and abort
     n = n + 1
+    if outOflogic then
+        return (cling(n) or slide(n) or Getkicks(4)) and Theatre_front(n)
+    end
     --print("Castle_moon_room")
     return (Normal(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2))) and Theatre_front(n)) or
         (Hard(n) and (cling(n) or (can_slidejump(n) and Kickorplunge(2)) or Getkicks(4)) and Theatre_front(n)) or
@@ -612,6 +718,7 @@ function library_sun_greaves(outOflogic, n)
     if outOflogic then
         return can_attack(n)
     end
+    --print("library_sun_greaves")
     return (Normal(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n)))) or
         (Expert(n) and can_attack(n))
 end
@@ -623,6 +730,7 @@ function library_upper_back(outOflogic, n)
     if outOflogic then
         return (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2) or slide(n))
     end
+    --print("library_upper_back")
     return (Normal(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and ((cling(n) and Kickorplunge(1)) or Kickorplunge(2))) or
         (Hard(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2))) or
         (Expert(n) and (breaker(n) or (Knows_obscure(n) and sunsetter(n))) and (cling(n) or Kickorplunge(2) or slide(n)))
@@ -635,6 +743,7 @@ function library_locked_across(outOflogic, n)
     if outOflogic then
         return (cling(n) or Kickorplunge(1) or slide(n))
     end
+    --print("library_locked_across")
     return (Normal(n) and (cling(n) or Getkicks(1) or can_slidejump(n))) or
         (Hard(n) and (cling(n) or Kickorplunge(1) or can_slidejump(n))) or
         (Expert(n) and (cling(n) or Kickorplunge(1) or slide(n)))
@@ -647,6 +756,7 @@ function library_locked_left(outOflogic, n)
     if outOflogic then
         return (cling(n) or Kickorplunge(2) or (slide(n) and Kickorplunge(1)))
     end
+    --print("library_locked_left")
     return (Normal(n) and (cling(n) or Kickorplunge(3) or (can_slidejump(n) and Getkicks(1)))) or
         (Expert(n) and (cling(n) or Kickorplunge(2) or (slide(n) and Kickorplunge(1))))
 end

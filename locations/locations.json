@@ -326,11 +326,12 @@
             {
                 "name": "High Climb From Courtyard",
                 "access_rules": [
-                    "$Castle_high_climb, $Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"
+                    "$Castle_high_climb|true, [$Castle_high_climb]"
                 ],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"],
                         "chest_opened_img": "images/items/aspect.png",
                         "chest_unopened_img": "images/items/aspect_gray.png"
                     }
@@ -346,11 +347,12 @@
             {
                 "name": "Alcove Near Scythe Corridor",
                 "access_rules": [
-                    "$Scythe_corridor, $Castle_alcove_scythe|true, [$Castle_alcove_scythe]"
+                    "$Scythe_corridor|true, [$Scythe_corridor|true]"
                 ],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$Castle_alcove_scythe|true, [$Castle_alcove_scythe]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -366,11 +368,12 @@
             {
                 "name": "Near Theatre Front",
                 "access_rules": [
-                    "$Theatre_front, $Castle_theatre_front|true, [$Castle_theatre_front]"
+                    "$Theatre_front|true, [$Theatre_front]"
                 ],
                 "sections": [
                     {
                         "item_count": 1,
+                        "access_rules": ["$Castle_theatre_front|true, [$Castle_theatre_front]"],
                         "chest_opened_img": "images/items/aspect.png",
                         "chest_unopened_img": "images/items/aspect_gray.png"
                     }

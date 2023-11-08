@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.4.4",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.4/pseudoregalia_brooty.zip",
+            "sha256": "04833d6b52b6d5d6e61924d00d44165171c2fcb8cb812db1c621431565ffb3ad",
+            "changelog": [
+                "code cleanup",
+                "fixed logic in Listless Library"
+            ]
+        },
+        {
             "package_version": "0.1.4.3",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.3/pseudoregalia_brooty.zip",
             "sha256": "7af4726e2abc718ab5ea93374e4a18afdabecbb191ebce0002340a723acf0eb7",
