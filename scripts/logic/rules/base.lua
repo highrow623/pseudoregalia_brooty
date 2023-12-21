@@ -92,7 +92,7 @@ function PseudoregaliaRulesHelpers:has_plunge(state)
 end
 
 function PseudoregaliaRulesHelpers:has_gem(state)
-    return state:has("Clung Gem")
+    return state:has("Cling Gem")
 end
 
 function PseudoregaliaRulesHelpers:can_bounce(state)
