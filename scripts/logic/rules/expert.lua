@@ -429,4 +429,4 @@ function PseudoregaliaExpertRules.new(cls, definition)
     end
 
     return self
-end  
+end
