@@ -114,7 +114,11 @@ end
 
 function set_rules()
     -- TODO: difficulty
+    -- TODO: setup difficulty toggles/addwatch for codes normal, hard, expert, lunatic
     PseudoregaliaNormalRules:new(def):set_pseudoregalia_rules()
+    PseudoregaliaHardRules:new(def):set_pseudoregalia_rules()
+    PseudoregaliaExpertRules:new(def):set_pseudoregalia_rules()
+    PseudoregaliaLunaticRules:new(def):set_pseudoregalia_rules()
 end
 
 create_regions()
