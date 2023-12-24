@@ -165,22 +165,22 @@
             {
                 "img": "images/logic_settings/normal.png",
                 "codes": "logic,normal",
-                "inherit_codes": true
+                "inherit_codes": false
             },
             {
                 "img": "images/logic_settings/hard.png",
                 "codes": "logic,hard",
-                "inherit_codes": true
+                "inherit_codes": false
             },
             {
                 "img": "images/logic_settings/expert.png",
                 "codes": "logic,expert",
-                "inherit_codes": true
+                "inherit_codes": false
             },
             {
                 "img": "images/logic_settings/lunatic.png",
                 "codes": "logic,lunatic",
-                "inherit_codes": true
+                "inherit_codes": false
             }
         ]
     },

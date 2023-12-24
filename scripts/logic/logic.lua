@@ -1,5 +1,5 @@
 -- ap-style logic
--- TODO: use require
+-- TODO: use require; this will need a PopTracker update to make "nested" require() work better
 ScriptHost:LoadScript("scripts/logic/helper.lua") -- load helper for AP-style logic
 ScriptHost:LoadScript("scripts/logic/locations.lua") -- load location_table
 ScriptHost:LoadScript("scripts/logic/regions.lua") -- load region_table
@@ -8,12 +8,22 @@ ScriptHost:LoadScript("scripts/logic/rules/normal.lua") -- load PseudoregaliaNor
 ScriptHost:LoadScript("scripts/logic/rules/hard.lua") -- load PseudoregaliaHardRules
 ScriptHost:LoadScript("scripts/logic/rules/expert.lua") -- load PseudoregaliaExpertRules
 ScriptHost:LoadScript("scripts/logic/rules/lunatic.lua") -- load PseudoregaliaLunaticRules
--- TODO: normal, hard, expert, lunatic rules
--- TODO: init to set up locations, regions and rules
+ScriptHost:LoadScript("scripts/logic/constants.lua")
+ScriptHost:LoadScript("scripts/logic/options.lua")
 
+-- shorthand names from imports
+local Definition = helper.Definition
+local State = helper.State
+local Region = helper.Region
+local Location = helper.Location
+local difficulties = constants.difficulties
+local pseudoregalia_options = options.pseudoregalia_options
 
-local def = Definition:new()
-local state = State:new(def) -- TODO: add caching and update in watch for code
+-- state and world definition variables
+local def = Definition:new()  -- "world" definition for logic
+local state = State:new(def)  -- TODO: add caching and update in watch for code
+local glitchDef = Definition:new()  -- "world" definition for out-of-logic
+local glitchState = State:new(glitchDef)  -- TODO: add caching and update in watch for code
 
 -- version helper
 local v = {}
@@ -42,7 +52,7 @@ local codes = {
 
 -- patch up State.has to match the codes
 local _has = getmetatable(state).has
-getmetatable(state).has = function(state, name)
+State.has = function(state, name)
     local code = codes[name]
     if code then
         return _has(state, code)
@@ -51,9 +61,10 @@ getmetatable(state).has = function(state, name)
         return _has(state, name)
     end
 end
+
 -- patch up State.count to match the codes
 local _count = getmetatable(state).count
-getmetatable(state).count = function(state, name)
+State.count = function(state, name)
     local code = codes[name]
     if code then
         return _count(state, code)
@@ -62,7 +73,11 @@ getmetatable(state).count = function(state, name)
     end
 end
 
-function can_reach(location_name, out_of_logic)
+
+-- logic resolvers (called from json locations)
+
+
+function can_reach(location_name)
     if not hasAnyWatch then
         state.stale = true
     end
@@ -70,44 +85,34 @@ function can_reach(location_name, out_of_logic)
 end
 
 function can_glitch(location_name)
-    return can_reach(location_name, true)
+    if not hasAnyWatch then
+        glitchState.stale = true
+    end
+    return glitchDef:get_location(location_name):can_reach(glitchState)
 end
 
-function dump(o, level)
-    level = level or 0
-    if level > 10 then
-        return "F"
-    end
-    if type(o) == 'table' then
-       local s = '{ '
-       for k,v in pairs(o) do
-          if type(k) ~= 'number' then k = '"'..k..'"' end
-          s = s .. '['..k..'] = ' .. dump(v, level + 1) .. ','
-       end
-       return s .. '} '
-    else
-       return tostring(o)
-    end
-end
- 
---print(dump(def))
---print(dump(def.regions))
---print(dump(getmetatable(def.regions)))
 
-function create_regions()
+-- logic init (called to init/update def and state for logic and out-of-logic)
+
+
+function set_options()
+    def:set_options(pseudoregalia_options)
+end
+
+function _create_regions(def)
     for region_name, _ in pairs(region_table) do
         def.regions:append(Region:new(region_name, def))
     end
 
     for loc_name, loc_data in pairs(location_table) do
         -- if not loc_data.can_create() ...
-        region = def:get_region(loc_data.region)
+        local region = def:get_region(loc_data.region)
         new_loc = Location:new(loc_name, loc_data.code, region)
         region.locations:append(new_loc)
     end
 
     for region_name, exit_list in pairs(region_table) do
-        region = def:get_region(region_name)
+        local region = def:get_region(region_name)
         region:add_exits(exit_list)
     end
 
@@ -115,13 +120,29 @@ function create_regions()
     -- TODO: events if it uses events
 end
 
+function create_regions()
+    _create_regions(def)
+    _create_regions(glitchDef)
+end
+
 function set_rules()
-    -- TODO: difficulty
-    -- TODO: setup difficulty toggles/addwatch for codes normal, hard, expert, lunatic
-    PseudoregaliaNormalRules:new(def):set_pseudoregalia_rules()
-    PseudoregaliaHardRules:new(def):set_pseudoregalia_rules()
-    PseudoregaliaExpertRules:new(def):set_pseudoregalia_rules()
-    PseudoregaliaLunaticRules:new(def):set_pseudoregalia_rules()
+    local difficulty = def.options.logic_level.value  -- .value because lua can't override __eq for number
+    if difficulty == difficulties.NORMAL then
+        print("Setting difficulty to normal")
+        PseudoregaliaNormalRules:new(def):set_pseudoregalia_rules()
+    elseif difficulty == difficulties.HARD then
+        print("Setting difficulty to hard")
+        PseudoregaliaHardRules:new(def):set_pseudoregalia_rules()
+    elseif difficulty == difficulties.EXPERT then
+        print("Setting difficulty to expert")
+        PseudoregaliaExpertRules:new(def):set_pseudoregalia_rules()
+    elseif difficulty == difficulties.LUNATIC then
+        print("Setting difficulty to lunatic")
+        PseudoregaliaLunaticRules:new(def):set_pseudoregalia_rules()
+    else
+        error("Unknown difficulty " .. tostring(difficulty.value))
+    end
+    PseudoregaliaLunaticRules:new(glitchDef):set_pseudoregalia_rules()
 end
 
 function stateChanged(code)  -- run by watch for code "*" (any)
@@ -133,6 +154,7 @@ end
 
 function difficultyChanged()  -- run by watch for code "logic"
     print("difficulty changed")
+    set_options()  -- update world option emulation
     set_rules()  -- recreate rules with new code(s) in Tracker
 end
 
@@ -148,6 +170,8 @@ end
 
 
 -- LAYOUT SWITCHING
+
+
 function apLayoutChange1()
     local progBreaker = Tracker:FindObjectForCode("progbreakerLayout")
     if (string.find(Tracker.ActiveVariantUID, "standard")) then

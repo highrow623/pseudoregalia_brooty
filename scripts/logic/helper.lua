@@ -29,7 +29,13 @@ AppendableList.__index = AppendableList
 -- Base Classes
 
 
-State = {}
+local State = {}
+local Location = {}
+local Region = {}
+local Entrance = {}
+local Definition = {}
+
+
 State.__index = State
 
 function State:new(definition)
@@ -95,7 +101,6 @@ function State:update_reachable_regions()
 end
 
 
-Location = {}
 Location.__index = Location
 
 function Location:new(name, code, parent_region)
@@ -117,7 +122,6 @@ function Location:can_reach(state)
 end
 
 
-Region = {}
 Region.__index = Region
 
 function Region:new(name, definition)
@@ -177,7 +181,6 @@ function Region:can_reach(state)
 end
 
 
-Entrance = {}
 Entrance.__index = Entrance
 
 function Entrance:new(name, parent_region)
@@ -205,7 +208,6 @@ function Entrance:can_reach(state)
 end
 
 
-Definition = {}
 Definition.__index = Definition
 
 function Definition:new()
@@ -247,3 +249,76 @@ function Definition:get_location(name)
         end
     end
 end
+
+function Definition:set_options(options, values)
+    -- missing value will try to resulve through code and fall back to default
+    if values == nil then
+        values = {}
+    end
+    for name, class in pairs(options) do
+        self.options[name] = class:new(values[name])
+    end
+end
+
+
+-- Options
+
+
+local Choice = {
+    value_to_code = {},  -- mapping to Tracker codes
+    default = 0,
+}
+Choice.__index = Choice
+
+function Choice.new(cls, initial_value)
+    local self = {}
+    cls.__index = cls
+    cls.__eq = Choice.__eq
+    setmetatable(self, cls)
+    self.code_to_value = {}
+    for value, code in pairs(self.value_to_code) do
+        if value == nil or code == nil then
+            error("Invalid option in code_to_value")
+        end
+        self.code_to_value[code] = value
+        if initial_value == nil then
+            -- if value is not provided, try to load from Tracker
+            if Tracker:ProviderCountForCode(code) > 0 then
+                initial_value = value
+            end
+        end
+    end
+    if initial_value == nil then
+        self.value = self.default
+    else
+        self.value = initial_value
+    end
+    return self
+end
+
+function Choice:__eq(other)
+    -- NOTE: this is NOT being called for type(other) == string or number. Use .value for that.
+    if type(other) == type(self) then
+        return self.value == other.value  -- compare value of two instances
+    else
+        return self.value == other  -- compare value of instance to const
+    end
+end
+
+
+-- Module
+
+
+-- create module table
+helper = {
+    AppendableList = AppendableList,
+    State = State,
+    Location = Location,
+    Region = Region,
+    Entrance = Entrance,
+    Definition = Definition,
+    Choice = Choice,
+}
+
+-- return the module table for require
+return helper
