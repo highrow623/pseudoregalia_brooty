@@ -205,3 +205,5 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
         })
     end)
 end
+
+return PseudoregaliaRulesHelpers -- prepare for require()

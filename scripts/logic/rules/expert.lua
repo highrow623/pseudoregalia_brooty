@@ -430,3 +430,5 @@ function PseudoregaliaExpertRules.new(cls, definition)
 
     return self
 end
+
+return PseudoregaliaExpertRules -- prepare for require()

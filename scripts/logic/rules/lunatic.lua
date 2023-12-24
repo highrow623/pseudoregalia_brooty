@@ -428,3 +428,5 @@ function PseudoregaliaLunaticRules.new(cls, definition)
 
     return self
 end
+
+return PseudoregaliaLunaticRules -- prepare for require()

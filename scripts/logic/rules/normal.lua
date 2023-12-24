@@ -361,3 +361,5 @@ function PseudoregaliaNormalRules.new(cls, definition)
 
     return self
 end
+
+return PseudoregaliaNormalRules -- prepare for require()

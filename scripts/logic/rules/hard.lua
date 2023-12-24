@@ -418,3 +418,5 @@ function PseudoregaliaHardRules.new(cls, definition)
 
     return self
 end
+
+return PseudoregaliaHardRules -- prepare for require()
