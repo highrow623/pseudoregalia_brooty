@@ -1,5 +1,10 @@
--- Helper for AP-style rule definition
--- this mostly maps to BaseClasses.py
+-- Helper for Archipelago-style logic definition
+-- this mostly maps to AP's BaseClasses.py and Options.py
+-- see https://github.com/ArchipelagoMW/Archipelago for original copyright
+
+
+-- python-style helpers
+
 
 local free = function(state) return true end
 
@@ -13,7 +18,7 @@ function table.shallow_copy(t)
   end
 
 
-AppendableList = {
+local AppendableList = {
     append = function(t,v)
         t[#t+1]=v
     end
@@ -21,10 +26,17 @@ AppendableList = {
 AppendableList.__index = AppendableList
 
 
+-- Base Classes
+
+
 State = {}
 State.__index = State
 
 function State:new(definition)
+    if not definition then
+        error("definition required")
+    end
+
     local res = {}
     res.stale = true -- TODO: update this
     res.definition = definition
@@ -67,14 +79,12 @@ function State:update_reachable_regions()
     local queue = table.shallow_copy(start.exits)
     reachable[start] = start
     self.reachable_regions = reachable
-    --print(dump(queue, 8))
 
     while #queue > 0 do
         connection = queue[#queue]
         queue[#queue] = nil
         new_region = connection.connected_region
-        
-        --print("checking " .. connection.name)
+
         if not reachable[new_region] and connection:can_reach(self) then
             reachable[new_region] = true
             for _, exit_ in ipairs(new_region.exits) do
@@ -103,7 +113,6 @@ function Location:set_rule(rule)
 end
 
 function Location:can_reach(state)
-    print(self.name .. ": " .. tostring(self.access_rule(state)) .. " and " .. tostring(self.parent_region:can_reach(state)))
     return self.access_rule(state) and self.parent_region:can_reach(state)
 end
 
@@ -143,9 +152,13 @@ function Region:connect(connecting_region, name, rule)
     return exit_
 end
 
-function Region:add_exits(exits)
+function Region:add_exits(exits, rules)
     -- TODO: implement exits for Dict[str, Optional[str]] type
     -- TODO: implement rules: Dict[str, Callable[[CollectionState], bool]] = None) -> None:
+    if rules then
+        error("rules handling not implemented in Region:add_exits")
+    end
+
     name = nil -- TODO
     for _, connecting_region_name in ipairs(exits) do
         local destination = self.definition:get_region(connecting_region_name)
@@ -158,11 +171,8 @@ end
 
 function Region:can_reach(state)
     if state.stale then
-        --print("  updating regions")
         state:update_reachable_regions()
-        --print("  " .. dump(state.reachable_regions))
     end
-    --print(tostring(state.reachable_regions[self]))
     return not not state.reachable_regions[self]
 end
 
@@ -191,7 +201,6 @@ function Entrance:connect(destination, addresses, target)
 end
 
 function Entrance:can_reach(state)
-    --print("  " .. tostring(self.parent_region:can_reach(state)) .. " and " .. tostring(self.access_rule(state)))
     return self.parent_region:can_reach(state) and self.access_rule(state)
 end
 
@@ -202,13 +211,14 @@ Definition.__index = Definition
 function Definition:new()
     local res = {}
     res.regions = {}
+    res.options = {}  -- TODO: add something like options_dataclass
     setmetatable(res, self)
     setmetatable(res.regions, AppendableList)
     return res
 end
 
 function Definition:get_region(name)
-    --return self.regions[name]
+    --return self.regions[name] -- TODO: cache
     for _, region in ipairs(self.regions) do
         if region.name == name then
             return region
@@ -217,11 +227,9 @@ function Definition:get_region(name)
 end
 
 function Definition:get_entrance(name)
-    --return self.entrances[name]
+    --return self.entrances[name] -- TODO: cache
     for _, region in ipairs(self.regions) do
-        --print(region.name .. ":" .. dump(region.entrances))
         for _, entrance in ipairs(region.entrances) do
-            --print(entrance.name .. " == " .. name .. " ?")
             if entrance.name == name then
                 return entrance
             end
@@ -230,7 +238,7 @@ function Definition:get_entrance(name)
 end
 
 function Definition:get_location(name)
-    --return self.locations[name]
+    --return self.locations[name] -- TODO: cache
     for _, region in ipairs(self.regions) do
         for _, location in ipairs(region.locations) do
             if location.name == name then
