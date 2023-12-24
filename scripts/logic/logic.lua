@@ -15,6 +15,10 @@ ScriptHost:LoadScript("scripts/logic/rules/lunatic.lua") -- load PseudoregaliaLu
 local def = Definition:new()
 local state = State:new(def) -- TODO: add caching and update in watch for code
 
+-- version helper
+local v = {}
+PopVersion:gsub("([^%.]+)", function(c) v[#v+1] = tonumber(c) end)
+local hasAnyWatch = v[1] > 0 or v[2] > 25 or v[2] == 25 and v[3] > 4
 
 -- item name to code mapping
 local codes = {
@@ -59,10 +63,9 @@ getmetatable(state).count = function(state, name)
 end
 
 function can_reach(location_name, out_of_logic)
-    if out_of_logic then
-        --return true -- TODO: return logic for lunatic
+    if not hasAnyWatch then
+        state.stale = true
     end
-    state.stale = true
     return def:get_location(location_name):can_reach(state)
 end
 
@@ -121,8 +124,27 @@ function set_rules()
     PseudoregaliaLunaticRules:new(def):set_pseudoregalia_rules()
 end
 
-create_regions()
-set_rules()
+function stateChanged(code)  -- run by watch for code "*" (any)
+    if code:find("^logic") then return end  -- handled in difficultyChanged watch
+    print(code .. " changed")
+    state.stale = true
+    glitchState.stale = true
+end
+
+function difficultyChanged()  -- run by watch for code "logic"
+    print("difficulty changed")
+    set_rules()  -- recreate rules with new code(s) in Tracker
+end
+
+-- initialize logic
+create_regions()  -- TODO: this depends on progressive options, so we need another watch for code
+difficultyChanged()
+
+-- add watches
+ScriptHost:AddWatchForCode("difficultyChanged", "logic", difficultyChanged)
+if hasAnyWatch then
+    ScriptHost:AddWatchForCode("stateChanged", "*", stateChanged)
+end
 
 
 -- LAYOUT SWITCHING
