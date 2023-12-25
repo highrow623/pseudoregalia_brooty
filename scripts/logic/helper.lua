@@ -21,6 +21,9 @@ function table.shallow_copy(t)
 local AppendableList = {
     append = function(t,v)
         t[#t+1]=v
+    end,
+    clear = function(t)
+        for i = 1,#t do t[i] = nil end
     end
 }
 AppendableList.__index = AppendableList

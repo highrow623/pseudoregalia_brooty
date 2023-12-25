@@ -97,9 +97,12 @@ end
 
 function set_options()
     def:set_options(pseudoregalia_options)
+    glitchDef:set_options(pseudoregalia_options)
 end
 
 function _create_regions(def)
+    def.regions:clear()  -- allow running _create_regions multiple times
+
     for region_name, _ in pairs(region_table) do
         def.regions:append(Region:new(region_name, def))
     end
@@ -107,7 +110,7 @@ function _create_regions(def)
     for loc_name, loc_data in pairs(location_table) do
         -- if not loc_data.can_create() ...
         local region = def:get_region(loc_data.region)
-        new_loc = Location:new(loc_name, loc_data.code, region)
+        local new_loc = Location:new(loc_name, loc_data.code, region)
         region.locations:append(new_loc)
     end
 
@@ -126,6 +129,9 @@ function create_regions()
 end
 
 function set_rules()
+    -- set_pseudoregalia_rules does not rewrite everything, so we have to recreate locations
+    _create_regions(def)
+    -- set rules depending on logic (and other options)
     local difficulty = def.options.logic_level.value  -- .value because lua can't override __eq for number
     if difficulty == difficulties.NORMAL then
         print("Setting difficulty to normal")
