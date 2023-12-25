@@ -19,12 +19,16 @@ function table.shallow_copy(t)
 
 
 local AppendableList = {
+    new = function(cls,self)
+        if self == nil then self = {} end
+        return setmetatable(self, cls)
+    end,
     append = function(t,v)
         t[#t+1]=v
     end,
     clear = function(t)
         for i = 1,#t do t[i] = nil end
-    end
+    end,
 }
 AppendableList.__index = AppendableList
 
@@ -46,13 +50,12 @@ function State:new(definition)
         error("definition required")
     end
 
-    local res = {}
-    res.stale = true -- TODO: update this
-    res.definition = definition
-    res.reachable_regions = {}
-    --res.blocked_connections = {}
-    setmetatable(res, self)
-    return res
+    return setmetatable({
+        stale = true,
+        definition = definition,
+        reachable_regions = {},
+        --res.blocked_connections = {},
+    }, self)
 end
 
 function State:has(item_name)
@@ -107,13 +110,12 @@ end
 Location.__index = Location
 
 function Location:new(name, code, parent_region)
-    local res = {}
-    res.name = name
-    res.code = code
-    res.parent_region = parent_region
-    res.access_rule = free
-    setmetatable(res, self)
-    return res
+    return setmetatable({
+        name = name,
+        code = code,
+        parent_region = parent_region,
+        access_rule = free,
+    }, self)
 end
 
 function Location:set_rule(rule)
@@ -128,35 +130,31 @@ end
 Region.__index = Region
 
 function Region:new(name, definition)
-    local res = {}
-    res.name = name
-    res.locations = {}
-    res.exits = {}
-    res.entrances = {}
-    res.definition = definition
-    setmetatable(res, self)
-    setmetatable(res.locations, AppendableList)
-    setmetatable(res.exits, AppendableList)
-    setmetatable(res.entrances, AppendableList)
-    return res
+    return setmetatable({
+        name = name,
+        definition = definition,
+        locations = AppendableList:new(),
+        exits = AppendableList:new(),
+        entrances = AppendableList:new(),
+    }, self)
 end
 
 function Region:create_exit(name)
-    exit_ = Entrance:new(name, self)
-    self.exits:append(exit_)
-    return exit_
+    local exit = Entrance:new(name, self)
+    self.exits:append(exit)
+    return exit
 end
 
 function Region:connect(connecting_region, name, rule)
     if name == nil then
         name = self.name .. " -> " .. connecting_region.name
     end
-    exit_ = self:create_exit(name)
+    local exit = self:create_exit(name)
     if rule then
-        exit_.access_rule = rule
+        exit.access_rule = rule
     end
-    exit_:connect(connecting_region)
-    return exit_
+    exit:connect(connecting_region)
+    return exit
 end
 
 function Region:add_exits(exits, rules)
@@ -187,12 +185,11 @@ end
 Entrance.__index = Entrance
 
 function Entrance:new(name, parent_region)
-    local res = {}
-    res.name = name
-    res.parent_region = parent_region
-    res.access_rule = free
-    setmetatable(res, self)
-    return res
+    return setmetatable({
+        name = name,
+        parent_region = parent_region,
+        access_rule = free,
+    }, self)
 end
 
 function Entrance:set_rule(rule)
@@ -214,12 +211,10 @@ end
 Definition.__index = Definition
 
 function Definition:new()
-    local res = {}
-    res.regions = {}
-    res.options = {}  -- TODO: add something like options_dataclass
-    setmetatable(res, self)
-    setmetatable(res.regions, AppendableList)
-    return res
+    return setmetatable({
+        regions = AppendableList:new(),
+        options = {},
+    }, self)
 end
 
 function Definition:get_region(name)
