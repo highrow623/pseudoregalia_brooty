@@ -25,6 +25,8 @@ local state = State:new(def)  -- TODO: add caching and update in watch for code
 local glitchDef = Definition:new()  -- "world" definition for out-of-logic
 local glitchState = State:new(glitchDef)  -- TODO: add caching and update in watch for code
 
+DEBUG = true
+
 -- version helper
 local v = {}
 PopVersion:gsub("([^%.]+)", function(c) v[#v+1] = tonumber(c) end)
@@ -152,24 +154,30 @@ function set_rules()
 end
 
 function stateChanged(code)  -- run by watch for code "*" (any)
-    if code:find("^logic") then return end  -- handled in difficultyChanged watch
-    print(code .. " changed")
+    if DEBUG then
+        if code ~= "obscure" and code:find("^logic") == nil then
+            print(code .. " changed")
+        end
+    end
     state.stale = true
     glitchState.stale = true
 end
 
-function difficultyChanged()  -- run by watch for code "logic"
-    print("difficulty changed")
+function logicChanged()  -- run by watch for code "logic", "obscure"
+    print("logic changed")
     set_options()  -- update world option emulation
     set_rules()  -- recreate rules with new code(s) in Tracker
+    state.stale = true
+    glitchState.stale = true
 end
 
 -- initialize logic
 create_regions()  -- TODO: this depends on progressive options, so we need another watch for code
-difficultyChanged()
+logicChanged()
 
 -- add watches
-ScriptHost:AddWatchForCode("difficultyChanged", "logic", difficultyChanged)
+ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
+ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
 if hasAnyWatch then
     ScriptHost:AddWatchForCode("stateChanged", "*", stateChanged)
 end

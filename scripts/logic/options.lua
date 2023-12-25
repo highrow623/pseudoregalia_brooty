@@ -4,6 +4,7 @@
 
 local difficulties = constants.difficulties
 local Choice = helper.Choice
+local Toggle = helper.Toggle
 
 
 LogicLevel = {
@@ -18,9 +19,16 @@ LogicLevel = {
 setmetatable(LogicLevel, Choice)
 
 
+ObscureLogic = {
+    code = "obscure"
+}
+setmetatable(ObscureLogic, Toggle)
+
+
 options = {
     pseudoregalia_options = {
-        logic_level = LogicLevel
+        logic_level = LogicLevel,
+        obscure_logic = ObscureLogic,
     }
 }
 

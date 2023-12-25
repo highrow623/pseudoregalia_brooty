@@ -158,7 +158,7 @@ end
 
 function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     local split_kicks = false -- TODO: load from code or slot data
-    local obscure_logic = false -- TODO: as above
+    local obscure_logic = self.definition.options.obscure_logic.value
     local logic_level = 0 -- TODO: as above
 
     if obscure_logic then

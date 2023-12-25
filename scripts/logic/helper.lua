@@ -308,6 +308,20 @@ function Choice:__eq(other)
     end
 end
 
+local Toggle = {
+    default = false,
+}
+Toggle.__index = Toggle
+setmetatable(Toggle, Choice)
+
+function Toggle.new(cls, initial_value)
+    if cls.code == nil then
+        error("Toggle needs to define code")
+    end
+    cls.value_to_code = {[true] = cls.code}  -- so we can use Choice's code
+    return Choice.new(cls, initial_value)
+end
+
 
 -- Module
 
@@ -321,6 +335,7 @@ helper = {
     Entrance = Entrance,
     Definition = Definition,
     Choice = Choice,
+    Toggle = Toggle,
 }
 
 -- return the module table for require
