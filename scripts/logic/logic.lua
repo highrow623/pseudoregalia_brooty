@@ -1,4 +1,8 @@
 -- ap-style logic
+
+-- set global DEBUG to true to get more output
+-- DEBUG = true
+
 -- TODO: use require; this will need a PopTracker update to make "nested" require() work better
 ScriptHost:LoadScript("scripts/logic/helper.lua") -- load helper for AP-style logic
 ScriptHost:LoadScript("scripts/logic/locations.lua") -- load location_table
@@ -25,12 +29,10 @@ local state = State:new(def)  -- TODO: add caching and update in watch for code
 local glitchDef = Definition:new()  -- "world" definition for out-of-logic
 local glitchState = State:new(glitchDef)  -- TODO: add caching and update in watch for code
 
-DEBUG = true
-
 -- version helper
 local v = {}
 PopVersion:gsub("([^%.]+)", function(c) v[#v+1] = tonumber(c) end)
-local hasAnyWatch = v[1] > 0 or v[2] > 25 or v[2] == 25 and v[3] > 4
+local hasAnyWatch = v[1] > 0 or v[2] > 25 or v[2] == 25 and v[3] > 4  -- available since 0.25.5
 
 -- item name to code mapping
 local codes = {
@@ -53,7 +55,7 @@ local codes = {
 }
 
 -- patch up State.has to match the codes
-local _has = getmetatable(state).has
+local _has = State.has
 State.has = function(state, name)
     local code = codes[name]
     if code then
@@ -65,7 +67,7 @@ State.has = function(state, name)
 end
 
 -- patch up State.count to match the codes
-local _count = getmetatable(state).count
+local _count = State.count
 State.count = function(state, name)
     local code = codes[name]
     if code then
