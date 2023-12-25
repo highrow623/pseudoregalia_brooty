@@ -15,6 +15,7 @@ ScriptHost:LoadScript("scripts/utils.lua")
 
 -- Layout Switching
 ScriptHost:LoadScript("scripts/layouts.lua")
+ScriptHost:LoadScript("scripts/layout_switch.lua")
 
 -- Logic
 ScriptHost:LoadScript("scripts/logic/logic.lua")
