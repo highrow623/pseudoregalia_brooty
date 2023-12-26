@@ -47,34 +47,40 @@ local codes = {
     ["Soul Cutter"] = "cutter",
     ["Heliacal Power"] = "heliacal",
     ["Small Key"] = "smallkey",
-    ["Major Key - Empty Bailey"] = "majorkey",
-    ["Major Key - The Underbelly"] = "majorkey",
-    ["Major Key - Tower Remains"] = "majorkey",
-    ["Major Key - Sansa Keep"] = "majorkey",
-    ["Major Key - Twilight Theatre"] = "majorkey",
+    -- Major Keys have custom handling since they are just a count in the tracker.
+    --["Major Key - Empty Bailey"] = "majorkey",
+    --["Major Key - The Underbelly"] = "majorkey",
+    --["Major Key - Tower Remains"] = "majorkey",
+    --["Major Key - Sansa Keep"] = "majorkey",
+    --["Major Key - Twilight Theatre"] = "majorkey",
 }
 
--- patch up State.has to match the codes
+-- patch up State.has and State.count to match the codes
 local _has = State.has
+local _count = State.count
+
 State.has = function(state, name)
     local code = codes[name]
     if code then
         return _has(state, code)
-    else
-        -- TODO: warn?
-        return _has(state, name)
     end
+    if name:find("^Major Key - ") then
+        return _count(state, "majorkey") >= 5
+    end
+    -- TODO: warn?
+    return _has(state, name)
 end
 
--- patch up State.count to match the codes
-local _count = State.count
 State.count = function(state, name)
     local code = codes[name]
     if code then
         return _count(state, code)
-    else
-        return _count(state, name)
     end
+    if name:find("^Major Key - ") then
+        return (_count(state, "majorkey") >= 5) and 1 or 0
+    end
+    -- TODO: warn?
+    return _count(state, name)
 end
 
 
