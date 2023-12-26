@@ -5,6 +5,8 @@
 
 -- TODO: use require; this will need a PopTracker update to make "nested" require() work better
 ScriptHost:LoadScript("scripts/logic/helper.lua") -- load helper for AP-style logic
+ScriptHost:LoadScript("scripts/logic/constants.lua")
+ScriptHost:LoadScript("scripts/logic/options.lua")
 ScriptHost:LoadScript("scripts/logic/locations.lua") -- load location_table
 ScriptHost:LoadScript("scripts/logic/regions.lua") -- load region_table
 ScriptHost:LoadScript("scripts/logic/rules/base.lua") -- load PseudoregaliaRulesHelpers
@@ -12,8 +14,6 @@ ScriptHost:LoadScript("scripts/logic/rules/normal.lua") -- load PseudoregaliaNor
 ScriptHost:LoadScript("scripts/logic/rules/hard.lua") -- load PseudoregaliaHardRules
 ScriptHost:LoadScript("scripts/logic/rules/expert.lua") -- load PseudoregaliaExpertRules
 ScriptHost:LoadScript("scripts/logic/rules/lunatic.lua") -- load PseudoregaliaLunaticRules
-ScriptHost:LoadScript("scripts/logic/constants.lua")
-ScriptHost:LoadScript("scripts/logic/options.lua")
 
 -- shorthand names from imports
 local Definition = helper.Definition
@@ -101,7 +101,7 @@ end
 
 function set_options()
     def:set_options(pseudoregalia_options)
-    glitchDef:set_options(pseudoregalia_options)
+    glitchDef:set_options(pseudoregalia_options, {logic_level = difficulties.LUNATIC})
 end
 
 function _create_regions(def)

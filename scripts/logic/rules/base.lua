@@ -1,8 +1,11 @@
 PseudoregaliaRulesHelpers = {} -- rules base. See normal, hard, expert and lunatic for finished rules.
 
 
+local NORMAL = constants.difficulties.NORMAL
+
 local free = function(state) return true end
 local no = function(state) return false end
+
 
 function PseudoregaliaRulesHelpers.new(cls, definition)
     local self = {}
@@ -159,7 +162,7 @@ end
 function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     local split_kicks = false -- TODO: load from code or slot data
     local obscure_logic = self.definition.options.obscure_logic.value
-    local logic_level = 0 -- TODO: as above
+    local logic_level = self.definition.options.logic_level.value
 
     if obscure_logic then
         self.knows_obscure = free
@@ -169,7 +172,7 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
         self.can_attack = function(self, state) return self:has_breaker(state) end
     end
 
-    if logic_level == 0 then
+    if logic_level == NORMAL then
         self.required_small_keys = 7
     end
 
