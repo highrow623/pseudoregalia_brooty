@@ -522,7 +522,7 @@
                 ]
             },
             {
-                "name": "Major Key",
+                "name": "Lonely Throne",
                 "access_rules": [[
                     "$can_glitch|Sansa Keep - Lonely Throne",
                     "[$can_reach|Sansa Keep - Lonely Throne]"
@@ -764,7 +764,7 @@
                 ]
             },
             {
-                "name": "Major Key",
+                "name": "Center Stage",
                 "access_rules": [[
                     "$can_glitch|Twilight Theatre - Center Stage",
                     "[$can_reach|Twilight Theatre - Center Stage]"
@@ -874,7 +874,7 @@
                 ]
             },
             {
-                "name": "Major Key",
+                "name": "Guarded Hand",
                 "access_rules": [[
                     "$can_glitch|Empty Bailey - Guarded Hand",
                     "[$can_reach|Empty Bailey - Guarded Hand]"
@@ -1047,7 +1047,7 @@
                 ]
             },
             {
-                "name": "Major Key",
+                "name": "Surrounded By Holes",
                 "access_rules": [[
                     "$can_glitch|The Underbelly - Surrounded By Holes",
                     "[$can_reach|The Underbelly - Surrounded By Holes]"
@@ -1094,7 +1094,7 @@
                 ]
             },
             {
-                "name": "Major Key",
+                "name": "Atop The Tower",
                 "access_rules": [[
                     "$can_glitch|Tower Remains - Atop The Tower",
                     "[$can_reach|Tower Remains - Atop The Tower]"
