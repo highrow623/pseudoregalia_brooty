@@ -106,7 +106,9 @@ State.count = function(state, name)
         -- map each individual key to having all 5
         return (_count(state, "majorkey") >= 5) and 1 or 0
     end
-    -- TODO: warn?
+    if DEBUG then
+        print("Unknown item " .. name)
+    end
     return _count(state, name)
 end
 
@@ -213,7 +215,7 @@ function progLogicChanged()  -- run by watch for code "op_progbreaker", "op_prog
 end
 
 -- initialize logic
-create_regions()  -- TODO: this depends on progressive options, so we need another watch for code
+create_regions()  -- NOTE: we don't handle can_create for Locations, so this needs to only be run once
 logicChanged()
 
 -- add watches
