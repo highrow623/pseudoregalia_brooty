@@ -160,7 +160,7 @@ function PseudoregaliaRulesHelpers:knows_obscure(state)
 end
 
 function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
-    local split_kicks = false -- TODO: load from code or slot data
+    local split_kicks = self.definition.options.split_sun_greaves.value
     local obscure_logic = self.definition.options.obscure_logic.value
     local logic_level = self.definition.options.logic_level.value
 
@@ -187,7 +187,7 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     for name, rule in pairs(self.location_rules) do
         local library = name:find("^Listless Library") ~= nil
         if (not library or
-                not (split_kicks and name.find("Greaves$") ~= nil)
+                not (split_kicks and name:find("Greaves$") ~= nil)
                 and not (not split_kicks and tonumber(name:sub(-1)) ~= nil)) then
             local location = self.definition:get_location(name)
             if location then

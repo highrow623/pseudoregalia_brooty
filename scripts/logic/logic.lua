@@ -31,6 +31,7 @@ local glitchState = State:new(glitchDef)  -- TODO: add caching and update in wat
 
 local isProgBreaker = false  -- caching here to avoid going through Tracker
 local isProgSlide = false
+local isSplitKicks = false
 
 -- version helper
 local v = {}
@@ -40,7 +41,7 @@ local hasAnyWatch = v[1] > 0 or v[2] > 25 or v[2] == 25 and v[3] > 4  -- availab
 -- item name to code mapping
 local codes = {
     ["Dream Breaker"] = "breaker",
-    ["Sun Greaves"] = "greaves",
+    ["Sun Greaves"] = "greaves",  -- provides 3 kicks if not split
     ["Slide"] = "slide",
     ["Solar Wind"] = "solar",
     ["Sunsetter"] = "sunsetter",
@@ -48,8 +49,9 @@ local codes = {
     ["Cling Gem"] = "cling",
     ["Ascendant Light"] = "ascendant",
     ["Soul Cutter"] = "cutter",
-    ["Heliacal Power"] = "heliacal",
+    ["Heliacal Power"] = "heliacal",  -- provides 1 kick if not split
     ["Small Key"] = "smallkey",
+    ["Air Kick"] = "splitkick",   -- 4 individual kicks if split
     -- Progressive breaker and slide are handled differently.
     --["Progressive Dream Breaker"] = "progbreaker",
     --["Progressive Slide"] = "progslide",
@@ -80,6 +82,12 @@ State.count = function(state, name)
             return 0
         end
         if isProgSlide and (code == "slide" or code == "solar") then
+            return 0
+        end
+        if isSplitKicks and (code == "greaves" or code == "heliacal") then
+            return 0
+        end
+        if not isSplitKicks and code == "splitkick" then
             return 0
         end
         return _count(state, code)
@@ -202,6 +210,7 @@ end
 
 function logicChanged()  -- run by watch for code "logic", "obscure"
     print("logic changed")
+    isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
     set_options()  -- update world option emulation
     set_rules()  -- recreate rules with new code(s) in Tracker
     state.stale = true

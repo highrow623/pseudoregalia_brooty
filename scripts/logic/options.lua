@@ -25,10 +25,17 @@ ObscureLogic = {
 setmetatable(ObscureLogic, Toggle)
 
 
+SplitSunGreaves = {
+    code = "op_splitkick_on"
+}
+setmetatable(SplitSunGreaves, Toggle)
+
+
 options = {
     pseudoregalia_options = {
         logic_level = LogicLevel,
         obscure_logic = ObscureLogic,
+        split_sun_greaves = SplitSunGreaves,
     }
 }
 
