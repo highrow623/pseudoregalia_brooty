@@ -29,6 +29,9 @@ local state = State:new(def)  -- TODO: add caching and update in watch for code
 local glitchDef = Definition:new()  -- "world" definition for out-of-logic
 local glitchState = State:new(glitchDef)  -- TODO: add caching and update in watch for code
 
+local isProgBreaker = false  -- caching here to avoid going through Tracker
+local isProgSlide = false
+
 -- version helper
 local v = {}
 PopVersion:gsub("([^%.]+)", function(c) v[#v+1] = tonumber(c) end)
@@ -47,6 +50,9 @@ local codes = {
     ["Soul Cutter"] = "cutter",
     ["Heliacal Power"] = "heliacal",
     ["Small Key"] = "smallkey",
+    -- Progressive breaker and slide are handled differently.
+    --["Progressive Dream Breaker"] = "progbreaker",
+    --["Progressive Slide"] = "progslide",
     -- Major Keys have custom handling since they are just a count in the tracker.
     --["Major Key - Empty Bailey"] = "majorkey",
     --["Major Key - The Underbelly"] = "majorkey",
@@ -56,27 +62,48 @@ local codes = {
 }
 
 -- patch up State.has and State.count to match the codes
-local _has = State.has
 local _count = State.count
 
 State.has = function(state, name)
-    local code = codes[name]
-    if code then
-        return _has(state, code)
-    end
-    if name:find("^Major Key - ") then
-        return _count(state, "majorkey") >= 5
-    end
-    -- TODO: warn?
-    return _has(state, name)
+    return state:count(name) > 0  -- use count to only implement the crazy mappings once
 end
 
 State.count = function(state, name)
+    -- handle the ones that are simple lookups
     local code = codes[name]
     if code then
+        if isProgBreaker and (code == "breaker" or code == "strikebreak" or code == "cutter") then
+            -- individual breakers and slides have to return explicit 0 for progressive
+            -- because the state of the individual items is untouched when switching
+            -- NOTE: the rules being separate for progressive and non-progressive
+            --       could've been fixed/simplified in the APWorld by overriding collect
+            return 0
+        end
+        if isProgSlide and (code == "slide" or code == "solar") then
+            return 0
+        end
         return _count(state, code)
     end
+    -- handle the ones that need special handling
+    if name == "Progressive Dream Breaker" then
+        -- when switching settings to non-progressive, we have to return explicit 0 (the prog item state is unchanged)
+        if not isProgBreaker then
+            return 0
+        end
+        -- not sure if progressive items should be able to return multiple of the same code,
+        -- but that's currently not the case in Pop at least, so we use CurrentStage
+        return Tracker:FindObjectForCode("progbreaker").CurrentStage
+    end
+    if name == "Progressive Slide" then
+        -- as above
+        if not isProgSlide then
+            return 0
+        end
+        -- as above
+        return Tracker:FindObjectForCode("progslide").CurrentStage
+    end
     if name:find("^Major Key - ") then
+        -- map each individual key to having all 5
         return (_count(state, "majorkey") >= 5) and 1 or 0
     end
     -- TODO: warn?
@@ -179,6 +206,12 @@ function logicChanged()  -- run by watch for code "logic", "obscure"
     glitchState.stale = true
 end
 
+function progLogicChanged()  -- run by watch for code "op_progbreaker", "op_progslide"
+    -- cache prog breaker/slide into variable for faster access
+    isProgBreaker = Tracker:ProviderCountForCode("op_progbreaker") > 0
+    isProgSlide = Tracker:ProviderCountForCode("op_progslide") > 0
+end
+
 -- initialize logic
 create_regions()  -- TODO: this depends on progressive options, so we need another watch for code
 logicChanged()
@@ -186,6 +219,9 @@ logicChanged()
 -- add watches
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
+ScriptHost:AddWatchForCode("splitSunGreavesChanged", "op_splitkick_on", logicChanged)
+ScriptHost:AddWatchForCode("progBreakerLogicChanged", "op_progbreaker", progLogicChanged)
+ScriptHost:AddWatchForCode("progSlideLogicChanged", "op_progslide", progLogicChanged)
 if hasAnyWatch then
     ScriptHost:AddWatchForCode("stateChanged", "*", stateChanged)
 end

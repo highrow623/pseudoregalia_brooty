@@ -13,7 +13,6 @@ function updateLayout()
     local splitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0
     -- encode 3 toggles into a 3 bit integer (8 states), +1 for Lua array starting at 1
     local layoutNum = 1 + (progBreaker and 1 or 0) + (progSlide and 2 or 0) + (splitKicks and 4 or 0)
-    print(tostring(currentLayoutNum) .. " -> " .. tostring(layoutNum))
     if layoutNum == currentLayoutNum then
         return  -- unchanged
     end
