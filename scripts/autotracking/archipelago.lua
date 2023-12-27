@@ -88,7 +88,9 @@ function onClear(slot_data)
             obj.Active = slot_data.obscure_logic
         end
     end
-    
+
+    pauseLayoutUpdate = true  -- pause updating until all codes are set since update is expensive
+
     if slot_data.progressive_breaker then
         print("slot_data.progressive_breaker: " .. tostring(slot_data.progressive_breaker))
         local obj = Tracker:FindObjectForCode("op_progbreaker")
@@ -105,16 +107,9 @@ function onClear(slot_data)
         end
     end
 
-    --if slot_data.split_sun_greaves then
-        --print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
-        --local obj = Tracker:FindObjectForCode("op_splitkick_on")
-        --if obj then
-            --obj.Active = slot_data.split_sun_greaves
-        --end
-    --end
-
     if slot_data.split_sun_greaves then
         print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
+        -- op_splitkick is progressive because both stages are used for visibility_rules
         if slot_data.split_sun_greaves == false then
             Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 0
         elseif slot_data.split_sun_greaves == true then
@@ -122,43 +117,8 @@ function onClear(slot_data)
         end
     end
 
-    -- Layout Toggles
-    if slot_data.progressive_breaker and slot_data.progressive_slide and slot_data.split_sun_greaves then
-        local obj = Tracker:FindObjectForCode("progsandsplitLayout")
-        if obj then
-            obj.Active = slot_data.progressive_breaker and slot_data.progressive_slide and slot_data.split_sun_greaves
-        end
-    elseif slot_data.progressive_breaker and slot_data.progressive_slide then
-        local obj = Tracker:FindObjectForCode("progbreakerprogslideLayout")
-        if obj then
-            obj.Active = slot_data.progressive_breaker and slot_data.progressive_slide
-        end
-    elseif slot_data.progressive_breaker and slot_data.split_sun_greaves then
-        local obj = Tracker:FindObjectForCode("progbreakersplitkickLayout")
-        if obj then
-            obj.Active = slot_data.progressive_breaker and slot_data.split_sun_greaves
-        end
-    elseif slot_data.progressive_slide and slot_data.split_sun_greaves then
-        local obj = Tracker:FindObjectForCode("progslidesplitkickLayout")
-        if obj then
-            obj.Active = slot_data.progressive_slide and slot_data.split_sun_greaves
-        end
-    elseif slot_data.progressive_breaker then
-        local obj = Tracker:FindObjectForCode("progbreakerLayout")
-        if obj then
-            obj.Active = slot_data.progressive_breaker
-        end
-    elseif slot_data.progressive_slide then
-        local obj = Tracker:FindObjectForCode("progslideLayout")
-        if obj then
-            obj.Active = slot_data.progressive_slide
-        end
-    elseif slot_data.split_sun_greaves then
-        local obj = Tracker:FindObjectForCode("splitkickLayout")
-        if obj then
-            obj.Active = slot_data.split_sun_greaves
-        end
-    end
+    pauseLayoutUpdate = false
+    updateLayout()  -- actually update
 
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}

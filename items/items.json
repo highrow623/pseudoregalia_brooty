@@ -221,56 +221,6 @@
             }
         ]
     },
-    // LAYOUTS
-    {
-        "name": "Progressive Breaker Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_attack.png",
-        "disabled_img": "images/icons/icon_attack_grey.png",
-        "codes": "progbreakerLayout"
-    },
-    {
-        "name": "Progressive Slide Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_slide.png",
-        "disabled_img": "images/icons/icon_slide_grey.png",
-        "codes": "progslideLayout"
-    },
-    {
-        "name": "Split Kicks Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_HeliacalPower.png",
-        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
-        "codes": "splitkickLayout"
-    },
-    {
-        "name": "Progressive Breaker and Progressive Slide Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_HeliacalPower.png",
-        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
-        "codes": "progbreakerprogslideLayout"
-    },
-    {
-        "name": "Progressive Breaker and Split Kick Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_HeliacalPower.png",
-        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
-        "codes": "progbreakersplitkickLayout"
-    },
-    {
-        "name": "Progressive Slide and Split Kick Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_HeliacalPower.png",
-        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
-        "codes": "progslidesplitkickLayout"
-    },
-    {
-        "name": "All Progressives and Split Kick Layout",
-        "type": "toggle",
-        "img": "images/icons/icon_HeliacalPower.png",
-        "disabled_img": "images/icons/icon_HeliacalPower_grey.png",
-        "codes": "progsandsplitLayout"
-    },
     // EXAMPLE CODE
     {
         "name": "Progressive",
