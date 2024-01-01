@@ -346,13 +346,14 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_plunge(state) or self:get_kicks(state, 3)
         end,
         ["The Underbelly - Strikebreak Wall"] = function(state)
-            return (self:can_bounce(state)
+            return self:can_strikebreak(state) and (
+                self:can_bounce(state)
                 or self:get_kicks(state, 4)
                 or self:get_kicks(state, 2) and self:has_plunge(state))
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
             return self:can_soulcutter(state) and (
-                self:can_bounce(state or self:get_kicks(state, 2))
+                self:can_bounce(state) or self:get_kicks(state, 2)
             ) or self:can_slidejump(state) and self:has_gem(state) and self:get_kicks(state, 1)
         end,
     }) do

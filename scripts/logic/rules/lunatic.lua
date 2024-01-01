@@ -131,7 +131,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         --# "Keep Locked Room -> Keep Sunsetter" = function(state) True,
         --# "Keep => Underbelly -> Keep Main" = function(state) True,
-        --# "Keep => Underbelly -> Underbelly Hole" = function(state) True,
+        --# "Keep => Underbelly -> Underbelly => Keep" = function(state) True,
         --# "Underbelly => Dungeon -> Dungeon Escape Lower" = function(state) True,
         --# "Underbelly => Dungeon -> Underbelly Light Pillar" = function(state) True,
         ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
@@ -406,11 +406,12 @@ function PseudoregaliaLunaticRules.new(cls, definition)
             or self:has_slide(state)
         end,
         ["The Underbelly - Strikebreak Wall"] = function(state)
-            return self:can_bounce(state)
-            or self:get_kicks(state, 3)
-            or self:get_kicks(state, 1) and self:has_plunge(state)
-            or self:has_slide(state) and self:kick_or_plunge(state, 1)
-            or self:has_slide(state) and self:has_gem(state)
+            return self:can_strikebreak(state) and (
+                self:can_bounce(state)
+                or self:get_kicks(state, 3)
+                or self:get_kicks(state, 1) and self:has_plunge(state)
+                or self:has_slide(state) and self:kick_or_plunge(state, 1)
+                or self:has_slide(state) and self:has_gem(state))
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
             return self:can_soulcutter(state)

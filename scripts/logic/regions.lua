@@ -85,7 +85,7 @@ region_table = {
     },
     ["Keep => Underbelly"] = {
         "Keep Main",
-        "Underbelly Hole",
+        "Underbelly => Keep",
     },
     ["Keep Path To Throne"] = {
     },
