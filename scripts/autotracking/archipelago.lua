@@ -8,7 +8,7 @@ GLOBAL_ITEMS = {}
 HOSTED = {gameover=1}
 
 function onSetReply(key, value, old)
-    if key == "Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete" then
+    if key == "Pseudoregalia - Team " .. Archipelago.TeamNumber .. " - Player " .. Archipelago.PlayerNumber .. " - Game Complete" then
         Tracker:FindObjectForCode("gameover", ITEMS).Active = true
     end
 end
@@ -124,7 +124,7 @@ function onClear(slot_data)
     GLOBAL_ITEMS = {}
 
     --Tracker:FindObjectForCode("apLayout").Active = true
-    Archipelago:SetNotify({"Pseudoregalia - Player " .. Archipelago.PlayerNumber .. " - Game Complete"})
+    Archipelago:SetNotify({"Pseudoregalia - Team " .. Archipelago.TeamNumber .. " - Player " .. Archipelago.PlayerNumber .. " - Game Complete"})
 end
 
 -- called when an item gets collected
