@@ -6,7 +6,6 @@
         "margin": "0,0",
         "content": [
             {
-                "name": "Settings",
                 "type": "itemgrid",
                 "item_margin": "0,5",
                 "item_size": "200, 80",

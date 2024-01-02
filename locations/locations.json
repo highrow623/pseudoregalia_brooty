@@ -4,7 +4,10 @@
         "children": [
             {
                 "name": "Dream Breaker",
-                "access_rules": [],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Dream Breaker",
+                    "[$can_reach|Dilapidated Dungeon - Dream Breaker]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -22,7 +25,10 @@
             },
             {
                 "name": "Slide",
-                "access_rules": ["$breaker"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Slide",
+                    "[$can_reach|Dilapidated Dungeon - Slide]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -40,7 +46,10 @@
             },
             {
                 "name": "Dark Orbs",
-                "access_rules": ["$dungeon_dark_orbs|true,[$dungeon_dark_orbs]"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Dark Orbs",
+                    "[$can_reach|Dilapidated Dungeon - Dark Orbs]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -58,11 +67,13 @@
             },
             {
                 "name": "Rafters",
-                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Rafters",
+                    "[$can_reach|Dilapidated Dungeon - Rafters]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$dungeon_rafters|true,[$dungeon_rafters]"],
                         "chest_opened_img": "images/items/Small_Key.png",
                         "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
@@ -77,11 +88,13 @@
             },
             {
                 "name": "Strong Eyes",
-                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Strong Eyes",
+                    "[$can_reach|Dilapidated Dungeon - Strong Eyes]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$strong_eyes_in_dungeon|true,[$strong_eyes_in_dungeon]"],
                         "chest_opened_img": "images/items/Small_Key.png",
                         "chest_unopened_img": "images/items/Small_Key_gray.png"
                     }
@@ -96,7 +109,10 @@
             },
             {
                 "name": "Alcove Near Mirror",
-                "access_rules": ["$breaker"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Alcove Near Mirror",
+                    "[$can_reach|Dilapidated Dungeon - Alcove Near Mirror]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -114,11 +130,13 @@
             },
             {
                 "name": "Past Poles",
-                "access_rules": ["$dungeon_strong_eyes|true,[$dungeon_strong_eyes]"],
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Past Poles",
+                    "[$can_reach|Dilapidated Dungeon - Past Poles]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$dungeon_past_poles|true,[$dungeon_past_poles]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -135,13 +153,13 @@
     },
     {
         "name": "Castle Sansa",
-        "access_rules": [
-            "$castle_sansa|true, [$castle_sansa]"
-    ],
         "children": [
             {
                 "name": "Indignation",
-                "access_rules": [],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Indignation",
+                    "[$can_reach|Castle Sansa - Indignation]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -159,9 +177,10 @@
             },
             {
                 "name": "Floater In Courtyard",
-                "access_rules": [
-                    "$Floater_in_courtyard|true, [$Floater_in_courtyard]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Floater In Courtyard",
+                    "[$can_reach|Castle Sansa - Floater In Courtyard]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -179,9 +198,10 @@
             },
             {
                 "name": "Locked Door",
-                "access_rules": [
-                    "[$has_small_keys],smallkey:1,$Castle_locked_door|true, [$Castle_locked_door]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Locked Door",
+                    "[$can_reach|Castle Sansa - Locked Door]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -199,9 +219,10 @@
             },
             {
                 "name": "Platform In Main Halls",
-                "access_rules": [
-                    "$Castle_platform_main|true, [$Castle_platform_main]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Platform In Main Halls",
+                    "[$can_reach|Castle Sansa - Platform In Main Halls]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -219,9 +240,10 @@
             },
             {
                 "name": "Tall Room Near Wheel Crawlers",
-                "access_rules": [
-                    "$Castle_tall_room_wheel_crawlers|true, [$Castle_tall_room_wheel_crawlers]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Tall Room Near Wheel Crawlers",
+                    "[$can_reach|Castle Sansa - Tall Room Near Wheel Crawlers]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -239,9 +261,10 @@
             },
             {
                 "name": "Alcove Near Dungeon",
-                "access_rules": [
-                    "$Castle_alcove_near_dungeon|true, [$Castle_alcove_near_dungeon]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Alcove Near Dungeon",
+                    "[$can_reach|Castle Sansa - Alcove Near Dungeon]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -259,9 +282,10 @@
             },
             {
                 "name": "Corner Corridor",
-                "access_rules": [
-                    "$Castle_corner_corridor|true, [$Castle_corner_corridor]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Corner Corridor",
+                    "[$can_reach|Castle Sansa - Corner Corridor]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -279,9 +303,10 @@
             },
             {
                 "name": "Wheel Crawlers",
-                "access_rules": [
-                    "$Castle_wheel_crawler|true, [$Castle_wheel_crawler]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Wheel Crawlers",
+                    "[$can_reach|Castle Sansa - Wheel Crawlers]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -299,9 +324,10 @@
             },
             {
                 "name": "Balcony",
-                "access_rules": [
-                    "$Castle_balcony|true, [$Castle_balcony]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Balcony",
+                    "[$can_reach|Castle Sansa - Balcony]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -321,17 +347,16 @@
     },
     {
         "name": "Upper Castle Sansa",
-        "access_rules": [],
         "children": [
             {
                 "name": "High Climb From Courtyard",
-                "access_rules": [
-                    "$Castle_high_climb|true, [$Castle_high_climb]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - High Climb From Courtyard",
+                    "[$can_reach|Castle Sansa - High Climb From Courtyard]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$Castle_courtyard_high_climb|true, [$Castle_courtyard_high_climb]"],
                         "chest_opened_img": "images/items/aspect.png",
                         "chest_unopened_img": "images/items/aspect_gray.png"
                     }
@@ -346,13 +371,13 @@
             },
             {
                 "name": "Alcove Near Scythe Corridor",
-                "access_rules": [
-                    "$Scythe_corridor|true, [$Scythe_corridor|true]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Alcove Near Scythe Corridor",
+                    "[$can_reach|Castle Sansa - Alcove Near Scythe Corridor]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$Castle_alcove_scythe|true, [$Castle_alcove_scythe]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -367,13 +392,13 @@
             },
             {
                 "name": "Near Theatre Front",
-                "access_rules": [
-                    "$Theatre_front|true, [$Theatre_front]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Near Theatre Front",
+                    "[$can_reach|Castle Sansa - Near Theatre Front]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$Castle_theatre_front|true, [$Castle_theatre_front]"],
                         "chest_opened_img": "images/items/aspect.png",
                         "chest_unopened_img": "images/items/aspect_gray.png"
                     }
@@ -390,13 +415,13 @@
     },
     {
         "name": "Sansa Keep",
-        "access_rules": [],
         "children": [
             {
                 "name": "Sunsetter",
-                "access_rules": [
-                    "$keep_sunsetter,$breaker"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Sunsetter",
+                    "[$can_reach|Sansa Keep - Sunsetter]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -414,13 +439,10 @@
             },
             {
                 "name": "Strikebreak",
-                "access_rules": [
-                    "$keep_main,$can_slidejump",
-                    "$keep_main,$slide,$Getkicks|1",
-                    "$keep_main,$slide,cling",
-                    "$keep_main,$can_strikebreak,$Getkicks|1",
-                    "$keep_main,$can_strikebreak,cling"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Strikebreak",
+                    "[$can_reach|Sansa Keep - Strikebreak]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -438,10 +460,10 @@
             },
             {
                 "name": "Near Theatre",
-                "access_rules": [
-                    "$keep_main,$Kickorplunge|1",
-                    "$keep_main,cling"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Near Theatre",
+                    "[$can_reach|Sansa Keep - Near Theatre]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -459,9 +481,10 @@
             },
             {
                 "name": "Levers Room",
-                "access_rules": [
-                    "$keep_main,$breaker"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Levers Room",
+                    "[$can_reach|Sansa Keep - Levers Room]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -479,11 +502,10 @@
             },
             {
                 "name": "Alcove Near Locked Door",
-                "access_rules": [
-                    "$keep_main,$can_slidejump",
-                    "$keep_main,$Getkicks|3",
-                    "$keep_main,sunsetter"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Alcove Near Locked Door",
+                    "[$can_reach|Sansa Keep - Alcove Near Locked Door]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -500,11 +522,11 @@
                 ]
             },
             {
-                "name": "Major Key",
-                "access_rules": [
-                    "$keep_main,cling,sunsetter,$can_bounce",
-                    "$keep_main,cling,$can_bounce,$Getkicks|3"
-                ],
+                "name": "Lonely Throne",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Lonely Throne",
+                    "[$can_reach|Sansa Keep - Lonely Throne]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -524,18 +546,17 @@
     },
     {
         "name": "Listless Library",
-        "access_rules": [],
         "children": [
             {
                 "name": "Sun Greaves",
-                "access_rules": [
-                    "$library_greaves|true,[$library_greaves]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Sun Greaves",
+                    "[$can_reach|Listless Library - Sun Greaves]"
+                ]],
                 "visibility_rules": ["op_splitkick_off"],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$library_sun_greaves|true,[$library_sun_greaves]"],
                         "chest_opened_img": "images/items/ability.png",
                         "chest_unopened_img": "images/items/ability_gray.png"
                     }
@@ -550,14 +571,15 @@
             },
             {
                 "name": "Sun Greaves Split",
-                "access_rules": [
-                    "$library_greaves|true,[$library_greaves]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Sun Greaves",
+                    "[$can_reach|Listless Library - Sun Greaves]"
+
+                ]],
                 "visibility_rules": ["op_splitkick_on"],
                 "sections": [
                     {
                         "item_count": 3,
-                        "access_rules": ["$library_sun_greaves|true,[$library_sun_greaves]"],
                         "chest_opened_img": "images/items/ability.png",
                         "chest_unopened_img": "images/items/ability_gray.png"
                     }
@@ -572,12 +594,12 @@
             },
             {
                 "name": "Locked Door Across",
-                "access_rules": [
-                    "$library_locked|true,[$library_locked]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Locked Door Across",
+                    "[$can_reach|Listless Library - Locked Door Across]"
+                ]],
                 "sections": [
                     {
-                        "access_rules": ["$library_locked_across|true,[$library_locked_across]"],
                         "item_count": 1
                     }
                 ],
@@ -591,13 +613,13 @@
             },
             {
                 "name": "Locked Door Left",
-                "access_rules": [
-                    "$library_locked|true,[$library_locked]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Locked Door Left",
+                    "[$can_reach|Listless Library - Locked Door Left]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$library_locked_left|true,[$library_locked_left]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -612,13 +634,13 @@
             },
             {
                 "name": "Upper Back",
-                "access_rules": [
-                    "$library_top|true,[$library_top]"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Upper Back",
+                    "[$can_reach|Listless Library - Upper Back]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
-                        "access_rules": ["$library_upper_back|true,[$library_upper_back]"],
                         "chest_opened_img": "images/items/healthup.png",
                         "chest_unopened_img": "images/items/healthup_gray.png"
                     }
@@ -635,13 +657,13 @@
     },
     {
         "name": "Twilight Theatre",
-        "access_rules": [],
         "children": [
             {
                 "name": "Soul Cutter",
-                "access_rules": [
-                    "$theatre_main,$can_strikebreak"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Soul Cutter",
+                    "[$can_reach|Twilight Theatre - Soul Cutter]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -659,11 +681,10 @@
             },
             {
                 "name": "Corner Beam",
-                "access_rules": [
-                    "$theatre_pillar,cling,$Getkicks|3",
-                    "$theatre_pillar,cling,$can_slidejump",
-                    "$theatre_pillar,$can_slidejump,$Getkicks|3"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Corner Beam",
+                    "[$can_reach|Twilight Theatre - Corner Beam]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -681,10 +702,10 @@
             },
             {
                 "name": "Locked Door",
-                "access_rules": [
-                    "$theatre_main,[$has_small_keys],smallkey:1,cling",
-                    "$theatre_main,[$has_small_keys],smallkey:1,$Getkicks|3"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Locked Door",
+                    "[$can_reach|Twilight Theatre - Locked Door]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -702,9 +723,10 @@
             },
             {
                 "name": "Murderous Goat",
-                "access_rules": [
-                    "$theatre_main"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Murderous Goat",
+                    "[$can_reach|Twilight Theatre - Murderous Goat]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -722,10 +744,10 @@
             },
             {
                 "name": "Back Of Auditorium",
-                "access_rules": [
-                    "$theatre_main,$Getkicks|3",
-                    "$theatre_main,cling"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Back Of Auditorium",
+                    "[$can_reach|Twilight Theatre - Back Of Auditorium]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -742,11 +764,11 @@
                 ]
             },
             {
-                "name": "Major Key",
-                "access_rules": [
-                    "$theatre_main,$can_soulcutter,cling,$can_slidejump",
-                    "$theatre_main,$can_soulcutter,cling,$Getkicks|1"
-                ],
+                "name": "Center Stage",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Center Stage",
+                    "[$can_reach|Twilight Theatre - Center Stage]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -766,13 +788,13 @@
     },
     {
         "name": "Empty Bailey",
-        "access_rules": ["$empty_bailey"],
         "children": [
             {
                 "name": "Solar Wind",
-                "access_rules": [
-                    "$slide"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Solar Wind",
+                    "[$can_reach|Empty Bailey - Solar Wind]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -790,11 +812,10 @@
             },
             {
                 "name": "Cheese Bell",
-                "access_rules": [
-                    "$can_slidejump,sunsetter,$Getkicks|1",
-                    "$can_slidejump,cling",
-                    "sunsetter,$Getkicks|3"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Cheese Bell",
+                    "[$can_reach|Empty Bailey - Cheese Bell]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -812,9 +833,10 @@
             },
             {
                 "name": "Inside Building",
-                "access_rules": [
-                    "$slide"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Inside Building",
+                    "[$can_reach|Empty Bailey - Inside Building]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -832,10 +854,10 @@
             },
             {
                 "name": "Center Steeple",
-                "access_rules": [
-                    "$Getkicks|3",
-                    "sunsetter,$slide"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Center Steeple",
+                    "[$can_reach|Empty Bailey - Center Steeple]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -852,12 +874,11 @@
                 ]
             },
             {
-                "name": "Major Key",
-                "access_rules": [
-                    "sunsetter",
-                    "cling",
-                    "$Getkicks|3"
-                ],
+                "name": "Guarded Hand",
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Guarded Hand",
+                    "[$can_reach|Empty Bailey - Guarded Hand]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -877,13 +898,13 @@
     },
     {
         "name": "Underbelly",
-        "access_rules": [],
         "children": [
             {
                 "name": "Ascendant Light",
-                "access_rules": [
-                    "$underbelly_main"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Ascendant Light",
+                    "[$can_reach|The Underbelly - Ascendant Light]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -901,10 +922,10 @@
             },
             {
                 "name": "Locked Door",
-                "access_rules": [
-                    "$underbelly_main,[$has_small_keys],smallkey:1,$slide,$Getkicks|3",
-                    "$underbelly_main,[$has_small_keys],smallkey:1,$slide,sunsetter"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Locked Door",
+                    "[$can_reach|The Underbelly - Locked Door]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -922,10 +943,10 @@
             },
             {
                 "name": "Strikebreak Wall",
-                "access_rules": [
-                    "$underbelly_main,$can_strikebreak,$can_bounce,$can_slidejump",
-                    "$underbelly_main,$can_strikebreak,$can_bounce,$Kickorplunge|1"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Strikebreak Wall",
+                    "[$can_reach|The Underbelly - Strikebreak Wall]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -943,10 +964,10 @@
             },
             {
                 "name": "Main Room",
-                "access_rules": [
-                    "$underbelly_main,sunsetter",
-                    "$underbelly_main,$can_slidejump"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Main Room",
+                    "[$can_reach|The Underbelly - Main Room]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -964,10 +985,10 @@
             },
             {
                 "name": "Rafters Near Keep",
-                "access_rules": [
-                    "$underbelly_hole,$Getkicks|3",
-                    "$underbelly_hole,sunsetter"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Rafters Near Keep",
+                    "[$can_reach|The Underbelly - Rafters Near Keep]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -985,10 +1006,10 @@
             },
             {
                 "name": "Building Near Little Guy",
-                "access_rules": [
-                    "$underbelly_main,$Getkicks|3",
-                    "$underbelly_main,sunsetter"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Building Near Little Guy",
+                    "[$can_reach|The Underbelly - Building Near Little Guy]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1006,9 +1027,10 @@
             },
             {
                 "name": "Alcove Near Light",
-                "access_rules": [
-                    "$underbelly_main"
-                ],
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Alcove Near Light",
+                    "[$can_reach|The Underbelly - Alcove Near Light]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1025,12 +1047,11 @@
                 ]
             },
             {
-                "name": "Major Key",
-                "access_rules": [
-                    "$underbelly_hole,sunsetter,$can_soulcutter,$can_bounce",
-                    "$underbelly_hole,sunsetter,$can_soulcutter,cling",
-                    "$underbelly_hole,sunsetter,$can_slidejump,$Getkicks|3"
-                ],
+                "name": "Surrounded By Holes",
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Surrounded By Holes",
+                    "[$can_reach|The Underbelly - Surrounded By Holes]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1050,13 +1071,13 @@
     },
     {
         "name": "Tower Remains",
-        "access_rules": ["$tower_remains"],
         "children": [
             {
                 "name": "Cling Gem",
-                "access_rules": [
-                    "$Getkicks|3"
-                ],
+                "access_rules": [[
+                    "$can_glitch|Tower Remains - Cling Gem",
+                    "[$can_reach|Tower Remains - Cling Gem]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1073,10 +1094,11 @@
                 ]
             },
             {
-                "name": "Major Key",
-                "access_rules": [
-                    "cling,$Getkicks|3"
-                ],
+                "name": "Atop The Tower",
+                "access_rules": [[
+                    "$can_glitch|Tower Remains - Atop The Tower",
+                    "[$can_reach|Tower Remains - Atop The Tower]"
+                ]],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1096,13 +1118,13 @@
     },
     {
         "name": "Distorted Memory",
-        "access_rules": ["$the_great_door"],
         "children": [
             {
                 "name": "D S T RT ED M M O   Y",
-                "access_rules": [
-                    "majorkey:5"
-                ],
+                "access_rules": [[
+                    "$can_glitch|D S T RT ED M M O   Y",
+                    "[$can_reach|D S T RT ED M M O   Y]"
+                ]],
                 "sections": [
                     {
                         "name": "Beat the Game!!",
