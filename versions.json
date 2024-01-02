@@ -1,6 +1,16 @@
 {
     "versions": [
         {
+            "package_version": "0.1.5",
+            "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.5/pseudoregalia_brooty.zip",
+            "sha256": "15ad3ec67c655e138610fa65681c6e24ce0beb8ee1bd1a9525d838db06322230",
+            "changelog": [
+                "update to AP style logic",
+                "new logic for Underbelly and Theatre",
+                "update gameover key"
+            ]
+        },
+        {
             "package_version": "0.1.4.4",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.4.4/pseudoregalia_brooty.zip",
             "sha256": "04833d6b52b6d5d6e61924d00d44165171c2fcb8cb812db1c621431565ffb3ad",
