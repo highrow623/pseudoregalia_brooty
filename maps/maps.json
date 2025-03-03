@@ -1,8 +1,62 @@
 [
     {
-        "name": "full_map",
-        "location_size": 70,
-        "location_border_thickness": 20,
+        "name": "full_map_separated",
+        "location_size": 40,
+        "location_border_thickness": 10,
         "img": "images/maps/full_map.png"
+    },
+    {
+        "name": "full_map_grouped",
+        "location_size": 60,
+        "location_border_thickness": 15,
+        "img": "images/maps/full_map.png"
+    },
+    {
+        "name": "dungeon",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/dungeon.png"
+    },
+    {
+        "name": "castle",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/castle.png"
+    },
+    {
+        "name": "bailey",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/bailey.png"
+    },
+    {
+        "name": "library",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/library.png"
+    },
+    {
+        "name": "keep",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/keep.png"
+    },
+    {
+        "name": "underbelly",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/underbelly.png"
+    },
+    {
+        "name": "theatre",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/theatre.png"
+    },
+    {
+        "name": "tower",
+        "location_size": 12,
+        "location_border_thickness": 3,
+        "img": "images/maps/tower.png"
     }
 ]

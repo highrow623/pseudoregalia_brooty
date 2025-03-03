@@ -23,17 +23,8 @@
                     ]
                 },
                 {
-                    "type": "tabbed",
-                    "tabs": [
-                        {
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "full_map"
-                                ]
-                            }
-                        }
-                    ]
+                    "type": "layout",
+                    "key": "maps"
                 }
             ]
         }

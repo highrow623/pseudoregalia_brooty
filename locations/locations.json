@@ -17,9 +17,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1457,
-                        "y": 1968
+                        "map": "full_map_separated",
+                        "x": 1423,
+                        "y": 1539
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 1275,
+                        "y": 241
                     }
                 ]
             },
@@ -38,9 +43,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 467,
-                        "y": 2030
+                        "map": "full_map_separated",
+                        "x": 1344,
+                        "y": 895
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 456,
+                        "y": 332
                     }
                 ]
             },
@@ -59,9 +69,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 408,
-                        "y": 2524
+                        "map": "full_map_separated",
+                        "x": 939,
+                        "y": 845
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 390,
+                        "y": 841
                     }
                 ]
             },
@@ -80,9 +95,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 914,
-                        "y": 2094
+                        "map": "full_map_separated",
+                        "x": 1299,
+                        "y": 1184
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 828,
+                        "y": 383
                     }
                 ]
             },
@@ -101,9 +121,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1215,
-                        "y": 1771
+                        "map": "full_map_separated",
+                        "x": 1570,
+                        "y": 1400
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 1100,
+                        "y": 74
                     }
                 ]
             },
@@ -122,9 +147,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1222,
-                        "y": 2185
+                        "map": "full_map_separated",
+                        "x": 1245,
+                        "y": 1393
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 1090,
+                        "y": 454
                     }
                 ]
             },
@@ -143,9 +173,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 962,
-                        "y": 1847
+                        "map": "full_map_separated",
+                        "x": 1543,
+                        "y": 1212
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 861,
+                        "y": 75
                     }
                 ]
             }
@@ -169,9 +204,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2518,
-                        "y": 1897
+                        "map": "full_map_separated",
+                        "x": 1506,
+                        "y": 2292
+                    },
+                    {
+                        "map": "castle",
+                        "x": 966,
+                        "y": 634
                     }
                 ]
             },
@@ -190,9 +230,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2165,
-                        "y": 1758
+                        "map": "full_map_separated",
+                        "x": 1570,
+                        "y": 2013
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1034,
+                        "y": 378
                     }
                 ]
             },
@@ -211,9 +256,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2422,
-                        "y": 1754
+                        "map": "full_map_separated",
+                        "x": 1610,
+                        "y": 2210
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1071,
+                        "y": 566
                     }
                 ]
             },
@@ -232,9 +282,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2624,
-                        "y": 1897
+                        "map": "full_map_separated",
+                        "x": 1483,
+                        "y": 2368
+                    },
+                    {
+                        "map": "castle",
+                        "x": 950,
+                        "y": 697
                     }
                 ]
             },
@@ -253,9 +308,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2192,
-                        "y": 1408
+                        "map": "full_map_separated",
+                        "x": 1773,
+                        "y": 2013
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1242,
+                        "y": 371
                     }
                 ]
             },
@@ -274,9 +334,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2377,
-                        "y": 2144
+                        "map": "full_map_separated",
+                        "x": 1319,
+                        "y": 2168
+                    },
+                    {
+                        "map": "castle",
+                        "x": 782,
+                        "y": 529
                     }
                 ]
             },
@@ -295,9 +360,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2787,
-                        "y": 1877
+                        "map": "full_map_separated",
+                        "x": 1538,
+                        "y": 2452
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1000,
+                        "y": 809
                     }
                 ]
             },
@@ -316,9 +386,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1925,
-                        "y": 1585
+                        "map": "full_map_separated",
+                        "x": 1661,
+                        "y": 1846
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1122,
+                        "y": 203
                     }
                 ]
             },
@@ -337,9 +412,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3040,
-                        "y": 1995
+                        "map": "full_map_separated",
+                        "x": 1460,
+                        "y": 2598
+                    },
+                    {
+                        "map": "castle",
+                        "x": 919,
+                        "y": 947
                     }
                 ]
             }
@@ -363,9 +443,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2144,
-                        "y": 2237
+                        "map": "full_map_separated",
+                        "x": 1273,
+                        "y": 1986
+                    },
+                    {
+                        "map": "castle",
+                        "x": 739,
+                        "y": 347
                     }
                 ]
             },
@@ -384,9 +469,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1899,
-                        "y": 2622
+                        "map": "full_map_separated",
+                        "x": 964,
+                        "y": 1848
+                    },
+                    {
+                        "map": "castle",
+                        "x": 427,
+                        "y": 206
                     }
                 ]
             },
@@ -405,9 +495,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2438,
-                        "y": 2718
+                        "map": "full_map_separated",
+                        "x": 983,
+                        "y": 2231
+                    },
+                    {
+                        "map": "castle",
+                        "x": 444,
+                        "y": 589
                     }
                 ]
             }
@@ -431,9 +526,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1434,
-                        "y": 1078
+                        "map": "full_map_separated",
+                        "x": 678,
+                        "y": 1764
+                    },
+                    {
+                        "map": "keep",
+                        "x": 632,
+                        "y": 926
                     }
                 ]
             },
@@ -452,9 +552,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 889,
-                        "y": 1262
+                        "map": "full_map_separated",
+                        "x": 542,
+                        "y": 1293
+                    },
+                    {
+                        "map": "keep",
+                        "x": 482,
+                        "y": 400
                     }
                 ]
             },
@@ -473,9 +578,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1471,
-                        "y": 1528
+                        "map": "full_map_separated",
+                        "x": 264,
+                        "y": 1781
+                    },
+                    {
+                        "map": "keep",
+                        "x": 170,
+                        "y": 945
                     }
                 ]
             },
@@ -494,9 +604,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1263,
-                        "y": 784
+                        "map": "full_map_separated",
+                        "x": 1031,
+                        "y": 1606
+                    },
+                    {
+                        "map": "keep",
+                        "x": 1021,
+                        "y": 748
                     }
                 ]
             },
@@ -515,9 +630,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1265,
-                        "y": 1174
+                        "map": "full_map_separated",
+                        "x": 570,
+                        "y": 1625
+                    },
+                    {
+                        "map": "keep",
+                        "x": 514,
+                        "y": 768
                     }
                 ]
             },
@@ -536,9 +656,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 772,
-                        "y": 1306
+                        "map": "full_map_separated",
+                        "x": 479,
+                        "y": 1144
+                    },
+                    {
+                        "map": "keep",
+                        "x": 415,
+                        "y": 251
                     }
                 ]
             }
@@ -563,9 +688,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1918,
-                        "y": 690
+                        "map": "full_map_separated",
+                        "x": 2142,
+                        "y": 2004
+                    },
+                    {
+                        "map": "library",
+                        "x": 505,
+                        "y": 251
                     }
                 ]
             },
@@ -586,9 +716,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1918,
-                        "y": 690
+                        "map": "full_map_separated",
+                        "x": 2142,
+                        "y": 2004
+                    },
+                    {
+                        "map": "library",
+                        "x": 505,
+                        "y": 251
                     }
                 ]
             },
@@ -600,14 +735,21 @@
                 ]],
                 "sections": [
                     {
-                        "item_count": 1
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2929,
-                        "y": 940
+                        "map": "full_map_separated",
+                        "x": 2051,
+                        "y": 2519
+                    },
+                    {
+                        "map": "library",
+                        "x": 399,
+                        "y": 864
                     }
                 ]
             },
@@ -626,9 +768,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2815,
-                        "y": 807
+                        "map": "full_map_separated",
+                        "x": 2124,
+                        "y": 2436
+                    },
+                    {
+                        "map": "library",
+                        "x": 486,
+                        "y": 766
                     }
                 ]
             },
@@ -647,9 +794,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2677,
-                        "y": 384
+                        "map": "full_map_separated",
+                        "x": 2299,
+                        "y": 2357
+                    },
+                    {
+                        "map": "library",
+                        "x": 691,
+                        "y": 671
                     }
                 ]
             }
@@ -673,9 +825,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 4058,
-                        "y": 4213
+                        "map": "full_map_separated",
+                        "x": 846,
+                        "y": 304
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 326,
+                        "y": 396
                     }
                 ]
             },
@@ -694,9 +851,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3646,
-                        "y": 2913
+                        "map": "full_map_separated",
+                        "x": 166,
+                        "y": 334
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 361,
+                        "y": 1073
                     }
                 ]
             },
@@ -715,9 +877,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 4168,
-                        "y": 3643
+                        "map": "full_map_separated",
+                        "x": 582,
+                        "y": 291
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 303,
+                        "y": 669
                     }
                 ]
             },
@@ -736,9 +903,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 4529,
-                        "y": 3150
+                        "map": "full_map_separated",
+                        "x": 631,
+                        "y": 355
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 396,
+                        "y": 608
                     }
                 ]
             },
@@ -757,9 +929,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3931,
-                        "y": 3638
+                        "map": "full_map_separated",
+                        "x": 580,
+                        "y": 392
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 417,
+                        "y": 669
                     }
                 ]
             },
@@ -778,9 +955,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3927,
-                        "y": 4011
+                        "map": "full_map_separated",
+                        "x": 765,
+                        "y": 392
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 417,
+                        "y": 476
                     }
                 ]
             }
@@ -804,9 +986,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3109,
-                        "y": 2525
+                        "map": "full_map_separated",
+                        "x": 1160,
+                        "y": 2699
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 144,
+                        "y": 361
                     }
                 ]
             },
@@ -825,9 +1012,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3622,
-                        "y": 2264
+                        "map": "full_map_separated",
+                        "x": 1259,
+                        "y": 2872
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 291,
+                        "y": 622
                     }
                 ]
             },
@@ -846,9 +1038,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3428,
-                        "y": 2165
+                        "map": "full_map_separated",
+                        "x": 1339,
+                        "y": 2810
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 418,
+                        "y": 536
                     }
                 ]
             },
@@ -867,9 +1064,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3535,
-                        "y": 2264
+                        "map": "full_map_separated",
+                        "x": 1257,
+                        "y": 2794
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 283,
+                        "y": 509
                     }
                 ]
             },
@@ -888,9 +1090,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3169,
-                        "y": 2236
+                        "map": "full_map_separated",
+                        "x": 1316,
+                        "y": 2690
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 385,
+                        "y": 343
                     }
                 ]
             }
@@ -914,9 +1121,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2997,
-                        "y": 4461
+                        "map": "full_map_separated",
+                        "x": 1943,
+                        "y": 1667
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 200,
+                        "y": 369
                     }
                 ]
             },
@@ -935,9 +1147,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1108,
-                        "y": 4243
+                        "map": "full_map_separated",
+                        "x": 1995,
+                        "y": 815
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 759,
+                        "y": 400
                     }
                 ]
             },
@@ -956,9 +1173,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1612,
-                        "y": 4158
+                        "map": "full_map_separated",
+                        "x": 2160,
+                        "y": 1099
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 579,
+                        "y": 503
                     }
                 ]
             },
@@ -977,9 +1199,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2461,
-                        "y": 3643
+                        "map": "full_map_separated",
+                        "x": 2482,
+                        "y": 1461
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 336,
+                        "y": 704
                     }
                 ]
             },
@@ -998,9 +1225,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 1072,
-                        "y": 3580
+                        "map": "full_map_separated",
+                        "x": 2355,
+                        "y": 786
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 781,
+                        "y": 627
                     }
                 ]
             },
@@ -1019,9 +1251,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2811,
-                        "y": 3298
+                        "map": "full_map_separated",
+                        "x": 2701,
+                        "y": 1686
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 212,
+                        "y": 839
                     }
                 ]
             },
@@ -1040,9 +1277,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 2892,
-                        "y": 4250
+                        "map": "full_map_separated",
+                        "x": 2148,
+                        "y": 1609
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 267,
+                        "y": 502
                     }
                 ]
             },
@@ -1061,9 +1303,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 311,
-                        "y": 3183
+                        "map": "full_map_separated",
+                        "x": 2590,
+                        "y": 289
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 1098,
+                        "y": 776
                     }
                 ]
             }
@@ -1087,9 +1334,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 4101,
-                        "y": 1123
+                        "map": "full_map_separated",
+                        "x": 2504,
+                        "y": 2896
+                    },
+                    {
+                        "map": "tower",
+                        "x": 262,
+                        "y": 460
                     }
                 ]
             },
@@ -1108,9 +1360,14 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 4101,
-                        "y": 885
+                        "map": "full_map_separated",
+                        "x": 2629,
+                        "y": 2896
+                    },
+                    {
+                        "map": "tower",
+                        "x": 262,
+                        "y": 338
                     }
                 ]
             }
@@ -1133,11 +1390,342 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map",
-                        "x": 3407,
-                        "y": 517,
-                        "size": 150,
+                        "map": "full_map_separated",
+                        "x": 2843,
+                        "y": 2896,
+                        "size": 100,
                         "border_thickness": 25
+                    },
+                    {
+                        "map": "full_map_grouped",
+                        "x": 2843,
+                        "y": 2896,
+                        "size": 100,
+                        "border_thickness": 25
+                    },
+                    {
+                        "map": "tower",
+                        "x": 263,
+                        "y": 237,
+                        "size": 28,
+                        "border_thickness": 7
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Full Map",
+        "children": [
+            {
+                "name": "Empty Bailey",
+                "sections": [
+                    {
+                        "name": "Solar Wind",
+                        "ref": "Empty Bailey/Solar Wind/"
+                    },
+                    {
+                        "name": "Cheese Bell",
+                        "ref": "Empty Bailey/Cheese Bell/"
+                    },
+                    {
+                        "name": "Inside Building",
+                        "ref": "Empty Bailey/Inside Building/"
+                    },
+                    {
+                        "name": "Center Steeple",
+                        "ref": "Empty Bailey/Center Steeple/"
+                    },
+                    {
+                        "name": "Guarded Hand",
+                        "ref": "Empty Bailey/Guarded Hand/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 1186,
+                        "y": 2719
+                    }
+                ]
+            },
+            {
+                "name": "Dilapitaded Dungeon",
+                "sections": [
+                    {
+                        "name": "Dream Breaker",
+                        "ref": "Dilapitaded Dungeon/Dream Breaker/"
+                    },
+                    {
+                        "name": "Slide",
+                        "ref": "Dilapitaded Dungeon/Slide/"
+                    },
+                    {
+                        "name": "Dark Orbs",
+                        "ref": "Dilapitaded Dungeon/Dark Orbs/"
+                    },
+                    {
+                        "name": "Rafters",
+                        "ref": "Dilapitaded Dungeon/Rafters/"
+                    },
+                    {
+                        "name": "Strong Eyes",
+                        "ref": "Dilapitaded Dungeon/Strong Eyes/"
+                    },
+                    {
+                        "name": "Alcove Near Mirror",
+                        "ref": "Dilapitaded Dungeon/Alcove Near Mirror/"
+                    },
+                    {
+                        "name": "Past Poles",
+                        "ref": "Dilapitaded Dungeon/Past Poles/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 1383,
+                        "y": 1103
+                    }
+                ]
+            },
+            {
+                "name": "Castle Sansa",
+                "sections": [
+                    {
+                        "name": "Indignation",
+                        "ref": "Castle Sansa/Indignation/"
+                    },
+                    {
+                        "name": "Floater In Courtyard",
+                        "ref": "Castle Sansa/Floater In Courtyard/"
+                    },
+                    {
+                        "name": "Locked Door",
+                        "ref": "Castle Sansa/Locked Door/"
+                    },
+                    {
+                        "name": "Platform In Main Halls",
+                        "ref": "Castle Sansa/Platform In Main Halls/"
+                    },
+                    {
+                        "name": "Tall Room Near Wheel Crawlers",
+                        "ref": "Castle Sansa/Tall Room Near Wheel Crawlers/"
+                    },
+                    {
+                        "name": "Alcove Near Dungeon",
+                        "ref": "Castle Sansa/Alcove Near Dungeon/"
+                    },
+                    {
+                        "name": "Corner Corridor",
+                        "ref": "Castle Sansa/Corner Corridor/"
+                    },
+                    {
+                        "name": "Wheel Crawlers",
+                        "ref": "Castle Sansa/Wheel Crawlers/"
+                    },
+                    {
+                        "name": "Balcony",
+                        "ref": "Castle Sansa/Balcony/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 1503,
+                        "y": 2326
+                    }
+                ]
+            },
+            {
+                "name": "Upper Castle Sansa",
+                "sections": [
+                    {
+                        "name": "High Climb From Courtyard",
+                        "ref": "Upper Castle Sansa/High Climb From Courtyard/"
+                    },
+                    {
+                        "name": "Alcove Near Scythe Corridor",
+                        "ref": "Upper Castle Sansa/Alcove Near Scythe Corridor/"
+                    },
+                    {
+                        "name": "Near Theatre Front",
+                        "ref": "Upper Castle Sansa/Near Theatre Front/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 990,
+                        "y": 2006
+                    }
+                ]
+            },
+            {
+                "name": "Sansa Keep",
+                "sections": [
+                    {
+                        "name": "Sunsetter",
+                        "ref": "Sansa Keep/Sunsetter/"
+                    },
+                    {
+                        "name": "Strikebreak",
+                        "ref": "Sansa Keep/Strikebreak/"
+                    },
+                    {
+                        "name": "Near Theatre",
+                        "ref": "Sansa Keep/Near Theatre/"
+                    },
+                    {
+                        "name": "Levers Room",
+                        "ref": "Sansa Keep/Levers Room/"
+                    },
+                    {
+                        "name": "Alcove Near Locked Door",
+                        "ref": "Sansa Keep/Alcove Near Locked Door/"
+                    },
+                    {
+                        "name": "Lonely Throne",
+                        "ref": "Sansa Keep/Lonely Throne/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 482,
+                        "y": 1175
+                    }
+                ]
+            },
+            {
+                "name": "Listless Library",
+                "sections": [
+                    {
+                        "name": "Sun Greaves",
+                        "ref": "Listless Library/Sun Greaves/"
+                    },
+                    {
+                        "name": "Sun Greaves Split",
+                        "ref": "Listless Library/Sun Greaves Split/"
+                    },
+                    {
+                        "name": "Locked Door Across",
+                        "ref": "Listless Library/Locked Door Across/"
+                    },
+                    {
+                        "name": "Locked Door Left",
+                        "ref": "Listless Library/Locked Door Left/"
+                    },
+                    {
+                        "name": "Upper Back",
+                        "ref": "Listless Library/Upper Back/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 2393,
+                        "y": 2367
+                    }
+                ]
+            },
+            {
+                "name": "Twilight Theatre",
+                "sections": [
+                    {
+                        "name": "Soul Cutter",
+                        "ref": "Twilight Theatre/Soul Cutter/"
+                    },
+                    {
+                        "name": "Corner Beam",
+                        "ref": "Twilight Theatre/Corner Beam/"
+                    },
+                    {
+                        "name": "Locked Door",
+                        "ref": "Twilight Theatre/Locked Door/"
+                    },
+                    {
+                        "name": "Murderous Goat",
+                        "ref": "Twilight Theatre/Murderous Goat/"
+                    },
+                    {
+                        "name": "Back Of Auditorium",
+                        "ref": "Twilight Theatre/Back Of Auditorium/"
+                    },
+                    {
+                        "name": "Center Stage",
+                        "ref": "Twilight Theatre/Center Stage/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 993,
+                        "y": 391
+                    }
+                ]
+            },
+            {
+                "name": "The Underbelly",
+                "sections": [
+                    {
+                        "name": "Ascendant Light",
+                        "ref": "Underbelly/Ascendant Light/"
+                    },
+                    {
+                        "name": "Locked Door",
+                        "ref": "Underbelly/Locked Door/"
+                    },
+                    {
+                        "name": "Strikebreak Wall",
+                        "ref": "Underbelly/Strikebreak Wall/"
+                    },
+                    {
+                        "name": "Main Room",
+                        "ref": "Underbelly/Main Room/"
+                    },
+                    {
+                        "name": "Rafters Near Keep",
+                        "ref": "Underbelly/Rafters Near Keep/"
+                    },
+                    {
+                        "name": "Building Near Little Guy",
+                        "ref": "Underbelly/Building Near Little Guy/"
+                    },
+                    {
+                        "name": "Alcove Near Light",
+                        "ref": "Underbelly/Alcove Near Light/"
+                    },
+                    {
+                        "name": "Surrounded By Holes",
+                        "ref": "Underbelly/Surrounded By Holes/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 2421,
+                        "y": 1516
+                    }
+                ]
+            },
+            {
+                "name": "Tower Remains",
+                "sections": [
+                    {
+                        "name": "Cling Gem",
+                        "ref": "Tower Remains/Cling Gem/"
+                    },
+                    {
+                        "name": "Atop The Tower",
+                        "ref": "Tower Remains/Atop The Tower/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_grouped",
+                        "x": 2307,
+                        "y": 2895
                     }
                 ]
             }
