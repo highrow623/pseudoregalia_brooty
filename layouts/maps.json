@@ -1,0 +1,105 @@
+{
+    "maps": {
+        "type": "tabbed",
+        "tabs": [
+            {
+                "title": "Full Map",
+                "content": {
+                    "type": "tabbed",
+                    "tabs": [
+                        {
+                            "title": "Separated Items",
+                            "content": {
+                                "type": "map",
+                                "maps": [
+                                    "full_map_separated"
+                                ]
+                            }
+                        },
+                        {
+                            "title": "Grouped Items",
+                            "content": {
+                                "type": "map",
+                                "maps": [
+                                    "full_map_grouped"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "title": "Dilapidated Dungeon",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "dungeon"
+                    ]
+                }
+            },
+            {
+                "title": "Castle Sansa",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "castle"
+                    ]
+                }
+            },
+            {
+                "title": "Empty Bailey",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "bailey"
+                    ]
+                }
+            },
+            {
+                "title": "Listless Library",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "library"
+                    ]
+                }
+            },
+            {
+                "title": "Sansa Keep",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "keep"
+                    ]
+                }
+            },
+            {
+                "title": "The Underbelly",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "underbelly"
+                    ]
+                }
+            },
+            {
+                "title": "Twilight Theatre",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "theatre"
+                    ]
+                }
+            },
+            {
+                "title": "Tower Remains",
+                "content": {
+                    "type": "map",
+                    "maps": [
+                        "tower"
+                    ]
+                }
+            }
+        ]
+    }
+}
