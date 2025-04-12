@@ -17,7 +17,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         ["Empty Bailey -> Castle Main"] = free,
         ["Empty Bailey -> Theatre Pillar"] = free,
         ["Empty Bailey -> Tower Remains"] = function(state)
-            return self:has_gem(state) or state:has_all({"Slide", "Sunsetter"}) or self:get_kicks(state, 1)
+            return self:has_gem(state) or self:has_slide(state) and self:has_plunge(state) or self:get_kicks(state, 1)
         end,
         ["Tower Remains -> Underbelly Little Guy"] = function(state)
             return self:has_plunge(state)
@@ -49,7 +49,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Empty Bailey - Center Steeple"] = function(state)
-            return self:get_kicks(state, 3) or state:has_all({"Sunsetter", "Slide"})
+            return self:get_kicks(state, 3) or self:has_slide(state) and self:has_plunge(state)
         end,
         ["Empty Bailey - Guarded Hand"] = function(state)
             return self:has_plunge(state) or self:has_gem(state) or self:get_kicks(state, 3)
@@ -64,8 +64,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         end,
         ["Twilight Theatre - Locked Door"] = function(state)
             return self:has_small_keys(state) and (
-                self:has_gem(state) or self:get_kicks(state, 3)
-            )
+                self:has_gem(state) or self:get_kicks(state, 3))
         end,
         ["Twilight Theatre - Back Of Auditorium"] = function(state)
             return self:get_kicks(state, 3) or self:has_gem(state)
