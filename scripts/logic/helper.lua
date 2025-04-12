@@ -114,16 +114,28 @@ function Location:new(name, code, parent_region)
         name = name,
         code = code,
         parent_region = parent_region,
-        access_rule = free,
+        access_rules = {},
     }, self)
 end
 
 function Location:set_rule(rule)
-    self.access_rule = rule
+    table.insert(self.access_rules, rule)
+end
+
+function Location:add_rule(rule, _)
+    table.insert(self.access_rules, rule)
 end
 
 function Location:can_reach(state)
-    return self.access_rule(state) and self.parent_region:can_reach(state)
+    if not self.parent_region:can_reach(state) then
+        return false
+    end
+    for _, rule in ipairs(self.access_rules) do
+        if rule(state) then
+            return true
+        end
+    end
+    return false
 end
 
 
@@ -188,12 +200,16 @@ function Entrance:new(name, parent_region)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rule = free,
+        access_rules = {},
     }, self)
 end
 
 function Entrance:set_rule(rule)
-    self.access_rule = rule
+    table.insert(self.access_rules, rule)
+end
+
+function Entrance:add_rule(rule, _)
+    table.insert(self.access_rules, rule)
 end
 
 function Entrance:connect(destination, addresses, target)
@@ -204,7 +220,15 @@ function Entrance:connect(destination, addresses, target)
 end
 
 function Entrance:can_reach(state)
-    return self.parent_region:can_reach(state) and self.access_rule(state)
+    if not self.parent_region:can_reach(state) then
+        return false
+    end
+    for _, rule in ipairs(self.access_rules) do
+        if rule(state) then
+            return true
+        end
+    end
+    return false
 end
 
 
