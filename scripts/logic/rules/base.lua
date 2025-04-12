@@ -85,10 +85,10 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
     local logic_level = self.definition.options.logic_level.value
 
     if obscure_logic then
-        self.knows_obscure = free
+        self.knows_obscure = function(self, state) return true end
         self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
     else
-        self.knows_obscure = no
+        self.knows_obscure = function(self, state) return false end
         self.can_attack = function(self, state) return self:has_breaker(state) end
     end
 
