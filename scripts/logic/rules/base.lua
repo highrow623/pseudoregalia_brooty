@@ -80,7 +80,24 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         ["Tower Remains - Atop The Tower"] = free,
     }
     self:apply_clauses(region_clauses, location_clauses)
-    self.required_small_keys = 6
+
+    local obscure_logic = self.definition.options.obscure_logic.value
+    local logic_level = self.definition.options.logic_level.value
+
+    if obscure_logic then
+        self.knows_obscure = free
+        self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
+    else
+        self.knows_obscure = no
+        self.can_attack = function(self, state) return self:has_breaker(state) end
+    end
+
+    if logic_level == NORMAL then
+        self.required_small_keys = 7
+    else
+        self.required_small_keys = 6
+    end
+
     cls.__index = cls
     setmetatable(self, cls)
     return self
@@ -180,20 +197,6 @@ end
 
 function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     local split_kicks = self.definition.options.split_sun_greaves.value
-    local obscure_logic = self.definition.options.obscure_logic.value
-    local logic_level = self.definition.options.logic_level.value
-
-    if obscure_logic then
-        self.knows_obscure = free
-        self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
-    else
-        self.knows_obscure = no
-        self.can_attack = function(self, state) return self:has_breaker(state) end
-    end
-
-    if logic_level == NORMAL then
-        self.required_small_keys = 7
-    end
 
     for name, rules in pairs(self.region_rules) do
         local entrance = self.definition:get_entrance(name)
