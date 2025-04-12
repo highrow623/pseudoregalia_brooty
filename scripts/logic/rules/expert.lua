@@ -1,9 +1,5 @@
 -- TODO = require base
 
-
-local free = function(state) return true end
-local no = function(state) return false end
-
 PseudoregaliaExpertRules = PseudoregaliaHardRules:new(nil)
 
 function PseudoregaliaExpertRules.new(cls, definition)
