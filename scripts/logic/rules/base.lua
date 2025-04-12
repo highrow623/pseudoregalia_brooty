@@ -200,7 +200,7 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
         local entrance = self.definition:get_entrance(name)
         if entrance then
             for index, rule in ipairs(rules) do
-                if index == 0 then
+                if index == 1 then
                     entrance:set_rule(rule)
                 else
                     entrance:add_rule(rule, "or")
@@ -218,7 +218,7 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
             local location = self.definition:get_location(name)
             if location then
                 for index, rule in ipairs(rules) do
-                    if index == 0 then
+                    if index == 1 then
                         location:set_rule(rule)
                     else
                         location:add_rule(rule, "or")
