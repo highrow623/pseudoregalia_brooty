@@ -1,11 +1,11 @@
 -- TODO: require base
 
-PseudoregaliaHardRules = PseudoregaliaRulesHelpers:new(nil)
+PseudoregaliaHardRules = PseudoregaliaNormalRules:new(nil)
 
 function PseudoregaliaHardRules.new(cls, definition)
-    local self = PseudoregaliaRulesHelpers.new(cls, definition)
+    local self = PseudoregaliaNormalRules.new(cls, definition)
 
-    for k, v in pairs({
+    region_clauses = {
         ["Dungeon Mirror -> Dungeon Slide"] = function(state)
             return self:can_attack(state)
         end,
@@ -228,11 +228,9 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["Underbelly Hole -> Underbelly => Keep"] = function(state)
             return self:has_slide(state)
         end,
-    }) do
-        self.region_rules[k] = v
-    end
+    }
 
-    for k, v in pairs({
+    location_clauses = {
         --# "Dilapidated Dungeon - Dream Breaker" = function(state) True,
         --# "Dilapidated Dungeon - Slide" = function(state) True,
         --# "Dilapidated Dungeon - Alcove Near Mirror" = function(state) True,
@@ -413,9 +411,9 @@ function PseudoregaliaHardRules.new(cls, definition)
             )
             or self:has_gem(state)
         end,
-    }) do
-        self.location_rules[k] = v
-    end
+    }
+
+    self.apply_clauses(region_clauses, location_clauses)
 
     return self
 end

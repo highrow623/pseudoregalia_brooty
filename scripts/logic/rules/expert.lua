@@ -4,12 +4,12 @@
 local free = function(state) return true end
 local no = function(state) return false end
 
-PseudoregaliaExpertRules = PseudoregaliaRulesHelpers:new(nil)
+PseudoregaliaExpertRules = PseudoregaliaHardRules:new(nil)
 
 function PseudoregaliaExpertRules.new(cls, definition)
-    local self = PseudoregaliaRulesHelpers.new(cls, definition)
+    local self = PseudoregaliaHardRules.new(cls, definition)
 
-    for k, v in pairs({
+    region_clauses = {
         ["Dungeon Mirror -> Dungeon Slide"] = function(state)
             return self:can_attack(state)
         end,
@@ -236,11 +236,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Underbelly Hole -> Underbelly => Keep"] = function(state)
             return self:has_slide(state)
         end,
-    }) do
-        self.region_rules[k] = v
-    end
+    }
     
-    for k, v in pairs({
+    location_clauses = {
         --# "Dilapidated Dungeon - Dream Breaker" = function(state) True,
         --# "Dilapidated Dungeon - Slide" = function(state) True,
         --# "Dilapidated Dungeon - Alcove Near Mirror" = function(state) True,
@@ -424,9 +422,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
             or self:has_gem(state)
             or self:has_slide(state) and self:get_kicks(state, 1)
         end,
-    }) do
-        self.location_rules[k] = v
-    end
+    }
+
+    self.apply_clauses(region_clauses, location_clauses)
 
     return self
 end

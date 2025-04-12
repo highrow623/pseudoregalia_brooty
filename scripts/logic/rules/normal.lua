@@ -5,7 +5,7 @@ PseudoregaliaNormalRules = PseudoregaliaRulesHelpers:new(nil)
 function PseudoregaliaNormalRules.new(cls, definition)
     local self = PseudoregaliaRulesHelpers.new(cls, definition)
 
-    for k, v in pairs({
+    region_clauses = {
         ["Dungeon Mirror -> Dungeon Slide"] = function(state)
             return self:can_attack(state)
         end,
@@ -186,11 +186,9 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Underbelly Hole -> Underbelly => Keep"] = function(state)
             return self:has_slide(state)
         end,
-    }) do
-        self.region_rules[k] = v
-    end
+    }
 
-    for k, v in pairs({
+    location_clauses = {
         ["Dilapidated Dungeon - Dark Orbs"] = function(state)
             return (self:has_gem(state) and self:can_bounce(state)
                 or self:has_gem(state) and self:kick_or_plunge(state, 3)
@@ -356,9 +354,9 @@ function PseudoregaliaNormalRules.new(cls, definition)
                 self:can_bounce(state) or self:get_kicks(state, 2)
             ) or self:can_slidejump(state) and self:has_gem(state) and self:get_kicks(state, 1)
         end,
-    }) do
-        self.location_rules[k] = v
-    end
+    }
+
+    self.apply_clauses(region_clauses, location_clauses)
 
     return self
 end

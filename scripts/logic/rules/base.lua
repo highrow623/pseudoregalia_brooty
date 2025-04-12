@@ -10,7 +10,10 @@ local no = function(state) return false end
 function PseudoregaliaRulesHelpers.new(cls, definition)
     local self = {}
     self. definition = definition -- this is equivalent to multiworld in AP
-    self.region_rules = {
+    self.region_rules = {}
+    self.location_rules = {}
+
+    region_clauses = {
         ["Empty Bailey -> Castle Main"] = free,
         ["Empty Bailey -> Theatre Pillar"] = free,
         ["Empty Bailey -> Tower Remains"] = function(state)
@@ -32,7 +35,8 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
             return self:has_gem(state) and (self:get_kicks(state, 3) or self:can_slidejump(state))
         end,
     }
-    self.location_rules = {
+
+    location_clauses = {
         ["Empty Bailey - Solar Wind"] = function(state)
             return self:has_slide(state)
         end,
@@ -76,10 +80,26 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         end,
         ["Tower Remains - Atop The Tower"] = free,
     }
+    self.apply_clauses(region_clauses, location_clauses)
     self.required_small_keys = 6
     cls.__index = cls
     setmetatable(self, cls)
     return self
+end
+
+function PseudoregaliaRulesHelpers:apply_clauses(region_clauses, location_clauses)
+    for name, rule in pairs(region_clauses) do
+        if self.region_rules[name] == nil then
+            table.insert(self.region_rules, name, {})
+        end
+        table.insert(self.region_rules[name], rule)
+    end
+    for name, rule in pairs(location_clauses) do
+        if self.location_rules[name] == nil then
+            table.insert(self.location_rules, name, {})
+        end
+        table.insert(self.location_rules[name], rule)
+    end
 end
 
 function PseudoregaliaRulesHelpers:has_breaker(state)
@@ -176,22 +196,34 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
         self.required_small_keys = 7
     end
 
-    for name, rule in pairs(self.region_rules) do
+    for name, rules in pairs(self.region_rules) do
         local entrance = self.definition:get_entrance(name)
         if entrance then
-            entrance:set_rule(rule)
+            for index, rule in ipairs(rules) do
+                if index == 0 then
+                    entrance:set_rule(rule)
+                else
+                    entrance:add_rule(rule, "or")
+                end
+            end
         else
             print("Missing entrance: " .. name)
         end
     end
-    for name, rule in pairs(self.location_rules) do
+    for name, rules in pairs(self.location_rules) do
         local library = name:find("^Listless Library") ~= nil
         if (not library or
                 not (split_kicks and name:find("Greaves$") ~= nil)
                 and not (not split_kicks and tonumber(name:sub(-1)) ~= nil)) then
             local location = self.definition:get_location(name)
             if location then
-                location:set_rule(rule)
+                for index, rule in ipairs(rules) do
+                    if index == 0 then
+                        location:set_rule(rule)
+                    else
+                        location:add_rule(rule, "or")
+                    end
+                end
             else
                 print("Missing location: " .. name)
             end
