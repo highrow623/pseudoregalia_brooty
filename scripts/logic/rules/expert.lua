@@ -424,7 +424,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
     }
 
-    self.apply_clauses(region_clauses, location_clauses)
+    self:apply_clauses(region_clauses, location_clauses)
 
     return self
 end

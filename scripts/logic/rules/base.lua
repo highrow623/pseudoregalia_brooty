@@ -80,7 +80,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         end,
         ["Tower Remains - Atop The Tower"] = free,
     }
-    self.apply_clauses(region_clauses, location_clauses)
+    self:apply_clauses(region_clauses, location_clauses)
     self.required_small_keys = 6
     cls.__index = cls
     setmetatable(self, cls)
