@@ -7,7 +7,7 @@ PseudoregaliaLunaticRules = PseudoregaliaExpertRules:new(nil)
 function PseudoregaliaLunaticRules.new(cls, definition)
     local self = PseudoregaliaExpertRules.new(cls, definition)
 
-    region_clauses = {
+    local region_clauses = {
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_slide(state) and self:kick_or_plunge(state, 1)
         end,
@@ -33,7 +33,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
     }
 
-    location_clauses = {
+    local location_clauses = {
         ["Dilapidated Dungeon - Past Poles"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
@@ -68,7 +68,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
     }
 
-    self:apply_clauses(region_clauses, location_clauses)
+    apply_clauses(self, region_clauses, location_clauses)
 
     return self
 end

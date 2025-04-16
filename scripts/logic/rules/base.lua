@@ -6,6 +6,20 @@ local NORMAL = constants.difficulties.NORMAL
 local free = function(state) return true end
 local no = function(state) return false end
 
+function apply_clauses(rulesObj, region_clauses, location_clauses)
+    for name, rule in pairs(region_clauses) do
+        if rulesObj.region_rules[name] == nil then
+            rulesObj.region_rules[name] = {}
+        end
+        table.insert(rulesObj.region_rules[name], rule)
+    end
+    for name, rule in pairs(location_clauses) do
+        if rulesObj.location_rules[name] == nil then
+            rulesObj.location_rules[name] = {}
+        end
+        table.insert(rulesObj.location_rules[name], rule)
+    end
+end
 
 function PseudoregaliaRulesHelpers.new(cls, definition)
     local self = {}
@@ -13,7 +27,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
     self.region_rules = {}
     self.location_rules = {}
 
-    region_clauses = {
+    local region_clauses = {
         ["Empty Bailey -> Castle Main"] = free,
         ["Empty Bailey -> Theatre Pillar"] = free,
         ["Empty Bailey -> Tower Remains"] = function(state)
@@ -36,7 +50,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         end,
     }
 
-    location_clauses = {
+    local location_clauses = {
         ["Empty Bailey - Solar Wind"] = function(state)
             return self:has_slide(state)
         end,
@@ -79,43 +93,31 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         end,
         ["Tower Remains - Atop The Tower"] = free,
     }
-    self:apply_clauses(region_clauses, location_clauses)
+    
+    apply_clauses(self, region_clauses, location_clauses)
 
-    local obscure_logic = self.definition.options.obscure_logic.value
-    local logic_level = self.definition.options.logic_level.value
+    if self.definition then
+        local obscure_logic = self.definition.options.obscure_logic.value
+        local logic_level = self.definition.options.logic_level.value
 
-    if obscure_logic then
-        self.knows_obscure = function(self, state) return true end
-        self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
-    else
-        self.knows_obscure = function(self, state) return false end
-        self.can_attack = function(self, state) return self:has_breaker(state) end
-    end
+        if obscure_logic then
+            self.knows_obscure = function(self, state) return true end
+            self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
+        else
+            self.knows_obscure = function(self, state) return false end
+            self.can_attack = function(self, state) return self:has_breaker(state) end
+        end
 
-    if logic_level == NORMAL then
-        self.required_small_keys = 7
-    else
-        self.required_small_keys = 6
+        if logic_level == NORMAL then
+            self.required_small_keys = 7
+        else
+            self.required_small_keys = 6
+        end
     end
 
     cls.__index = cls
     setmetatable(self, cls)
     return self
-end
-
-function PseudoregaliaRulesHelpers:apply_clauses(region_clauses, location_clauses)
-    for name, rule in pairs(region_clauses) do
-        if self.region_rules[name] == nil then
-            table.insert(self.region_rules, name, {})
-        end
-        table.insert(self.region_rules[name], rule)
-    end
-    for name, rule in pairs(location_clauses) do
-        if self.location_rules[name] == nil then
-            table.insert(self.location_rules, name, {})
-        end
-        table.insert(self.location_rules[name], rule)
-    end
 end
 
 function PseudoregaliaRulesHelpers:has_breaker(state)

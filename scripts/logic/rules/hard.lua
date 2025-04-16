@@ -7,7 +7,7 @@ PseudoregaliaHardRules = PseudoregaliaNormalRules:new(nil)
 function PseudoregaliaHardRules.new(cls, definition)
     local self = PseudoregaliaNormalRules.new(cls, definition)
 
-    region_clauses = {
+    local region_clauses = {
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_gem(state)
             or self:kick_or_plunge(state, 2)
@@ -98,7 +98,7 @@ function PseudoregaliaHardRules.new(cls, definition)
         end,
     }
 
-    location_clauses = {
+    local location_clauses = {
         ["Dilapidated Dungeon - Dark Orbs"] = function(state)
             return self:has_gem(state)
             or self:get_kicks(state, 1) and self:can_bounce(state)
@@ -205,7 +205,7 @@ function PseudoregaliaHardRules.new(cls, definition)
         end,
     }
 
-    self:apply_clauses(region_clauses, location_clauses)
+    apply_clauses(self, region_clauses, location_clauses)
 
     return self
 end

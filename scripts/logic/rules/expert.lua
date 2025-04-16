@@ -5,7 +5,7 @@ PseudoregaliaExpertRules = PseudoregaliaHardRules:new(nil)
 function PseudoregaliaExpertRules.new(cls, definition)
     local self = PseudoregaliaHardRules.new(cls, definition)
 
-    region_clauses = {
+    local region_clauses = {
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
         end,
@@ -119,7 +119,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
     }
     
-    location_clauses = {
+    local location_clauses = {
         ["Dilapidated Dungeon - Dark Orbs"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
             or self:has_slide(state) and self:can_bounce(state)
@@ -224,7 +224,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
     }
 
-    self:apply_clauses(region_clauses, location_clauses)
+    apply_clauses(self, region_clauses, location_clauses)
 
     return self
 end

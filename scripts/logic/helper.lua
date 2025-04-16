@@ -130,6 +130,9 @@ function Location:can_reach(state)
     if not self.parent_region:can_reach(state) then
         return false
     end
+    if #self.access_rules == 0 then
+        return true
+    end
     for _, rule in ipairs(self.access_rules) do
         if rule(state) then
             return true
@@ -222,6 +225,9 @@ end
 function Entrance:can_reach(state)
     if not self.parent_region:can_reach(state) then
         return false
+    end
+    if #self.access_rules == 0 then
+        return true
     end
     for _, rule in ipairs(self.access_rules) do
         if rule(state) then
