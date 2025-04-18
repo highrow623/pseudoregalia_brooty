@@ -114,31 +114,29 @@ function Location:new(name, code, parent_region)
         name = name,
         code = code,
         parent_region = parent_region,
-        access_rules = {},
+        access_rule = free,
     }, self)
 end
 
 function Location:set_rule(rule)
-    table.insert(self.access_rules, rule)
+    self.access_rule = rule
 end
 
-function Location:add_rule(rule, _)
-    table.insert(self.access_rules, rule)
+function Location:add_rule(rule, op)
+    local old_rule = self.access_rule
+    if old_rule == free then
+        self.access_rule = rule
+        return
+    end
+    if op == "and" then
+        self.access_rule = function(state) return rule(state) and old_rule(state) end
+    elseif op == "or" then
+        self.access_rule = function(state) return rule(state) or old_rule(state) end
+    end
 end
 
 function Location:can_reach(state)
-    if not self.parent_region:can_reach(state) then
-        return false
-    end
-    if #self.access_rules == 0 then
-        return true
-    end
-    for _, rule in ipairs(self.access_rules) do
-        if rule(state) then
-            return true
-        end
-    end
-    return false
+    return self.access_rule(state) and self.parent_region:can_reach(state)
 end
 
 
@@ -203,16 +201,25 @@ function Entrance:new(name, parent_region)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rules = {},
+        access_rule = free,
     }, self)
 end
 
 function Entrance:set_rule(rule)
-    table.insert(self.access_rules, rule)
+    self.access_rule = rule
 end
 
-function Entrance:add_rule(rule, _)
-    table.insert(self.access_rules, rule)
+function Entrance:add_rule(rule, op)
+    local old_rule = self.access_rule
+    if old_rule == free then
+        self.access_rule = rule
+        return
+    end
+    if op == "and" then
+        self.access_rule = function(state) return rule(state) and old_rule(state) end
+    elseif op == "or" then
+        self.access_rule = function(state) return rule(state) or old_rule(state) end
+    end
 end
 
 function Entrance:connect(destination, addresses, target)
@@ -223,18 +230,7 @@ function Entrance:connect(destination, addresses, target)
 end
 
 function Entrance:can_reach(state)
-    if not self.parent_region:can_reach(state) then
-        return false
-    end
-    if #self.access_rules == 0 then
-        return true
-    end
-    for _, rule in ipairs(self.access_rules) do
-        if rule(state) then
-            return true
-        end
-    end
-    return false
+    return self.parent_region:can_reach(state) and self.access_rule(state)
 end
 
 
