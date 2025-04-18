@@ -122,16 +122,18 @@ function Location:set_rule(rule)
     self.access_rule = rule
 end
 
-function Location:add_rule(rule, op)
+function Location:add_rule(rule, combine)
     local old_rule = self.access_rule
     if old_rule == free then
-        self.access_rule = rule
-        return
-    end
-    if op == "and" then
-        self.access_rule = function(state) return rule(state) and old_rule(state) end
-    elseif op == "or" then
-        self.access_rule = function(state) return rule(state) or old_rule(state) end
+        if combine == "and" then
+            self.access_rule = rule
+        end
+    else
+        if combine == "and" then
+            self.access_rule = function(state) return rule(state) and old_rule(state) end
+        else
+            self.access_rule = function(state) return rule(state) or old_rule(state) end
+        end
     end
 end
 
@@ -209,16 +211,18 @@ function Entrance:set_rule(rule)
     self.access_rule = rule
 end
 
-function Entrance:add_rule(rule, op)
+function Entrance:add_rule(rule, combine)
     local old_rule = self.access_rule
     if old_rule == free then
-        self.access_rule = rule
-        return
-    end
-    if op == "and" then
-        self.access_rule = function(state) return rule(state) and old_rule(state) end
-    elseif op == "or" then
-        self.access_rule = function(state) return rule(state) or old_rule(state) end
+        if combine == "and" then
+            self.access_rule = rule
+        end
+    else
+        if combine == "and" then
+            self.access_rule = function(state) return rule(state) and old_rule(state) end
+        else
+            self.access_rule = function(state) return rule(state) or old_rule(state) end
+        end
     end
 end
 
