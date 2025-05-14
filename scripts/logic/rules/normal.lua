@@ -44,7 +44,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             or self:has_gem(state) and self:can_slidejump(state)
         end,
         ["Theatre Outside Scythe Corridor -> Dungeon Escape Upper"] = function (state)
-            return self:has_gem(state)
+            return self:navigate_darkrooms(state) and self:has_gem(state)
         end,
         ["Theatre Outside Scythe Corridor -> Keep Main"] = function (state)
             return self:has_gem(state)
