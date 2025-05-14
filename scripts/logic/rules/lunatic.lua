@@ -8,8 +8,20 @@ function PseudoregaliaLunaticRules.new(cls, definition)
     local self = PseudoregaliaExpertRules.new(cls, definition)
 
     local region_clauses = {
+        ["Tower Remains -> The Great Door"] = function (state)
+            return self:has_slide(state) and self:get_kicks(state, 1)
+        end,
+        ["Bailey Lower -> Bailey Upper"] = function (state)
+            return self:can_bounce(state)
+        end,
+        ["Theatre Pillar -> Theatre Main"] = function (state)
+            return self:get_kicks(state, 2)
+        end,
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_slide(state) and self:kick_or_plunge(state, 1)
+        end,
+        ["Castle Main -> Castle => Theatre Pillar"] = function (state)
+            return self:has_plunge(state)
         end,
         ["Castle Spiral Climb -> Castle By Scythe Corridor"] = function(state)
             return self:get_kicks(state, 3)

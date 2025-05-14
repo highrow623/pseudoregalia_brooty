@@ -32,9 +32,9 @@ region_table = {
     ["Castle Main"] = {
         "Dungeon => Castle",
         "Keep Main",
-        "Empty Bailey",
+        "Bailey Lower",
         "Library Main",
-        "Theatre Pillar",
+        "Castle => Theatre Pillar",
         "Castle Spiral Climb",
     },
     ["Castle Spiral Climb"] = {
@@ -87,13 +87,17 @@ region_table = {
         "Underbelly => Keep",
     },
 
-    ["Empty Bailey"] = {
+    ["Bailey Lower"] = {
+        "Bailey Upper",
         "Castle Main",
+        "Theatre Pillar => Bailey",
+    },
+    ["Bailey Upper"] = {
+        "Bailey Lower",
+        "Underbelly Little Guy",
         "Tower Remains",
-        "Theatre Pillar",
     },
     ["Tower Remains"] = {
-        "Underbelly Little Guy",
         "The Great Door",
     },
     ["Underbelly => Dungeon"] = {
@@ -125,7 +129,8 @@ region_table = {
         "Underbelly Main Upper",
     },
     ["Underbelly Little Guy"] = {
-        "Empty Bailey",
+        "Bailey Upper",
+        "Bailey Lower",
         "Underbelly Main Lower",
     },
     ["Underbelly => Keep"] = {
@@ -138,13 +143,27 @@ region_table = {
     },
 
     ["Theatre Main"] = {
-        "Keep Main",
+        "Theatre Outside Scythe Corridor",
+        "Theatre Pillar",
+        "Castle => Theatre (Front)",
+    },
+    ["Theatre Pillar => Bailey"] = {
+        "Theatre Pillar",
+        "Bailey Lower",
+    },
+    ["Castle => Theatre Pillar"] = {
+        "Theatre Pillar",
+        "Castle Main",
     },
     ["Theatre Pillar"] = {
         "Theatre Main",
+        "Theatre Pillar => Bailey",
+        "Castle => Theatre Pillar",
     },
     ["Theatre Outside Scythe Corridor"] = {
         "Theatre Main",
+        "Dungeon Escape Upper",
+        "Keep Main",
     },
 
     ["The Great Door"] = {

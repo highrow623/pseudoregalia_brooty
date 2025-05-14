@@ -6,13 +6,38 @@ function PseudoregaliaExpertRules.new(cls, definition)
     local self = PseudoregaliaHardRules.new(cls, definition)
 
     local region_clauses = {
+        ["Bailey Lower -> Bailey Upper"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Bailey Upper -> Tower Remains"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Tower Remains -> The Great Door"] = function (state)
+            return self:has_slide(state)
+            and (
+                self:has_gem(state)
+                or self:kick_or_plunge(state, 2))
+        end,
+        ["Theatre Main -> Castle => Theatre (Front)"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Theatre Pillar => Bailey -> Theatre Pillar"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Castle => Theatre Pillar -> Theatre Pillar"] = function (state)
+            return self:get_kicks(state, 1)
+            or self:has_slide(state)
+        end,
+        ["Theatre Pillar -> Theatre Main"] = function (state)
+            return self:has_slide(state) and self:kick_or_plunge(state, 3)
+        end,
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
         end,
         ["Dungeon Escape Upper -> Theatre Outside Scythe Corridor"] = function(state)
             return self:has_slide(state)
         end,
-        ["Castle Main -> Theatre Pillar"] = function(state)
+        ["Castle Main -> Castle => Theatre Pillar"] = function(state)
             return self:has_slide(state)
         end,
         ["Castle Main -> Castle Spiral Climb"] = function(state)
@@ -37,6 +62,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
             or self:get_kicks(state, 3)
         end,
         ["Castle => Theatre (Front) -> Castle Moon Room"] = function(state)
+            return self:has_slide(state)
+        end,
+        ["Castle => Theatre (Front) -> Theatre Main"] = function (state)
             return self:has_slide(state)
         end,
         ["Library Main -> Library Top"] = function(state)
@@ -120,6 +148,34 @@ function PseudoregaliaExpertRules.new(cls, definition)
     }
     
     local location_clauses = {
+        ["Empty Bailey - Cheese Bell"] = function (state)
+            return self:has_slide(state) and self:get_kicks(state, 1)
+        end,
+        ["Empty Bailey - Center Steeple"] = function (state)
+            return self:get_kicks(state, 1)
+            or self:has_slide(state)
+        end,
+        ["Twilight Theatre - Soul Cutter"] = function (state)
+            return self:can_strikebreak(state) and self:has_slide(state)
+        end,
+        ["Twilight Theatre - Corner Beam"] = function (state)
+            return self:has_slide(state)
+            and (
+                self:kick_or_plunge(state, 2)
+                or self:has_gem(state))
+        end,
+        ["Twilight Theatre - Locked Door"] = function (state)
+            return self:has_small_keys(state) and self:has_slide(state)
+        end,
+        ["Twilight Theatre - Back Of Auditorium"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Twilight Theatre - Center Stage"] = function (state)
+            return self:can_soulcutter(state) and self:has_gem(state)
+        end,
+        ["Tower Remains - Cling Gem"] = function (state)
+            return self:has_slide(state)
+        end,
         ["Dilapidated Dungeon - Dark Orbs"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
             or self:has_slide(state) and self:can_bounce(state)
@@ -149,8 +205,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Castle Sansa - Alcove Near Dungeon"] = function(state)
-            return self:kick_or_plunge(state, 1)
-            or self:has_slide(state)
+            return self:has_slide(state)
         end,
         ["Castle Sansa - Balcony"] = function(state)
             return self:get_kicks(state, 3)
@@ -203,7 +258,8 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["The Underbelly - Main Room"] = function(state)
-            return self:has_slide(state) or self:get_kicks(state, 1)
+            return self:has_slide(state)
+            or self:get_kicks(state, 1)
         end,
         ["The Underbelly - Alcove Near Light"] = function(state)
             return self:get_kicks(state, 1) and self:has_slide(state)
