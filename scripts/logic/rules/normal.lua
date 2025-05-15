@@ -271,7 +271,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_plunge(state)
         end,
         ["Empty Bailey - Guarded Hand"] = function (state)
-            return self.definition:get_region("Bailey Upper"):can_reach()
+            return self.definition:get_region("Bailey Upper"):can_reach(state)
             and (
                 self:knows_obscure(state)
                 or self:has_gem(state)
@@ -442,7 +442,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Sansa Keep - Lonely Throne"] = function(state)
             return self:has_breaker(state) and self:has_gem(state)
             and (
-                self:has_plunge(state) and self:get_kicks(state)
+                self:has_plunge(state) and self:get_kicks(state, 1)
                 or self:has_plunge(state) and self:can_bounce(state)
                 or self:get_kicks(state, 1) and self:can_bounce(state))
             or self:can_bounce(state) and self:kick_or_plunge(state, 4)
