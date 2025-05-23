@@ -13,7 +13,7 @@ To connect to the AP server for auto-tracking, click on the `AP` button at the t
 
 ## More Info
 
-Find the [Pseudoregalia AP Randomizer](https://github.com/pseudoregalia-modding/pseudoregalia-archipelago) here and download the most recent release and follow the instructions for setting up Pseudoregalia randomizer there.
+Find the [Pseudoregalia AP Randomizer](https://github.com/qwint/pseudoregalia-archipelago) here and download the most recent release and follow the instructions for setting up Pseudoregalia randomizer there.
 
 Check out PopTrackers [here](https://github.com/black-sliver/PopTracker)
 
