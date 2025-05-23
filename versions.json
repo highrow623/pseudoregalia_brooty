@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.6",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.6/pseudoregalia_brooty.zip",
+            "sha256": "c7c3e116853d14b5fffe944023d709b9eb4a5912c9d65be69f846036d02d9fd0",
+            "changelog": [
+                "updated logic for theatre, bailey, tower"
+            ]
+        },
+        {
             "package_version": "0.1.5",
             "download_url": "https://github.com/Br00ty/pseudoregalia_brooty/releases/download/0.1.5/pseudoregalia_brooty.zip",
             "sha256": "15ad3ec67c655e138610fa65681c6e24ce0beb8ee1bd1a9525d838db06322230",

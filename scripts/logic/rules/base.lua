@@ -6,77 +6,46 @@ local NORMAL = constants.difficulties.NORMAL
 local free = function(state) return true end
 local no = function(state) return false end
 
+function apply_clauses(rulesObj, region_clauses, location_clauses)
+    for name, rule in pairs(region_clauses) do
+        if rulesObj.region_rules[name] == nil then
+            rulesObj.region_rules[name] = {}
+        end
+        table.insert(rulesObj.region_rules[name], rule)
+    end
+    for name, rule in pairs(location_clauses) do
+        if rulesObj.location_rules[name] == nil then
+            rulesObj.location_rules[name] = {}
+        end
+        table.insert(rulesObj.location_rules[name], rule)
+    end
+end
 
 function PseudoregaliaRulesHelpers.new(cls, definition)
     local self = {}
     self. definition = definition -- this is equivalent to multiworld in AP
-    self.region_rules = {
-        ["Empty Bailey -> Castle Main"] = free,
-        ["Empty Bailey -> Theatre Pillar"] = free,
-        ["Empty Bailey -> Tower Remains"] = function(state)
-            return self:has_gem(state) or state:has_all({"Slide", "Sunsetter"}) or self:get_kicks(state, 1)
-        end,
-        ["Tower Remains -> Underbelly Little Guy"] = function(state)
-            return self:has_plunge(state)
-        end,
-        ["Tower Remains -> The Great Door"] = function(state)
-            return self:has_gem(state) and self:get_kicks(state, 3)
-        end,
-        ["Theatre Main -> Keep Main"] = function(state)
-            return self:has_gem(state)
-        end,
-        ["Theatre Pillar -> Theatre Main"] = function(state)
-            return state:has_all({"Sunsetter", "Cling Gem"}) or self:has_plunge(state) and self:get_kicks(state, 4)
-        end,
-        ["Theatre Outside Scythe Corridor -> Theatre Main"] = function(state)
-            return self:has_gem(state) and (self:get_kicks(state, 3) or self:can_slidejump(state))
-        end,
-    }
-    self.location_rules = {
-        ["Empty Bailey - Solar Wind"] = function(state)
-            return self:has_slide(state)
-        end,
-        ["Empty Bailey - Cheese Bell"] = function(state)
-            return (self:can_slidejump(state) and self:get_kicks(state, 1) and self:has_plunge(state)
-                or self:can_slidejump(state) and self:has_gem(state)
-                or self:get_kicks(state, 3) and self:has_plunge(state))
-        end,
-        ["Empty Bailey - Inside Building"] = function(state)
-            return self:has_slide(state)
-        end,
-        ["Empty Bailey - Center Steeple"] = function(state)
-            return self:get_kicks(state, 3) or state:has_all({"Sunsetter", "Slide"})
-        end,
-        ["Empty Bailey - Guarded Hand"] = function(state)
-            return self:has_plunge(state) or self:has_gem(state) or self:get_kicks(state, 3)
-        end,
-        ["Twilight Theatre - Soul Cutter"] = function(state)
-            return self:can_strikebreak(state)
-        end,
-        ["Twilight Theatre - Corner Beam"] = function(state)
-            return (self:has_gem(state) and self:get_kicks(state, 3)
-                or self:has_gem(state) and self:can_slidejump(state)
-                or self:get_kicks(state, 3) and self:can_slidejump(state))
-        end,
-        ["Twilight Theatre - Locked Door"] = function(state)
-            return self:has_small_keys(state) and (
-                self:has_gem(state) or self:get_kicks(state, 3)
-            )
-        end,
-        ["Twilight Theatre - Back Of Auditorium"] = function(state)
-            return self:get_kicks(state, 3) or self:has_gem(state)
-        end,
-        ["Twilight Theatre - Murderous Goat"] = free,
-        ["Twilight Theatre - Center Stage"] = function(state)
-            return self:can_soulcutter(state) and self:has_gem(state) and (
-                self:can_slidejump(state) or self:get_kicks(state, 1))
-        end,
-        ["Tower Remains - Cling Gem"] = function(state)
-            return self:get_kicks(state, 3)
-        end,
-        ["Tower Remains - Atop The Tower"] = free,
-    }
-    self.required_small_keys = 6
+    self.region_rules = {}
+    self.location_rules = {}
+
+    if self.definition then
+        local obscure_logic = self.definition.options.obscure_logic.value
+        local logic_level = self.definition.options.logic_level.value
+
+        if obscure_logic then
+            self.knows_obscure = function(self, state) return true end
+            self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
+        else
+            self.knows_obscure = function(self, state) return false end
+            self.can_attack = function(self, state) return self:has_breaker(state) end
+        end
+
+        if logic_level == NORMAL then
+            self.required_small_keys = 7
+        else
+            self.required_small_keys = 6
+        end
+    end
+
     cls.__index = cls
     setmetatable(self, cls)
     return self
@@ -161,37 +130,35 @@ end
 
 function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     local split_kicks = self.definition.options.split_sun_greaves.value
-    local obscure_logic = self.definition.options.obscure_logic.value
-    local logic_level = self.definition.options.logic_level.value
 
-    if obscure_logic then
-        self.knows_obscure = free
-        self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
-    else
-        self.knows_obscure = no
-        self.can_attack = function(self, state) return self:has_breaker(state) end
-    end
-
-    if logic_level == NORMAL then
-        self.required_small_keys = 7
-    end
-
-    for name, rule in pairs(self.region_rules) do
+    for name, rules in pairs(self.region_rules) do
         local entrance = self.definition:get_entrance(name)
         if entrance then
-            entrance:set_rule(rule)
+            for index, rule in ipairs(rules) do
+                if index == 1 then
+                    entrance:set_rule(rule)
+                else
+                    entrance:add_rule(rule, "or")
+                end
+            end
         else
             print("Missing entrance: " .. name)
         end
     end
-    for name, rule in pairs(self.location_rules) do
+    for name, rules in pairs(self.location_rules) do
         local library = name:find("^Listless Library") ~= nil
         if (not library or
                 not (split_kicks and name:find("Greaves$") ~= nil)
                 and not (not split_kicks and tonumber(name:sub(-1)) ~= nil)) then
             local location = self.definition:get_location(name)
             if location then
-                location:set_rule(rule)
+                for index, rule in ipairs(rules) do
+                    if index == 1 then
+                        location:set_rule(rule)
+                    else
+                        location:add_rule(rule, "or")
+                    end
+                end
             else
                 print("Missing location: " .. name)
             end

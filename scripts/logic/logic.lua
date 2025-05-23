@@ -144,7 +144,7 @@ end
 
 function set_options()
     def:set_options(pseudoregalia_options)
-    glitchDef:set_options(pseudoregalia_options, {logic_level = difficulties.LUNATIC})
+    glitchDef:set_options(pseudoregalia_options, {logic_level = difficulties.LUNATIC, obscure_logic = 1})
 end
 
 function _create_regions(def)

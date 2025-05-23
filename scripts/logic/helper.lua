@@ -122,6 +122,21 @@ function Location:set_rule(rule)
     self.access_rule = rule
 end
 
+function Location:add_rule(rule, combine)
+    local old_rule = self.access_rule
+    if old_rule == free then
+        if combine == "and" then
+            self.access_rule = rule
+        end
+    else
+        if combine == "and" then
+            self.access_rule = function(state) return rule(state) and old_rule(state) end
+        else
+            self.access_rule = function(state) return rule(state) or old_rule(state) end
+        end
+    end
+end
+
 function Location:can_reach(state)
     return self.access_rule(state) and self.parent_region:can_reach(state)
 end
@@ -194,6 +209,21 @@ end
 
 function Entrance:set_rule(rule)
     self.access_rule = rule
+end
+
+function Entrance:add_rule(rule, combine)
+    local old_rule = self.access_rule
+    if old_rule == free then
+        if combine == "and" then
+            self.access_rule = rule
+        end
+    else
+        if combine == "and" then
+            self.access_rule = function(state) return rule(state) and old_rule(state) end
+        else
+            self.access_rule = function(state) return rule(state) or old_rule(state) end
+        end
+    end
 end
 
 function Entrance:connect(destination, addresses, target)
