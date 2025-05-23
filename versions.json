@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.6.1",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.6.1/pseudoregalia_brooty.zip",
+            "sha256": "83de85d101e042a5ba501fddabd51deb30a474f336e9b02b3cfcb3a88ac27a6a",
+            "changelog": [
+                "small logic updates near theatre scythes"
+            ]
+        },
+        {
             "package_version": "0.1.6",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.6/pseudoregalia_brooty.zip",
             "sha256": "c7c3e116853d14b5fffe944023d709b9eb4a5912c9d65be69f846036d02d9fd0",

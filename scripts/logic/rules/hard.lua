@@ -31,6 +31,9 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["Theatre Pillar -> Theatre Main"] = function (state)
             return self:can_slidejump(state) and self:kick_or_plunge(state, 3)
         end,
+        ["Theatre Outside Scythe Corridor -> Theatre Main"] = function (state)
+            return self:has_gem(state)
+        end,
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_gem(state)
             or self:kick_or_plunge(state, 2)

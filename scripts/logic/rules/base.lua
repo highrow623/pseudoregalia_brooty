@@ -166,7 +166,7 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
     end
 
     self.definition:get_location("D S T RT ED M M O   Y"):set_rule(function(state)
-        return state:has_all({
+        return self:has_breaker(state) and state:has_all({
             "Major Key - Empty Bailey",
             "Major Key - The Underbelly",
             "Major Key - Tower Remains",
