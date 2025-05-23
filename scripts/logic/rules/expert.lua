@@ -31,6 +31,12 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Theatre Pillar -> Theatre Main"] = function (state)
             return self:has_slide(state) and self:kick_or_plunge(state, 3)
         end,
+        ["Theatre Outside Scythe Corridor -> Dungeon Escape Upper"] = function (state)
+            return self:navigate_darkrooms(state) and self:has_slide(state)
+        end,
+        ["Theatre Outside Scythe Corridor -> Keep Main"] = function (state)
+            return self:has_slide(state)
+        end,
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
         end,
