@@ -68,6 +68,15 @@ function onClear(slot_data)
         end
     end
 
+    if slot_data["game_version"] then
+        print("slot_data['game_version']: " .. slot_data['game_version'])
+        if slot_data["game_version"] == 1 then
+            Tracker:FindObjectForCode("game_version").CurrentStage = 0
+        elseif slot_data["game_version"] == 2 then
+            Tracker:FindObjectForCode("game_version").CurrentStage = 1
+        end
+    end
+
     if slot_data["logic_level"] then
         print("slot_data['logic_level']: " .. slot_data['logic_level'])
         if slot_data["logic_level"] == 1 then
@@ -116,6 +125,18 @@ function onClear(slot_data)
             Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 1
         end
     end
+
+    if slot_data.randomize_time_trials then
+        print("slot_data.randomize_time_trials: " .. tostring(slot_data.randomize_time_trials))
+        -- time_trials is progressive because both stages are used for visibility_rules
+        if slot_data.randomize_time_trials == false then
+            Tracker:FindObjectForCode("time_trials").CurrentStage = 0
+        elseif slot_data.randomize_time_trials == true then
+            Tracker:FindObjectForCode("time_trials").CurrentStage = 1
+        end
+    end
+
+    -- TODO (map-patch): set codes for game_version and randomize_time_trials
 
     pauseLayoutUpdate = false
     updateLayout()  -- actually update

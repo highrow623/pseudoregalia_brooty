@@ -159,16 +159,16 @@
         "name": "Game Version",
         "type": "progressive",
         "allow_disabled": false,
-        "initial_stage_idx": 1,
+        "initial_stage_idx": 0,
         "stages": [
-            {
-                "img": "images/logic_settings/full_gold.png",
-                "codes": "game_version,full_gold",
-                "inherit_codes": false
-            },
             {
                 "img": "images/logic_settings/map_patch.png",
                 "codes": "game_version,map_patch",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/full_gold.png",
+                "codes": "game_version,full_gold",
                 "inherit_codes": false
             }
         ]
