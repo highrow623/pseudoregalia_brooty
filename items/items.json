@@ -156,6 +156,24 @@
     },
     // LOGIC
     {
+        "name": "Game Version",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "img": "images/logic_settings/full_gold.png",
+                "codes": "game_version,full_gold",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/map_patch.png",
+                "codes": "game_version,map_patch",
+                "inherit_codes": false
+            }
+        ]
+    },
+    {
         "name": "Logic Levels",
         "type": "progressive",
         "allow_disabled": false,
@@ -180,6 +198,24 @@
             {
                 "img": "images/logic_settings/lunatic.png",
                 "codes": "logic,lunatic",
+                "inherit_codes": false
+            }
+        ]
+    },
+    {
+        "name": "Randomize Time Trials",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 0,
+        "stages": [
+            {
+                "img": "images/logic_settings/time_trials_grey.png",
+                "codes": "time_trials,time_trials_off",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/time_trials.png",
+                "codes": "time_trials,time_trials_on",
                 "inherit_codes": false
             }
         ]

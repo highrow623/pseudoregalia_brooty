@@ -12,6 +12,9 @@
                 "h_alignment": "left",
                 "rows": [
                     [
+                        "game_version"
+                    ],
+                    [
                         "normal"
                     ],
                     [
@@ -25,6 +28,9 @@
                     ],
                     [
                         "op_splitkick_off"
+                    ],
+                    [
+                        "time_trials"
                     ]
                 ]
             }
