@@ -74,6 +74,7 @@ region_table = {
     ["Keep Main"] = {
         "Keep Locked Room",
         "Keep Sunsetter",
+        "Keep Throne Room",
         "Keep => Underbelly",
         "Theatre Outside Scythe Corridor",
     },
@@ -81,6 +82,8 @@ region_table = {
         "Keep Sunsetter",
     },
     ["Keep Sunsetter"] = {
+    },
+    ["Keep Throne Room"] = {
     },
     ["Keep => Underbelly"] = {
         "Keep Main",

@@ -35,6 +35,15 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         ["Library Top -> Library Greaves"] = function(state)
             return self:can_bounce(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
+        ["Keep Main -> Keep Throne Room"] = function(state)
+            return self:has_breaker(state) and self:has_slide(state) and self:kick_or_plunge(state, 3)
+            or (
+                self:has_slide(state)
+                and self:can_bounce(state)
+                and self:get_kicks(state, 1)
+                and self:has_plunge(state)
+                and self:can_soulcutter(state))
+        end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
             return self:has_slide(state)
             and (
@@ -66,15 +75,6 @@ function PseudoregaliaLunaticRules.new(cls, definition)
             return self:kick_or_plunge(state, 1)  --# This never really matters and that makes me sad
         end,
         ["Sansa Keep - Levers Room"] = free,
-        ["Sansa Keep - Lonely Throne"] = function(state)
-            return self:has_breaker(state) and self:has_slide(state) and self:kick_or_plunge(state, 3)
-            or (
-                self:has_slide(state)
-                and self:can_bounce(state)
-                and self:get_kicks(state, 1)
-                and self:has_plunge(state)
-                and self:can_soulcutter(state))
-        end,
         ["Listless Library - Upper Back"] = function(state)
             return self:has_plunge(state)
         end,

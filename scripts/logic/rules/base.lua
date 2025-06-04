@@ -146,22 +146,19 @@ function PseudoregaliaRulesHelpers:set_pseudoregalia_rules()
         end
     end
     for name, rules in pairs(self.location_rules) do
-        local library = name:find("^Listless Library") ~= nil
-        if (not library or
-                not (split_kicks and name:find("Greaves$") ~= nil)
-                and not (not split_kicks and tonumber(name:sub(-1)) ~= nil)) then
-            local location = self.definition:get_location(name)
-            if location then
-                for index, rule in ipairs(rules) do
-                    if index == 1 then
-                        location:set_rule(rule)
-                    else
-                        location:add_rule(rule, "or")
-                    end
+        -- we create all locations anyway so we don't have to skip any
+        -- whether they show up in the tracker is handled by visibility_rules
+        local location = self.definition:get_location(name)
+        if location then
+            for index, rule in ipairs(rules) do
+                if index == 1 then
+                    location:set_rule(rule)
+                else
+                    location:add_rule(rule, "or")
                 end
-            else
-                print("Missing location: " .. name)
             end
+        else
+            print("Missing location: " .. name)
         end
     end
 

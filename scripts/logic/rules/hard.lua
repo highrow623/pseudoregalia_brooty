@@ -81,6 +81,15 @@ function PseudoregaliaHardRules.new(cls, definition)
         end,
         ["Keep Main -> Keep Locked Room"] = free,
         ["Keep Main -> Keep Sunsetter"] = free,
+        ["Keep Main -> Keep Throne Room"] = function(state)
+            return self:has_breaker(state) and self:has_gem(state)
+            and (
+                self:has_plunge(state)
+                or self:get_kicks(state, 2)
+                or self:get_kicks(state, 1) and self:knows_obscure(state))
+            or self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 4)
+            or self:can_bounce(state) and self:get_kicks(state, 3)
+        end,
         ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
             return self:kick_or_plunge(state, 2)
         end,
@@ -222,15 +231,6 @@ function PseudoregaliaHardRules.new(cls, definition)
             and (
                 self:has_slide(state)
                 or self:can_strikebreak(state))
-        end,
-        ["Sansa Keep - Lonely Throne"] = function(state)
-            return self:has_breaker(state) and self:has_gem(state)
-            and (
-                self:has_plunge(state)
-                or self:get_kicks(state, 2)
-                or self:get_kicks(state, 1) and self:knows_obscure(state))
-            or self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 4)
-            or self:can_bounce(state) and self:get_kicks(state, 3)
         end,
         ["The Underbelly - Rafters Near Keep"] = function(state)
             return self:kick_or_plunge(state, 1)

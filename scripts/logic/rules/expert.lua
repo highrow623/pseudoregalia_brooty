@@ -83,6 +83,13 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Library Top -> Library Greaves"] = function(state)
             return self:get_kicks(state, 2)
         end,
+        ["Keep Main -> Keep Throne Room"] = function(state)
+            return self:has_breaker(state)
+            and (
+                self:has_gem(state)
+                or self:can_bounce(state) and self:kick_or_plunge(state, 3)
+                or self:has_slide(state) and self:get_kicks(state, 3))
+        end,
         ["Keep Main -> Keep => Underbelly"] = function(state)
             return self:has_slide(state)
         end,
@@ -249,13 +256,6 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Sansa Keep - Strikebreak"] = function(state)
             return self:has_breaker(state) and self:has_slide(state)
             or self:can_strikebreak(state) and self:has_plunge(state)
-        end,
-        ["Sansa Keep - Lonely Throne"] = function(state)
-            return self:has_breaker(state)
-            and (
-                self:has_gem(state)
-                or self:can_bounce(state) and self:kick_or_plunge(state, 3)
-                or self:has_slide(state) and self:get_kicks(state, 3))
         end,
         ["Sansa Keep - Near Theatre"] = function(state)
             return self:has_slide(state)

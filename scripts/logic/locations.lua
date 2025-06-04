@@ -74,7 +74,7 @@ location_table = {
         region="Keep Main",},
     ["Sansa Keep - Lonely Throne"] = PseudoregaliaLocationData{
         code=2365810023,
-        region="Keep Main",},
+        region="Keep Throne Room",},
     ["Sansa Keep - Near Theatre"] = PseudoregaliaLocationData{
         code=2365810024,
         region="Keep Main",},
@@ -172,27 +172,38 @@ location_table = {
         code=2365810053,
         region="Library Greaves",},
 
-    ["Dilapidated Dungeon - Unlock Door"] = PseudoregaliaLocationData{
-        region="Dungeon Strong Eyes",
-        locked_item="Unlocked Door",},
-    ["Castle Sansa - Unlock Door (Professionalism)"] = PseudoregaliaLocationData{
+    ["Dilapidated Dungeon - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810054,
+        region="Dungeon Mirror",
+    },
+    ["Castle Sansa - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810055,
         region="Castle Main",
-        locked_item="Unlocked Door",},
-    ["Castle Sansa - Unlock Door (Sansa Keep)"] = PseudoregaliaLocationData{
-        region="Castle Main",
-        locked_item="Unlocked Door",},
-    ["Sansa Keep - Unlock Door"] = PseudoregaliaLocationData{
-        region="Keep Main",
-        locked_item="Unlocked Door",},
-    ["Listless Library - Unlock Door"] = PseudoregaliaLocationData{
+    },
+    ["Sansa Keep - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810056,
+        region="Keep Throne Room",
+    },
+    ["Listless Library - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810057,
         region="Library Main",
-        locked_item="Unlocked Door",},
-    ["Twilight Theatre - Unlock Door"] = PseudoregaliaLocationData{
-        region="Theatre Main",
-        locked_item="Unlocked Door",},
-    ["The Underbelly - Unlock Door"] = PseudoregaliaLocationData{
-        region="Underbelly By Heliacal",
-        locked_item="Unlocked Door",},
+    },
+    ["Twilight Theatre - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810058,
+        region="Theatre Pillar",
+    },
+    ["Empty Bailey - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810059,
+        region="Bailey Upper",
+    },
+    ["The Underbelly - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810060,
+        region="Underbelly Main Upper",
+    },
+    ["Tower Remains - Time Trial"] = PseudoregaliaLocationData{
+        code=2365810061,
+        region="The Great Door",
+    },
 
     ["D S T RT ED M M O   Y"] = PseudoregaliaLocationData{
         region="The Great Door",},
