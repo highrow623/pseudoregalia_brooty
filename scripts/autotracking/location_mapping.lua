@@ -63,5 +63,14 @@ LOCATION_MAPPING = {
 
     [2365810051] = {"@Listless Library/Sun Greaves Split/"},
     [2365810052] = {"@Listless Library/Sun Greaves Split/"},
-    [2365810053] = {"@Listless Library/Sun Greaves Split/"}
+    [2365810053] = {"@Listless Library/Sun Greaves Split/"},
+
+    [2365810054] = {"@Dilapitaded Dungeon/Time Trial/"},
+    [2365810055] = {"@Castle Sansa/Time Trial/"},
+    [2365810056] = {"@Sansa Keep/Time Trial/"},
+    [2365810057] = {"@Listless Library/Time Trial/"},
+    [2365810058] = {"@Twilight Theatre/Time Trial/"},
+    [2365810059] = {"@Empty Bailey/Time Trial/"},
+    [2365810060] = {"@The Underbelly/Time Trial/"},
+    [2365810061] = {"@Tower Remains/Time Trial/"},
 }
