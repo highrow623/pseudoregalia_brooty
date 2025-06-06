@@ -1,7 +1,8 @@
 region_table = {
     ["Menu"] = {
-        "Dungeon Mirror",
+        "Castle Main",
     },
+
     ["Dungeon Mirror"] = {
         "Dungeon Slide",
     },

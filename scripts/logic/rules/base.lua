@@ -2,6 +2,8 @@ PseudoregaliaRulesHelpers = {} -- rules base. See normal, hard, expert and lunat
 
 
 local NORMAL = constants.difficulties.NORMAL
+local EXPERT = constants.difficulties.EXPERT
+local LUNATIC = constants.difficulties.LUNATIC
 
 local free = function(state) return true end
 local no = function(state) return false end
@@ -106,7 +108,10 @@ function PseudoregaliaRulesHelpers:has_small_keys(state)
 end
 
 function PseudoregaliaRulesHelpers:navigate_darkrooms(state)
-    return self:has_breaker(state) or state:has("Ascendant Light")
+    logic_level = self.definition.options.logic_level.value
+    return (state:has("Ascendant Light")
+        or self:knows_obscure(state) and self:has_breaker(state)
+        or logic_level == EXPERT or logic_level == LUNATIC)
 end
 
 function PseudoregaliaRulesHelpers:can_slidejump(state)

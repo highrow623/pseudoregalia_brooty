@@ -69,7 +69,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Dungeon Slide -> Dungeon Escape Lower"] = function(state)
-            return self:can_attack(state) and self:navigate_darkrooms(state)
+            return self:knows_obscure(state) and self:can_attack(state) and self:navigate_darkrooms(state)
         end,
         ["Dungeon Strong Eyes -> Dungeon Slide"] = function(state)
             return self:has_slide(state)
