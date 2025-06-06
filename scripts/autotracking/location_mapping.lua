@@ -71,6 +71,8 @@ LOCATION_MAPPING = {
     [2365810057] = {"@Listless Library/Time Trial/"},
     [2365810058] = {"@Twilight Theatre/Time Trial/"},
     [2365810059] = {"@Empty Bailey/Time Trial/"},
-    [2365810060] = {"@The Underbelly/Time Trial/"},
+    [2365810060] = {"@Underbelly/Time Trial/"},
     [2365810061] = {"@Tower Remains/Time Trial/"},
+
+    [2365810062] = {"@Castle Sansa/Memento/"},
 }

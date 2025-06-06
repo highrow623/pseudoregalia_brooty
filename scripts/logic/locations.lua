@@ -205,6 +205,11 @@ location_table = {
         region="The Great Door",
     },
 
+    ["Castle Sansa - Memento"] = PseudoregaliaLocationData{
+        code=2365810062,
+        region="Castle Main",
+    },
+
     ["D S T RT ED M M O   Y"] = PseudoregaliaLocationData{
         region="The Great Door",},
 }

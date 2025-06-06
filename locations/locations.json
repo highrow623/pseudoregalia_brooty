@@ -477,6 +477,33 @@
                         "y": 566
                     }
                 ]
+            },
+            {
+                "name": "Memento",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Memento",
+                    "[$can_reach|Castle Sansa - Memento]"
+                ]],
+                "visibility_rules": ["map_patch"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 1378,
+                        "y": 2367
+                    },
+                    {
+                        "map": "castle",
+                        "x": 840,
+                        "y": 725
+                    }
+                ]
             }
         ]
     },
@@ -1756,6 +1783,10 @@
                     {
                         "name": "Time Trial",
                         "ref": "Castle Sansa/Time Trial/"
+                    },
+                    {
+                        "name": "Memento",
+                        "ref": "Castle Sansa/Memento/"
                     }
                 ],
                 "map_locations": [
