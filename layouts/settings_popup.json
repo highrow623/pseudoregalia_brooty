@@ -12,25 +12,20 @@
                 "h_alignment": "left",
                 "rows": [
                     [
-                        "game_version"
+                        "game_version",
+                        "time_trials"
                     ],
                     [
-                        "normal"
-                    ],
-                    [
+                        "normal",
                         "obscure"
                     ],
                     [
-                        "op_progbreaker"
-                    ],
-                    [
+                        "op_progbreaker",
                         "op_progslide"
                     ],
                     [
-                        "op_splitkick_off"
-                    ],
-                    [
-                        "time_trials"
+                        "op_splitkick_off",
+                        "auto_swap_map"
                     ]
                 ]
             }

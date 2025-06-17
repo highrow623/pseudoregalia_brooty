@@ -257,6 +257,12 @@
             }
         ]
     },
+    {
+        "name": "Auto Swap Map",
+        "type": "toggle",
+        "img": "images/settings/auto_swap_map.png",
+        "codes": "auto_swap_map"
+    },
     // EXAMPLE CODE
     {
         "name": "Progressive",
