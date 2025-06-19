@@ -93,7 +93,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["game_version"] then
+    if slot_data["game_version"] ~= nil then
         print("slot_data['game_version']: " .. slot_data['game_version'])
         if slot_data["game_version"] == 1 then
             Tracker:FindObjectForCode("game_version").CurrentStage = 0
@@ -102,7 +102,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["logic_level"] then
+    if slot_data["logic_level"] ~= nil then
         print("slot_data['logic_level']: " .. slot_data['logic_level'])
         if slot_data["logic_level"] == 1 then
             Tracker:FindObjectForCode("logic").CurrentStage = 0
@@ -115,7 +115,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.obscure_logic then
+    if slot_data.obscure_logic ~= nil then
         print("slot_data.obscure_logic: " .. tostring(slot_data.obscure_logic))
         local obj = Tracker:FindObjectForCode("obscure")
         if obj then
@@ -125,7 +125,7 @@ function onClear(slot_data)
 
     pauseLayoutUpdate = true  -- pause updating until all codes are set since update is expensive
 
-    if slot_data.progressive_breaker then
+    if slot_data.progressive_breaker ~= nil then
         print("slot_data.progressive_breaker: " .. tostring(slot_data.progressive_breaker))
         local obj = Tracker:FindObjectForCode("op_progbreaker")
         if obj then
@@ -133,7 +133,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.progressive_slide then
+    if slot_data.progressive_slide ~= nil then
         print("slot_data.progressive_slide: " .. tostring(slot_data.progressive_slide))
         local obj = Tracker:FindObjectForCode("op_progslide")
         if obj then
@@ -141,7 +141,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.split_sun_greaves then
+    if slot_data.split_sun_greaves ~= nil then
         print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
         -- op_splitkick is progressive because both stages are used for visibility_rules
         if slot_data.split_sun_greaves == false then
@@ -151,7 +151,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.randomize_time_trials then
+    if slot_data.randomize_time_trials ~= nil then
         print("slot_data.randomize_time_trials: " .. tostring(slot_data.randomize_time_trials))
         -- time_trials is progressive because both stages are used for visibility_rules
         if slot_data.randomize_time_trials == false then
