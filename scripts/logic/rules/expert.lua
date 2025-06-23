@@ -97,26 +97,24 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
-            return self:has_breaker(state)
-            or self:get_kicks(state, 1) and self:has_slide(state)
+            return self:get_kicks(state, 1) and self:has_slide(state)
         end,
         ["Underbelly Light Pillar -> Underbelly => Dungeon"] = function(state)
             return self:has_slide(state) and self:kick_or_plunge(state, 2)
+            or self:has_plunge(state) and self:get_kicks(state, 2)
         end,
         ["Underbelly Light Pillar -> Underbelly Ascendant Light"] = function(state)
-            return self:has_breaker(state)
+            return self:has_plunge(state) and self:get_kicks(state, 1)
+            or self:has_slide(state)
             and (
-                self:get_kicks(state, 2)
-                or self:get_kicks(state, 1) and self:has_gem(state)
-                or self:has_slide(state))
-            or self:has_plunge(state)
-            and (
-                self:has_gem(state)
-                or self:get_kicks(state, 1)
-                or self:has_slide(state))
+                self:can_attack(state)
+                or self:get_kicks(state, 3) and self:has_gem(state))
         end,
         ["Underbelly Ascendant Light -> Underbelly => Dungeon"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 1)
+            return self:get_kicks(state, 1)
+            and (
+                self:has_slide(state)
+                or self:has_plunge(state))
         end,
         ["Underbelly Main Lower -> Underbelly Hole"] = function(state)
             return self:has_plunge(state) and self:has_slide(state)
@@ -125,23 +123,26 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
-            return self:has_gem(state) and self:kick_or_plunge(state, 1)
-            or self:get_kicks(state, 4)
-            or self:has_slide(state)
-            and (
-                self:has_gem(state)
-                or self:get_kicks(state, 3)
-                or self:get_kicks(state, 1) and self:has_plunge(state)
-                or self:get_kicks(state, 1) and self:has_breaker(state))
+            return self:get_kicks(state, 2)
+            or self:get_kicks(state, 1) and self:has_gem(state)
+            or self:has_slide(state) and self:has_gem(state)
+            or self:has_slide(state) and self:get_kicks(state, 1) and self:has_breaker(state)
         end,
         ["Underbelly Main Upper -> Underbelly Light Pillar"] = function(state)
-            return self:has_breaker(state) and self:has_slide(state)
-            or self:has_slide(state) and self:get_kicks(state, 1)
-            or self:has_plunge(state) and self:get_kicks(state, 2)
-            or self:has_gem(state) and self:get_kicks(state, 2)
+            return self:has_breaker(state)
+            and (
+                self:has_slide(state)
+                or self:get_kicks(state, 1))
+            or self:has_slide(state)
+            and (
+                self:kick_or_plunge(state, 2)
+                or self:has_gem(state))
         end,
         ["Underbelly Main Upper -> Underbelly By Heliacal"] = function(state)
-            return self:has_breaker(state) and self:has_slide(state) and self:get_kicks(state, 2)
+            return self:has_breaker(state)
+            and (
+                self:has_slide(state) and self:get_kicks(state, 2)
+                or self:get_kicks(state, 3))
         end,
         ["Underbelly By Heliacal -> Underbelly Main Upper"] = function(state)
             return self:has_plunge(state)
@@ -154,9 +155,6 @@ function PseudoregaliaExpertRules.new(cls, definition)
             and (
                 self:has_gem(state)
                 or self:get_kicks(state, 2))
-        end,
-        ["Underbelly Hole -> Underbelly Main Lower"] = function(state)
-            return self:has_slide(state)
         end,
     }
     
@@ -277,12 +275,13 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["The Underbelly - Strikebreak Wall"] = function(state)
             return self:can_strikebreak(state)
             and (
-                self:has_slide(state) and self:kick_or_plunge(state, 1)
+                self:get_kicks(state, 1) and self:has_plunge(state)
+                or self:has_slide(state) and self:get_kicks(state, 2)
                 or self:has_slide(state) and self:has_gem(state))
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
             return self:can_soulcutter(state) and self:has_slide(state)
-            or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
     }
 

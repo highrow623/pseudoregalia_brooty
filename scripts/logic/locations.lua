@@ -138,7 +138,7 @@ location_table = {
         region="Underbelly Light Pillar",},
     ["The Underbelly - Building Near Little Guy"] = PseudoregaliaLocationData{
         code=2365810043,
-        region="Underbelly Little Guy",},
+        region="Underbelly => Bailey",},
     ["The Underbelly - Locked Door"] = PseudoregaliaLocationData{
         code=2365810044,
         region="Underbelly By Heliacal",},

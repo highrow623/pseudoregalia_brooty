@@ -45,12 +45,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
                 and self:can_soulcutter(state))
         end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
-            return self:has_slide(state)
-            and (
-                self:has_gem(state)
-                or self:get_kicks(state, 2)
-                or self:get_kicks(state, 1) and self:has_plunge(state)
-                or self:get_kicks(state, 1) and self:has_breaker(state))
+            return self:get_kicks(state, 1)
         end,
     }
 

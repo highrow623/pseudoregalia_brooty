@@ -90,53 +90,51 @@ function PseudoregaliaHardRules.new(cls, definition)
             or self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 4)
             or self:can_bounce(state) and self:get_kicks(state, 3)
         end,
-        ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
-            return self:kick_or_plunge(state, 2)
-        end,
-        ["Underbelly Light Pillar -> Underbelly => Dungeon"] = function(state)
-            return self:has_plunge(state) and self:get_kicks(state, 2)
-        end,
         ["Underbelly Light Pillar -> Underbelly Ascendant Light"] = function(state)
-            return self:has_breaker(state) and self:get_kicks(state, 3)
-            or self:knows_obscure(state) and self:has_plunge(state)
+            return self:knows_obscure(state)
             and (
-                self:has_gem(state)
-                or self:get_kicks(state, 1)
-                or self:can_slidejump(state))
-        end,
-        ["Underbelly Ascendant Light -> Underbelly => Dungeon"] = function(state)
-            return self:kick_or_plunge(state, 2)
+                self:can_attack(state) and self:get_kicks(state, 2)
+                or self:has_plunge(state) and self:has_gem(state))
         end,
         ["Underbelly Main Lower -> Underbelly Hole"] = function(state)
             return self:has_plunge(state) and self:has_gem(state)
         end,
         ["Underbelly Main Lower -> Underbelly By Heliacal"] = function(state)
-            return self:has_slide(state) and self:knows_obscure(state) and self:get_kicks(state, 2)
+            return self:has_slide(state) and self:get_kicks(state, 2)
         end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
-            return self:knows_obscure(state) and self:has_gem(state) and self:get_kicks(state, 1)
+            return self:knows_obscure(state)
+            and (
+                self:has_plunge(state) and self:get_kicks(state, 1)
+                or self:has_plunge(state) and self:has_gem(state)
+                or self:get_kicks(state, 2) and self:has_gem(state))
         end,
         ["Underbelly Main Upper -> Underbelly Light Pillar"] = function(state)
-            return self:has_gem(state)
+            return self:knows_obscure(state)
             and (
-                self:has_plunge(state)
-                or self:get_kicks(state, 3))
+                self:has_breaker(state) and self:has_gem(state)
+                or self:can_slidejump(state) and self:get_kicks(state, 1) and self:has_plunge(state))
         end,
         ["Underbelly Main Upper -> Underbelly By Heliacal"] = function(state)
             return self:has_breaker(state)
             and (
-                self:has_gem(state)
-                or self:has_plunge(state) and self:get_kicks(state, 3)
-                or self:can_slidejump(state) and self:get_kicks(state, 3))
+                state:has("Ascendant Light")
+                or self:has_gem(state) and self:kick_or_plunge(state, 1)
+                or self:kick_or_plunge(state, 4)
+                or self:knows_obscure(state) and self:has_gem(state))
         end,
-        ["Underbelly Little Guy -> Bailey Upper"] = function (state)
+        ["Underbelly => Bailey -> Bailey Upper"] = function (state)
             return self:get_kicks(state, 3)
             or self:can_slidejump(state) and self:get_kicks(state, 1)
         end,
-        ["Underbelly Little Guy -> Underbelly Main Lower"] = free,
+        ["Underbelly => Bailey -> Underbelly Main Lower"] = function(state)
+            return self:has_gem(state)
+        end,
         ["Underbelly Hole -> Underbelly Main Lower"] = function(state)
-            return self:get_kicks(state, 1)
-            or self:has_gem(state)
+            return self:has_plunge(state)
+            and (
+                self:get_kicks(state, 1)
+                or self:has_gem(state))
         end,
     }
 
@@ -249,12 +247,11 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["The Underbelly - Strikebreak Wall"] = function(state)
             return self:can_strikebreak(state)
             and (
-                self:get_kicks(state, 3)
-                or self:get_kicks(state, 1) and self:has_plunge(state))
+                self:can_bounce(state)
+                or self:kick_or_plunge(state, 3))
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
-            return self:can_soulcutter(state) and self:get_kicks(state, 1)
-            or self:has_gem(state)
+            return self:has_plunge(state) and self:has_gem(state)
         end,
     }
 

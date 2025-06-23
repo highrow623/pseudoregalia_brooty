@@ -17,7 +17,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
                 self:can_slidejump(state)
                 or self:has_plunge(state) and self:knows_obscure(state))
         end,
-        ["Bailey Upper -> Underbelly Little Guy"] = function(state)
+        ["Bailey Upper -> Underbelly => Bailey"] = function(state)
             return self:has_plunge(state)
         end,
         ["Tower Remains -> The Great Door"] = function(state)
@@ -205,11 +205,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_breaker(state)
             and (
                 self:has_plunge(state)
-                or self:get_kicks(state, 4))
-            or self:knows_obscure(state) and self:has_plunge(state) and self:get_kicks(state, 1)
-        end,
-        ["Underbelly Ascendant Light -> Underbelly Light Pillar"] = function(state)
-            return self:has_breaker(state)
+                or self:knows_obscure(state) and self:get_kicks(state, 3))
         end,
         ["Underbelly Ascendant Light -> Underbelly => Dungeon"] = function(state)
             return self:can_bounce(state)
@@ -228,23 +224,19 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_slide(state) and self:has_plunge(state)
         end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
-            return self:has_plunge(state)
-            and (
-                self:get_kicks(state, 2)
-                or self:get_kicks(state, 1) and self:has_gem(state))
+            return self:knows_obscure(state) and self:has_plunge(state) and self:get_kicks(state, 2)
         end,
         ["Underbelly Main Upper -> Underbelly Light Pillar"] = function(state)
             return self:has_breaker(state) and self:has_plunge(state)
-            or self:has_breaker(state) and self:get_kicks(state, 2)
-            or self:has_gem(state)
+            or self:knows_obscure(state) and self:has_breaker(state)
             and (
-                self:get_kicks(state, 2) and self:has_plunge(state)
-                or self:get_kicks(state, 4))
+                self:get_kicks(state, 2)
+                or self:has_gem(state) and self:get_kicks(state, 1))
         end,
         ["Underbelly Main Upper -> Underbelly By Heliacal"] = function(state)
             return self:has_breaker(state)
             and (
-                state:has("Ascendant Light")
+                state:has("Ascendant Light") and self:get_kicks(state, 1)
                 or self:can_slidejump(state) and self:get_kicks(state, 3)
                 or self:has_gem(state) and self:get_kicks(state, 2))
         end,
@@ -255,24 +247,27 @@ function PseudoregaliaNormalRules.new(cls, definition)
                 self:get_kicks(state, 1)
                 or self:has_gem(state))
         end,
-        ["Underbelly Little Guy -> Bailey Upper"] = function (state)
+        ["Underbelly => Bailey -> Bailey Upper"] = function (state)
             return self:knows_obscure(state)
             or self:has_plunge(state) and self:get_kicks(state, 1)
         end,
-        ["Underbelly Little Guy -> Underbelly Main Lower"] = function(state)
-            return self:has_gem(state)
-            or self:kick_or_plunge(state, 1)
+        ["Underbelly => Bailey -> Underbelly Main Lower"] = function(state)
+            return self:has_plunge(state)
+            or self:get_kicks(state, 2)
+            or self:knows_obscure(state)
         end,
         ["Underbelly => Keep -> Underbelly Hole"] = function(state)
             return self:has_plunge(state)
         end,
         ["Underbelly Hole -> Underbelly Main Lower"] = function(state)
-            return self:get_kicks(state, 2)
-            or self:has_gem(state) and self:can_slidejump(state)
-            or self:can_attack(state)
+            return self:has_plunge(state)
+            and (
+                self:can_attack(state)
+                or self:can_slidejump(state) and self:has_gem(state)
+                or self:can_slidejump(state) and self:get_kicks(state, 1))
         end,
         ["Underbelly Hole -> Underbelly => Keep"] = function(state)
-            return self:has_slide(state)
+            return self:has_plunge(state) and self:has_slide(state)
         end,
     }
 
@@ -469,9 +464,11 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["The Underbelly - Main Room"] = function(state)
             return self:has_plunge(state)
-            or self:has_gem(state)
-            or self:get_kicks(state, 2)
             or self:can_slidejump(state) and self:get_kicks(state, 1)
+            or self:knows_obscure(state)
+            and (
+                self:has_gem(state)
+                or self:get_kicks(state, 2))
         end,
         ["The Underbelly - Alcove Near Light"] = function(state)
             return self:can_attack(state)
@@ -484,18 +481,14 @@ function PseudoregaliaNormalRules.new(cls, definition)
             or self:get_kicks(state, 3)
         end,
         ["The Underbelly - Strikebreak Wall"] = function(state)
-            return self:can_strikebreak(state)
-            and (
-                self:can_bounce(state)
-                or self:get_kicks(state, 4)
-                or self:get_kicks(state, 2) and self:has_plunge(state))
+            return self:can_strikebreak(state) and self:can_bounce(state) and self:kick_or_plunge(state, 1)
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
-            return self:can_soulcutter(state)
+            return self:can_soulcutter(state) and self:has_plunge(state)
             and (
                 self:can_bounce(state)
-                or self:get_kicks(state, 2))
-            or self:can_slidejump(state) and self:has_gem(state) and self:get_kicks(state, 1)
+                or self:get_kicks(state, 2)
+                or self:knows_obscure(state) and self:get_kicks(state, 1))
         end,
 
         ["Dilapidated Dungeon - Time Trial"] = function (state)

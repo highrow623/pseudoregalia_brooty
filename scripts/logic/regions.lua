@@ -98,7 +98,7 @@ region_table = {
     },
     ["Bailey Upper"] = {
         "Bailey Lower",
-        "Underbelly Little Guy",
+        "Underbelly => Bailey",
         "Tower Remains",
     },
     ["Tower Remains"] = {
@@ -115,11 +115,10 @@ region_table = {
         "Underbelly Ascendant Light",
     },
     ["Underbelly Ascendant Light"] = {
-        "Underbelly Light Pillar",
         "Underbelly => Dungeon",
     },
     ["Underbelly Main Lower"] = {
-        "Underbelly Little Guy",
+        "Underbelly => Bailey",
         "Underbelly Hole",
         "Underbelly By Heliacal",
         "Underbelly Main Upper",
@@ -132,7 +131,7 @@ region_table = {
     ["Underbelly By Heliacal"] = {
         "Underbelly Main Upper",
     },
-    ["Underbelly Little Guy"] = {
+    ["Underbelly => Bailey"] = {
         "Bailey Upper",
         "Bailey Lower",
         "Underbelly Main Lower",
