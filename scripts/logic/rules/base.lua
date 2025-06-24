@@ -33,11 +33,11 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         local logic_level = self.definition.options.logic_level.value
 
         if game_version == MAP_PATCH then
-            self.can_gold_ultra = self.can_slidejump
+            self.can_gold_ultra = function(self, state) return self:can_slidejump(state) end
             self.can_gold_slide_ultra = function(self, state) return false end
         else
-            self.can_gold_ultra = self.has_slide
-            self.can_gold_slide_ultra = self.has_slide
+            self.can_gold_ultra = function(self, state) return self:has_slide(state) end
+            self.can_gold_slide_ultra = function(self, state) return self:has_slide(state) end
         end
 
         if logic_level == EXPERT or logic_level == LUNATIC then
@@ -50,7 +50,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
             self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") or self:has_breaker(state) end
         else
             self.knows_obscure = function(self, state) return false end
-            self.can_attack = self.has_breaker
+            self.can_attack = function(self, state) return self:has_breaker(state) end
             self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") end
         end
 
