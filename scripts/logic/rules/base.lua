@@ -1,12 +1,10 @@
 PseudoregaliaRulesHelpers = {} -- rules base. See normal, hard, expert and lunatic for finished rules.
 
 
+local MAP_PATCH = constants.versions.MAP_PATCH
 local NORMAL = constants.difficulties.NORMAL
 local EXPERT = constants.difficulties.EXPERT
 local LUNATIC = constants.difficulties.LUNATIC
-
-local free = function(state) return true end
-local no = function(state) return false end
 
 function apply_clauses(rulesObj, region_clauses, location_clauses)
     for name, rule in pairs(region_clauses) do
@@ -30,15 +28,30 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
     self.location_rules = {}
 
     if self.definition then
+        local game_version = self.definition.options.game_version.value
         local obscure_logic = self.definition.options.obscure_logic.value
         local logic_level = self.definition.options.logic_level.value
 
-        if obscure_logic then
+        if game_version == MAP_PATCH then
+            self.can_gold_ultra = self.can_slidejump
+            self.can_gold_slide_ultra = function(self, state) return false end
+        else
+            self.can_gold_ultra = self.has_slide
+            self.can_gold_slide_ultra = self.has_slide
+        end
+
+        if logic_level == EXPERT or logic_level == LUNATIC then
             self.knows_obscure = function(self, state) return true end
             self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
+            self.navigate_darkrooms = function(self, state) return true end
+        elseif obscure_logic then
+            self.knows_obscure = function(self, state) return true end
+            self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
+            self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") or self:has_breaker(state) end
         else
             self.knows_obscure = function(self, state) return false end
-            self.can_attack = function(self, state) return self:has_breaker(state) end
+            self.can_attack = self.has_breaker
+            self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") end
         end
 
         if logic_level == NORMAL then
@@ -108,15 +121,20 @@ function PseudoregaliaRulesHelpers:has_small_keys(state)
 end
 
 function PseudoregaliaRulesHelpers:navigate_darkrooms(state)
-    logic_level = self.definition.options.logic_level.value
-    return (state:has("Ascendant Light")
-        or self:knows_obscure(state) and self:has_breaker(state)
-        or logic_level == EXPERT or logic_level == LUNATIC)
+    error("navigate_darkrooms has to be overridden")
 end
 
 function PseudoregaliaRulesHelpers:can_slidejump(state)
     return (state:has_all({"Slide", "Solar Wind"})
         or state:count("Progressive Slide") >= 2)
+end
+
+function PseudoregaliaRulesHelpers:can_gold_ultra(state)
+    error("can_gold_ultra has to be overridden")
+end
+
+function PseudoregaliaRulesHelpers:can_gold_slide_ultra(state)
+    error("can_gold_slide_ultra has to be overridden")
 end
 
 function PseudoregaliaRulesHelpers:can_strikebreak(state)
