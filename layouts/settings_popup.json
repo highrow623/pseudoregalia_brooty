@@ -13,18 +13,18 @@
                 "rows": [
                     [
                         "game_version",
-                        "time_trials"
+                        "op_progbreaker"
                     ],
                     [
                         "normal",
-                        "obscure"
-                    ],
-                    [
-                        "op_progbreaker",
                         "op_progslide"
                     ],
                     [
-                        "op_splitkick_off",
+                        "obscure",
+                        "op_splitkick_off"
+                    ],
+                    [
+                        "time_trials",
                         "auto_swap_map"
                     ]
                 ]
