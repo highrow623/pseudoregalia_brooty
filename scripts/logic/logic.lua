@@ -208,7 +208,7 @@ function stateChanged(code)  -- run by watch for code "*" (any)
     glitchState.stale = true
 end
 
-function logicChanged()  -- run by watch for code "logic", "obscure"
+function logicChanged()  -- run by watch for code "game_version", "logic", "obscure"
     print("logic changed")
     isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
     set_options()  -- update world option emulation
@@ -228,6 +228,7 @@ create_regions()  -- NOTE: we don't handle can_create for Locations, so this nee
 logicChanged()
 
 -- add watches
+ScriptHost:AddWatchForCode("gameVersionChanged", "game_version", logicChanged)
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
 ScriptHost:AddWatchForCode("splitSunGreavesChanged", "op_splitkick_on", logicChanged)

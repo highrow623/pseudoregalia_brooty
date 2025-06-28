@@ -1,7 +1,8 @@
 region_table = {
     ["Menu"] = {
-        "Dungeon Mirror",
+        "Castle Main",
     },
+
     ["Dungeon Mirror"] = {
         "Dungeon Slide",
     },
@@ -74,6 +75,7 @@ region_table = {
     ["Keep Main"] = {
         "Keep Locked Room",
         "Keep Sunsetter",
+        "Keep Throne Room",
         "Keep => Underbelly",
         "Theatre Outside Scythe Corridor",
     },
@@ -81,6 +83,8 @@ region_table = {
         "Keep Sunsetter",
     },
     ["Keep Sunsetter"] = {
+    },
+    ["Keep Throne Room"] = {
     },
     ["Keep => Underbelly"] = {
         "Keep Main",
@@ -94,7 +98,7 @@ region_table = {
     },
     ["Bailey Upper"] = {
         "Bailey Lower",
-        "Underbelly Little Guy",
+        "Underbelly => Bailey",
         "Tower Remains",
     },
     ["Tower Remains"] = {
@@ -111,11 +115,10 @@ region_table = {
         "Underbelly Ascendant Light",
     },
     ["Underbelly Ascendant Light"] = {
-        "Underbelly Light Pillar",
         "Underbelly => Dungeon",
     },
     ["Underbelly Main Lower"] = {
-        "Underbelly Little Guy",
+        "Underbelly => Bailey",
         "Underbelly Hole",
         "Underbelly By Heliacal",
         "Underbelly Main Upper",
@@ -128,7 +131,7 @@ region_table = {
     ["Underbelly By Heliacal"] = {
         "Underbelly Main Upper",
     },
-    ["Underbelly Little Guy"] = {
+    ["Underbelly => Bailey"] = {
         "Bailey Upper",
         "Bailey Lower",
         "Underbelly Main Lower",

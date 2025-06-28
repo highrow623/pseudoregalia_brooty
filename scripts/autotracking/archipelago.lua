@@ -7,10 +7,35 @@ LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
 HOSTED = {gameover=1}
 
-function onSetReply(key, value, old)
-    if key == "Pseudoregalia - Team " .. Archipelago.TeamNumber .. " - Player " .. Archipelago.PlayerNumber .. " - Game Complete" then
+function buildKey(key)
+    return string.format("Pseudoregalia - Team %d - Player %d - %s", Archipelago.TeamNumber, Archipelago.PlayerNumber, key)
+end
+
+local zoneValueToTab = {
+    "Dilapidated Dungeon",
+    "Castle Sansa",
+    "Sansa Keep",
+    "Listless Library",
+    "Twilight Theatre",
+    "Empty Bailey",
+    "The Underbelly",
+    "Tower Remains",
+    "Tower Remains", -- use tower for chambers since there isn't a chambers tab
+}
+
+function onRetrieved(key, value)
+    if key == buildKey("Game Complete") then
+        if value == nil then return end
         Tracker:FindObjectForCode("gameover", ITEMS).Active = true
+    elseif key == buildKey("Zone") then
+        if Tracker:ProviderCountForCode("auto_swap_map") == 0 then return end
+        if zoneValueToTab[value] == nil then return end
+        Tracker:UiHint("ActivateTab", zoneValueToTab[value])
     end
+end
+
+function onSetReply(key, value, old)
+    onRetrieved(key, value)
 end
 
 function onClear(slot_data)
@@ -68,7 +93,16 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["logic_level"] then
+    if slot_data["game_version"] ~= nil then
+        print("slot_data['game_version']: " .. slot_data['game_version'])
+        if slot_data["game_version"] == 1 then
+            Tracker:FindObjectForCode("game_version").CurrentStage = 0
+        elseif slot_data["game_version"] == 2 then
+            Tracker:FindObjectForCode("game_version").CurrentStage = 1
+        end
+    end
+
+    if slot_data["logic_level"] ~= nil then
         print("slot_data['logic_level']: " .. slot_data['logic_level'])
         if slot_data["logic_level"] == 1 then
             Tracker:FindObjectForCode("logic").CurrentStage = 0
@@ -81,7 +115,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.obscure_logic then
+    if slot_data.obscure_logic ~= nil then
         print("slot_data.obscure_logic: " .. tostring(slot_data.obscure_logic))
         local obj = Tracker:FindObjectForCode("obscure")
         if obj then
@@ -91,7 +125,7 @@ function onClear(slot_data)
 
     pauseLayoutUpdate = true  -- pause updating until all codes are set since update is expensive
 
-    if slot_data.progressive_breaker then
+    if slot_data.progressive_breaker ~= nil then
         print("slot_data.progressive_breaker: " .. tostring(slot_data.progressive_breaker))
         local obj = Tracker:FindObjectForCode("op_progbreaker")
         if obj then
@@ -99,7 +133,7 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.progressive_slide then
+    if slot_data.progressive_slide ~= nil then
         print("slot_data.progressive_slide: " .. tostring(slot_data.progressive_slide))
         local obj = Tracker:FindObjectForCode("op_progslide")
         if obj then
@@ -107,13 +141,23 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.split_sun_greaves then
+    if slot_data.split_sun_greaves ~= nil then
         print("slot_data.split_sun_greaves: " .. tostring(slot_data.split_sun_greaves))
         -- op_splitkick is progressive because both stages are used for visibility_rules
         if slot_data.split_sun_greaves == false then
             Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 0
         elseif slot_data.split_sun_greaves == true then
             Tracker:FindObjectForCode("op_splitkick_on").CurrentStage = 1
+        end
+    end
+
+    if slot_data.randomize_time_trials ~= nil then
+        print("slot_data.randomize_time_trials: " .. tostring(slot_data.randomize_time_trials))
+        -- time_trials is progressive because both stages are used for visibility_rules
+        if slot_data.randomize_time_trials == false then
+            Tracker:FindObjectForCode("time_trials").CurrentStage = 0
+        elseif slot_data.randomize_time_trials == true then
+            Tracker:FindObjectForCode("time_trials").CurrentStage = 1
         end
     end
 
@@ -124,7 +168,9 @@ function onClear(slot_data)
     GLOBAL_ITEMS = {}
 
     --Tracker:FindObjectForCode("apLayout").Active = true
-    Archipelago:SetNotify({"Pseudoregalia - Team " .. Archipelago.TeamNumber .. " - Player " .. Archipelago.PlayerNumber .. " - Game Complete"})
+    keys = {buildKey("Game Complete"), buildKey("Zone")}
+    Archipelago:SetNotify(keys)
+    Archipelago:Get(keys)
 end
 
 -- called when an item gets collected
@@ -247,6 +293,7 @@ end
 if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
+Archipelago:AddRetrievedHandler("retrieved handler", onRetrieved)
 Archipelago:AddSetReplyHandler("set reply handler", onSetReply)
 -- Archipelago:AddScoutHandler("scout handler", onScout)
 -- Archipelago:AddBouncedHandler("bounce handler", onBounce)

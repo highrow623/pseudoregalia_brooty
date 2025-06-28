@@ -8,23 +8,24 @@
             {
                 "type": "itemgrid",
                 "item_margin": "0,5",
-                "item_size": "200, 80",
+                "item_size": "300, 120",
                 "h_alignment": "left",
                 "rows": [
                     [
-                        "normal"
-                    ],
-                    [
-                        "obscure"
-                    ],
-                    [
+                        "game_version",
                         "op_progbreaker"
                     ],
                     [
+                        "normal",
                         "op_progslide"
                     ],
                     [
+                        "obscure",
                         "op_splitkick_off"
+                    ],
+                    [
+                        "time_trials",
+                        "auto_swap_map"
                     ]
                 ]
             }

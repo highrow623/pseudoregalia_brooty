@@ -183,6 +183,33 @@
                         "y": 75
                     }
                 ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Time Trial",
+                    "[$can_reach|Dilapidated Dungeon - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 1115,
+                        "y": 1540
+                    },
+                    {
+                        "map": "dungeon",
+                        "x": 1282,
+                        "y": 612
+                    }
+                ]
             }
         ]
     },
@@ -247,6 +274,7 @@
                     "$can_glitch|Castle Sansa - Locked Door",
                     "[$can_reach|Castle Sansa - Locked Door]"
                 ]],
+                "visibility_rules": ["full_gold"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -420,6 +448,60 @@
                         "map": "castle",
                         "x": 919,
                         "y": 947
+                    }
+                ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Time Trial",
+                    "[$can_reach|Castle Sansa - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 1610,
+                        "y": 2210
+                    },
+                    {
+                        "map": "castle",
+                        "x": 1071,
+                        "y": 566
+                    }
+                ]
+            },
+            {
+                "name": "Memento",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Memento",
+                    "[$can_reach|Castle Sansa - Memento]"
+                ]],
+                "visibility_rules": ["map_patch"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 1378,
+                        "y": 2367
+                    },
+                    {
+                        "map": "castle",
+                        "x": 840,
+                        "y": 725
                     }
                 ]
             }
@@ -666,6 +748,33 @@
                         "y": 251
                     }
                 ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Time Trial",
+                    "[$can_reach|Sansa Keep - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 550,
+                        "y": 1136
+                    },
+                    {
+                        "map": "keep",
+                        "x": 458,
+                        "y": 231
+                    }
+                ]
             }
         ]
     },
@@ -802,6 +911,33 @@
                         "map": "library",
                         "x": 691,
                         "y": 671
+                    }
+                ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Time Trial",
+                    "[$can_reach|Listless Library - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 2109,
+                        "y": 2178
+                    },
+                    {
+                        "map": "library",
+                        "x": 463,
+                        "y": 460
                     }
                 ]
             }
@@ -965,6 +1101,33 @@
                         "y": 476
                     }
                 ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Time Trial",
+                    "[$can_reach|Twilight Theatre - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 175,
+                        "y": 443
+                    },
+                    {
+                        "map": "theatre",
+                        "x": 465,
+                        "y": 1064
+                    }
+                ]
             }
         ]
     },
@@ -1100,6 +1263,33 @@
                         "y": 343
                     }
                 ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Time Trial",
+                    "[$can_reach|Empty Bailey - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 1313,
+                        "y": 2756
+                    },
+                    {
+                        "map": "bailey",
+                        "x": 362,
+                        "y": 472
+                    }
+                ]
             }
         ]
     },
@@ -1200,8 +1390,8 @@
                 "map_locations": [
                     {
                         "map": "full_map_separated",
-                        "x": 2482,
-                        "y": 1461
+                        "x": 2502,
+                        "y": 1481
                     },
                     {
                         "map": "underbelly",
@@ -1313,6 +1503,33 @@
                         "y": 776
                     }
                 ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Time Trial",
+                    "[$can_reach|The Underbelly - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 2444,
+                        "y": 1424
+                    },
+                    {
+                        "map": "underbelly",
+                        "x": 364,
+                        "y": 679
+                    }
+                ]
             }
         ]
     },
@@ -1368,6 +1585,33 @@
                         "map": "tower",
                         "x": 262,
                         "y": 338
+                    }
+                ]
+            },
+            {
+                "name": "Time Trial",
+                "access_rules": [[
+                    "$can_glitch|Tower Remains - Time Trial",
+                    "[$can_reach|Tower Remains - Time Trial]"
+                ]],
+                "visibility_rules": ["map_patch,time_trials_on"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map_separated",
+                        "x": 2436,
+                        "y": 2853
+                    },
+                    {
+                        "map": "tower",
+                        "x": 219,
+                        "y": 526
                     }
                 ]
             }
@@ -1439,6 +1683,10 @@
                     {
                         "name": "Guarded Hand",
                         "ref": "Empty Bailey/Guarded Hand/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Empty Bailey/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1479,6 +1727,10 @@
                     {
                         "name": "Past Poles",
                         "ref": "Dilapitaded Dungeon/Past Poles/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Dilapitaded Dungeon/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1527,6 +1779,14 @@
                     {
                         "name": "Balcony",
                         "ref": "Castle Sansa/Balcony/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Castle Sansa/Time Trial/"
+                    },
+                    {
+                        "name": "Memento",
+                        "ref": "Castle Sansa/Memento/"
                     }
                 ],
                 "map_locations": [
@@ -1587,6 +1847,10 @@
                     {
                         "name": "Lonely Throne",
                         "ref": "Sansa Keep/Lonely Throne/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Sansa Keep/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1619,6 +1883,10 @@
                     {
                         "name": "Upper Back",
                         "ref": "Listless Library/Upper Back/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Listless Library/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1655,6 +1923,10 @@
                     {
                         "name": "Center Stage",
                         "ref": "Twilight Theatre/Center Stage/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Twilight Theatre/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1699,6 +1971,10 @@
                     {
                         "name": "Surrounded By Holes",
                         "ref": "Underbelly/Surrounded By Holes/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Underbelly/Time Trial/"
                     }
                 ],
                 "map_locations": [
@@ -1719,6 +1995,10 @@
                     {
                         "name": "Atop The Tower",
                         "ref": "Tower Remains/Atop The Tower/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Tower Remains/Time Trial/"
                     }
                 ],
                 "map_locations": [

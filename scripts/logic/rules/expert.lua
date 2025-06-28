@@ -1,22 +1,26 @@
 -- TODO = require base
 
+local MAP_PATCH = constants.versions.MAP_PATCH
+
 PseudoregaliaExpertRules = PseudoregaliaHardRules:new(nil)
 
 function PseudoregaliaExpertRules.new(cls, definition)
     local self = PseudoregaliaHardRules.new(cls, definition)
 
+    if self.definition == nil then
+        return self
+    end
+
     local region_clauses = {
         ["Bailey Lower -> Bailey Upper"] = function (state)
-            return self:has_slide(state)
-        end,
-        ["Bailey Upper -> Tower Remains"] = function (state)
             return self:has_slide(state)
         end,
         ["Tower Remains -> The Great Door"] = function (state)
             return self:has_slide(state)
             and (
                 self:has_gem(state)
-                or self:kick_or_plunge(state, 2))
+                or self:get_kicks(state, 2))
+            or self:can_gold_ultra(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
         ["Theatre Main -> Castle => Theatre (Front)"] = function (state)
             return self:has_slide(state)
@@ -38,7 +42,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Dungeon Escape Lower -> Dungeon Escape Upper"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 1)
+            return self:can_gold_ultra(state) and self:get_kicks(state, 1)
         end,
         ["Dungeon Escape Upper -> Theatre Outside Scythe Corridor"] = function(state)
             return self:has_slide(state)
@@ -47,31 +51,36 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Castle Main -> Castle Spiral Climb"] = function(state)
-            return self:has_slide(state)
+            return self:can_gold_ultra(state)
+            or self:has_slide(state) and self:kick_or_plunge(state, 1)
         end,
         ["Castle Spiral Climb -> Castle High Climb"] = function(state)
-            return self:has_slide(state)
+            return self:can_gold_slide_ultra(state)
+            or self:has_slide(state) and self:kick_or_plunge(state, 1)
             or self:get_kicks(state, 2)
         end,
         ["Castle Spiral Climb -> Castle By Scythe Corridor"] = function(state)
             return self:kick_or_plunge(state, 4)
         end,
         ["Castle By Scythe Corridor -> Castle => Theatre (Front)"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 2)
+            return self:can_gold_ultra(state) and self:get_kicks(state, 2)
+            or self:has_slide(state) and self:kick_or_plunge(state, 3)
         end,
         ["Castle By Scythe Corridor -> Castle High Climb"] = function(state)
             return self:has_slide(state)
             or self:kick_or_plunge(state, 2)
         end,
         ["Castle => Theatre (Front) -> Castle By Scythe Corridor"] = function(state)
-            return self:has_slide(state)
+            return self:can_gold_slide_ultra(state)
+            or self:has_slide(state) and self:get_kicks(state, 1)
             or self:get_kicks(state, 3)
         end,
         ["Castle => Theatre (Front) -> Castle Moon Room"] = function(state)
             return self:has_slide(state)
         end,
         ["Castle => Theatre (Front) -> Theatre Main"] = function (state)
-            return self:has_slide(state)
+            return self:can_gold_slide_ultra(state)
+            or self:has_slide(state) and self:kick_or_plunge(state, 1)
         end,
         ["Library Main -> Library Top"] = function(state)
             return self:has_plunge(state)
@@ -83,6 +92,13 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Library Top -> Library Greaves"] = function(state)
             return self:get_kicks(state, 2)
         end,
+        ["Keep Main -> Keep Throne Room"] = function(state)
+            return self:has_breaker(state)
+            and (
+                self:has_gem(state)
+                or self:can_bounce(state) and self:kick_or_plunge(state, 3)
+                or self:has_slide(state) and self:get_kicks(state, 3))
+        end,
         ["Keep Main -> Keep => Underbelly"] = function(state)
             return self:has_slide(state)
         end,
@@ -90,51 +106,49 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
-            return self:has_breaker(state)
-            or self:get_kicks(state, 1) and self:has_slide(state)
+            return self:get_kicks(state, 1) and self:has_slide(state)
         end,
         ["Underbelly Light Pillar -> Underbelly => Dungeon"] = function(state)
-            return self:has_slide(state) and self:kick_or_plunge(state, 2)
+            return self:has_slide(state) and self:get_kicks(state, 2)
+            or self:can_gold_ultra(state) and self:get_kicks(state, 1) and self:has_plunge(state)
+            or self:has_plunge(state) and self:get_kicks(state, 2)
         end,
         ["Underbelly Light Pillar -> Underbelly Ascendant Light"] = function(state)
-            return self:has_breaker(state)
-            and (
-                self:get_kicks(state, 2)
-                or self:get_kicks(state, 1) and self:has_gem(state)
-                or self:has_slide(state))
-            or self:has_plunge(state)
-            and (
-                self:has_gem(state)
-                or self:get_kicks(state, 1)
-                or self:has_slide(state))
+            return self:has_plunge(state) and self:get_kicks(state, 1)
+            or self:has_slide(state) and self:can_attack(state)
+            or self:can_gold_ultra(state) and self:get_kicks(state, 3) and self:has_gem(state)
         end,
         ["Underbelly Ascendant Light -> Underbelly => Dungeon"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 1)
-        end,
-        ["Underbelly Main Lower -> Underbelly Hole"] = function(state)
-            return self:has_plunge(state) and self:has_slide(state)
+            return self:get_kicks(state, 1)
+            and (
+                self:has_slide(state)
+                or self:has_plunge(state))
         end,
         ["Underbelly Main Lower -> Underbelly By Heliacal"] = function(state)
             return self:has_slide(state)
         end,
         ["Underbelly Main Lower -> Underbelly Main Upper"] = function(state)
-            return self:has_gem(state) and self:kick_or_plunge(state, 1)
-            or self:get_kicks(state, 4)
-            or self:has_slide(state)
-            and (
-                self:has_gem(state)
-                or self:get_kicks(state, 3)
-                or self:get_kicks(state, 1) and self:has_plunge(state)
-                or self:get_kicks(state, 1) and self:has_breaker(state))
+            return self:get_kicks(state, 2)
+            or self:get_kicks(state, 1) and self:has_gem(state)
+            or self:has_slide(state) and self:has_gem(state)
+            or self:can_gold_slide_ultra(state) and self:get_kicks(state, 1) and self:has_breaker(state)
         end,
         ["Underbelly Main Upper -> Underbelly Light Pillar"] = function(state)
-            return self:has_breaker(state) and self:has_slide(state)
-            or self:has_slide(state) and self:get_kicks(state, 1)
-            or self:has_plunge(state) and self:get_kicks(state, 2)
-            or self:has_gem(state) and self:get_kicks(state, 2)
+            return self:has_breaker(state)
+            and (
+                self:has_slide(state)
+                or self:get_kicks(state, 1))
+            or self:has_slide(state)
+            and (
+                self:kick_or_plunge(state, 3)
+                or self:has_gem(state))
+            or self:can_gold_ultra(state) and self:kick_or_plunge(state, 2)
         end,
         ["Underbelly Main Upper -> Underbelly By Heliacal"] = function(state)
-            return self:has_breaker(state) and self:has_slide(state) and self:get_kicks(state, 2)
+            return self:has_breaker(state)
+            and (
+                self:has_slide(state) and self:get_kicks(state, 2)
+                or self:get_kicks(state, 3))
         end,
         ["Underbelly By Heliacal -> Underbelly Main Upper"] = function(state)
             return self:has_plunge(state)
@@ -147,9 +161,6 @@ function PseudoregaliaExpertRules.new(cls, definition)
             and (
                 self:has_gem(state)
                 or self:get_kicks(state, 2))
-        end,
-        ["Underbelly Hole -> Underbelly Main Lower"] = function(state)
-            return self:has_slide(state)
         end,
     }
     
@@ -183,24 +194,24 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Dilapidated Dungeon - Dark Orbs"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 1)
-            or self:has_slide(state) and self:can_bounce(state)
+            return self:can_gold_slide_ultra(state) and self:get_kicks(state, 1)
+            or self:has_slide(state)
+            and (
+                self:can_bounce(state)
+                or self:get_kicks(state, 2))
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:kick_or_plunge(state, 2)
             or self:can_bounce(state) and self:get_kicks(state, 1)
-            or self:has_slide(state) and self:kick_or_plunge(state, 1)
-        end,
-        ["Dilapidated Dungeon - Strong Eyes"] = function(state)
-            return self:has_gem(state)
-            or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:can_gold_ultra(state) and self:kick_or_plunge(state, 1)
         end,
         ["Castle Sansa - Floater In Courtyard"] = function(state)
             return self:can_bounce(state)
             and (
                 self:kick_or_plunge(state, 1)
                 or self:has_slide(state))
-            or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:can_gold_ultra(state) and self:get_kicks(state, 1)
+            or self:has_slide(state) and self:kick_or_plunge(state, 1)
             or self:get_kicks(state, 3)
             or self:has_gem(state)
         end,
@@ -208,7 +219,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Castle Sansa - Tall Room Near Wheel Crawlers"] = function(state)
-            return self:has_slide(state)
+            return self:can_gold_ultra(state)
         end,
         ["Castle Sansa - Alcove Near Dungeon"] = function(state)
             return self:has_slide(state)
@@ -227,10 +238,12 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
         ["Castle Sansa - Alcove Near Scythe Corridor"] = function(state)
             return self:kick_or_plunge(state, 3)
-            or self:has_slide(state) and self:kick_or_plunge(state, 1)
+            or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:can_gold_ultra(state) and self:has_plunge(state)
         end,
         ["Castle Sansa - Near Theatre Front"] = function(state)
-            return self:has_slide(state)
+            return self:can_gold_slide_ultra(state)
+            or self:has_slide(state) and self:get_kicks(state, 1)
         end,
         ["Castle Sansa - High Climb From Courtyard"] = function(state)
             return self:can_attack(state) and self:get_kicks(state, 1)
@@ -249,13 +262,6 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Sansa Keep - Strikebreak"] = function(state)
             return self:has_breaker(state) and self:has_slide(state)
             or self:can_strikebreak(state) and self:has_plunge(state)
-        end,
-        ["Sansa Keep - Lonely Throne"] = function(state)
-            return self:has_breaker(state)
-            and (
-                self:has_gem(state)
-                or self:can_bounce(state) and self:kick_or_plunge(state, 3)
-                or self:has_slide(state) and self:get_kicks(state, 3))
         end,
         ["Sansa Keep - Near Theatre"] = function(state)
             return self:has_slide(state)
@@ -277,14 +283,42 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["The Underbelly - Strikebreak Wall"] = function(state)
             return self:can_strikebreak(state)
             and (
-                self:has_slide(state) and self:kick_or_plunge(state, 1)
-                or self:has_slide(state) and self:has_gem(state))
+                self:get_kicks(state, 1) and self:has_plunge(state)
+                or self:has_slide(state) and self:get_kicks(state, 2)
+                or self:can_gold_ultra(state) and self:has_gem(state))
         end,
         ["The Underbelly - Surrounded By Holes"] = function(state)
             return self:can_soulcutter(state) and self:has_slide(state)
-            or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
     }
+
+    local game_version = self.definition.options.game_version.value
+    if game_version == MAP_PATCH then
+        region_clauses["Bailey Upper -> Tower Remains"] = function (state)
+            return self:has_slide(state)
+            and (
+                self:can_bounce(state)
+                or self:get_kicks(state, 1))
+        end
+        region_clauses["Dungeon => Castle -> Dungeon Strong Eyes"] = function(state)
+            return self:has_breaker(state) and self:has_slide(state)
+        end
+        region_clauses["Dungeon Strong Eyes -> Dungeon => Castle"] = function (state)
+            return self:can_attack(state) and self:has_slide(state)
+        end
+        location_clauses["Dilapidated Dungeon - Strong Eyes"] = function (state)
+            return self:has_slide(state)
+        end
+    else
+        region_clauses["Bailey Upper -> Tower Remains"] = function (state)
+            return self:has_slide(state)
+        end
+        location_clauses["Dilapidated Dungeon - Strong Eyes"] = function (state)
+            return self:has_gem(state)
+            or self:has_slide(state) and self:get_kicks(state, 1)
+        end
+    end
 
     apply_clauses(self, region_clauses, location_clauses)
 
