@@ -1,6 +1,18 @@
 {
     "versions": [
         {
+            "package_version": "0.1.7",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.7/pseudoregalia_brooty.zip",
+            "sha256": "207ed334d2d03fbf48abbfc2900cfcbc0ae3a61564c5910f1f1fc9936aa571e8",
+            "changelog": [
+                "map patch support",
+                "new Auto Swap Map setting which changes the region map when entering that region in the game",
+                "new settings images (since I had to add new ones and didn't have access to the original font)",
+                "modified the maps to add in the memento room",
+                "some small bug fixes"
+            ]
+        },
+        {
             "package_version": "0.1.6.1",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.6.1/pseudoregalia_brooty.zip",
             "sha256": "83de85d101e042a5ba501fddabd51deb30a474f336e9b02b3cfcb3a88ac27a6a",
