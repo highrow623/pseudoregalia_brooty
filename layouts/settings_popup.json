@@ -13,19 +13,23 @@
                 "rows": [
                     [
                         "game_version",
-                        "op_progbreaker"
+                        "op_progbreaker",
+                        "goatsanity"
                     ],
                     [
                         "normal",
-                        "op_progslide"
+                        "op_progslide",
+                        "sitsanity"
                     ],
                     [
                         "obscure",
-                        "op_splitkick_off"
+                        "op_splitkick_off",
+                        "booksanity"
                     ],
                     [
                         "time_trials",
-                        "auto_swap_map"
+                        "auto_swap_map",
+                        "notesanity"
                     ]
                 ]
             }

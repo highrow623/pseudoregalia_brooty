@@ -258,6 +258,30 @@
         ]
     },
     {
+        "name": "Goatsanity",
+        "type": "toggle",
+        "img": "images/logic_settings/goatsanity.png",
+        "codes": "goatsanity"
+    },
+    {
+        "name": "Sitsanity",
+        "type": "toggle",
+        "img": "images/logic_settings/sitsanity.png",
+        "codes": "sitsanity"
+    },
+    {
+        "name": "Booksanity",
+        "type": "toggle",
+        "img": "images/logic_settings/booksanity.png",
+        "codes": "booksanity"
+    },
+    {
+        "name": "Notesanity",
+        "type": "toggle",
+        "img": "images/logic_settings/notesanity.png",
+        "codes": "notesanity"
+    },
+    {
         "name": "Auto Swap Map",
         "type": "toggle",
         "img": "images/settings/auto_swap_map.png",
