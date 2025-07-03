@@ -210,6 +210,116 @@
                         "y": 612
                     }
                 ]
+            },
+            {
+                "name": "Mirror Room Goatling",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Mirror Room Goatling",
+                    "[$can_reach|Dilapidated Dungeon - Mirror Room Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "dungeon",
+                        "x": 1277,
+                        "y": 567
+                    }
+                ]
+            },
+            {
+                "name": "Rambling Goatling",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Rambling Goatling",
+                    "[$can_reach|Dilapidated Dungeon - Rambling Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "dungeon",
+                        "x": 937,
+                        "y": 602
+                    }
+                ]
+            },
+            {
+                "name": "Unwelcoming Goatling",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Unwelcoming Goatling",
+                    "[$can_reach|Dilapidated Dungeon - Unwelcoming Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "dungeon",
+                        "x": 802,
+                        "y": 410
+                    }
+                ]
+            },
+            {
+                "name": "Repentant Goatling",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Repentant Goatling",
+                    "[$can_reach|Dilapidated Dungeon - Repentant Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "dungeon",
+                        "x": 853,
+                        "y": 410
+                    }
+                ]
+            },
+            {
+                "name": "Defeatist Goatling",
+                "access_rules": [[
+                    "$can_glitch|Dilapidated Dungeon - Defeatist Goatling",
+                    "[$can_reach|Dilapidated Dungeon - Defeatist Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "dungeon",
+                        "x": 1029,
+                        "y": 445
+                    }
+                ]
             }
         ]
     },
@@ -504,6 +614,160 @@
                         "y": 725
                     }
                 ]
+            },
+            {
+                "name": "Crystal Licker Goatling",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Crystal Licker Goatling",
+                    "[$can_reach|Castle Sansa - Crystal Licker Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 803,
+                        "y": 623
+                    }
+                ]
+            },
+            {
+                "name": "Gazebo Goatling",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Gazebo Goatling",
+                    "[$can_reach|Castle Sansa - Gazebo Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 887,
+                        "y": 363
+                    }
+                ]
+            },
+            {
+                "name": "Bubblephobic Goatling",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Bubblephobic Goatling",
+                    "[$can_reach|Castle Sansa - Bubblephobic Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 861,
+                        "y": 545
+                    }
+                ]
+            },
+            {
+                "name": "Memento Goatling",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Memento Goatling",
+                    "[$can_reach|Castle Sansa - Memento Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity,map_patch"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 779,
+                        "y": 679
+                    }
+                ]
+            },
+            {
+                "name": "Goatling Near Library",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Goatling Near Library",
+                    "[$can_reach|Castle Sansa - Goatling Near Library]"
+                ]],
+                "visibility_rules": ["goatsanity,map_patch"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 1147,
+                        "y": 633
+                    }
+                ]
+            },
+            {
+                "name": "Stool Near Crystal",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Stool Near Crystal 1",
+                    "[$can_reach|Castle Sansa - Stool Near Crystal 1]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 3,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 803,
+                        "y": 600
+                    }
+                ]
+            },
+            {
+                "name": "Gazebo Stool",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Gazebo Stool",
+                    "[$can_reach|Castle Sansa - Gazebo Stool]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 887,
+                        "y": 334
+                    }
+                ]
             }
         ]
     },
@@ -585,6 +849,28 @@
                         "map": "castle",
                         "x": 444,
                         "y": 589
+                    }
+                ]
+            },
+            {
+                "name": "Trapped Goatling",
+                "access_rules": [[
+                    "$can_glitch|Castle Sansa - Trapped Goatling",
+                    "[$can_reach|Castle Sansa - Trapped Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "castle",
+                        "x": 476,
+                        "y": 396
                     }
                 ]
             }
@@ -775,6 +1061,116 @@
                         "y": 231
                     }
                 ]
+            },
+            {
+                "name": "Furniture-less Goatling",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Furniture-less Goatling",
+                    "[$can_reach|Sansa Keep - Furniture-less Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "keep",
+                        "x": 493,
+                        "y": 728
+                    }
+                ]
+            },
+            {
+                "name": "cyuiyce Goatling",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - cyuiyce Goatling",
+                    "[$can_reach|Sansa Keep - cyuiyce Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "keep",
+                        "x": 648,
+                        "y": 380
+                    }
+                ]
+            },
+            {
+                "name": "cyuiyce Stool",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - cyuiyce Stool",
+                    "[$can_reach|Sansa Keep - cyuiyce Stool]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "keep",
+                        "x": 588,
+                        "y": 392
+                    }
+                ]
+            },
+            {
+                "name": "Path to Throne Stool",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - Path to Throne Stool",
+                    "[$can_reach|Sansa Keep - Path to Throne Stool]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "keep",
+                        "x": 253,
+                        "y": 581
+                    }
+                ]
+            },
+            {
+                "name": "The Throne",
+                "access_rules": [[
+                    "$can_glitch|Sansa Keep - The Throne",
+                    "[$can_reach|Sansa Keep - The Throne]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "keep",
+                        "x": 396,
+                        "y": 212
+                    }
+                ]
             }
         ]
     },
@@ -938,6 +1334,380 @@
                         "map": "library",
                         "x": 463,
                         "y": 460
+                    }
+                ]
+            },
+            {
+                "name": "Hay Bale Near Entrance",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Hay Bale Near Entrance",
+                    "[$can_reach|Listless Library - Hay Bale Near Entrance]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 349,
+                        "y": 592
+                    }
+                ]
+            },
+            {
+                "name": "Hay Bale Near Eggs",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Hay Bale Near Eggs",
+                    "[$can_reach|Listless Library - Hay Bale Near Eggs]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 550,
+                        "y": 528
+                    }
+                ]
+            },
+            {
+                "name": "Hay Bale in the Back",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Hay Bale in the Back",
+                    "[$can_reach|Listless Library - Hay Bale in the Back]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 722,
+                        "y": 417
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Princess",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Princess",
+                    "[$can_reach|Listless Library - A Book About a Princess]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 394,
+                        "y": 575
+                    }
+                ]
+            },
+            {
+                "name": "A Book About Cooking",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About Cooking",
+                    "[$can_reach|Listless Library - A Book About Cooking]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 394,
+                        "y": 631
+                    }
+                ]
+            },
+            {
+                "name": "A Book Full of Plays",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book Full of Plays",
+                    "[$can_reach|Listless Library - A Book Full of Plays]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 407,
+                        "y": 655
+                    }
+                ]
+            },
+            {
+                "name": "A Book About Reading",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About Reading",
+                    "[$can_reach|Listless Library - A Book About Reading]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 443,
+                        "y": 629
+                    }
+                ]
+            },
+            {
+                "name": "A Book About Aquatic Life",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About Aquatic Life",
+                    "[$can_reach|Listless Library - A Book About Aquatic Life]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 451,
+                        "y": 582
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Jester",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Jester",
+                    "[$can_reach|Listless Library - A Book About a Jester]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 458,
+                        "y": 682
+                    }
+                ]
+            },
+            {
+                "name": "A Book About Loss",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About Loss",
+                    "[$can_reach|Listless Library - A Book About Loss]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 488,
+                        "y": 484
+                    }
+                ]
+            },
+            {
+                "name": "A Book on Musical Theory",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book on Musical Theory",
+                    "[$can_reach|Listless Library - A Book on Musical Theory]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 503,
+                        "y": 433
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Girl",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Girl",
+                    "[$can_reach|Listless Library - A Book About a Girl]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 462,
+                        "y": 441
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Thimble",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Thimble",
+                    "[$can_reach|Listless Library - A Book About a Thimble]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 431,
+                        "y": 441
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Monster",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Monster",
+                    "[$can_reach|Listless Library - A Book About a Monster]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 456,
+                        "y": 352
+                    }
+                ]
+            },
+            {
+                "name": "A Book About Revenge",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About Revenge",
+                    "[$can_reach|Listless Library - A Book About Revenge]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 473,
+                        "y": 310
+                    }
+                ]
+            },
+            {
+                "name": "A Book About a Restaurant",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - A Book About a Restaurant",
+                    "[$can_reach|Listless Library - A Book About a Restaurant]"
+                ]],
+                "visibility_rules": ["booksanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 488,
+                        "y": 597
+                    }
+                ]
+            },
+            {
+                "name": "Note Near Eggs",
+                "access_rules": [[
+                    "$can_glitch|Listless Library - Note Near Eggs",
+                    "[$can_reach|Listless Library - Note Near Eggs]"
+                ]],
+                "visibility_rules": ["notesanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "library",
+                        "x": 529,
+                        "y": 528
                     }
                 ]
             }
@@ -1128,6 +1898,182 @@
                         "y": 1064
                     }
                 ]
+            },
+            {
+                "name": "20 Bean Casserole Goatling",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - 20 Bean Casserole Goatling",
+                    "[$can_reach|Twilight Theatre - 20 Bean Casserole Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 657,
+                        "y": 781
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Goer Goatling",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Theatre Goer Goatling 1",
+                    "[$can_reach|Twilight Theatre - Theatre Goer Goatling 1]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 2,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 603,
+                        "y": 781
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Manager Goatling",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Theatre Manager Goatling",
+                    "[$can_reach|Twilight Theatre - Theatre Manager Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 565,
+                        "y": 797
+                    }
+                ]
+            },
+            {
+                "name": "Murderous Goatling",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Murderous Goatling",
+                    "[$can_reach|Twilight Theatre - Murderous Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 452,
+                        "y": 660
+                    }
+                ]
+            },
+            {
+                "name": "Stool Near Bookcase",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Stool Near Bookcase",
+                    "[$can_reach|Twilight Theatre - Stool Near Bookcase]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 818,
+                        "y": 410
+                    }
+                ]
+            },
+            {
+                "name": "Stool Around a Table",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Stool Around a Table 1",
+                    "[$can_reach|Twilight Theatre - Stool Around a Table 1]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 3,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 631,
+                        "y": 191
+                    }
+                ]
+            },
+            {
+                "name": "Stage Left Stool",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Stage Left Stool",
+                    "[$can_reach|Twilight Theatre - Stage Left Stool]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 687,
+                        "y": 524
+                    }
+                ]
+            },
+            {
+                "name": "Stage Right Stool",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Stage Right Stool",
+                    "[$can_reach|Twilight Theatre - Stage Right Stool]"
+                ]],
+                "visibility_rules": ["sitsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 48,
+                        "y": 676
+                    }
+                ]
             }
         ]
     },
@@ -1288,6 +2234,28 @@
                         "map": "bailey",
                         "x": 362,
                         "y": 472
+                    }
+                ]
+            },
+            {
+                "name": "Alley Goatling",
+                "access_rules": [[
+                    "$can_glitch|Empty Bailey - Alley Goatling",
+                    "[$can_reach|Empty Bailey - Alley Goatling]"
+                ]],
+                "visibility_rules": ["goatsanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "bailey",
+                        "x": 291,
+                        "y": 541
                     }
                 ]
             }
@@ -1528,6 +2496,72 @@
                         "map": "underbelly",
                         "x": 364,
                         "y": 679
+                    }
+                ]
+            },
+            {
+                "name": "Note on a Ledge",
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Note on a Ledge",
+                    "[$can_reach|The Underbelly - Note on a Ledge]"
+                ]],
+                "visibility_rules": ["notesanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "underbelly",
+                        "x": 316,
+                        "y": 981
+                    }
+                ]
+            },
+            {
+                "name": "Note in the Big Room",
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Note in the Big Room",
+                    "[$can_reach|The Underbelly - Note in the Big Room]"
+                ]],
+                "visibility_rules": ["notesanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "underbelly",
+                        "x": 405,
+                        "y": 794
+                    }
+                ]
+            },
+            {
+                "name": "Note Behind a Locked Door",
+                "access_rules": [[
+                    "$can_glitch|The Underbelly - Note Behind a Locked Door",
+                    "[$can_reach|The Underbelly - Note Behind a Locked Door]"
+                ]],
+                "visibility_rules": ["notesanity"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "underbelly",
+                        "x": 738,
+                        "y": 411
                     }
                 ]
             }
