@@ -40,7 +40,7 @@ LOCATION_MAPPING = {
     [2365810031] = {"@Twilight Theatre/Back Of Auditorium/"},
     [2365810032] = {"@Twilight Theatre/Center Stage/"},
     [2365810033] = {"@Twilight Theatre/Locked Door/"},
-    [2365810034] = {"@Twilight Theatre/Murderous Goat/"},
+    [2365810034] = {"@Twilight Theatre/Tucked Behind Boxes/"},
     [2365810035] = {"@Twilight Theatre/Corner Beam/"},
 
     [2365810036] = {"@Empty Bailey/Solar Wind/"},

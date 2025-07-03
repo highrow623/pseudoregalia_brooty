@@ -1025,10 +1025,10 @@
                 ]
             },
             {
-                "name": "Murderous Goat",
+                "name": "Tucked Behind Boxes",
                 "access_rules": [[
-                    "$can_glitch|Twilight Theatre - Murderous Goat",
-                    "[$can_reach|Twilight Theatre - Murderous Goat]"
+                    "$can_glitch|Twilight Theatre - Tucked Behind Boxes",
+                    "[$can_reach|Twilight Theatre - Tucked Behind Boxes]"
                 ]],
                 "sections": [
                     {
@@ -1913,8 +1913,8 @@
                         "ref": "Twilight Theatre/Locked Door/"
                     },
                     {
-                        "name": "Murderous Goat",
-                        "ref": "Twilight Theatre/Murderous Goat/"
+                        "name": "Tucked Behind Boxes",
+                        "ref": "Twilight Theatre/Tucked Behind Boxes/"
                     },
                     {
                         "name": "Back Of Auditorium",
