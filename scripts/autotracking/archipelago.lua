@@ -161,6 +161,38 @@ function onClear(slot_data)
         end
     end
 
+    if slot_data.goatsanity ~= nil then
+        print("slot_data.goatsanity: " .. tostring(slot_data.goatsanity))
+        local obj = Tracker:FindObjectForCode("goatsanity")
+        if obj then
+            obj.Active = slot_data.goatsanity
+        end
+    end
+
+    if slot_data.sitsanity ~= nil then
+        print("slot_data.sitsanity: " .. tostring(slot_data.sitsanity))
+        local obj = Tracker:FindObjectForCode("sitsanity")
+        if obj then
+            obj.Active = slot_data.sitsanity
+        end
+    end
+
+    if slot_data.booksanity ~= nil then
+        print("slot_data.booksanity: " .. tostring(slot_data.booksanity))
+        local obj = Tracker:FindObjectForCode("booksanity")
+        if obj then
+            obj.Active = slot_data.booksanity
+        end
+    end
+
+    if slot_data.notesanity ~= nil then
+        print("slot_data.notesanity: " .. tostring(slot_data.notesanity))
+        local obj = Tracker:FindObjectForCode("notesanity")
+        if obj then
+            obj.Active = slot_data.notesanity
+        end
+    end
+
     pauseLayoutUpdate = false
     updateLayout()  -- actually update
 
