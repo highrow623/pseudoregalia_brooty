@@ -214,7 +214,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
                 self:kick_or_plunge(state, 1)
                 or self:has_slide(state))
             or self:can_gold_ultra(state) and self:get_kicks(state, 1)
-            or self:has_slide(state) and self:kick_or_plunge(state, 1)
+            or self:has_slide(state) and self:kick_or_plunge(state, 2)
             or self:get_kicks(state, 3)
             or self:has_gem(state)
         end,
