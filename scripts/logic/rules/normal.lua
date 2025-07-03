@@ -29,6 +29,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Theatre Main -> Theatre Pillar"] = function (state)
             return self:get_kicks(state, 2)
             or self:get_kicks(state, 1) and self:has_plunge(state) and self:knows_obscure(state)
+            or self:get_kicks(state, 1) and self:can_slidejump(state)
             or self:has_gem(state)
         end,
         ["Theatre Main -> Castle => Theatre (Front)"] = function(state)
@@ -151,11 +152,23 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:kick_or_plunge(state, 4)
             or self:knows_obscure(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
-        ["Library Greaves -> Library Top"] = function(state)
+        ["Library Greaves -> Library Back"] = function (state)
+            return self:can_attack(state)
+            and (
+                self:has_gem(state)
+                or self:get_kicks(state, 2))
+        end,
+        ["Library Back -> Library Greaves"] = function (state)
+            return self:can_attack(state)
+            and (
+                self:has_gem(state)
+                or self:get_kicks(state, 1))
+        end,
+        ["Library Back -> Library Top"] = function(state)
             return self:has_gem(state)
             or self:get_kicks(state, 2)
         end,
-        ["Library Top -> Library Greaves"] = function(state)
+        ["Library Top -> Library Back"] = function(state)
             return self:has_gem(state) and self:kick_or_plunge(state, 1)
             or self:get_kicks(state, 3) and self:has_plunge(state)
             or self:get_kicks(state, 3) and self:can_bounce(state)
@@ -485,7 +498,6 @@ function PseudoregaliaNormalRules.new(cls, definition)
                 or self:get_kicks(state, 2)
                 or self:knows_obscure(state) and self:get_kicks(state, 1))
         end,
-
         ["Dilapidated Dungeon - Time Trial"] = function (state)
             return self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 3)
             and self:has_gem(state) and self:can_slidejump(state)
@@ -515,6 +527,63 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Tower Remains - Time Trial"] = function (state)
             return self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 3)
             and self:has_gem(state) and self:can_slidejump(state)
+        end,
+        ["Dilapidated Dungeon - Rambling Goatling"] = function (state)
+            return self:can_attack(state)
+        end,
+        ["Castle Sansa - Bubblephobic Goatling"] = function (state)
+            return self:get_kicks(state, 2)
+            or self:has_plunge(state)
+            and (
+                self:has_gem(state)
+                or self:get_kicks(state, 1)
+                or self:can_bounce(state)
+                or self:can_slidejump(state)
+                or self:knows_obscure(state))
+        end,
+        ["Castle Sansa - Trapped Goatling"] = function (state)
+            return self:can_attack(state)
+        end,
+        ["Sansa Keep - cyuiyce Goatling"] = function (state)
+            return self:has_gem(state)
+            or self:kick_or_plunge(state, 2)
+        end,
+        ["Twilight Theatre - Murderous Goatling"] = function (state)
+            return self:get_kicks(state, 2)
+            or self:get_kicks(state, 1) and self:has_plunge(state) and self:knows_obscure(state)
+            or self:get_kicks(state, 1) and self:can_slidejump(state)
+            or self:has_gem(state)
+        end,
+        ["Empty Bailey - Alley Goatling"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Sansa Keep - cyuiyce Stool"] = function (state)
+            return self:has_gem(state)
+            or self:kick_or_plunge(state, 2)
+        end,
+        ["Twilight Theatre - Stage Left Stool"] = function (state)
+            return self:has_gem(state)
+        end,
+        ["Twilight Theatre - Stage Right Stool"] = function (state)
+            return self:can_soulcutter(state)
+            and (
+                self:get_kicks(state, 1)
+                or self:has_gem(state)
+                or self:knows_obscure(state) and self:can_slidejump(state) and self:has_plunge(state)
+                or self:knows_obscure(state) and self:can_slidejump(state) and self:can_bounce(state))
+        end,
+        ["The Underbelly - Note on a Ledge"] = function (state)
+            return self:get_kicks(state, 1)
+            or self:has_plunge(state)
+            or self:has_gem(state)
+            or self:can_bounce(state)
+        end,
+        ["The Underbelly - Note in the Big Room"] = function (state)
+            return self:get_kicks(state, 4) and self:has_plunge(state)
+            or self:get_kicks(state, 2) and self:can_slidejump(state)
+        end,
+        ["The Underbelly - Note Behind a Locked Door"] = function (state)
+            return self:has_small_keys(state)
         end,
     }
 

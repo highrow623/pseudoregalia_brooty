@@ -42,7 +42,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         ["Library Main -> Library Top"] = function(state)
             return self:get_kicks(state, 1)
         end,
-        ["Library Top -> Library Greaves"] = function(state)
+        ["Library Top -> Library Back"] = function(state)
             return self:can_bounce(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
         ["Keep Main -> Keep Throne Room"] = function(state)

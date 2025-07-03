@@ -66,10 +66,14 @@ region_table = {
     ["Library Locked"] = {
     },
     ["Library Greaves"] = {
-        "Library Top",
+        "Library Back",
     },
     ["Library Top"] = {
+        "Library Back",
+    },
+    ["Library Back"] = {
         "Library Greaves",
+        "Library Top",
     },
 
     ["Keep Main"] = {
