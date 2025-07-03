@@ -161,35 +161,35 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data.goatsanity ~= nil then
-        print("slot_data.goatsanity: " .. tostring(slot_data.goatsanity))
-        local obj = Tracker:FindObjectForCode("goatsanity")
+    if slot_data.goats ~= nil then
+        print("slot_data.goats: " .. tostring(slot_data.goats))
+        local obj = Tracker:FindObjectForCode("goats")
         if obj then
-            obj.Active = slot_data.goatsanity
+            obj.Active = slot_data.goats
         end
     end
 
-    if slot_data.sitsanity ~= nil then
-        print("slot_data.sitsanity: " .. tostring(slot_data.sitsanity))
-        local obj = Tracker:FindObjectForCode("sitsanity")
+    if slot_data.chairs ~= nil then
+        print("slot_data.chairs: " .. tostring(slot_data.chairs))
+        local obj = Tracker:FindObjectForCode("chairs")
         if obj then
-            obj.Active = slot_data.sitsanity
+            obj.Active = slot_data.chairs
         end
     end
 
-    if slot_data.booksanity ~= nil then
-        print("slot_data.booksanity: " .. tostring(slot_data.booksanity))
-        local obj = Tracker:FindObjectForCode("booksanity")
+    if slot_data.books ~= nil then
+        print("slot_data.books: " .. tostring(slot_data.books))
+        local obj = Tracker:FindObjectForCode("books")
         if obj then
-            obj.Active = slot_data.booksanity
+            obj.Active = slot_data.books
         end
     end
 
-    if slot_data.notesanity ~= nil then
-        print("slot_data.notesanity: " .. tostring(slot_data.notesanity))
-        local obj = Tracker:FindObjectForCode("notesanity")
+    if slot_data.notes ~= nil then
+        print("slot_data.notes: " .. tostring(slot_data.notes))
+        local obj = Tracker:FindObjectForCode("notes")
         if obj then
-            obj.Active = slot_data.notesanity
+            obj.Active = slot_data.notes
         end
     end
 

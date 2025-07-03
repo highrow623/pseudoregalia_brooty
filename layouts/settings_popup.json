@@ -14,22 +14,22 @@
                     [
                         "game_version",
                         "op_progbreaker",
-                        "goatsanity"
+                        "goats"
                     ],
                     [
                         "normal",
                         "op_progslide",
-                        "sitsanity"
+                        "chairs"
                     ],
                     [
                         "obscure",
                         "op_splitkick_off",
-                        "booksanity"
+                        "books"
                     ],
                     [
                         "time_trials",
                         "auto_swap_map",
-                        "notesanity"
+                        "notes"
                     ]
                 ]
             }

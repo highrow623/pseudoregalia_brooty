@@ -258,28 +258,28 @@
         ]
     },
     {
-        "name": "Goatsanity",
+        "name": "Goats",
         "type": "toggle",
-        "img": "images/logic_settings/goatsanity.png",
-        "codes": "goatsanity"
+        "img": "images/logic_settings/goats.png",
+        "codes": "goats"
     },
     {
-        "name": "Sitsanity",
+        "name": "Chairs",
         "type": "toggle",
-        "img": "images/logic_settings/sitsanity.png",
-        "codes": "sitsanity"
+        "img": "images/logic_settings/chairs.png",
+        "codes": "chairs"
     },
     {
-        "name": "Booksanity",
+        "name": "Books",
         "type": "toggle",
-        "img": "images/logic_settings/booksanity.png",
-        "codes": "booksanity"
+        "img": "images/logic_settings/books.png",
+        "codes": "books"
     },
     {
-        "name": "Notesanity",
+        "name": "Notes",
         "type": "toggle",
-        "img": "images/logic_settings/notesanity.png",
-        "codes": "notesanity"
+        "img": "images/logic_settings/notes.png",
+        "codes": "notes"
     },
     {
         "name": "Auto Swap Map",
