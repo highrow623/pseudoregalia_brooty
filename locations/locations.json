@@ -1922,7 +1922,7 @@
                 ]
             },
             {
-                "name": "Theatre Goer Goatling",
+                "name": "Theatre Goer Goatling 1",
                 "access_rules": [[
                     "$can_glitch|Twilight Theatre - Theatre Goer Goatling 1",
                     "[$can_reach|Twilight Theatre - Theatre Goer Goatling 1]"
@@ -1930,7 +1930,7 @@
                 "visibility_rules": ["goats"],
                 "sections": [
                     {
-                        "item_count": 2,
+                        "item_count": 1,
                         "chest_opened_img": "images/items/aspect.png",
                         "chest_unopened_img": "images/items/aspect_gray.png"
                     }
@@ -1940,6 +1940,28 @@
                         "map": "theatre",
                         "x": 603,
                         "y": 781
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Goer Goatling 2",
+                "access_rules": [[
+                    "$can_glitch|Twilight Theatre - Theatre Goer Goatling 2",
+                    "[$can_reach|Twilight Theatre - Theatre Goer Goatling 2]"
+                ]],
+                "visibility_rules": ["goats"],
+                "sections": [
+                    {
+                        "item_count": 1,
+                        "chest_opened_img": "images/items/aspect.png",
+                        "chest_unopened_img": "images/items/aspect_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "theatre",
+                        "x": 583,
+                        "y": 806
                     }
                 ]
             },
