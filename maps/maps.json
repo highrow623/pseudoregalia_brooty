@@ -1,14 +1,8 @@
 [
     {
-        "name": "full_map_separated",
+        "name": "full_map",
         "location_size": 40,
         "location_border_thickness": 10,
-        "img": "images/maps/full_map.png"
-    },
-    {
-        "name": "full_map_grouped",
-        "location_size": 60,
-        "location_border_thickness": 15,
         "img": "images/maps/full_map.png"
     },
     {

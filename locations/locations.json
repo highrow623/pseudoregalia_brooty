@@ -17,7 +17,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1423,
                         "y": 1539
                     },
@@ -43,7 +43,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1344,
                         "y": 895
                     },
@@ -69,7 +69,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 939,
                         "y": 845
                     },
@@ -95,11 +95,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 1299,
-                        "y": 1184
-                    },
-                    {
                         "map": "dungeon",
                         "x": 828,
                         "y": 383
@@ -121,7 +116,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1570,
                         "y": 1400
                     },
@@ -147,7 +142,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1245,
                         "y": 1393
                     },
@@ -173,7 +168,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1543,
                         "y": 1212
                     },
@@ -199,11 +194,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 1115,
-                        "y": 1540
-                    },
                     {
                         "map": "dungeon",
                         "x": 1282,
@@ -248,6 +238,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1139,
+                        "y": 1268
+                    },
                     {
                         "map": "dungeon",
                         "x": 937,
@@ -315,6 +310,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 1261,
+                        "y": 1321
+                    },
+                    {
                         "map": "dungeon",
                         "x": 1029,
                         "y": 445
@@ -341,7 +341,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1506,
                         "y": 2292
                     },
@@ -367,7 +367,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1570,
                         "y": 2013
                     },
@@ -394,7 +394,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1610,
                         "y": 2210
                     },
@@ -420,7 +420,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1483,
                         "y": 2368
                     },
@@ -446,7 +446,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1773,
                         "y": 2013
                     },
@@ -472,7 +472,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1319,
                         "y": 2168
                     },
@@ -498,7 +498,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1538,
                         "y": 2452
                     },
@@ -524,7 +524,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1661,
                         "y": 1846
                     },
@@ -550,7 +550,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1460,
                         "y": 2598
                     },
@@ -577,7 +577,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1610,
                         "y": 2210
                     },
@@ -603,11 +603,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 1378,
-                        "y": 2367
-                    },
                     {
                         "map": "castle",
                         "x": 840,
@@ -675,6 +670,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 1399,
+                        "y": 2180
+                    },
+                    {
                         "map": "castle",
                         "x": 861,
                         "y": 545
@@ -718,6 +718,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1683,
+                        "y": 2282
+                    },
                     {
                         "map": "castle",
                         "x": 1147,
@@ -789,7 +794,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1273,
                         "y": 1986
                     },
@@ -815,7 +820,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 964,
                         "y": 1848
                     },
@@ -841,7 +846,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 983,
                         "y": 2231
                     },
@@ -867,6 +872,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1014,
+                        "y": 2028
+                    },
                     {
                         "map": "castle",
                         "x": 476,
@@ -894,7 +904,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 678,
                         "y": 1764
                     },
@@ -920,7 +930,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 542,
                         "y": 1293
                     },
@@ -946,7 +956,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 264,
                         "y": 1781
                     },
@@ -972,7 +982,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1031,
                         "y": 1606
                     },
@@ -998,7 +1008,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 570,
                         "y": 1625
                     },
@@ -1024,11 +1034,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 479,
-                        "y": 1144
-                    },
-                    {
                         "map": "keep",
                         "x": 415,
                         "y": 251
@@ -1051,11 +1056,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 550,
-                        "y": 1136
-                    },
-                    {
                         "map": "keep",
                         "x": 458,
                         "y": 231
@@ -1077,6 +1077,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 550,
+                        "y": 1568
+                    },
                     {
                         "map": "keep",
                         "x": 493,
@@ -1144,6 +1149,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 337,
+                        "y": 1450
+                    },
+                    {
                         "map": "keep",
                         "x": 253,
                         "y": 581
@@ -1193,7 +1203,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2142,
                         "y": 2004
                     },
@@ -1221,7 +1231,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2142,
                         "y": 2004
                     },
@@ -1247,7 +1257,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2051,
                         "y": 2519
                     },
@@ -1273,7 +1283,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2124,
                         "y": 2436
                     },
@@ -1299,7 +1309,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2299,
                         "y": 2357
                     },
@@ -1325,11 +1335,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 2109,
-                        "y": 2178
-                    },
                     {
                         "map": "library",
                         "x": 463,
@@ -1396,6 +1401,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2326,
+                        "y": 2145
+                    },
                     {
                         "map": "library",
                         "x": 722,
@@ -1731,7 +1741,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 846,
                         "y": 304
                     },
@@ -1757,7 +1767,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 166,
                         "y": 334
                     },
@@ -1783,7 +1793,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 582,
                         "y": 291
                     },
@@ -1809,11 +1819,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 631,
-                        "y": 355
-                    },
-                    {
                         "map": "theatre",
                         "x": 396,
                         "y": 608
@@ -1835,7 +1840,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 580,
                         "y": 392
                     },
@@ -1861,7 +1866,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 765,
                         "y": 392
                     },
@@ -1888,7 +1893,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 175,
                         "y": 443
                     },
@@ -2025,6 +2030,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 830,
+                        "y": 795
+                    },
+                    {
                         "map": "theatre",
                         "x": 818,
                         "y": 410
@@ -2046,6 +2056,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1054,
+                        "y": 614
+                    },
                     {
                         "map": "theatre",
                         "x": 631,
@@ -2069,6 +2084,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 715,
+                        "y": 669
+                    },
+                    {
                         "map": "theatre",
                         "x": 687,
                         "y": 524
@@ -2090,6 +2110,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 566,
+                        "y": 22
+                    },
                     {
                         "map": "theatre",
                         "x": 48,
@@ -2117,11 +2142,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 1160,
-                        "y": 2699
-                    },
-                    {
                         "map": "bailey",
                         "x": 144,
                         "y": 361
@@ -2142,11 +2162,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 1259,
-                        "y": 2872
-                    },
                     {
                         "map": "bailey",
                         "x": 291,
@@ -2169,11 +2184,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 1339,
-                        "y": 2810
-                    },
-                    {
                         "map": "bailey",
                         "x": 418,
                         "y": 536
@@ -2194,11 +2204,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 1257,
-                        "y": 2794
-                    },
                     {
                         "map": "bailey",
                         "x": 283,
@@ -2221,11 +2226,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 1316,
-                        "y": 2690
-                    },
-                    {
                         "map": "bailey",
                         "x": 385,
                         "y": 343
@@ -2247,11 +2247,6 @@
                     }
                 ],
                 "map_locations": [
-                    {
-                        "map": "full_map_separated",
-                        "x": 1313,
-                        "y": 2756
-                    },
                     {
                         "map": "bailey",
                         "x": 362,
@@ -2301,7 +2296,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 1943,
                         "y": 1667
                     },
@@ -2327,11 +2322,6 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 1995,
-                        "y": 815
-                    },
-                    {
                         "map": "underbelly",
                         "x": 759,
                         "y": 400
@@ -2353,7 +2343,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2160,
                         "y": 1099
                     },
@@ -2379,7 +2369,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2502,
                         "y": 1481
                     },
@@ -2405,7 +2395,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2355,
                         "y": 786
                     },
@@ -2431,7 +2421,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2701,
                         "y": 1686
                     },
@@ -2457,7 +2447,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2148,
                         "y": 1609
                     },
@@ -2483,7 +2473,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2590,
                         "y": 289
                     },
@@ -2510,7 +2500,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2444,
                         "y": 1424
                     },
@@ -2537,6 +2527,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 2918,
+                        "y": 1522
+                    },
+                    {
                         "map": "underbelly",
                         "x": 316,
                         "y": 981
@@ -2558,6 +2553,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2629,
+                        "y": 1375
+                    },
                     {
                         "map": "underbelly",
                         "x": 405,
@@ -2607,7 +2607,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2504,
                         "y": 2896
                     },
@@ -2633,7 +2633,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2629,
                         "y": 2896
                     },
@@ -2660,7 +2660,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
+                        "map": "full_map",
                         "x": 2436,
                         "y": 2853
                     },
@@ -2690,14 +2690,7 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_separated",
-                        "x": 2843,
-                        "y": 2896,
-                        "size": 100,
-                        "border_thickness": 25
-                    },
-                    {
-                        "map": "full_map_grouped",
+                        "map": "full_map",
                         "x": 2843,
                         "y": 2896,
                         "size": 100,
@@ -2715,22 +2708,40 @@
         ]
     },
     {
-        "name": "Full Map",
+        "name": "Full Map Groups",
         "children": [
             {
-                "name": "Empty Bailey",
+                "name": "Lower Bailey",
                 "sections": [
                     {
                         "name": "Solar Wind",
                         "ref": "Empty Bailey/Solar Wind/"
                     },
                     {
-                        "name": "Cheese Bell",
-                        "ref": "Empty Bailey/Cheese Bell/"
-                    },
-                    {
                         "name": "Inside Building",
                         "ref": "Empty Bailey/Inside Building/"
+                    },
+                    {
+                        "name": "Alley Goatling",
+                        "ref": "Empty Bailey/Alley Goatling/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1310,
+                        "y": 2812,
+                        "size": 48,
+                        "border_thickness": 12
+                    }
+                ]
+            },
+            {
+                "name": "Upper Bailey",
+                "sections": [
+                    {
+                        "name": "Cheese Bell",
+                        "ref": "Empty Bailey/Cheese Bell/"
                     },
                     {
                         "name": "Center Steeple",
@@ -2747,159 +2758,61 @@
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 1186,
-                        "y": 2719
+                        "map": "full_map",
+                        "x": 1200,
+                        "y": 2724,
+                        "size": 48,
+                        "border_thickness": 12
                     }
                 ]
             },
             {
-                "name": "Dilapitaded Dungeon",
+                "name": "Goat Jail",
                 "sections": [
-                    {
-                        "name": "Dream Breaker",
-                        "ref": "Dilapitaded Dungeon/Dream Breaker/"
-                    },
-                    {
-                        "name": "Slide",
-                        "ref": "Dilapitaded Dungeon/Slide/"
-                    },
-                    {
-                        "name": "Dark Orbs",
-                        "ref": "Dilapitaded Dungeon/Dark Orbs/"
-                    },
                     {
                         "name": "Rafters",
                         "ref": "Dilapitaded Dungeon/Rafters/"
                     },
                     {
-                        "name": "Strong Eyes",
-                        "ref": "Dilapitaded Dungeon/Strong Eyes/"
+                        "name": "Unwelcoming Goatling",
+                        "ref": "Dilapitaded Dungeon/Unwelcoming Goatling/"
                     },
                     {
-                        "name": "Alcove Near Mirror",
-                        "ref": "Dilapitaded Dungeon/Alcove Near Mirror/"
-                    },
+                        "name": "Repentant Goatling",
+                        "ref": "Dilapitaded Dungeon/Repentant Goatling/"
+                    }
+                ],
+                "map_locations": [
                     {
-                        "name": "Past Poles",
-                        "ref": "Dilapitaded Dungeon/Past Poles/"
-                    },
+                        "map": "full_map",
+                        "x": 1299,
+                        "y": 1184
+                    }
+                ]
+            },
+            {
+                "name": "Dungeon Start",
+                "sections": [
                     {
                         "name": "Time Trial",
                         "ref": "Dilapitaded Dungeon/Time Trial/"
+                    },
+                    {
+                        "name": "Mirror Room Goatling",
+                        "ref": "Dilapitaded Dungeon/Mirror Room Goatling/"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 1383,
-                        "y": 1103
+                        "map": "full_map",
+                        "x": 1147,
+                        "y": 1516
                     }
                 ]
             },
             {
-                "name": "Castle Sansa",
+                "name": "Throne Room",
                 "sections": [
-                    {
-                        "name": "Indignation",
-                        "ref": "Castle Sansa/Indignation/"
-                    },
-                    {
-                        "name": "Floater In Courtyard",
-                        "ref": "Castle Sansa/Floater In Courtyard/"
-                    },
-                    {
-                        "name": "Locked Door",
-                        "ref": "Castle Sansa/Locked Door/"
-                    },
-                    {
-                        "name": "Platform In Main Halls",
-                        "ref": "Castle Sansa/Platform In Main Halls/"
-                    },
-                    {
-                        "name": "Tall Room Near Wheel Crawlers",
-                        "ref": "Castle Sansa/Tall Room Near Wheel Crawlers/"
-                    },
-                    {
-                        "name": "Alcove Near Dungeon",
-                        "ref": "Castle Sansa/Alcove Near Dungeon/"
-                    },
-                    {
-                        "name": "Corner Corridor",
-                        "ref": "Castle Sansa/Corner Corridor/"
-                    },
-                    {
-                        "name": "Wheel Crawlers",
-                        "ref": "Castle Sansa/Wheel Crawlers/"
-                    },
-                    {
-                        "name": "Balcony",
-                        "ref": "Castle Sansa/Balcony/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Castle Sansa/Time Trial/"
-                    },
-                    {
-                        "name": "Memento",
-                        "ref": "Castle Sansa/Memento/"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map_grouped",
-                        "x": 1503,
-                        "y": 2326
-                    }
-                ]
-            },
-            {
-                "name": "Upper Castle Sansa",
-                "sections": [
-                    {
-                        "name": "High Climb From Courtyard",
-                        "ref": "Upper Castle Sansa/High Climb From Courtyard/"
-                    },
-                    {
-                        "name": "Alcove Near Scythe Corridor",
-                        "ref": "Upper Castle Sansa/Alcove Near Scythe Corridor/"
-                    },
-                    {
-                        "name": "Near Theatre Front",
-                        "ref": "Upper Castle Sansa/Near Theatre Front/"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map_grouped",
-                        "x": 990,
-                        "y": 2006
-                    }
-                ]
-            },
-            {
-                "name": "Sansa Keep",
-                "sections": [
-                    {
-                        "name": "Sunsetter",
-                        "ref": "Sansa Keep/Sunsetter/"
-                    },
-                    {
-                        "name": "Strikebreak",
-                        "ref": "Sansa Keep/Strikebreak/"
-                    },
-                    {
-                        "name": "Near Theatre",
-                        "ref": "Sansa Keep/Near Theatre/"
-                    },
-                    {
-                        "name": "Levers Room",
-                        "ref": "Sansa Keep/Levers Room/"
-                    },
-                    {
-                        "name": "Alcove Near Locked Door",
-                        "ref": "Sansa Keep/Alcove Near Locked Door/"
-                    },
                     {
                         "name": "Lonely Throne",
                         "ref": "Sansa Keep/Lonely Throne/"
@@ -2907,161 +2820,285 @@
                     {
                         "name": "Time Trial",
                         "ref": "Sansa Keep/Time Trial/"
+                    },
+                    {
+                        "name": "The Throne",
+                        "ref": "Sansa Keep/The Throne/"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 482,
-                        "y": 1175
+                        "map": "full_map",
+                        "x": 479,
+                        "y": 1144,
+                        "size": 48,
+                        "border_thickness": 12
                     }
                 ]
             },
             {
-                "name": "Listless Library",
+                "name": "Northeast Keep",
                 "sections": [
                     {
-                        "name": "Sun Greaves",
-                        "ref": "Listless Library/Sun Greaves/"
+                        "name": "cyuiyce Goatling",
+                        "ref": "Sansa Keep/cyuiyce Goatling/"
                     },
                     {
-                        "name": "Sun Greaves Split",
-                        "ref": "Listless Library/Sun Greaves Split/"
-                    },
-                    {
-                        "name": "Locked Door Across",
-                        "ref": "Listless Library/Locked Door Across/"
-                    },
-                    {
-                        "name": "Locked Door Left",
-                        "ref": "Listless Library/Locked Door Left/"
-                    },
-                    {
-                        "name": "Upper Back",
-                        "ref": "Listless Library/Upper Back/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Listless Library/Time Trial/"
+                        "name": "cyuiyce Stool",
+                        "ref": "Sansa Keep/cyuiyce Stool/"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 2393,
-                        "y": 2367
+                        "map": "full_map",
+                        "x": 670,
+                        "y": 1272
                     }
                 ]
             },
             {
-                "name": "Twilight Theatre",
+                "name": "Underbelly Locked Door",
                 "sections": [
-                    {
-                        "name": "Soul Cutter",
-                        "ref": "Twilight Theatre/Soul Cutter/"
-                    },
-                    {
-                        "name": "Corner Beam",
-                        "ref": "Twilight Theatre/Corner Beam/"
-                    },
-                    {
-                        "name": "Locked Door",
-                        "ref": "Twilight Theatre/Locked Door/"
-                    },
-                    {
-                        "name": "Tucked Behind Boxes",
-                        "ref": "Twilight Theatre/Tucked Behind Boxes/"
-                    },
-                    {
-                        "name": "Back Of Auditorium",
-                        "ref": "Twilight Theatre/Back Of Auditorium/"
-                    },
-                    {
-                        "name": "Center Stage",
-                        "ref": "Twilight Theatre/Center Stage/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Twilight Theatre/Time Trial/"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map_grouped",
-                        "x": 993,
-                        "y": 391
-                    }
-                ]
-            },
-            {
-                "name": "The Underbelly",
-                "sections": [
-                    {
-                        "name": "Ascendant Light",
-                        "ref": "Underbelly/Ascendant Light/"
-                    },
                     {
                         "name": "Locked Door",
                         "ref": "Underbelly/Locked Door/"
                     },
                     {
-                        "name": "Strikebreak Wall",
-                        "ref": "Underbelly/Strikebreak Wall/"
-                    },
-                    {
-                        "name": "Main Room",
-                        "ref": "Underbelly/Main Room/"
-                    },
-                    {
-                        "name": "Rafters Near Keep",
-                        "ref": "Underbelly/Rafters Near Keep/"
-                    },
-                    {
-                        "name": "Building Near Little Guy",
-                        "ref": "Underbelly/Building Near Little Guy/"
-                    },
-                    {
-                        "name": "Alcove Near Light",
-                        "ref": "Underbelly/Alcove Near Light/"
-                    },
-                    {
-                        "name": "Surrounded By Holes",
-                        "ref": "Underbelly/Surrounded By Holes/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Underbelly/Time Trial/"
+                        "name": "Note Behind a Locked Door",
+                        "ref": "Underbelly/Note Behind a Locked Door/"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 2421,
-                        "y": 1516
+                        "map": "full_map",
+                        "x": 1995,
+                        "y": 815
                     }
                 ]
             },
             {
-                "name": "Tower Remains",
+                "name": "Beneath the Theatre",
                 "sections": [
                     {
-                        "name": "Cling Gem",
-                        "ref": "Tower Remains/Cling Gem/"
+                        "name": "Tucked Behind Boxes",
+                        "ref": "Twilight Theatre/Tucked Behind Boxes/"
                     },
                     {
-                        "name": "Atop The Tower",
-                        "ref": "Tower Remains/Atop The Tower/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Tower Remains/Time Trial/"
+                        "name": "Murderous Goatling",
+                        "ref": "Twilight Theatre/Murderous Goatling/"
                     }
                 ],
                 "map_locations": [
                     {
-                        "map": "full_map_grouped",
-                        "x": 2307,
-                        "y": 2895
+                        "map": "full_map",
+                        "x": 670,
+                        "y": 392
+                    }
+                ]
+            },
+            {
+                "name": "Theatre Front Goatlings",
+                "sections": [
+                    {
+                        "name": "20 Bean Casserole Goatling",
+                        "ref": "Twilight Theatre/20 Bean Casserole Goatling/"
+                    },
+                    {
+                        "name": "Theatre Goer Goatling 1",
+                        "ref": "Twilight Theatre/Theatre Goer Goatling 1/"
+                    },
+                    {
+                        "name": "Theatre Goer Goatling 2",
+                        "ref": "Twilight Theatre/Theatre Goer Goatling 2/"
+                    },
+                    {
+                        "name": "Theatre Manager Goatling",
+                        "ref": "Twilight Theatre/Theatre Manager Goatling/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 445,
+                        "y": 607,
+                        "size": 48,
+                        "border_thickness": 12
+                    }
+                ]
+            },
+            {
+                "name": "Library Main Room",
+                "sections": [
+                    {
+                        "name": "Hay Bale Near Entrance",
+                        "ref": "Listless Library/Hay Bale Near Entrance/"
+                    },
+                    {
+                        "name": "A Book About a Princess",
+                        "ref": "Listless Library/A Book About a Princess/"
+                    },
+                    {
+                        "name": "A Book About Cooking",
+                        "ref": "Listless Library/A Book About Cooking/"
+                    },
+                    {
+                        "name": "A Book Full of Plays",
+                        "ref": "Listless Library/A Book Full of Plays/"
+                    },
+                    {
+                        "name": "A Book About Reading",
+                        "ref": "Listless Library/A Book About Reading/"
+                    },
+                    {
+                        "name": "A Book About Aquatic Life",
+                        "ref": "Listless Library/A Book About Aquatic Life/"
+                    },
+                    {
+                        "name": "A Book About a Jester",
+                        "ref": "Listless Library/A Book About a Jester/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2081,
+                        "y": 2301
+                    }
+                ]
+            },
+            {
+                "name": "Library Side Room",
+                "sections": [
+                    {
+                        "name": "Time Trial",
+                        "ref": "Listless Library/Time Trial/"
+                    },
+                    {
+                        "name": "A Book About Loss",
+                        "ref": "Listless Library/A Book About Loss/"
+                    },
+                    {
+                        "name": "A Book on Musical Theory",
+                        "ref": "Listless Library/A Book on Musical Theory/"
+                    },
+                    {
+                        "name": "A Book About a Girl",
+                        "ref": "Listless Library/A Book About a Girl/"
+                    },
+                    {
+                        "name": "A Book About a Thimble",
+                        "ref": "Listless Library/A Book About a Thimble/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2109,
+                        "y": 2178
+                    }
+                ]
+            },
+            {
+                "name": "Library Top",
+                "sections": [
+                    {
+                        "name": "A Book About a Restaurant",
+                        "ref": "Listless Library/A Book About a Restaurant/"
+                    },
+                    {
+                        "name": "Hay Bale Near Eggs",
+                        "ref": "Listless Library/Hay Bale Near Eggs/"
+                    },
+                    {
+                        "name": "Note Near Eggs",
+                        "ref": "Listless Library/Note Near Eggs/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2145,
+                        "y": 2256
+                    }
+                ]
+            },
+            {
+                "name": "Greaves Room Books",
+                "sections": [
+                    {
+                        "name": "A Book About a Monster",
+                        "ref": "Listless Library/A Book About a Monster/"
+                    },
+                    {
+                        "name": "A Book About Revenge",
+                        "ref": "Listless Library/A Book About Revenge/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2112,
+                        "y": 2087
+                    }
+                ]
+            },
+            {
+                "name": "Castle Start",
+                "sections": [
+                    {
+                        "name": "Crystal Licker Goatling",
+                        "ref": "Castle Sansa/Crystal Licker Goatling/"
+                    },
+                    {
+                        "name": "Stool Near Crystal",
+                        "ref": "Castle Sansa/Stool Near Crystal/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1342,
+                        "y": 2242
+                    }
+                ]
+            },
+            {
+                "name": "Memento Room",
+                "sections": [
+                    {
+                        "name": "Memento",
+                        "ref": "Castle Sansa/Memento/"
+                    },
+                    {
+                        "name": "Memento Goatling",
+                        "ref": "Castle Sansa/Memento Goatling/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1332,
+                        "y": 2367
+                    }
+                ]
+            },
+            {
+                "name": "Courtyard Gazebo",
+                "sections": [
+                    {
+                        "name": "Gazebo Goatling",
+                        "ref": "Castle Sansa/Gazebo Goatling/"
+                    },
+                    {
+                        "name": "Gazebo Stool",
+                        "ref": "Castle Sansa/Gazebo Stool/"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1434,
+                        "y": 1999
                     }
                 ]
             }
