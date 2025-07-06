@@ -1090,10 +1090,10 @@
                 ]
             },
             {
-                "name": "cyuiyce Goatling",
+                "name": "Northeast Goatling",
                 "access_rules": [[
-                    "$can_glitch|Sansa Keep - cyuiyce Goatling",
-                    "[$can_reach|Sansa Keep - cyuiyce Goatling]"
+                    "$can_glitch|Sansa Keep - Northeast Goatling",
+                    "[$can_reach|Sansa Keep - Northeast Goatling]"
                 ]],
                 "visibility_rules": ["goats"],
                 "sections": [
@@ -1112,10 +1112,10 @@
                 ]
             },
             {
-                "name": "cyuiyce Stool",
+                "name": "Northeast Stool",
                 "access_rules": [[
-                    "$can_glitch|Sansa Keep - cyuiyce Stool",
-                    "[$can_reach|Sansa Keep - cyuiyce Stool]"
+                    "$can_glitch|Sansa Keep - Northeast Stool",
+                    "[$can_reach|Sansa Keep - Northeast Stool]"
                 ]],
                 "visibility_rules": ["chairs"],
                 "sections": [
@@ -2840,12 +2840,12 @@
                 "name": "Northeast Keep",
                 "sections": [
                     {
-                        "name": "cyuiyce Goatling",
-                        "ref": "Sansa Keep/cyuiyce Goatling/"
+                        "name": "Northeast Goatling",
+                        "ref": "Sansa Keep/Northeast Goatling/"
                     },
                     {
-                        "name": "cyuiyce Stool",
-                        "ref": "Sansa Keep/cyuiyce Stool/"
+                        "name": "Northeast Stool",
+                        "ref": "Sansa Keep/Northeast Stool/"
                     }
                 ],
                 "map_locations": [
