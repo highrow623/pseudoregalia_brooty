@@ -1352,8 +1352,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/hay_bale.png",
+                        "chest_unopened_img": "images/items/hay_bale_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1374,8 +1374,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/hay_bale.png",
+                        "chest_unopened_img": "images/items/hay_bale_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1396,8 +1396,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/hay_bale.png",
+                        "chest_unopened_img": "images/items/hay_bale_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1423,8 +1423,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1445,8 +1445,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1467,8 +1467,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1489,8 +1489,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1511,8 +1511,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1533,8 +1533,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1555,8 +1555,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1577,8 +1577,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1599,8 +1599,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1621,8 +1621,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1643,8 +1643,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/hay_bale.png",
-                        "chest_unopened_img": "images/items/hay_bale_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1665,8 +1665,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/hay_bale.png",
-                        "chest_unopened_img": "images/items/hay_bale_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1687,8 +1687,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/hay_bale.png",
-                        "chest_unopened_img": "images/items/hay_bale_gray.png"
+                        "chest_opened_img": "images/items/book.png",
+                        "chest_unopened_img": "images/items/book_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -1709,8 +1709,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/note.png",
+                        "chest_unopened_img": "images/items/note_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -2541,8 +2541,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/note.png",
+                        "chest_unopened_img": "images/items/note_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -2568,8 +2568,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/note.png",
+                        "chest_unopened_img": "images/items/note_gray.png"
                     }
                 ],
                 "map_locations": [
@@ -2595,8 +2595,8 @@
                 "sections": [
                     {
                         "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
+                        "chest_opened_img": "images/items/note.png",
+                        "chest_unopened_img": "images/items/note_gray.png"
                     }
                 ],
                 "map_locations": [
