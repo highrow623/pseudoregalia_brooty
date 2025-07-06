@@ -2142,6 +2142,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 1160,
+                        "y": 2699
+                    },
+                    {
                         "map": "bailey",
                         "x": 144,
                         "y": 361
@@ -2162,6 +2167,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1259,
+                        "y": 2872
+                    },
                     {
                         "map": "bailey",
                         "x": 291,
@@ -2205,6 +2215,11 @@
                 ],
                 "map_locations": [
                     {
+                        "map": "full_map",
+                        "x": 1257,
+                        "y": 2794
+                    },
+                    {
                         "map": "bailey",
                         "x": 283,
                         "y": 509
@@ -2225,6 +2240,11 @@
                     }
                 ],
                 "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 1316,
+                        "y": 2690
+                    },
                     {
                         "map": "bailey",
                         "x": 385,
@@ -2714,12 +2734,12 @@
                 "name": "Lower Bailey",
                 "sections": [
                     {
-                        "name": "Solar Wind",
-                        "ref": "Empty Bailey/Solar Wind/"
-                    },
-                    {
                         "name": "Inside Building",
                         "ref": "Empty Bailey/Inside Building/"
+                    },
+                    {
+                        "name": "Time Trial",
+                        "ref": "Empty Bailey/Time Trial/"
                     },
                     {
                         "name": "Alley Goatling",
@@ -2729,40 +2749,8 @@
                 "map_locations": [
                     {
                         "map": "full_map",
-                        "x": 1310,
-                        "y": 2812,
-                        "size": 48,
-                        "border_thickness": 12
-                    }
-                ]
-            },
-            {
-                "name": "Upper Bailey",
-                "sections": [
-                    {
-                        "name": "Cheese Bell",
-                        "ref": "Empty Bailey/Cheese Bell/"
-                    },
-                    {
-                        "name": "Center Steeple",
-                        "ref": "Empty Bailey/Center Steeple/"
-                    },
-                    {
-                        "name": "Guarded Hand",
-                        "ref": "Empty Bailey/Guarded Hand/"
-                    },
-                    {
-                        "name": "Time Trial",
-                        "ref": "Empty Bailey/Time Trial/"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map",
-                        "x": 1200,
-                        "y": 2724,
-                        "size": 48,
-                        "border_thickness": 12
+                        "x": 1339,
+                        "y": 2810
                     }
                 ]
             },
