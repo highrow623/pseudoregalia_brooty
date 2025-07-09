@@ -258,7 +258,7 @@ location_table = {
         code=2365810074,
         region="Keep Main",
     },
-    ["Sansa Keep - Northeast Goatling"] = PseudoregaliaLocationData{
+    ["Sansa Keep - Distorted Goatling"] = PseudoregaliaLocationData{
         code=2365810075,
         region="Keep Main",
     },
@@ -303,7 +303,7 @@ location_table = {
         code=2365810085,
         region="Castle Main",
     },
-    ["Sansa Keep - Northeast Stool"] = PseudoregaliaLocationData{
+    ["Sansa Keep - Distorted Stool"] = PseudoregaliaLocationData{
         code=2365810086,
         region="Keep Main",
     },

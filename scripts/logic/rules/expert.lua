@@ -297,11 +297,11 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Castle Sansa - Bubblephobic Goatling"] = function (state)
             return self:has_slide(state)
         end,
-        ["Sansa Keep - Northeast Goatling"] = function (state)
+        ["Sansa Keep - Distorted Goatling"] = function (state)
             return self:has_slide(state)
             or self:has_plunge(state)
         end,
-        ["Sansa Keep - Northeast Stool"] = function (state)
+        ["Sansa Keep - Distorted Stool"] = function (state)
             return self:has_slide(state)
             or self:has_plunge(state)
         end,

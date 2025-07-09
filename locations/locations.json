@@ -1090,10 +1090,10 @@
                 ]
             },
             {
-                "name": "Northeast Goatling",
+                "name": "Distorted Goatling",
                 "access_rules": [[
-                    "$can_glitch|Sansa Keep - Northeast Goatling",
-                    "[$can_reach|Sansa Keep - Northeast Goatling]"
+                    "$can_glitch|Sansa Keep - Distorted Goatling",
+                    "[$can_reach|Sansa Keep - Distorted Goatling]"
                 ]],
                 "visibility_rules": ["goats"],
                 "sections": [
@@ -1112,10 +1112,10 @@
                 ]
             },
             {
-                "name": "Northeast Stool",
+                "name": "Distorted Stool",
                 "access_rules": [[
-                    "$can_glitch|Sansa Keep - Northeast Stool",
-                    "[$can_reach|Sansa Keep - Northeast Stool]"
+                    "$can_glitch|Sansa Keep - Distorted Stool",
+                    "[$can_reach|Sansa Keep - Distorted Stool]"
                 ]],
                 "visibility_rules": ["chairs"],
                 "sections": [
@@ -2825,15 +2825,15 @@
                 ]
             },
             {
-                "name": "Northeast Keep",
+                "name": "Distorted Room",
                 "sections": [
                     {
-                        "name": "Northeast Goatling",
-                        "ref": "Sansa Keep/Northeast Goatling/"
+                        "name": "Distorted Goatling",
+                        "ref": "Sansa Keep/Distorted Goatling/"
                     },
                     {
-                        "name": "Northeast Stool",
-                        "ref": "Sansa Keep/Northeast Stool/"
+                        "name": "Distorted Stool",
+                        "ref": "Sansa Keep/Distorted Stool/"
                     }
                 ],
                 "map_locations": [

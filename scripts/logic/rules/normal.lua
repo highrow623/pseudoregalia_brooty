@@ -544,7 +544,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Castle Sansa - Trapped Goatling"] = function (state)
             return self:can_attack(state)
         end,
-        ["Sansa Keep - Northeast Goatling"] = function (state)
+        ["Sansa Keep - Distorted Goatling"] = function (state)
             return self:has_gem(state)
             or self:kick_or_plunge(state, 2)
         end,
@@ -557,7 +557,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Empty Bailey - Alley Goatling"] = function (state)
             return self:has_slide(state)
         end,
-        ["Sansa Keep - Northeast Stool"] = function (state)
+        ["Sansa Keep - Distorted Stool"] = function (state)
             return self:has_gem(state)
             or self:kick_or_plunge(state, 2)
         end,

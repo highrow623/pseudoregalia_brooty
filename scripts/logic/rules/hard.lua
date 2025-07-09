@@ -260,13 +260,13 @@ function PseudoregaliaHardRules.new(cls, definition)
             return self:get_kicks(state, 1)
             or self:has_gem(state)
         end,
-        ["Sansa Keep - Northeast Goatling"] = function (state)
+        ["Sansa Keep - Distorted Goatling"] = function (state)
             return self:get_kicks(state, 1)
         end,
         ["Twilight Theatre - Murderous Goatling"] = function (state)
             return self:get_kicks(state, 1)
         end,
-        ["Sansa Keep - Northeast Stool"] = function (state)
+        ["Sansa Keep - Distorted Stool"] = function (state)
             return self:get_kicks(state, 1)
         end,
         ["Twilight Theatre - Stage Right Stool"] = function (state)
