@@ -96,6 +96,9 @@ function PseudoregaliaHardRules.new(cls, definition)
             or self:has_breaker(state) and self:has_plunge(state) and self:get_kicks(state, 4)
             or self:can_bounce(state) and self:get_kicks(state, 3)
         end,
+        ["Keep Main -> Keep (Northeast) => Castle"] = function (state)
+            return self:get_kicks(state, 1)
+        end,
         ["Underbelly Light Pillar -> Underbelly Ascendant Light"] = function(state)
             return self:knows_obscure(state)
             and (
@@ -260,13 +263,7 @@ function PseudoregaliaHardRules.new(cls, definition)
             return self:get_kicks(state, 1)
             or self:has_gem(state)
         end,
-        ["Sansa Keep - Distorted Goatling"] = function (state)
-            return self:get_kicks(state, 1)
-        end,
         ["Twilight Theatre - Murderous Goatling"] = function (state)
-            return self:get_kicks(state, 1)
-        end,
-        ["Sansa Keep - Distorted Stool"] = function (state)
             return self:get_kicks(state, 1)
         end,
         ["Twilight Theatre - Stage Right Stool"] = function (state)

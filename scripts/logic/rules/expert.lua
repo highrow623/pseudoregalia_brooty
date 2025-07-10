@@ -105,6 +105,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Keep Main -> Keep => Underbelly"] = function(state)
             return self:has_slide(state)
         end,
+        ["Keep Main -> Keep (Northeast) => Castle"] = function (state)
+            return self:has_slide(state)
+        end,
         ["Keep Main -> Theatre Outside Scythe Corridor"] = function(state)
             return self:has_slide(state)
         end,
@@ -296,14 +299,6 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
         ["Castle Sansa - Bubblephobic Goatling"] = function (state)
             return self:has_slide(state)
-        end,
-        ["Sansa Keep - Distorted Goatling"] = function (state)
-            return self:has_slide(state)
-            or self:has_plunge(state)
-        end,
-        ["Sansa Keep - Distorted Stool"] = function (state)
-            return self:has_slide(state)
-            or self:has_plunge(state)
         end,
         ["Twilight Theatre - Stage Right Stool"] = function (state)
             return self:can_soulcutter(state) and self:has_slide(state)

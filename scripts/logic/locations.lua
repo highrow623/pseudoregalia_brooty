@@ -260,7 +260,7 @@ location_table = {
     },
     ["Sansa Keep - Distorted Goatling"] = PseudoregaliaLocationData{
         code=2365810075,
-        region="Keep Main",
+        region="Keep (Northeast) => Castle",
     },
     ["Twilight Theatre - 20 Bean Casserole Goatling"] = PseudoregaliaLocationData{
         code=2365810076,
@@ -305,7 +305,7 @@ location_table = {
     },
     ["Sansa Keep - Distorted Stool"] = PseudoregaliaLocationData{
         code=2365810086,
-        region="Keep Main",
+        region="Keep (Northeast) => Castle",
     },
     ["Sansa Keep - Path to Throne Stool"] = PseudoregaliaLocationData{
         code=2365810087,

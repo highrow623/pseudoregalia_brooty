@@ -37,6 +37,7 @@ region_table = {
         "Library Main",
         "Castle => Theatre Pillar",
         "Castle Spiral Climb",
+        "Keep (Northeast) => Castle",
     },
     ["Castle Spiral Climb"] = {
         "Castle Main",
@@ -82,6 +83,7 @@ region_table = {
         "Keep Throne Room",
         "Keep => Underbelly",
         "Theatre Outside Scythe Corridor",
+        "Keep (Northeast) => Castle",
     },
     ["Keep Locked Room"] = {
         "Keep Sunsetter",
@@ -93,6 +95,10 @@ region_table = {
     ["Keep => Underbelly"] = {
         "Keep Main",
         "Underbelly => Keep",
+    },
+    ["Keep (Northeast) => Castle"] = {
+        "Keep Main",
+        "Castle Main",
     },
 
     ["Bailey Lower"] = {

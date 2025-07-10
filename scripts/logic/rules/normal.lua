@@ -108,6 +108,10 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:get_kicks(state, 2)
             or self:has_gem(state) and self:has_plunge(state)
         end,
+        ["Castle Main -> Keep (Northeast) => Castle"] = function (state)
+            return self:can_attack(state)
+            or self:knows_obscure(state)
+        end,
         ["Castle Spiral Climb -> Castle High Climb"] = function(state)
             return self:has_gem(state)
             or self:get_kicks(state, 3) and self:has_plunge(state)
@@ -194,6 +198,11 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Keep Main -> Keep => Underbelly"] = function(state)
             return self:kick_or_plunge(state, 1)
             or self:has_gem(state)
+        end,
+        ["Keep Main -> Keep (Northeast) => Castle"] = function (state)
+            return self:has_gem(state)
+            or self:get_kicks(state, 2)
+            or self:has_plunge(state)
         end,
         ["Keep Main -> Theatre Outside Scythe Corridor"] = function(state)
             return self:has_gem(state)
@@ -544,10 +553,6 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Castle Sansa - Trapped Goatling"] = function (state)
             return self:can_attack(state)
         end,
-        ["Sansa Keep - Distorted Goatling"] = function (state)
-            return self:has_gem(state)
-            or self:kick_or_plunge(state, 2)
-        end,
         ["Twilight Theatre - Murderous Goatling"] = function (state)
             return self:get_kicks(state, 2)
             or self:get_kicks(state, 1) and self:has_plunge(state) and self:knows_obscure(state)
@@ -556,10 +561,6 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["Empty Bailey - Alley Goatling"] = function (state)
             return self:has_slide(state)
-        end,
-        ["Sansa Keep - Distorted Stool"] = function (state)
-            return self:has_gem(state)
-            or self:kick_or_plunge(state, 2)
         end,
         ["Twilight Theatre - Stage Left Stool"] = function (state)
             return self:has_gem(state)
