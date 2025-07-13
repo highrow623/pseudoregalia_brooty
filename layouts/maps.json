@@ -5,26 +5,9 @@
             {
                 "title": "Full Map",
                 "content": {
-                    "type": "tabbed",
-                    "tabs": [
-                        {
-                            "title": "Separated Items",
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "full_map_separated"
-                                ]
-                            }
-                        },
-                        {
-                            "title": "Grouped Items",
-                            "content": {
-                                "type": "map",
-                                "maps": [
-                                    "full_map_grouped"
-                                ]
-                            }
-                        }
+                    "type": "map",
+                    "maps": [
+                        "full_map"
                     ]
                 }
             },

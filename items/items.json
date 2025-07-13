@@ -258,6 +258,30 @@
         ]
     },
     {
+        "name": "Goats",
+        "type": "toggle",
+        "img": "images/logic_settings/goats.png",
+        "codes": "goats"
+    },
+    {
+        "name": "Chairs",
+        "type": "toggle",
+        "img": "images/logic_settings/chairs.png",
+        "codes": "chairs"
+    },
+    {
+        "name": "Books",
+        "type": "toggle",
+        "img": "images/logic_settings/books.png",
+        "codes": "books"
+    },
+    {
+        "name": "Notes",
+        "type": "toggle",
+        "img": "images/logic_settings/notes.png",
+        "codes": "notes"
+    },
+    {
         "name": "Auto Swap Map",
         "type": "toggle",
         "img": "images/settings/auto_swap_map.png",

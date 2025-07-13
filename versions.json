@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.7.1",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.7.1/pseudoregalia_brooty.zip",
+            "sha256": "1f198def3ec4d93ad41c9687d351243bbbc4b21581caacb2cbf5f834c45c580c",
+            "changelog": [
+                "add support for new checks: goats, chairs, books, notes",
+                "removed grouped full map, but grouped some bunched up items on the separated full map"
+            ]
+        },
+        {
             "package_version": "0.1.7",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.7/pseudoregalia_brooty.zip",
             "sha256": "207ed334d2d03fbf48abbfc2900cfcbc0ae3a61564c5910f1f1fc9936aa571e8",

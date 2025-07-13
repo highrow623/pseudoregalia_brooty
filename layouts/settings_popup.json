@@ -13,19 +13,23 @@
                 "rows": [
                     [
                         "game_version",
-                        "op_progbreaker"
+                        "op_progbreaker",
+                        "goats"
                     ],
                     [
                         "normal",
-                        "op_progslide"
+                        "op_progslide",
+                        "chairs"
                     ],
                     [
                         "obscure",
-                        "op_splitkick_off"
+                        "op_splitkick_off",
+                        "books"
                     ],
                     [
                         "time_trials",
-                        "auto_swap_map"
+                        "auto_swap_map",
+                        "notes"
                     ]
                 ]
             }

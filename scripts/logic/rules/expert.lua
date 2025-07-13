@@ -86,10 +86,13 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_plunge(state)
             or self:has_slide(state)
         end,
-        ["Library Greaves -> Library Top"] = function(state)
+        ["Library Greaves -> Library Back"] = function (state)
+            return self:can_attack(state) and self:has_slide(state)
+        end,
+        ["Library Back -> Library Top"] = function(state)
             return self:has_slide(state)
         end,
-        ["Library Top -> Library Greaves"] = function(state)
+        ["Library Top -> Library Back"] = function(state)
             return self:get_kicks(state, 2)
         end,
         ["Keep Main -> Keep Throne Room"] = function(state)
@@ -100,6 +103,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
                 or self:has_slide(state) and self:get_kicks(state, 3))
         end,
         ["Keep Main -> Keep => Underbelly"] = function(state)
+            return self:has_slide(state)
+        end,
+        ["Keep Main -> Keep (Northeast) => Castle"] = function (state)
             return self:has_slide(state)
         end,
         ["Keep Main -> Theatre Outside Scythe Corridor"] = function(state)
@@ -211,7 +217,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
                 self:kick_or_plunge(state, 1)
                 or self:has_slide(state))
             or self:can_gold_ultra(state) and self:get_kicks(state, 1)
-            or self:has_slide(state) and self:kick_or_plunge(state, 1)
+            or self:has_slide(state) and self:kick_or_plunge(state, 2)
             or self:get_kicks(state, 3)
             or self:has_gem(state)
         end,
@@ -290,6 +296,19 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["The Underbelly - Surrounded By Holes"] = function(state)
             return self:can_soulcutter(state) and self:has_slide(state)
             or self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
+        end,
+        ["Castle Sansa - Bubblephobic Goatling"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["Twilight Theatre - Stage Right Stool"] = function (state)
+            return self:can_soulcutter(state) and self:has_slide(state)
+        end,
+        ["The Underbelly - Note on a Ledge"] = function (state)
+            return self:has_slide(state)
+        end,
+        ["The Underbelly - Note in the Big Room"] = function (state)
+            return self:has_slide(state)
+            or self:has_gem(state)
         end,
     }
 
