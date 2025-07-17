@@ -151,6 +151,16 @@ function onClear(slot_data)
         end
     end
 
+    if slot_data.split_cling_gem ~= nil then
+        print("slot_data.split_cling_gem: ".. tostring(slot_data.split_sun_greaves))
+        -- op_splitcling is progressive because both stages are used for visibility_rules
+        if slot_data.split_cling_gem == false then
+            Tracker:FindObjectForCode("op_splitcling_on").CurrentStage = 0
+        elseif slot_data.split_cling_gem == true then
+            Tracker:FindObjectForCode("op_splitcling_on").CurrentStage = 1
+        end
+    end
+
     if slot_data.randomize_time_trials ~= nil then
         print("slot_data.randomize_time_trials: " .. tostring(slot_data.randomize_time_trials))
         -- time_trials is progressive because both stages are used for visibility_rules

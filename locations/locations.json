@@ -2618,9 +2618,37 @@
                     "$can_glitch|Tower Remains - Cling Gem",
                     "[$can_reach|Tower Remains - Cling Gem]"
                 ]],
+                "visibility_rules": ["op_splitcling_off"],
                 "sections": [
                     {
                         "item_count": 1,
+                        "chest_opened_img": "images/items/ability.png",
+                        "chest_unopened_img": "images/items/ability_gray.png"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "full_map",
+                        "x": 2504,
+                        "y": 2896
+                    },
+                    {
+                        "map": "tower",
+                        "x": 262,
+                        "y": 460
+                    }
+                ]
+            },
+            {
+                "name": "Cling Gem Split",
+                "access_rules": [[
+                    "$can_glitch|Tower Remains - Cling Gem",
+                    "[$can_reach|Tower Remains - Cling Gem]"
+                ]],
+                "visibility_rules": ["op_splitcling_on"],
+                "sections": [
+                    {
+                        "item_count": 3,
                         "chest_opened_img": "images/items/ability.png",
                         "chest_unopened_img": "images/items/ability_gray.png"
                     }

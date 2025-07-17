@@ -32,6 +32,7 @@ local glitchState = State:new(glitchDef)  -- TODO: add caching and update in wat
 local isProgBreaker = false  -- caching here to avoid going through Tracker
 local isProgSlide = false
 local isSplitKicks = false
+local isSplitCling = false
 
 -- version helper
 local v = {}
@@ -52,6 +53,7 @@ local codes = {
     ["Heliacal Power"] = "heliacal",  -- provides 1 kick if not split
     ["Small Key"] = "smallkey",
     ["Air Kick"] = "splitkick",   -- 4 individual kicks if split
+    ["Cling Shard"] = "clingshard",
     -- Progressive breaker and slide are handled differently.
     --["Progressive Dream Breaker"] = "progbreaker",
     --["Progressive Slide"] = "progslide",
@@ -88,6 +90,12 @@ State.count = function(state, name)
             return 0
         end
         if not isSplitKicks and code == "splitkick" then
+            return 0
+        end
+        if isSplitCling and code == "cling" then
+            return 0
+        end
+        if not isSplitCling and code == "clingshard" then
             return 0
         end
         return _count(state, code)
@@ -211,6 +219,7 @@ end
 function logicChanged()  -- run by watch for code "game_version", "logic", "obscure"
     print("logic changed")
     isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
+    isSplitCling = Tracker:ProviderCountForCode("op_splitcling_on") > 0  -- cache for State.count
     set_options()  -- update world option emulation
     set_rules()  -- recreate rules with new code(s) in Tracker
     state.stale = true
@@ -232,6 +241,7 @@ ScriptHost:AddWatchForCode("gameVersionChanged", "game_version", logicChanged)
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
 ScriptHost:AddWatchForCode("splitSunGreavesChanged", "op_splitkick_on", logicChanged)
+ScriptHost:AddWatchForCode("splitClingGemChanged", "op_splitcling_on", logicChanged)
 ScriptHost:AddWatchForCode("progBreakerLogicChanged", "op_progbreaker", progLogicChanged)
 ScriptHost:AddWatchForCode("progSlideLogicChanged", "op_progslide", progLogicChanged)
 if hasAnyWatch then
