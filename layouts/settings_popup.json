@@ -14,21 +14,26 @@
                     [
                         "game_version",
                         "op_progbreaker",
-                        "goats"
+                        "time_trials"
                     ],
                     [
                         "normal",
                         "op_progslide",
-                        "chairs"
+                        "goats"
                     ],
                     [
                         "obscure",
                         "op_splitkick_off",
+                        "chairs"
+                    ],
+                    [
+                        "auto_swap_map",
+                        "op_splitcling_off",
                         "books"
                     ],
                     [
-                        "time_trials",
-                        "auto_swap_map",
+                        null,
+                        null,
                         "notes"
                     ]
                 ]
