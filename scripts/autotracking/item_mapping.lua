@@ -27,5 +27,5 @@ ITEM_MAPPING = {
     [2365810027] = {"airkick", "consumable"},
     [2365810028] = {"progbreaker", "progressive"},
 
-    [2365810037] = {"splitcling", "consumable"},
+    [2365810037] = {"clingshard", "consumable"},
 }
