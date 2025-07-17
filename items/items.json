@@ -109,6 +109,7 @@
         "name": "Cling Shard",
         "type": "consumable",
         "img": "images/icons/icon_clingGem.png",
+        "disabled_img": "images/icons/icon_clingGem_grey.png",
         "max_quantity": 3,
         "increment": 1,
         "decrement": 1,
