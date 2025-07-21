@@ -24,7 +24,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:can_attack(state) and self:get_clings(state, 2) and self:kick_or_plunge(state, 1)
         end,
         ["Theatre Main -> Theatre Outside Scythe Corridor"] = function (state)
-            return self:get_clings(state, 4)
+            return self:get_clings(state, 6)
         end,
         ["Theatre Main -> Theatre Pillar"] = function (state)
             return self:get_kicks(state, 2)
@@ -49,8 +49,8 @@ function PseudoregaliaNormalRules.new(cls, definition)
             or self:has_plunge(state) and self:get_kicks(state, 3)
         end,
         ["Theatre Outside Scythe Corridor -> Theatre Main"] = function (state)
-            return self:get_clings(state, 4) and self:kick_or_plunge(state, 3)
-            or self:get_clings(state, 4) and self:can_slidejump(state)
+            return self:get_clings(state, 6) and self:kick_or_plunge(state, 3)
+            or self:get_clings(state, 6) and self:can_slidejump(state)
         end,
         ["Theatre Outside Scythe Corridor -> Dungeon Escape Upper"] = function (state)
             return self:navigate_darkrooms(state)

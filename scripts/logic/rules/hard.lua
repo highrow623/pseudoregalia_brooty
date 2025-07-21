@@ -138,7 +138,7 @@ function PseudoregaliaHardRules.new(cls, definition)
             or self:can_slidejump(state) and self:get_kicks(state, 1)
         end,
         ["Underbelly => Bailey -> Underbelly Main Lower"] = function(state)
-            return self:get_clings(state, 4)
+            return self:get_clings(state, 2)
         end,
         ["Underbelly Hole -> Underbelly Main Lower"] = function(state)
             return self:has_plunge(state)
