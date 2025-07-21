@@ -227,6 +227,7 @@ function PseudoregaliaHardRules.new(cls, definition)
         end,
         ["Castle Sansa - Near Theatre Front"] = function(state)
             return self:get_clings(state, 6)
+            or self:get_clings(state, 2) and self:get_kicks(state, 1)
         end,
         ["Castle Sansa - High Climb From Courtyard"] = function(state)
             return self:get_clings(state, 6)

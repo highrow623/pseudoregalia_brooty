@@ -256,9 +256,11 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Castle Sansa - Near Theatre Front"] = function(state)
             return self:can_gold_slide_ultra(state)
             or self:has_slide(state) and self:get_kicks(state, 1)
+            or self:get_clings(state, 4)
         end,
         ["Castle Sansa - High Climb From Courtyard"] = function(state)
             return self:can_attack(state) and self:get_kicks(state, 1)
+            or self:get_clings(state, 2) and self:get_kicks(state, 1)
             or self:has_slide(state)
         end,
         ["Listless Library - Upper Back"] = function(state)
