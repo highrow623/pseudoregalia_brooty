@@ -14,5 +14,5 @@
         }
     },
     "versions_url": "https://raw.githubusercontent.com/highrow623/pseudoregalia_brooty/master/versions.json",
-    "min_poptracker_version": "0.25.5"
+    "min_poptracker_version": "0.30.0"
 }
