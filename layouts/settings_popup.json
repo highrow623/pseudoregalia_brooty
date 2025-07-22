@@ -28,8 +28,11 @@
                     ],
                     [
                         "time_trials",
-                        "auto_swap_map",
+                        "op_splitcling_off",
                         "notes"
+                    ],
+                    [
+                        "auto_swap_map"
                     ]
                 ]
             }

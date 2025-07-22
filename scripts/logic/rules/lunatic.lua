@@ -47,6 +47,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         ["Keep Main -> Keep Throne Room"] = function(state)
             return self:has_breaker(state) and self:has_slide(state) and self:kick_or_plunge(state, 3)
+            or self:get_clings(state, 2)
             or (
                 self:can_gold_ultra(state)
                 and self:can_bounce(state)

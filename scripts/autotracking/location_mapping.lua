@@ -76,6 +76,10 @@ LOCATION_MAPPING = {
 
     [2365810062] = {"@Castle Sansa/Memento/"},
 
+    [2365810063] = {"@Tower Remains/Cling Gem Split/"},
+    [2365810064] = {"@Tower Remains/Cling Gem Split/"},
+    [2365810065] = {"@Tower Remains/Cling Gem Split/"},
+
     [2365810066] = {"@Dilapitaded Dungeon/Mirror Room Goatling/"},
     [2365810067] = {"@Dilapitaded Dungeon/Rambling Goatling/"},
     [2365810068] = {"@Dilapitaded Dungeon/Unwelcoming Goatling/"},
