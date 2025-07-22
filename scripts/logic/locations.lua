@@ -210,6 +210,21 @@ location_table = {
         region="Castle Main",
     },
 
+    ["Tower Remains - Cling Gem 1"] = PseudoregaliaLocationData{
+        code=2365810063,
+        region="Tower Remains",
+    },
+    ["Tower Remains - Cling Gem 2"] = PseudoregaliaLocationData{
+        code=2365810064,
+        region="Tower Remains",
+    },
+    ["Tower Remains - Cling Gem 3"] = PseudoregaliaLocationData{
+        code=2365810065,
+        region="Tower Remains",
+    },
+
+    -- TODO I'm pretty sure these codes aren't actually used, I messed up by not leaving room for the new cling gem
+    -- locations, but everything still works fine. I'll maybe delete them or fix it later
     ["Dilapidated Dungeon - Mirror Room Goatling"] = PseudoregaliaLocationData{
         code=2365810063,
         region="Dungeon Mirror",
