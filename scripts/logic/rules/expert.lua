@@ -98,7 +98,9 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Keep Main -> Keep Throne Room"] = function(state)
             return self:has_breaker(state)
             and (
-                self:get_clings(state, 6)
+                self:get_clings(state, 4)
+                or self:get_clings(state, 2) and self:get_kicks(state, 1)
+                or self:get_clings(state, 2) and self:can_bounce(state)
                 or self:can_bounce(state) and self:kick_or_plunge(state, 3)
                 or self:has_slide(state) and self:get_kicks(state, 3))
         end,
@@ -194,7 +196,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Twilight Theatre - Center Stage"] = function (state)
-            return self:can_soulcutter(state) and self:get_clings(state, 6)
+            return self:can_soulcutter(state) and self:get_clings(state, 4)
         end,
         ["Tower Remains - Cling Gem"] = function (state)
             return self:has_slide(state)
