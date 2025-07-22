@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.8",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.8/pseudoregalia_brooty.zip",
+            "sha256": "405af98845344aea3b053df7e4b177b35d47c09c939e18271d1a6fbf379037c5",
+            "changelog": [
+                "added support for split cling gem"
+            ]
+        },
+        {
             "package_version": "0.1.7.1",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.7.1/pseudoregalia_brooty.zip",
             "sha256": "1f198def3ec4d93ad41c9687d351243bbbc4b21581caacb2cbf5f834c45c580c",
