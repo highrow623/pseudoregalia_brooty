@@ -78,10 +78,6 @@ function PseudoregaliaRulesHelpers:has_plunge(state)
     return state:has("Sunsetter")
 end
 
-function PseudoregaliaRulesHelpers:has_gem(state)
-    return state:has("Cling Gem")
-end
-
 function PseudoregaliaRulesHelpers:can_bounce(state)
     return self:has_breaker(state) and state:has("Ascendant Light")
 end
@@ -90,6 +86,8 @@ function PseudoregaliaRulesHelpers:can_attack(state)
     error("can_attack has to be overridden")
 end
 
+-- the next 3 functions don't match 1:1 with the apworld because it's using pseudo-items and I don't feel like
+-- implementing that
 function PseudoregaliaRulesHelpers:get_kicks(state, count)
     local kicks = 0
     if state:has("Sun Greaves") then
@@ -98,6 +96,15 @@ function PseudoregaliaRulesHelpers:get_kicks(state, count)
     kicks = kicks + state:count("Heliacal Power")
     kicks = kicks + state:count("Air Kick")
     return kicks >= count
+end
+
+function PseudoregaliaRulesHelpers:get_clings(state, count)
+    local clings = 0
+    if state:has("Cling Gem") then
+        clings = clings + 6
+    end
+    clings = clings + 2 * state:count("Cling Shard")
+    return clings >= count
 end
 
 function PseudoregaliaRulesHelpers:kick_or_plunge(state, count)

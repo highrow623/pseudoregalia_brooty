@@ -106,6 +106,18 @@
         "codes": "cling"
     },
     {
+        "name": "Cling Shard",
+        "type": "consumable",
+        "img": "images/icons/icon_clingGem.png",
+        "disabled_img": "images/icons/icon_clingGem_grey.png",
+        "max_quantity": 3,
+        "increment": 1,
+        "decrement": 1,
+        "initial_quantity": 0,
+        "overlay_font_size": 8,
+        "codes": "clingshard"
+    },
+    {
         "name": "Ascendant Light",
         "type": "toggle",
         "img": "images/icons/icon_Light.png",
@@ -253,6 +265,24 @@
             {
                 "img": "images/logic_settings/splitgreaves.png",
                 "codes": "op_splitkick_on,op_splitkick",
+                "inherit_codes": false
+            }
+        ]
+    },
+    {
+        "name": "Split Clings Setting",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 0,
+        "stages": [
+            {
+                "img": "images/logic_settings/splitcling_grey.png",
+                "codes": "op_splitcling_off,op_splitcling",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/splitcling.png",
+                "codes": "op_splitcling_on,op_splitcling",
                 "inherit_codes": false
             }
         ]
