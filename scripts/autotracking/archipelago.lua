@@ -162,11 +162,9 @@ function onClear(slot_data)
 
     if slot_data.randomize_time_trials ~= nil then
         print("slot_data.randomize_time_trials: " .. tostring(slot_data.randomize_time_trials))
-        -- time_trials is progressive because both stages are used for visibility_rules
-        if slot_data.randomize_time_trials == false then
-            Tracker:FindObjectForCode("time_trials").CurrentStage = 0
-        elseif slot_data.randomize_time_trials == true then
-            Tracker:FindObjectForCode("time_trials").CurrentStage = 1
+        local obj = Tracker:FindObjectForCode("time_trials")
+        if obj then
+            obj.Active = slot_data.randomize_time_trials
         end
     end
 
