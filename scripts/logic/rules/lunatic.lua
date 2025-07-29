@@ -1,7 +1,5 @@
 -- TODO: require base
 
-local FULL_GOLD = constants.versions.FULL_GOLD
-
 local free = function(state) return true end
 
 PseudoregaliaLunaticRules = PseudoregaliaExpertRules:new(nil)
@@ -35,9 +33,6 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         ["Castle By Scythe Corridor -> Castle => Theatre (Front)"] = function(state)
             return self:can_gold_ultra(state) and self:kick_or_plunge(state, 2)
-        end,
-        ["Castle => Theatre (Front) -> Castle By Scythe Corridor"] = function(state)
-            return self:can_slidejump(state)
         end,
         ["Library Main -> Library Top"] = function(state)
             return self:get_kicks(state, 1)
@@ -75,7 +70,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
             return self:can_bounce(state)
         end,
         ["Castle Sansa - Corner Corridor"] = function(state)
-            return self:can_gold_slide_ultra(state) and self:get_kicks(state, 1)
+            return self:can_gold_ultra(state) and self:get_kicks(state, 1)
             or self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
         ["Castle Sansa - Near Theatre Front"] = function(state)
@@ -86,13 +81,6 @@ function PseudoregaliaLunaticRules.new(cls, definition)
             return self:has_plunge(state)
         end,
     }
-
-    local game_version = self.definition.options.game_version.value
-    if game_version == FULL_GOLD then
-        location_clauses["Dilapidated Dungeon - Strong Eyes"] = function (state)
-            return self:has_slide(state) and self:kick_or_plunge(state, 1)
-        end
-    end
 
     apply_clauses(self, region_clauses, location_clauses)
 

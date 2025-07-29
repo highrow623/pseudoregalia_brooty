@@ -12,17 +12,17 @@
                 "h_alignment": "left",
                 "rows": [
                     [
-                        "game_version",
+                        "normal",
                         "op_progbreaker",
                         "goats"
                     ],
                     [
-                        "normal",
+                        "obscure",
                         "op_progslide",
                         "chairs"
                     ],
                     [
-                        "obscure",
+                        "full_gold_slide",
                         "op_splitkick_off",
                         "books"
                     ],

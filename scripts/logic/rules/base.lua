@@ -1,7 +1,6 @@
 PseudoregaliaRulesHelpers = {} -- rules base. See normal, hard, expert and lunatic for finished rules.
 
 
-local MAP_PATCH = constants.versions.MAP_PATCH
 local NORMAL = constants.difficulties.NORMAL
 local EXPERT = constants.difficulties.EXPERT
 local LUNATIC = constants.difficulties.LUNATIC
@@ -28,16 +27,13 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
     self.location_rules = {}
 
     if self.definition then
-        local game_version = self.definition.options.game_version.value
         local obscure_logic = self.definition.options.obscure_logic.value
         local logic_level = self.definition.options.logic_level.value
 
-        if game_version == MAP_PATCH then
-            self.can_gold_ultra = function(self, state) return self:can_slidejump(state) end
-            self.can_gold_slide_ultra = function(self, state) return false end
-        else
+        if self.definition.options.full_gold_slide.value then
             self.can_gold_ultra = function(self, state) return self:has_slide(state) end
-            self.can_gold_slide_ultra = function(self, state) return self:has_slide(state) end
+        else
+            self.can_gold_ultra = function(self, state) return self:can_slidejump(state) end
         end
 
         if logic_level == EXPERT or logic_level == LUNATIC then
@@ -138,10 +134,6 @@ end
 
 function PseudoregaliaRulesHelpers:can_gold_ultra(state)
     error("can_gold_ultra has to be overridden")
-end
-
-function PseudoregaliaRulesHelpers:can_gold_slide_ultra(state)
-    error("can_gold_slide_ultra has to be overridden")
 end
 
 function PseudoregaliaRulesHelpers:can_strikebreak(state)

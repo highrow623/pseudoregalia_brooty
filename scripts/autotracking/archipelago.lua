@@ -93,15 +93,6 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["game_version"] ~= nil then
-        print("slot_data['game_version']: " .. slot_data['game_version'])
-        if slot_data["game_version"] == 1 then
-            Tracker:FindObjectForCode("game_version").CurrentStage = 0
-        elseif slot_data["game_version"] == 2 then
-            Tracker:FindObjectForCode("game_version").CurrentStage = 1
-        end
-    end
-
     if slot_data["logic_level"] ~= nil then
         print("slot_data['logic_level']: " .. slot_data['logic_level'])
         if slot_data["logic_level"] == 1 then
@@ -158,6 +149,14 @@ function onClear(slot_data)
             Tracker:FindObjectForCode("op_splitcling_on").CurrentStage = 0
         elseif slot_data.split_cling_gem == true then
             Tracker:FindObjectForCode("op_splitcling_on").CurrentStage = 1
+        end
+    end
+
+    if slot_data.full_gold_slide ~= nil then
+        print("slot_data.full_gold_slide: " .. tostring(slot_data.full_gold_slide))
+        local obj = Tracker:FindObjectForCode("full_gold_slide")
+        if obj then
+            obj.Active = slot_data.full_gold_slide
         end
     end
 

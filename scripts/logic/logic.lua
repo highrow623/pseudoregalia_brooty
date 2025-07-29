@@ -216,7 +216,7 @@ function stateChanged(code)  -- run by watch for code "*" (any)
     glitchState.stale = true
 end
 
-function logicChanged()  -- run by watch for code "game_version", "logic", "obscure"
+function logicChanged()  -- run by watch for code "logic", "obscure", "full_gold_slide"
     print("logic changed")
     isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
     isSplitCling = Tracker:ProviderCountForCode("op_splitcling_on") > 0  -- cache for State.count
@@ -237,13 +237,13 @@ create_regions()  -- NOTE: we don't handle can_create for Locations, so this nee
 logicChanged()
 
 -- add watches
-ScriptHost:AddWatchForCode("gameVersionChanged", "game_version", logicChanged)
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
 ScriptHost:AddWatchForCode("splitSunGreavesChanged", "op_splitkick_on", logicChanged)
 ScriptHost:AddWatchForCode("splitClingGemChanged", "op_splitcling_on", logicChanged)
 ScriptHost:AddWatchForCode("progBreakerLogicChanged", "op_progbreaker", progLogicChanged)
 ScriptHost:AddWatchForCode("progSlideLogicChanged", "op_progslide", progLogicChanged)
+ScriptHost:AddWatchForCode("fullGoldSlideChanged", "full_gold_slide", logicChanged)
 if hasAnyWatch then
     ScriptHost:AddWatchForCode("stateChanged", "*", stateChanged)
 end

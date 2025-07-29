@@ -185,7 +185,7 @@
                     "$can_glitch|Dilapidated Dungeon - Time Trial",
                     "[$can_reach|Dilapidated Dungeon - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -379,33 +379,6 @@
                 ]
             },
             {
-                "name": "Locked Door",
-                "access_rules": [[
-                    "$can_glitch|Castle Sansa - Locked Door",
-                    "[$can_reach|Castle Sansa - Locked Door]"
-                ]],
-                "visibility_rules": ["full_gold"],
-                "sections": [
-                    {
-                        "item_count": 1,
-                        "chest_opened_img": "images/items/aspect.png",
-                        "chest_unopened_img": "images/items/aspect_gray.png"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "full_map",
-                        "x": 1610,
-                        "y": 2210
-                    },
-                    {
-                        "map": "castle",
-                        "x": 1071,
-                        "y": 566
-                    }
-                ]
-            },
-            {
                 "name": "Platform In Main Halls",
                 "access_rules": [[
                     "$can_glitch|Castle Sansa - Platform In Main Halls",
@@ -567,7 +540,7 @@
                     "$can_glitch|Castle Sansa - Time Trial",
                     "[$can_reach|Castle Sansa - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -594,7 +567,6 @@
                     "$can_glitch|Castle Sansa - Memento",
                     "[$can_reach|Castle Sansa - Memento]"
                 ]],
-                "visibility_rules": ["map_patch"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -687,7 +659,7 @@
                     "$can_glitch|Castle Sansa - Memento Goatling",
                     "[$can_reach|Castle Sansa - Memento Goatling]"
                 ]],
-                "visibility_rules": ["goats,map_patch"],
+                "visibility_rules": ["goats"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -709,7 +681,7 @@
                     "$can_glitch|Castle Sansa - Goatling Near Library",
                     "[$can_reach|Castle Sansa - Goatling Near Library]"
                 ]],
-                "visibility_rules": ["goats,map_patch"],
+                "visibility_rules": ["goats"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1046,7 +1018,7 @@
                     "$can_glitch|Sansa Keep - Time Trial",
                     "[$can_reach|Sansa Keep - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1326,7 +1298,7 @@
                     "$can_glitch|Listless Library - Time Trial",
                     "[$can_reach|Listless Library - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -1883,7 +1855,7 @@
                     "$can_glitch|Twilight Theatre - Time Trial",
                     "[$can_reach|Twilight Theatre - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -2258,7 +2230,7 @@
                     "$can_glitch|Empty Bailey - Time Trial",
                     "[$can_reach|Empty Bailey - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -2510,7 +2482,7 @@
                     "$can_glitch|The Underbelly - Time Trial",
                     "[$can_reach|The Underbelly - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,
@@ -2698,7 +2670,7 @@
                     "$can_glitch|Tower Remains - Time Trial",
                     "[$can_reach|Tower Remains - Time Trial]"
                 ]],
-                "visibility_rules": ["map_patch,time_trials_on"],
+                "visibility_rules": ["time_trials"],
                 "sections": [
                     {
                         "item_count": 1,

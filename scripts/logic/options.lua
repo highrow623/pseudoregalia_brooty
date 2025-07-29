@@ -3,19 +3,8 @@
 
 
 local difficulties = constants.difficulties
-local versions = constants.versions
 local Choice = helper.Choice
 local Toggle = helper.Toggle
-
-
-GameVersion = {
-    value_to_code = {
-        [versions.MAP_PATCH] = "map_patch",
-        [versions.FULL_GOLD] = "full_gold",
-    },
-    default = versions.MAP_PATCH,
-}
-setmetatable(GameVersion, Choice)
 
 
 LogicLevel = {
@@ -42,12 +31,18 @@ SplitSunGreaves = {
 setmetatable(SplitSunGreaves, Toggle)
 
 
+FullGoldSlide = {
+    code = "full_gold_slide"
+}
+setmetatable(SplitSunGreaves, Toggle)
+
+
 options = {
     pseudoregalia_options = {
-        game_version = GameVersion,
         logic_level = LogicLevel,
         obscure_logic = ObscureLogic,
         split_sun_greaves = SplitSunGreaves,
+        full_gold_slide = FullGoldSlide,
     }
 }
 

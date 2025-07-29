@@ -1,7 +1,5 @@
 -- TODO: require base
 
-local MAP_PATCH = constants.versions.MAP_PATCH
-
 PseudoregaliaNormalRules = PseudoregaliaRulesHelpers:new(nil)
 
 function PseudoregaliaNormalRules.new(cls, definition)
@@ -16,6 +14,13 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_slide(state) and self:can_attack(state)
             or self:get_kicks(state, 2)
             or self:get_kicks(state, 1) and self:knows_obscure(state)
+        end,
+        ["Bailey Upper -> Tower Remains"] = function(state)
+            return (self:kick_or_plunge(state, 4)
+            or self:get_kicks(state, 1) and self:has_plunge(state) and self:can_bounce(state))
+            and (
+                self:can_slidejump(state)
+                or self:has_plunge(state) and self:knows_obscure(state))
         end,
         ["Bailey Upper -> Underbelly => Bailey"] = function(state)
             return self:has_plunge(state)
@@ -82,6 +87,20 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["Dungeon Strong Eyes -> Dungeon Slide"] = function(state)
             return self:has_slide(state)
+        end,
+        ["Dungeon Strong Eyes -> Dungeon => Castle"] = function (state)
+            return self:has_small_keys(state)
+            or self:knows_obscure(state)
+            and (
+                self:has_plunge(state)
+                or self:has_breaker(state) and self:get_kicks(state, 1))
+        end,
+        ["Dungeon => Castle -> Dungeon Strong Eyes"] = function(state)
+            return self:has_small_keys(state)
+            or self:knows_obscure(state)
+            and (
+                self:has_plunge(state)
+                or self:has_breaker(state) and self:get_kicks(state, 1))
         end,
         ["Dungeon Escape Lower -> Dungeon Slide"] = function(state)
             return self:can_attack(state)
@@ -373,6 +392,14 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:kick_or_plunge(state, 3)
             or self:knows_obscure(state) and self:can_bounce(state) and self:get_clings(state, 2)
         end,
+        ["Dilapidated Dungeon - Strong Eyes"] = function(state)
+            return self:has_breaker(state)
+            or self:knows_obscure(state)
+            and (
+                self:get_clings(state, 2)
+                or self:get_kicks(state, 1)
+                or self:has_plunge(state))
+        end,
         ["Castle Sansa - Alcove Near Dungeon"] = function(state)
             return self:get_clings(state, 2)
             or self:get_kicks(state, 1)
@@ -393,9 +420,6 @@ function PseudoregaliaNormalRules.new(cls, definition)
             or self:can_bounce(state) and self:get_kicks(state, 2)
             or self:get_kicks(state, 4)
             or self:knows_obscure(state) and self:can_bounce(state) and self:get_kicks(state, 1)
-        end,
-        ["Castle Sansa - Locked Door"] = function(state)
-            return self:has_small_keys(state)
         end,
         ["Castle Sansa - Platform In Main Halls"] = function(state)
             return self:has_plunge(state)
@@ -590,60 +614,6 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_small_keys(state)
         end,
     }
-
-    local game_version = self.definition.options.game_version.value
-    if game_version == MAP_PATCH then
-        region_clauses["Bailey Upper -> Tower Remains"] = function(state)
-            return (self:kick_or_plunge(state, 4)
-            or self:get_kicks(state, 1) and self:has_plunge(state) and self:can_bounce(state))
-            and (
-                self:can_slidejump(state)
-                or self:has_plunge(state) and self:knows_obscure(state))
-        end
-        region_clauses["Dungeon => Castle -> Dungeon Strong Eyes"] = function(state)
-            return self:has_small_keys(state)
-            or self:knows_obscure(state)
-            and (
-                self:has_plunge(state)
-                or self:has_breaker(state) and self:get_kicks(state, 1))
-        end
-        region_clauses["Dungeon Strong Eyes -> Dungeon => Castle"] = function(state)
-            return self:has_small_keys(state)
-            or self:knows_obscure(state)
-            and (
-                self:can_bounce(state)
-                or self:can_attack(state) and self:get_kicks(state, 2)
-                or self:can_attack(state) and self:get_clings(state, 2))
-        end
-        location_clauses["Dilapidated Dungeon - Strong Eyes"] = function(state)
-            return self:has_breaker(state)
-            or self:knows_obscure(state)
-            and (
-                self:get_clings(state, 2)
-                or self:get_kicks(state, 1)
-                or self:has_plunge(state))
-        end
-    else
-        region_clauses["Bailey Upper -> Tower Remains"] = function(state)
-            return self:kick_or_plunge(state, 4)
-            and (
-                self:can_slidejump(state)
-                or self:has_plunge(state) and self:knows_obscure(state))
-        end
-        region_clauses["Dungeon => Castle -> Dungeon Strong Eyes"] = function(state)
-            return self:has_small_keys(state)
-        end
-        region_clauses["Dungeon Strong Eyes -> Dungeon => Castle"] = function(state)
-            return self:has_small_keys(state)
-        end
-        location_clauses["Dilapidated Dungeon - Strong Eyes"] = function(state)
-            return self:has_breaker(state)
-            or self:knows_obscure(state)
-            and (
-                self:get_clings(state, 2) and self:get_kicks(state, 1) and self:has_plunge(state)
-                or self:get_clings(state, 2) and self:get_kicks(state, 3))
-        end
-    end
 
     apply_clauses(self, region_clauses, location_clauses)
 
