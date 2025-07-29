@@ -34,7 +34,7 @@ setmetatable(SplitSunGreaves, Toggle)
 FullGoldSlide = {
     code = "full_gold_slide"
 }
-setmetatable(SplitSunGreaves, Toggle)
+setmetatable(FullGoldSlide, Toggle)
 
 
 options = {
