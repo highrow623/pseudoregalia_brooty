@@ -216,7 +216,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function(state)
             return self:can_bounce(state)
-            or self:get_clings(state, 2)
+            or self:get_clings(state, 2) and self:get_kicks(state, 1)
             or self:get_kicks(state, 2)
             or self:get_kicks(state, 1) and self:can_slidejump(state)
             or self:knows_obscure(state) and self:can_attack(state)
@@ -300,7 +300,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Empty Bailey - Cheese Bell"] = function (state)
-            return self:get_kicks(state, 3)
+            return self:get_kicks(state, 4)
             or self:get_clings(state, 2) and self:kick_or_plunge(state, 2)
         end,
         ["Empty Bailey - Inside Building"] = function (state)
@@ -308,6 +308,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["Empty Bailey - Center Steeple"] = function (state)
             return self:has_plunge(state)
+            or self:get_kicks(state, 4)
         end,
         ["Empty Bailey - Guarded Hand"] = function (state)
             return self.definition:get_region("Bailey Upper"):can_reach(state)
@@ -368,10 +369,14 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Dilapidated Dungeon - Past Poles"] = function(state)
             return self:get_clings(state, 2) and self:kick_or_plunge(state, 1)
             or self:get_kicks(state, 3)
+            or self:knows_obscure(state) and self:can_slidejump(state) and self:get_kicks(state, 2)
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:kick_or_plunge(state, 3)
-            or self:knows_obscure(state) and self:can_bounce(state) and self:get_clings(state, 2)
+            or self:knows_obscure(state) and self:can_bounce(state)
+            and (
+                self:get_clings(state, 2)
+                or self:has_plunge(state))
         end,
         ["Castle Sansa - Alcove Near Dungeon"] = function(state)
             return self:get_clings(state, 2)

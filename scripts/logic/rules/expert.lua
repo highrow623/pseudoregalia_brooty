@@ -27,9 +27,11 @@ function PseudoregaliaExpertRules.new(cls, definition)
         end,
         ["Theatre Pillar => Bailey -> Theatre Pillar"] = function (state)
             return self:has_slide(state)
+            or self:get_clings(state, 2)
         end,
         ["Castle => Theatre Pillar -> Theatre Pillar"] = function (state)
             return self:get_kicks(state, 1)
+            or self:get_clings(state, 2)
             or self:has_slide(state)
         end,
         ["Theatre Pillar -> Theatre Main"] = function (state)
@@ -100,7 +102,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
             and (
                 self:get_clings(state, 4)
                 or self:get_clings(state, 2) and self:get_kicks(state, 1)
-                or self:get_clings(state, 2) and self:can_bounce(state)
+                or self:get_clings(state, 2) and self:has_slide(state)
                 or self:can_bounce(state) and self:kick_or_plunge(state, 3)
                 or self:has_slide(state) and self:get_kicks(state, 3))
         end,
@@ -184,7 +186,8 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:can_strikebreak(state) and self:has_slide(state)
         end,
         ["Twilight Theatre - Corner Beam"] = function (state)
-            return self:has_slide(state)
+            return self:get_kicks(state, 3)
+            or self:has_slide(state)
             and (
                 self:kick_or_plunge(state, 2)
                 or self:get_clings(state, 2))
@@ -217,9 +220,11 @@ function PseudoregaliaExpertRules.new(cls, definition)
                 self:can_bounce(state)
                 or self:get_kicks(state, 2))
         end,
+        ["Dilapidated Dungeon - Past Poles"] = function (state)
+            return self:has_slide(state) and self:get_kicks(state, 1)
+        end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:kick_or_plunge(state, 2)
-            or self:can_bounce(state) and self:get_kicks(state, 1)
             or self:can_gold_ultra(state) and self:kick_or_plunge(state, 1)
         end,
         ["Castle Sansa - Floater In Courtyard"] = function(state)

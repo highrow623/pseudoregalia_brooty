@@ -62,11 +62,11 @@ function PseudoregaliaLunaticRules.new(cls, definition)
 
     local location_clauses = {
         ["Dilapidated Dungeon - Past Poles"] = function(state)
-            return self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
+            return self:get_kicks(state, 1) and self:has_plunge(state)
+            or self:has_breaker(state) and self:has_plunge(state) and self:has_slide(state)
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
-            return self:can_bounce(state) and self:kick_or_plunge(state, 1)
-            or self:can_gold_ultra(state)
+            return self:can_gold_ultra(state)
         end,
         ["Castle Sansa - Floater In Courtyard"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
@@ -80,6 +80,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         ["Castle Sansa - Near Theatre Front"] = function(state)
             return self:has_slide(state)
+            or self:get_clings(state, 2)
         end,
         ["Sansa Keep - Levers Room"] = free,
         ["Listless Library - Upper Back"] = function(state)
