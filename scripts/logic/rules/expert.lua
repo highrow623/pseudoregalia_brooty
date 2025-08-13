@@ -226,6 +226,7 @@ function PseudoregaliaExpertRules.new(cls, definition)
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:kick_or_plunge(state, 2)
             or self:can_gold_ultra(state) and self:kick_or_plunge(state, 1)
+            or self:can_bounce(state) and self:get_clings(state, 2)
         end,
         ["Castle Sansa - Floater In Courtyard"] = function(state)
             return self:can_bounce(state) and self:has_slide(state)

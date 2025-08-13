@@ -373,10 +373,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:kick_or_plunge(state, 3)
-            or self:knows_obscure(state) and self:can_bounce(state)
-            and (
-                self:get_clings(state, 2)
-                or self:has_plunge(state))
+            or self:knows_obscure(state) and self:can_bounce(state) and self:has_plunge(state)
         end,
         ["Castle Sansa - Alcove Near Dungeon"] = function(state)
             return self:get_clings(state, 2)
