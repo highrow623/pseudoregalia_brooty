@@ -100,6 +100,9 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["Keep Main -> Keep (Northeast) => Castle"] = function (state)
             return self:get_kicks(state, 1)
         end,
+        ["Underbelly => Dungeon -> Underbelly Ascendant Light"] = function (state)
+            return self:get_clings(state, 2)
+        end,
         ["Underbelly Light Pillar -> Underbelly Ascendant Light"] = function(state)
             return self:knows_obscure(state)
             and (
@@ -150,7 +153,11 @@ function PseudoregaliaHardRules.new(cls, definition)
 
     local location_clauses = {
         ["Empty Bailey - Cheese Bell"] = function (state)
-            return self:get_clings(state, 6)
+            return self:get_kicks(state, 3)
+            or self:get_clings(state, 6)
+        end,
+        ["Empty Bailey - Center Steeple"] = function (state)
+            return self:get_kicks(state, 2) and self:has_breaker(state)
         end,
         ["Twilight Theatre - Soul Cutter"] = function (state)
             return self:can_strikebreak(state) and self:can_slidejump(state)
@@ -192,6 +199,7 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["Dilapidated Dungeon - Past Poles"] = function(state)
             return self:get_clings(state, 2)
             or self:get_kicks(state, 2)
+            or self:knows_obscure(state) and self:can_slidejump(state) and self:get_kicks(state, 1)
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:get_clings(state, 6)
