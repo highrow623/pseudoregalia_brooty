@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "0.1.10",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.10/pseudoregalia_brooty.zip",
+            "sha256": "9c8c2908c94cdb829923388843c9be2ec53cbce17ba57e56ce77c2a950e2de32",
+            "changelog": [
+                "added support for alt spawns",
+                "small logic updates"
+            ]
+        },
+        {
             "package_version": "0.1.9",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.9/pseudoregalia_brooty.zip",
             "sha256": "d945f5c2e3efd0bd917d725c042d27583241fff7b4c88f30b70b1ee0c84ed4b8",
