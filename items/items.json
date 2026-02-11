@@ -215,6 +215,65 @@
         ]
     },
     {
+        "name": "Spawn Point",
+        "type": "progressive",
+        "allow_disabled": false,
+        "initial_stage_idx": 0,
+        "loop": true,
+        "stages": [
+            {
+                "img": "images/logic_settings/spawns/castle_west_save.png",
+                "codes": "spawn,castle_west_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/castle_gazebo_save.png",
+                "codes": "spawn,castle_gazebo_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/dungeon_mirror.png",
+                "codes": "spawn,dungeon_mirror",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/library_main_save.png",
+                "codes": "spawn,library_main_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/underbelly_south_save.png",
+                "codes": "spawn,underbelly_south_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/underbelly_central_save.png",
+                "codes": "spawn,underbelly_central_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/bailey_save.png",
+                "codes": "spawn,bailey_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/keep_central_save.png",
+                "codes": "spawn,keep_central_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/keep_north_save.png",
+                "codes": "spawn,keep_north_save",
+                "inherit_codes": false
+            },
+            {
+                "img": "images/logic_settings/spawns/theatre_save.png",
+                "codes": "spawn,theatre_save",
+                "inherit_codes": false
+            }
+        ]
+    },
+    {
         "name": "Randomize Time Trials",
         "type": "progressive",
         "allow_disabled": false,

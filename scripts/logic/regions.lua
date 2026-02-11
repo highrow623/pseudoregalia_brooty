@@ -1,8 +1,32 @@
-region_table = {
-    ["Menu"] = {
-        "Castle Main",
-    },
+local playerStarts = constants.playerStarts
 
+player_start_to_stage = {
+    [playerStarts.CastleWestSave] = 0,
+    [playerStarts.CastleGazeboSave] = 1,
+    [playerStarts.DungeonMirror] = 2,
+    [playerStarts.LibraryMainSave] = 3,
+    [playerStarts.UnderbellySouthSave] = 4,
+    [playerStarts.UnderbellyCentralSave] = 5,
+    [playerStarts.BaileySave] = 6,
+    [playerStarts.KeepCentralSave] = 7,
+    [playerStarts.KeepNorthSave] = 8,
+    [playerStarts.TheatreSave] = 9,
+}
+
+origin_region_names = {
+    [0] = "Castle Main",
+    [1] = "Castle Main",
+    [2] = "Dungeon Mirror",
+    [3] = "Library Main",
+    [4] = "Underbelly => Bailey",
+    [5] = "Underbelly Main Upper",
+    [6] = "Bailey Lower",
+    [7] = "Keep Main",
+    [8] = "Keep Main",
+    [9] = "Theatre Main",
+}
+
+region_table = {
     ["Dungeon Mirror"] = {
         "Dungeon Slide",
     },

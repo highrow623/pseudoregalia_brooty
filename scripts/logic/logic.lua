@@ -8,7 +8,7 @@ ScriptHost:LoadScript("scripts/logic/helper.lua") -- load helper for AP-style lo
 ScriptHost:LoadScript("scripts/logic/constants.lua")
 ScriptHost:LoadScript("scripts/logic/options.lua")
 ScriptHost:LoadScript("scripts/logic/locations.lua") -- load location_table
-ScriptHost:LoadScript("scripts/logic/regions.lua") -- load region_table
+ScriptHost:LoadScript("scripts/logic/regions.lua") -- load region_table, origin_region_names
 ScriptHost:LoadScript("scripts/logic/rules/base.lua") -- load PseudoregaliaRulesHelpers
 ScriptHost:LoadScript("scripts/logic/rules/normal.lua") -- load PseudoregaliaNormalRules
 ScriptHost:LoadScript("scripts/logic/rules/hard.lua") -- load PseudoregaliaHardRules
@@ -158,6 +158,11 @@ end
 function _create_regions(def)
     def.regions:clear()  -- allow running _create_regions multiple times
 
+    def.origin_region_name = "Castle Main" -- use default if options isn't filled out yet
+    if def.options.spawn_point then
+        def.origin_region_name = origin_region_names[def.options.spawn_point.value]
+    end
+
     for region_name, _ in pairs(region_table) do
         def.regions:append(Region:new(region_name, def))
     end
@@ -185,7 +190,7 @@ end
 
 function set_rules()
     -- set_pseudoregalia_rules does not rewrite everything, so we have to recreate locations
-    _create_regions(def)
+    create_regions()
     -- set rules depending on logic (and other options)
     local difficulty = def.options.logic_level.value  -- .value because lua can't override __eq for number
     if difficulty == difficulties.NORMAL then
@@ -239,6 +244,7 @@ logicChanged()
 -- add watches
 ScriptHost:AddWatchForCode("gameVersionChanged", "game_version", logicChanged)
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
+ScriptHost:AddWatchForCode("spawnChanged", "spawn", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
 ScriptHost:AddWatchForCode("splitSunGreavesChanged", "op_splitkick_on", logicChanged)
 ScriptHost:AddWatchForCode("splitClingGemChanged", "op_splitcling_on", logicChanged)

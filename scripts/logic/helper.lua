@@ -87,7 +87,7 @@ end
 function State:update_reachable_regions()
     self.stale = false
     local reachable = {} -- TODO: cache
-    local start = self.definition:get_region("Menu")
+    local start = self.definition:get_region(self.definition.origin_region_name)
     local queue = table.shallow_copy(start.exits)
     reachable[start] = start
     self.reachable_regions = reachable
@@ -244,6 +244,7 @@ function Definition:new()
     return setmetatable({
         regions = AppendableList:new(),
         options = {},
+        origin_region_name = "Castle Main",
     }, self)
 end
 
