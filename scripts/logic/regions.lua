@@ -13,6 +13,11 @@ player_start_to_stage = {
     [playerStarts.TheatreSave] = 9,
 }
 
+stage_to_player_start = {}
+for start, stage in pairs(player_start_to_stage) do
+    stage_to_player_start[stage] = start
+end
+
 origin_region_names = {
     [0] = "Castle Main",
     [1] = "Castle Main",
@@ -87,6 +92,7 @@ region_table = {
         "Library Locked",
         "Library Greaves",
         "Library Top",
+        "Castle Main",
     },
     ["Library Locked"] = {
     },
@@ -108,6 +114,7 @@ region_table = {
         "Keep => Underbelly",
         "Theatre Outside Scythe Corridor",
         "Keep (Northeast) => Castle",
+        "Castle Main",
     },
     ["Keep Locked Room"] = {
         "Keep Sunsetter",

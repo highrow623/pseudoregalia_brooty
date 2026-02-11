@@ -78,7 +78,7 @@ function PseudoregaliaNormalRules.new(cls, definition)
             return self:has_slide(state)
         end,
         ["Dungeon Slide -> Dungeon Escape Lower"] = function(state)
-            return self:knows_obscure(state) and self:can_attack(state) and self:navigate_darkrooms(state)
+            return self.knows_dungeon_escape and self:can_attack(state) and self:navigate_darkrooms(state)
         end,
         ["Dungeon Strong Eyes -> Dungeon Slide"] = function(state)
             return self:has_slide(state)
@@ -145,6 +145,9 @@ function PseudoregaliaNormalRules.new(cls, definition)
         ["Castle => Theatre (Front) -> Theatre Main"] = function (state)
             return self:has_plunge(state) and self:get_kicks(state, 1)
             or self:get_kicks(state, 2)
+        end,
+        ["Library Main -> Castle Main"] = function(state)
+            return self:can_attack(state)
         end,
         ["Library Main -> Library Locked"] = function(state)
             return self:has_small_keys(state)

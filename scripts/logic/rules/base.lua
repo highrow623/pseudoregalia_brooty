@@ -5,6 +5,7 @@ local MAP_PATCH = constants.versions.MAP_PATCH
 local NORMAL = constants.difficulties.NORMAL
 local EXPERT = constants.difficulties.EXPERT
 local LUNATIC = constants.difficulties.LUNATIC
+local DUNGEON_MIRROR = constants.playerStarts.DungeonMirror
 
 function apply_clauses(rulesObj, region_clauses, location_clauses)
     for name, rule in pairs(region_clauses) do
@@ -31,6 +32,7 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
         local game_version = self.definition.options.game_version.value
         local obscure_logic = self.definition.options.obscure_logic.value
         local logic_level = self.definition.options.logic_level.value
+        local spawn_point = self.definition.options.spawn_point.value
 
         if game_version == MAP_PATCH then
             self.can_gold_ultra = function(self, state) return self:can_slidejump(state) end
@@ -40,17 +42,25 @@ function PseudoregaliaRulesHelpers.new(cls, definition)
             self.can_gold_slide_ultra = function(self, state) return self:has_slide(state) end
         end
 
-        if logic_level == EXPERT or logic_level == LUNATIC then
+        if obscure_logic then
             self.knows_obscure = function(self, state) return true end
             self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
-            self.navigate_darkrooms = function(self, state) return true end
-        elseif obscure_logic then
-            self.knows_obscure = function(self, state) return true end
-            self.can_attack = function(self, state) return self:has_breaker(state) or self:has_plunge(state) end
-            self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") or self:has_breaker(state) end
         else
             self.knows_obscure = function(self, state) return false end
             self.can_attack = function(self, state) return self:has_breaker(state) end
+        end
+
+        if stage_to_player_start[spawn_point] == DUNGEON_MIRROR or obscure_logic then
+            self.knows_dungeon_escape = true
+        else
+            self.knows_dungeon_escape = false
+        end
+
+        if logic_level == EXPERT or logic_level == LUNATIC then
+            self.navigate_darkrooms = function(self, state) return true end
+        elseif self.knows_dungeon_escape then
+            self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") or self:has_breaker(state) end
+        else
             self.navigate_darkrooms = function(self, state) return state:has("Ascendant Light") end
         end
 
