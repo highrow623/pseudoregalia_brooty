@@ -24,6 +24,9 @@ function PseudoregaliaHardRules.new(cls, definition)
         ["Theatre Main -> Theatre Pillar"] = function (state)
             return self:get_kicks(state, 1)
         end,
+        ["Theatre Main -> Theatre Outside Scythe Corridor"] = function (state)
+            return self:get_clings(state, 4)
+        end,
         ["Theatre Pillar => Bailey -> Theatre Pillar"] = function(state)
             return self:get_kicks(state, 1)
             or self:can_slidejump(state)
@@ -231,6 +234,7 @@ function PseudoregaliaHardRules.new(cls, definition)
         end,
         ["Castle Sansa - Alcove Near Scythe Corridor"] = function(state)
             return self:get_clings(state, 4)
+            or self:has_plunge(state) and self:get_clings(state, 2)
             or self:get_kicks(state, 2) and self:has_plunge(state)
         end,
         ["Castle Sansa - Near Theatre Front"] = function(state)

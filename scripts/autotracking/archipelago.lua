@@ -123,6 +123,14 @@ function onClear(slot_data)
         end
     end
 
+    if slot_data.spawn_point ~= nil then
+        print("slot_data.spawn_point: " .. tostring(slot_data.spawn_point ~= nil))
+        local index = player_start_to_stage[slot_data.spawn_point]
+        if index then
+            Tracker:FindObjectForCode("spawn").CurrentStage = index
+        end
+    end
+
     pauseLayoutUpdate = true  -- pause updating until all codes are set since update is expensive
 
     if slot_data.progressive_breaker ~= nil then

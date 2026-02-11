@@ -1,6 +1,6 @@
 -- TODO: require base
 
-local FULL_GOLD = constants.versions.FULL_GOLD
+local MAP_PATCH = constants.versions.MAP_PATCH
 
 local free = function(state) return true end
 
@@ -17,6 +17,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         ["Tower Remains -> The Great Door"] = function (state)
             return self:can_gold_ultra(state) and self:get_kicks(state, 1)
             or self:has_slide(state) and self:get_kicks(state, 1) and self:has_plunge(state)
+            or self:has_plunge(state) and self:get_kicks(state, 2)
         end,
         ["Bailey Lower -> Bailey Upper"] = function (state)
             return self:can_bounce(state)
@@ -41,13 +42,14 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         ["Library Main -> Library Top"] = function(state)
             return self:get_kicks(state, 1)
+            or self:get_clings(state, 2)
         end,
         ["Library Top -> Library Back"] = function(state)
             return self:can_bounce(state) and self:get_kicks(state, 1) and self:has_plunge(state)
         end,
         ["Keep Main -> Keep Throne Room"] = function(state)
             return self:has_breaker(state) and self:has_slide(state) and self:kick_or_plunge(state, 3)
-            or self:get_clings(state, 2)
+            or self:has_breaker(state) and self:get_clings(state, 2)
             or (
                 self:can_gold_ultra(state)
                 and self:can_bounce(state)
@@ -67,6 +69,7 @@ function PseudoregaliaLunaticRules.new(cls, definition)
         end,
         ["Dilapidated Dungeon - Rafters"] = function(state)
             return self:can_gold_ultra(state)
+            or self:has_slide(state) and self:has_plunge(state)
         end,
         ["Castle Sansa - Floater In Courtyard"] = function(state)
             return self:has_slide(state) and self:get_kicks(state, 1)
@@ -89,7 +92,11 @@ function PseudoregaliaLunaticRules.new(cls, definition)
     }
 
     local game_version = self.definition.options.game_version.value
-    if game_version == FULL_GOLD then
+    if game_version == MAP_PATCH then
+        location_clauses["Bailey Upper -> Tower Remains"] = function (state)
+            return self:can_slidejump(state) and self:has_plunge(state)
+        end
+    else
         location_clauses["Dilapidated Dungeon - Strong Eyes"] = function (state)
             return self:has_slide(state) and self:kick_or_plunge(state, 1)
         end
