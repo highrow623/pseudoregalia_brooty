@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "0.1.11",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.11/pseudoregalia_brooty.zip",
+            "sha256": "8d7970690c717615633eaa5888529da5add90130f55de8990de6d8ad9f7e3f3f",
+            "changelog": [
+                "small logic update"
+            ]
+        },
+        {
             "package_version": "0.1.10",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.10/pseudoregalia_brooty.zip",
             "sha256": "9c8c2908c94cdb829923388843c9be2ec53cbce17ba57e56ce77c2a950e2de32",

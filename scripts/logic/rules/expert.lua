@@ -334,7 +334,8 @@ function PseudoregaliaExpertRules.new(cls, definition)
             return self:has_slide(state)
             and (
                 self:can_bounce(state)
-                or self:get_kicks(state, 1))
+                or self:get_kicks(state, 1)
+                or self:get_clings(state, 2))
         end
         region_clauses["Dungeon => Castle -> Dungeon Strong Eyes"] = function(state)
             return self:has_breaker(state) and self:has_slide(state)
