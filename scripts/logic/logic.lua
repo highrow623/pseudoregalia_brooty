@@ -4,16 +4,11 @@
 -- DEBUG = true
 
 -- TODO: use require; this will need a PopTracker update to make "nested" require() work better
+ScriptHost:LoadScript("scripts/logic/rules.lua")
+ScriptHost:LoadScript("scripts/logic/regions.lua") -- origin_region_names
 ScriptHost:LoadScript("scripts/logic/helper.lua") -- load helper for AP-style logic
 ScriptHost:LoadScript("scripts/logic/constants.lua")
 ScriptHost:LoadScript("scripts/logic/options.lua")
-ScriptHost:LoadScript("scripts/logic/locations.lua") -- load location_table
-ScriptHost:LoadScript("scripts/logic/regions.lua") -- load region_table, origin_region_names
-ScriptHost:LoadScript("scripts/logic/rules/base.lua") -- load PseudoregaliaRulesHelpers
-ScriptHost:LoadScript("scripts/logic/rules/normal.lua") -- load PseudoregaliaNormalRules
-ScriptHost:LoadScript("scripts/logic/rules/hard.lua") -- load PseudoregaliaHardRules
-ScriptHost:LoadScript("scripts/logic/rules/expert.lua") -- load PseudoregaliaExpertRules
-ScriptHost:LoadScript("scripts/logic/rules/lunatic.lua") -- load PseudoregaliaLunaticRules
 
 -- shorthand names from imports
 local Definition = helper.Definition
@@ -39,32 +34,6 @@ local v = {}
 PopVersion:gsub("([^%.]+)", function(c) v[#v+1] = tonumber(c) end)
 local hasAnyWatch = v[1] > 0 or v[2] > 25 or v[2] == 25 and v[3] > 4  -- available since 0.25.5
 
--- item name to code mapping
-local codes = {
-    ["Dream Breaker"] = "breaker",
-    ["Sun Greaves"] = "greaves",  -- provides 3 kicks if not split
-    ["Slide"] = "slide",
-    ["Solar Wind"] = "solar",
-    ["Sunsetter"] = "sunsetter",
-    ["Strikebreak"] = "strikebreak",
-    ["Cling Gem"] = "cling",
-    ["Ascendant Light"] = "ascendant",
-    ["Soul Cutter"] = "cutter",
-    ["Heliacal Power"] = "heliacal",  -- provides 1 kick if not split
-    ["Small Key"] = "smallkey",
-    ["Air Kick"] = "splitkick",   -- 4 individual kicks if split
-    ["Cling Shard"] = "clingshard",
-    -- Progressive breaker and slide are handled differently.
-    --["Progressive Dream Breaker"] = "progbreaker",
-    --["Progressive Slide"] = "progslide",
-    -- Major Keys have custom handling since they are just a count in the tracker.
-    --["Major Key - Empty Bailey"] = "majorkey",
-    --["Major Key - The Underbelly"] = "majorkey",
-    --["Major Key - Tower Remains"] = "majorkey",
-    --["Major Key - Sansa Keep"] = "majorkey",
-    --["Major Key - Twilight Theatre"] = "majorkey",
-}
-
 -- patch up State.has and State.count to match the codes
 local _count = State.count
 
@@ -72,60 +41,130 @@ State.has = function(state, name)
     return state:count(name) > 0  -- use count to only implement the crazy mappings once
 end
 
+-- TODO (granular-logic)? this is probably really bad
+local item_mapping = {
+    breaker = {
+        is_prog = function() return isProgBreaker end,
+        prog = {
+            code = "progbreaker",
+            minimum = 1,
+        },
+        non_prog = {
+            code = "breaker",
+        },
+    },
+    strikebreak = {
+        is_prog = function() return isProgBreaker end,
+        prog = {
+            code = "progbreaker",
+            minimum = 2,
+        },
+        non_prog = {
+            code = "strikebreak",
+        }
+    },
+    cutter = {
+        is_prog = function() return isProgBreaker end,
+        prog = {
+            code = "progbreaker",
+            minimum = 3,
+        },
+        non_prog = {
+            code = "cutter",
+        }
+    },
+    slide = {
+        is_prog = function() return isProgSlide end,
+        prog = {
+            code = "progslide",
+            minimum = 1,
+        },
+        non_prog = {
+            code = "slide",
+        },
+    },
+    slide_jump = {
+        is_prog = function() return isProgSlide end,
+        prog = {
+            code = "progslide",
+            minimum = 2,
+        },
+        non_prog = {
+            code = "solar",
+        },
+    },
+    kick = {
+        is_split = function() return isSplitKicks end,
+        split = {
+            {code = "splitkick"},
+        },
+        no_split = {
+            {code = "greaves", count = 3},
+            {code = "heliacal"},
+        },
+    },
+    plunge = {
+        code = "sunsetter",
+    },
+    kick_or_plunge = {
+        is_split = function() return isSplitKicks end,
+        split = {
+            {code = "splitkick"},
+            {code = "sunsetter"},
+        },
+        no_split = {
+            {code = "greaves", count = 3},
+            {code = "heliacal"},
+            {code = "sunsetter"},
+        },
+    },
+    cling = {
+        is_split = function() return isSplitCling end,
+        split = {
+            {code = "clingshard"},
+        },
+        no_split = {
+            {code = "cling", count = 6},
+        },
+    },
+    light = {
+        code = "ascendant",
+    },
+    small_key = {
+        code = "smallkey",
+    },
+    major_key = {
+        code = "majorkey",
+    },
+}
+
 State.count = function(state, name)
-    -- handle the ones that are simple lookups
-    local code = codes[name]
-    if code then
-        if isProgBreaker and (code == "breaker" or code == "strikebreak" or code == "cutter") then
-            -- individual breakers and slides have to return explicit 0 for progressive
-            -- because the state of the individual items is untouched when switching
-            -- NOTE: the rules being separate for progressive and non-progressive
-            --       could've been fixed/simplified in the APWorld by overriding collect
-            return 0
+    local mapping = item_mapping[name]
+    if not mapping then
+        if DEBUG then
+            print("Unknown item " .. name)
         end
-        if isProgSlide and (code == "slide" or code == "solar") then
-            return 0
-        end
-        if isSplitKicks and (code == "greaves" or code == "heliacal") then
-            return 0
-        end
-        if not isSplitKicks and code == "splitkick" then
-            return 0
-        end
-        if isSplitCling and code == "cling" then
-            return 0
-        end
-        if not isSplitCling and code == "clingshard" then
-            return 0
-        end
-        return _count(state, code)
+        return _count(state, name)
     end
-    -- handle the ones that need special handling
-    if name == "Progressive Dream Breaker" then
-        -- when switching settings to non-progressive, we have to return explicit 0 (the prog item state is unchanged)
-        if not isProgBreaker then
-            return 0
+
+    if mapping.is_prog then
+        if mapping.is_prog() then
+            return _count(state, mapping.prog.code) >= mapping.prog.minimum and 1 or 0
         end
-        -- not sure if progressive items should be able to return multiple of the same code,
-        -- but that's currently not the case in Pop at least, so we use CurrentStage
-        return Tracker:FindObjectForCode("progbreaker").CurrentStage
+        return _count(state, mapping.non_prog.code)
     end
-    if name == "Progressive Slide" then
-        -- as above
-        if not isProgSlide then
-            return 0
+
+    if mapping.is_split then
+        local code_list = mapping.is_split() and mapping.split or mapping.no_split
+        local count = 0
+        for i = 1,#code_list do
+            local code_data = code_list[i]
+            count = count + _count(state, code_data.code) * (code_data.count or 1)
         end
-        -- as above
-        return Tracker:FindObjectForCode("progslide").CurrentStage
+        return count
     end
-    if name:find("^Major Key - ") then
-        -- map each individual key to having all 5
-        return (_count(state, "majorkey") >= 5) and 1 or 0
-    end
-    if DEBUG then
-        print("Unknown item " .. name)
-    end
-    return _count(state, name)
+
+    return _count(state, mapping.code)
 end
 
 
@@ -155,60 +194,51 @@ function set_options()
     glitchDef:set_options(pseudoregalia_options, {logic_level = difficulties.LUNATIC, obscure_logic = 1})
 end
 
-function _create_regions(def)
-    def.regions:clear()  -- allow running _create_regions multiple times
+function _create_regions(definition)
+    definition.regions:clear()  -- allow running _create_regions multiple times
 
-    def.origin_region_name = "Castle Main" -- use default if options isn't filled out yet
-    if def.options.spawn_point then
-        def.origin_region_name = origin_region_names[def.options.spawn_point.value]
+    if definition.options.spawn_point then
+        definition.origin_region_name = regions.origin_region_names[definition.options.spawn_point.value]
     end
 
-    for region_name, _ in pairs(region_table) do
-        def.regions:append(Region:new(region_name, def))
+    for i = 1,#rules.pseudoregalia_data.regions do
+        local region_data = rules.pseudoregalia_data.regions[i]
+        definition.regions:append(Region:new(region_data.name, definition))
     end
 
-    for loc_name, loc_data in pairs(location_table) do
-        -- if not loc_data.can_create() ...
-        local region = def:get_region(loc_data.region)
-        local new_loc = Location:new(loc_name, loc_data.code, region)
-        region.locations:append(new_loc)
+    for i = 1,#rules.pseudoregalia_data.locations do
+        local location_data = rules.pseudoregalia_data.locations[i]
+        local region = definition:get_region(location_data.region)
+        local rule
+        if rules.location_rules[location_data.name] then
+            rule = rules.location_rules[location_data.name]:resolve(definition)
+        end
+        local location = Location:new(location_data.name, region, rule)
+        region.locations:append(location)
     end
 
-    for region_name, exit_list in pairs(region_table) do
-        local region = def:get_region(region_name)
-        region:add_exits(exit_list)
-    end
+    for i = 1,#rules.pseudoregalia_data.regions do
+        local region_data = rules.pseudoregalia_data.regions[i]
+        if not region_data.exits then goto continue end
 
-    -- locked items
-    -- TODO: events if it uses events
+        local region = definition:get_region(region_data.name)
+        for j = 1,#region_data.exits do
+            local exit_data = region_data.exits[j]
+            local exit_region = definition:get_region(exit_data.region)
+            local entrance_name = rules.create_entrance_name(region.name, exit_region.name, exit_data.entrance_name)
+            local rule
+            if rules.entrance_rules[entrance_name] then
+                rule = rules.entrance_rules[entrance_name]:resolve(definition)
+            end
+            region:connect(exit_region, entrance_name, rule)
+        end
+        ::continue::
+    end
 end
 
 function create_regions()
     _create_regions(def)
     _create_regions(glitchDef)
-end
-
-function set_rules()
-    -- set_pseudoregalia_rules does not rewrite everything, so we have to recreate locations
-    create_regions()
-    -- set rules depending on logic (and other options)
-    local difficulty = def.options.logic_level.value  -- .value because lua can't override __eq for number
-    if difficulty == difficulties.NORMAL then
-        print("Setting difficulty to normal")
-        PseudoregaliaNormalRules:new(def):set_pseudoregalia_rules()
-    elseif difficulty == difficulties.HARD then
-        print("Setting difficulty to hard")
-        PseudoregaliaHardRules:new(def):set_pseudoregalia_rules()
-    elseif difficulty == difficulties.EXPERT then
-        print("Setting difficulty to expert")
-        PseudoregaliaExpertRules:new(def):set_pseudoregalia_rules()
-    elseif difficulty == difficulties.LUNATIC then
-        print("Setting difficulty to lunatic")
-        PseudoregaliaLunaticRules:new(def):set_pseudoregalia_rules()
-    else
-        error("Unknown difficulty " .. tostring(difficulty.value))
-    end
-    PseudoregaliaLunaticRules:new(glitchDef):set_pseudoregalia_rules()
 end
 
 function stateChanged(code)  -- run by watch for code "*" (any)
@@ -226,7 +256,7 @@ function logicChanged()  -- run by watch for code "game_version", "logic", "obsc
     isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
     isSplitCling = Tracker:ProviderCountForCode("op_splitcling_on") > 0  -- cache for State.count
     set_options()  -- update world option emulation
-    set_rules()  -- recreate rules with new code(s) in Tracker
+    create_regions()  -- recreate rules with new code(s) in Tracker
     state.stale = true
     glitchState.stale = true
 end
@@ -238,7 +268,6 @@ function progLogicChanged()  -- run by watch for code "op_progbreaker", "op_prog
 end
 
 -- initialize logic
-create_regions()  -- NOTE: we don't handle can_create for Locations, so this needs to only be run once
 logicChanged()
 
 -- add watches

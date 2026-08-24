@@ -102,30 +102,19 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["logic_level"] ~= nil then
-        print("slot_data['logic_level']: " .. slot_data['logic_level'])
-        if slot_data["logic_level"] == 1 then
-            Tracker:FindObjectForCode("logic").CurrentStage = 0
-        elseif slot_data["logic_level"] == 2 then
-            Tracker:FindObjectForCode("logic").CurrentStage = 1
-        elseif slot_data["logic_level"] == 3 then
-            Tracker:FindObjectForCode("logic").CurrentStage = 2
-        elseif slot_data["logic_level"] == 4 then
-            Tracker:FindObjectForCode("logic").CurrentStage = 3
+    -- TODO (granular-logic): idk this is crap but will do until there are more tags
+    if slot_data.tags ~= nil then
+        if slot_data.tags.old_obscure ~= nil and slot_data.tags.old_obscure > 0 then
+            Tracker:FindObjectForCode("obscure").Active = true
         end
-    end
-
-    if slot_data.obscure_logic ~= nil then
-        print("slot_data.obscure_logic: " .. tostring(slot_data.obscure_logic))
-        local obj = Tracker:FindObjectForCode("obscure")
-        if obj then
-            obj.Active = slot_data.obscure_logic
+        if slot_data.tags.logic_level ~= nil then
+            Tracker:FindObjectForCode("logic").CurrentStage = slot_data.tags.logic_level - 1
         end
     end
 
     if slot_data.spawn_point ~= nil then
         print("slot_data.spawn_point: " .. tostring(slot_data.spawn_point ~= nil))
-        local index = player_start_to_stage[slot_data.spawn_point]
+        local index = regions.player_start_to_stage[slot_data.spawn_point]
         if index then
             Tracker:FindObjectForCode("spawn").CurrentStage = index
         end

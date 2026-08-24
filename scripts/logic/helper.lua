@@ -109,32 +109,16 @@ end
 
 Location.__index = Location
 
-function Location:new(name, code, parent_region)
+function Location:new(name, parent_region, rule)
     return setmetatable({
         name = name,
-        code = code,
         parent_region = parent_region,
-        access_rule = free,
+        access_rule = rule or free,
     }, self)
 end
 
 function Location:set_rule(rule)
     self.access_rule = rule
-end
-
-function Location:add_rule(rule, combine)
-    local old_rule = self.access_rule
-    if old_rule == free then
-        if combine == "and" then
-            self.access_rule = rule
-        end
-    else
-        if combine == "and" then
-            self.access_rule = function(state) return rule(state) and old_rule(state) end
-        else
-            self.access_rule = function(state) return rule(state) or old_rule(state) end
-        end
-    end
 end
 
 function Location:can_reach(state)
@@ -161,32 +145,14 @@ function Region:create_exit(name)
 end
 
 function Region:connect(connecting_region, name, rule)
-    if name == nil then
-        name = self.name .. " -> " .. connecting_region.name
-    end
+    if rule == rules.FalseR then return end
+
     local exit = self:create_exit(name)
     if rule then
-        exit.access_rule = rule
+        exit:set_rule(rule)
     end
     exit:connect(connecting_region)
     return exit
-end
-
-function Region:add_exits(exits, rules)
-    -- TODO: implement exits for Dict[str, Optional[str]] type
-    -- TODO: implement rules: Dict[str, Callable[[CollectionState], bool]] = None) -> None:
-    if rules then
-        error("rules handling not implemented in Region:add_exits")
-    end
-
-    name = nil -- TODO
-    for _, connecting_region_name in ipairs(exits) do
-        local destination = self.definition:get_region(connecting_region_name)
-        if not destination then
-            error("No such region " .. connecting_region_name)
-        end
-        self:connect(destination, name)
-    end
 end
 
 function Region:can_reach(state)
@@ -211,21 +177,6 @@ function Entrance:set_rule(rule)
     self.access_rule = rule
 end
 
-function Entrance:add_rule(rule, combine)
-    local old_rule = self.access_rule
-    if old_rule == free then
-        if combine == "and" then
-            self.access_rule = rule
-        end
-    else
-        if combine == "and" then
-            self.access_rule = function(state) return rule(state) and old_rule(state) end
-        else
-            self.access_rule = function(state) return rule(state) or old_rule(state) end
-        end
-    end
-end
-
 function Entrance:connect(destination, addresses, target)
     self.connected_region = destination
     self.target = target -- is this lttp crap?
@@ -244,7 +195,7 @@ function Definition:new()
     return setmetatable({
         regions = AppendableList:new(),
         options = {},
-        origin_region_name = "Castle Main",
+        origin_region_name = regions.default_origin_region,
     }, self)
 end
 
@@ -287,6 +238,12 @@ function Definition:set_options(options, values)
     for name, class in pairs(options) do
         self.options[name] = class:new(values[name])
     end
+
+    -- TODO (granular-logic): read tags from codes? make a new option that builds tags and get rid of this
+    self.tags = {
+        old_obscure = self.options.obscure_logic.value and 1 or 0,
+        logic_level = self.options.logic_level.value,
+    }
 end
 
 

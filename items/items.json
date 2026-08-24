@@ -110,9 +110,9 @@
         "type": "consumable",
         "img": "images/icons/icon_clingGem.png",
         "disabled_img": "images/icons/icon_clingGem_grey.png",
-        "max_quantity": 3,
-        "increment": 1,
-        "decrement": 1,
+        "max_quantity": 6,
+        "increment": 2,
+        "decrement": 2,
         "initial_quantity": 0,
         "overlay_font_size": 8,
         "codes": "clingshard"
