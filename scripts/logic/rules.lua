@@ -9,7 +9,6 @@ local tag_level_to_int = {
 
 local option_to_value = {
     ultra_cap = {
-        vanilla = 0,
         full_gold = 1,
     },
     spawn_point = {
@@ -18,16 +17,17 @@ local option_to_value = {
 }
 
 
-local TrueR = function() return true end
-local FalseR = function() return false end
-
-
 local PseudoregaliaRule = {}
 local And = {}
 local Or = {}
 local Has = {}
-local CanReachRegion = {}
 local True = {}
+
+local AndR = {}
+local OrR = {}
+local HasR = {}
+local TrueR = {}
+local FalseR = {}
 
 
 -- TODO: for now rules don't really do optimizations in resolve and can't because resolve return values are functions
@@ -52,9 +52,6 @@ function PseudoregaliaRule:new(rule_data, ref_rules)
     end
     if rule_data.has ~= nil then
         and_clauses[#and_clauses+1] = Has:new(rule_data.has)
-    end
-    if rule_data.can_reach_region ~= nil then
-        and_clauses[#and_clauses+1] = CanReachRegion:new(rule_data.can_reach_region)
     end
     if rule_data.ref ~= nil then
         if type(rule_data.ref) == "table" then
@@ -98,6 +95,34 @@ function PseudoregaliaRule:resolve(definition)
     return FalseR
 end
 
+function PseudoregaliaRule:to_string()
+    if self.tags == nil and self.options == nil then
+        return self.rule:to_string()
+    end
+    local s = "PseudoregaliaRule("
+    s = s .. self.rule:to_string()
+    if self.tags ~= nil then
+        s = s .. ", tags={"
+        local first = true
+        for tag, value in pairs(self.tags) do
+            if first then first = false else s = s .. ", " end
+            s = s .. tag .. ": " .. value
+        end
+        s = s .. "}"
+    end
+    if self.options ~= nil then
+        s = s .. ", options={"
+        local first = true
+        for option, value in pairs(self.options) do
+            if first then first = false else s = s .. ", " end
+            s = s .. option .. ": " .. tostring(value)
+        end
+        s = s .. "}"
+    end
+    s = s .. ")"
+    return s
+end
+
 function PseudoregaliaRule:passes_filter(definition)
     if self.tags ~= nil then
         for tag, level in pairs(self.tags) do
@@ -108,7 +133,7 @@ function PseudoregaliaRule:passes_filter(definition)
     end
     if self.options ~= nil then
         for option, value in pairs(self.options) do
-            if definition.options[option] ~= option_to_value[option][value] then
+            if definition.options[option].value ~= option_to_value[option][value] then
                 return false
             end
         end
@@ -144,15 +169,18 @@ function Or:resolve(definition)
         return clauses[1]
     end
 
-    return function(state)
-        for i = 1,#clauses do
-            local clause = clauses[i]
-            if clause(state) then
-                return true
-            end
-        end
-        return false
+    return OrR:new(clauses)
+end
+
+function Or:to_string()
+    local s = "Or("
+    local first = true
+    for i = 1,#self.clauses do
+        if first then first = false else s = s .. ", " end
+        s = s .. self.clauses[i]:to_string()
     end
+    s = s .. ")"
+    return s
 end
 
 
@@ -183,15 +211,18 @@ function And:resolve(definition)
         return clauses[1]
     end
 
-    return function(state)
-        for i = 1,#clauses do
-            local clause = clauses[i]
-            if not clause(state) then
-                return false
-            end
-        end
-        return true
+    return AndR:new(clauses)
+end
+
+function And:to_string()
+    local s = "And("
+    local first = true
+    for i = 1,#self.clauses do
+        if first then first = false else s = s .. ", " end
+        s = s .. self.clauses[i]:to_string()
     end
+    s = s .. ")"
+    return s
 end
 
 
@@ -216,30 +247,18 @@ function Has:new(has_data)
 end
 
 function Has:resolve()
-    return function(state)
-        for item, count in pairs(self.items) do
-            if state:count(item) < count then
-                return false
-            end
-        end
-        return true
-    end
+    return HasR:new(self.items)
 end
 
-
-CanReachRegion.__index = CanReachRegion
-
-function CanReachRegion:new(region)
-    return setmetatable({
-        region = region
-    }, self)
-end
-
-function CanReachRegion:resolve(definition)
-    local region = definition:get_region(self.region)
-    return function(state)
-        return region:can_reach(state)
+function Has:to_string()
+    local s = "Has("
+    local first = true
+    for item, count in pairs(self.items) do
+        if first then first = false else s = s .. ", " end
+        s = s .. item .. ": " .. tostring(count)
     end
+    s = s .. ")"
+    return s
 end
 
 
@@ -252,6 +271,119 @@ end
 
 function True:resolve(_)
     return TrueR
+end
+
+function True:to_string()
+    return "True"
+end
+
+
+AndR.__index = AndR
+
+function AndR:new(clauses)
+    return setmetatable({
+        clauses = clauses,
+    }, self)
+end
+
+function AndR:call(state)
+    for i = 1,#self.clauses do
+        if not self.clauses[i]:call(state) then
+            return false
+        end
+    end
+    return true
+end
+
+function AndR:to_string()
+    local s = "And("
+    local first = true
+    for i = 1,#self.clauses do
+        if first then first = false else s = s .. ", " end
+        s = s .. self.clauses[i]:to_string()
+    end
+    s = s .. ")"
+    return s
+end
+
+
+OrR.__index = OrR
+
+function OrR:new(clauses)
+    return setmetatable({
+        clauses = clauses,
+    }, self)
+end
+
+function OrR:call(state)
+    for i = 1,#self.clauses do
+        if self.clauses[i]:call(state) then
+            return true
+        end
+    end
+    return false
+end
+
+function OrR:to_string()
+    local s = "Or("
+    local first = true
+    for i = 1,#self.clauses do
+        if first then first = false else s = s .. ", " end
+        s = s .. self.clauses[i]:to_string()
+    end
+    s = s .. ")"
+    return s
+end
+
+
+HasR.__index = HasR
+
+function HasR:new(items)
+    return setmetatable({
+        items = items,
+    }, self)
+end
+
+function HasR:call(state)
+    for item, count in pairs(self.items) do
+        if state:count(item) < count then
+            return false
+        end
+    end
+    return true
+end
+
+function HasR:to_string()
+    local s = "Has("
+    local first = true
+    for item, count in pairs(self.items) do
+        if first then first = false else s = s .. ", " end
+        s = s .. item .. ": " .. tostring(count)
+    end
+    s = s .. ")"
+    return s
+end
+
+
+TrueR.__index = TrueR
+
+function TrueR:call()
+    return true
+end
+
+function TrueR:to_string()
+    return "True"
+end
+
+
+FalseR.__index = FalseR
+
+function FalseR:call()
+    return false
+end
+
+function FalseR:to_string()
+    return "False"
 end
 
 
@@ -306,6 +438,7 @@ rules = {
     location_rules = location_rules,
     create_entrance_name = create_entrance_name,
     player_starts = player_starts,
+    TrueR = TrueR,
     FalseR = FalseR,
 }
 

@@ -6,9 +6,6 @@
 -- python-style helpers
 
 
-local free = function(state) return true end
-
-
 function table.shallow_copy(t)
     local t2 = {}
     for k,v in pairs(t) do
@@ -113,7 +110,7 @@ function Location:new(name, parent_region, rule)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rule = rule or free,
+        access_rule = rule or rules.TrueR,
     }, self)
 end
 
@@ -122,7 +119,7 @@ function Location:set_rule(rule)
 end
 
 function Location:can_reach(state)
-    return self.access_rule(state) and self.parent_region:can_reach(state)
+    return self.access_rule:call(state) and self.parent_region:can_reach(state)
 end
 
 
@@ -169,7 +166,7 @@ function Entrance:new(name, parent_region)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rule = free,
+        access_rule = rules.TrueR,
     }, self)
 end
 
@@ -185,7 +182,7 @@ function Entrance:connect(destination, addresses, target)
 end
 
 function Entrance:can_reach(state)
-    return self.parent_region:can_reach(state) and self.access_rule(state)
+    return self.parent_region:can_reach(state) and self.access_rule:call(state)
 end
 
 
