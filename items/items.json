@@ -374,7 +374,8 @@
         "name": "Auto Swap Map",
         "type": "toggle",
         "img": "images/settings/auto_swap_map.png",
-        "codes": "auto_swap_map"
+        "codes": "auto_swap_map",
+        "initial_active_state": true
     },
     // EXAMPLE CODE
     {
