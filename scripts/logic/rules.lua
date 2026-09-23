@@ -8,9 +8,9 @@ local tag_level_to_int = {
 }
 
 local option_to_value = {
-    game_version = {
-        map_patch = 1,
-        full_gold = 2,
+    ultra_cap = {
+        vanilla = 0,
+        full_gold = 1,
     },
     spawn_point = {
         dungeon_mirror = 2,

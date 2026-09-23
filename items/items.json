@@ -168,19 +168,19 @@
     },
     // LOGIC
     {
-        "name": "Game Version",
+        "name": "Ultra Cap",
         "type": "progressive",
         "allow_disabled": false,
         "initial_stage_idx": 0,
         "stages": [
             {
-                "img": "images/logic_settings/map_patch.png",
-                "codes": "game_version,map_patch",
+                "img": "images/logic_settings/vanilla_ultras.png",
+                "codes": "ultra_cap,vanilla_ultras",
                 "inherit_codes": false
             },
             {
-                "img": "images/logic_settings/full_gold.png",
-                "codes": "game_version,full_gold",
+                "img": "images/logic_settings/full_gold_ultras.png",
+                "codes": "ultra_cap,full_gold_ultras",
                 "inherit_codes": false
             }
         ]

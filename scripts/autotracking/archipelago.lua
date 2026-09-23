@@ -93,13 +93,9 @@ function onClear(slot_data)
         end
     end
 
-    if slot_data["game_version"] ~= nil then
-        print("slot_data['game_version']: " .. slot_data['game_version'])
-        if slot_data["game_version"] == 1 then
-            Tracker:FindObjectForCode("game_version").CurrentStage = 0
-        elseif slot_data["game_version"] == 2 then
-            Tracker:FindObjectForCode("game_version").CurrentStage = 1
-        end
+    if slot_data.ultra_cap ~= nil then
+        print("slot_data.ultra_cap: " .. slot_data.ultra_cap)
+        Tracker:FindObjectForCode("ultra_cap").CurrentStage = slot_data.ultra_cap
     end
 
     -- TODO (granular-logic): idk this is crap but will do until there are more tags

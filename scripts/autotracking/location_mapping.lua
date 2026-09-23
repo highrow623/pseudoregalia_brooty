@@ -16,7 +16,6 @@ LOCATION_MAPPING = {
     [10] = {"@Castle Sansa/Balcony/"},
     [11] = {"@Castle Sansa/Corner Corridor/"},
     [12] = {"@Castle Sansa/Floater In Courtyard/"},
-    [13] = {"@Castle Sansa/Locked Door/"},
     [14] = {"@Castle Sansa/Platform In Main Halls/"},
     [15] = {"@Castle Sansa/Tall Room Near Wheel Crawlers/"},
     [16] = {"@Castle Sansa/Wheel Crawlers/"},

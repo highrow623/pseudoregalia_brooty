@@ -251,7 +251,7 @@ function stateChanged(code)  -- run by watch for code "*" (any)
     glitchState.stale = true
 end
 
-function logicChanged()  -- run by watch for code "game_version", "logic", "obscure"
+function logicChanged()  -- run by watch for code "ultra_cap", "logic", "obscure"
     print("logic changed")
     isSplitKicks = Tracker:ProviderCountForCode("op_splitkick_on") > 0  -- cache for State.count
     isSplitCling = Tracker:ProviderCountForCode("op_splitcling_on") > 0  -- cache for State.count
@@ -271,7 +271,7 @@ end
 logicChanged()
 
 -- add watches
-ScriptHost:AddWatchForCode("gameVersionChanged", "game_version", logicChanged)
+ScriptHost:AddWatchForCode("ultraCapChanged", "ultra_cap", logicChanged)
 ScriptHost:AddWatchForCode("difficultyChanged", "logic", logicChanged)
 ScriptHost:AddWatchForCode("spawnChanged", "spawn", logicChanged)
 ScriptHost:AddWatchForCode("obscureChanged", "obscure", logicChanged)
