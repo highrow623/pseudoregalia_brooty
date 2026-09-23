@@ -286,9 +286,9 @@ function AndR:new(clauses)
     }, self)
 end
 
-function AndR:call(state)
+function AndR:__call(state)
     for i = 1,#self.clauses do
-        if not self.clauses[i]:call(state) then
+        if not self.clauses[i](state) then
             return false
         end
     end
@@ -315,9 +315,9 @@ function OrR:new(clauses)
     }, self)
 end
 
-function OrR:call(state)
+function OrR:__call(state)
     for i = 1,#self.clauses do
-        if self.clauses[i]:call(state) then
+        if self.clauses[i](state) then
             return true
         end
     end
@@ -344,7 +344,7 @@ function HasR:new(items)
     }, self)
 end
 
-function HasR:call(state)
+function HasR:__call(state)
     for item, count in pairs(self.items) do
         if state:count(item) < count then
             return false
@@ -365,9 +365,7 @@ function HasR:to_string()
 end
 
 
-TrueR.__index = TrueR
-
-function TrueR:call()
+function TrueR:__call()
     return true
 end
 
@@ -375,16 +373,18 @@ function TrueR:to_string()
     return "True"
 end
 
+setmetatable(TrueR, TrueR)
 
-FalseR.__index = FalseR
 
-function FalseR:call()
+function FalseR:__call()
     return false
 end
 
 function FalseR:to_string()
     return "False"
 end
+
+setmetatable(FalseR, FalseR)
 
 
 local f = assert(io.open("scripts/logic/logic.yaml", "r"))

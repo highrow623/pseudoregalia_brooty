@@ -119,7 +119,7 @@ function Location:set_rule(rule)
 end
 
 function Location:can_reach(state)
-    return self.access_rule:call(state) and self.parent_region:can_reach(state)
+    return self.access_rule(state) and self.parent_region:can_reach(state)
 end
 
 
@@ -182,7 +182,7 @@ function Entrance:connect(destination, addresses, target)
 end
 
 function Entrance:can_reach(state)
-    return self.parent_region:can_reach(state) and self.access_rule:call(state)
+    return self.parent_region:can_reach(state) and self.access_rule(state)
 end
 
 
