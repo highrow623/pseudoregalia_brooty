@@ -23,11 +23,11 @@ local Or = {}
 local Has = {}
 local True = {}
 
-local AndR = {}
-local OrR = {}
-local HasR = {}
-local TrueR = {}
-local FalseR = {}
+local AndR = { type = "AndR" }
+local OrR = { type = "OrR" }
+local HasR = { type = "HasR" }
+local TrueR = { type = "TrueR" }
+local FalseR = { type = "FalseR" }
 
 
 -- TODO: for now rules don't really do optimizations in resolve and can't because resolve return values are functions
@@ -92,7 +92,7 @@ function PseudoregaliaRule:resolve(definition)
     if self:passes_filter(definition) then
         return self.rule:resolve(definition)
     end
-    return FalseR
+    return FalseR:new()
 end
 
 function PseudoregaliaRule:to_string()
@@ -151,20 +151,29 @@ function Or:new(clauses)
 end
 
 function Or:resolve(definition)
-    local clauses = {}
+    local queue = {}
     for i = 1,#self.clauses do
-        local clause = self.clauses[i]
-        local resolved = clause:resolve(definition)
-        if resolved == TrueR then
+        queue[i] = self.clauses[i]:resolve(definition)
+    end
+
+    local clauses = {}
+    while #queue > 0 do
+        local resolved = queue[#queue]
+        queue[#queue] = nil
+
+        if resolved.type == TrueR.type then
             return resolved
-        end
-        if resolved ~= FalseR then
+        elseif resolved.type == OrR.type then
+            for i = 1,#resolved.clauses do
+                queue[#queue+1] = resolved.clauses[i]
+            end
+        elseif resolved.type ~= FalseR.type then
             clauses[#clauses+1] = resolved
         end
     end
 
     if #clauses == 0 then
-        return FalseR
+        return FalseR:new()
     elseif #clauses == 1 then
         return clauses[1]
     end
@@ -193,20 +202,39 @@ function And:new(clauses)
 end
 
 function And:resolve(definition)
-    local clauses = {}
+    local queue = {}
     for i = 1,#self.clauses do
-        local clause = self.clauses[i]
-        local resolved = clause:resolve(definition)
-        if resolved == FalseR then
+        queue[i] = self.clauses[i]:resolve(definition)
+    end
+
+    local clauses = {}
+    local items = {}
+    while #queue > 0 do
+        local resolved = queue[#queue]
+        queue[#queue] = nil
+
+        if resolved.type == FalseR.type then
             return resolved
-        end
-        if resolved ~= TrueR then
+        elseif resolved.type == AndR.type then
+            for i = 1,#resolved.clauses do
+                queue[#queue+1] = resolved.clauses[i]
+            end
+        elseif resolved.type == HasR.type then
+            for item, count in pairs(resolved.items) do
+                if count > (items[item] or 0) then
+                    items[item] = count
+                end
+            end
+        elseif resolved.type ~= TrueR.type then
             clauses[#clauses+1] = resolved
         end
     end
+    if next(items) ~= nil then
+        clauses[#clauses+1] = HasR:new(items)
+    end
 
     if #clauses == 0 then
-        return TrueR
+        return TrueR:new()
     elseif #clauses == 1 then
         return clauses[1]
     end
@@ -270,7 +298,7 @@ function True:new()
 end
 
 function True:resolve(_)
-    return TrueR
+    return TrueR:new()
 end
 
 function True:to_string()
@@ -365,6 +393,12 @@ function HasR:to_string()
 end
 
 
+TrueR.__index = TrueR
+
+function TrueR:new()
+    return setmetatable({}, self)
+end
+
 function TrueR:__call()
     return true
 end
@@ -373,8 +407,12 @@ function TrueR:to_string()
     return "True"
 end
 
-setmetatable(TrueR, TrueR)
 
+FalseR.__index = FalseR
+
+function FalseR:new()
+    return setmetatable({}, self)
+end
 
 function FalseR:__call()
     return false
@@ -383,8 +421,6 @@ end
 function FalseR:to_string()
     return "False"
 end
-
-setmetatable(FalseR, FalseR)
 
 
 local f = assert(io.open("scripts/logic/logic.yaml", "r"))

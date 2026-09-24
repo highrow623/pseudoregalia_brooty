@@ -110,12 +110,8 @@ function Location:new(name, parent_region, rule)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rule = rule or rules.TrueR,
+        access_rule = rule or rules.TrueR:new(),
     }, self)
-end
-
-function Location:set_rule(rule)
-    self.access_rule = rule
 end
 
 function Location:can_reach(state)
@@ -135,19 +131,16 @@ function Region:new(name, definition)
     }, self)
 end
 
-function Region:create_exit(name)
-    local exit = Entrance:new(name, self)
+function Region:create_exit(name, rule)
+    local exit = Entrance:new(name, self, rule)
     self.exits:append(exit)
     return exit
 end
 
 function Region:connect(connecting_region, name, rule)
-    if rule == rules.FalseR then return end
+    if rule ~= nil and rule.type == rules.FalseR.type then return end
 
-    local exit = self:create_exit(name)
-    if rule then
-        exit:set_rule(rule)
-    end
+    local exit = self:create_exit(name, rule)
     exit:connect(connecting_region)
     return exit
 end
@@ -162,16 +155,12 @@ end
 
 Entrance.__index = Entrance
 
-function Entrance:new(name, parent_region)
+function Entrance:new(name, parent_region, rule)
     return setmetatable({
         name = name,
         parent_region = parent_region,
-        access_rule = rules.TrueR,
+        access_rule = rule or rules.TrueR:new(),
     }, self)
-end
-
-function Entrance:set_rule(rule)
-    self.access_rule = rule
 end
 
 function Entrance:connect(destination, addresses, target)
