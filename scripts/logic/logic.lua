@@ -44,54 +44,19 @@ end
 -- TODO (granular-logic)? this is probably really bad
 local item_mapping = {
     breaker = {
-        is_prog = function() return isProgBreaker end,
-        prog = {
-            code = "progbreaker",
-            minimum = 1,
-        },
-        non_prog = {
-            code = "breaker",
-        },
+        prog_code = function() return isProgBreaker and "breaker1" or "breaker" end,
     },
     strikebreak = {
-        is_prog = function() return isProgBreaker end,
-        prog = {
-            code = "progbreaker",
-            minimum = 2,
-        },
-        non_prog = {
-            code = "strikebreak",
-        }
+        prog_code = function() return isProgBreaker and "breaker2" or "strikebreak" end,
     },
     cutter = {
-        is_prog = function() return isProgBreaker end,
-        prog = {
-            code = "progbreaker",
-            minimum = 3,
-        },
-        non_prog = {
-            code = "cutter",
-        }
+        prog_code = function() return isProgBreaker and "breaker3" or "cutter" end,
     },
     slide = {
-        is_prog = function() return isProgSlide end,
-        prog = {
-            code = "progslide",
-            minimum = 1,
-        },
-        non_prog = {
-            code = "slide",
-        },
+        prog_code = function() return isProgSlide and "slide1" or "slide" end,
     },
     slide_jump = {
-        is_prog = function() return isProgSlide end,
-        prog = {
-            code = "progslide",
-            minimum = 2,
-        },
-        non_prog = {
-            code = "solar",
-        },
+        prog_code = function() return isProgSlide and "slide2" or "solar" end,
     },
     kick = {
         is_split = function() return isSplitKicks end,
@@ -147,11 +112,8 @@ State.count = function(state, name)
         return _count(state, name)
     end
 
-    if mapping.is_prog then
-        if mapping.is_prog() then
-            return _count(state, mapping.prog.code) >= mapping.prog.minimum and 1 or 0
-        end
-        return _count(state, mapping.non_prog.code)
+    if mapping.prog_code then
+        return _count(state, mapping.prog_code())
     end
 
     if mapping.is_split then
