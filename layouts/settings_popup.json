@@ -12,28 +12,28 @@
                 "h_alignment": "left",
                 "rows": [
                     [
-                        "game_version",
-                        "op_progbreaker",
-                        "goats"
-                    ],
-                    [
                         "normal",
-                        "op_progslide",
-                        "chairs"
+                        "time_trials",
+                        "op_progbreaker"
                     ],
                     [
                         "obscure",
-                        "op_splitkick_off",
-                        "books"
-                    ],
-                    [
-                        "time_trials",
-                        "op_splitcling_off",
-                        "notes"
+                        "goats",
+                        "op_progslide"
                     ],
                     [
                         "spawn",
-                        "auto_swap_map"
+                        "chairs",
+                        "op_splitkick_off"
+                    ],
+                    [
+                        "vanilla_ultras",
+                        "books",
+                        "op_splitcling_off"
+                    ],
+                    [
+                        "auto_swap_map",
+                        "notes"
                     ]
                 ]
             }
