@@ -30,8 +30,6 @@ local TrueR = { type = "TrueR" }
 local FalseR = { type = "FalseR" }
 
 
--- TODO: for now rules don't really do optimizations in resolve and can't because resolve return values are functions
--- instaed of tables
 PseudoregaliaRule.__index = PseudoregaliaRule
 
 function PseudoregaliaRule:new(rule_data, ref_rules)
@@ -274,7 +272,7 @@ function Has:new(has_data)
     }, self)
 end
 
-function Has:resolve()
+function Has:resolve(_)
     return HasR:new(self.items)
 end
 
