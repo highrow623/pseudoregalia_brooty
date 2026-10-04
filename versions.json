@@ -1,6 +1,16 @@
 {
     "versions": [
         {
+            "package_version": "0.2.0",
+            "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.2.0/pseudoregalia_brooty.zip",
+            "sha256": "e396fa8f651dc5d4e3abeb93a8149ea997d2d081ec6aa6870dd0f58b600c14b4",
+            "changelog": [
+                "updated logic and settings to match changes in the apworld",
+                "reorganized settings popup",
+                "made split cling count reflect the number of clings instead of the amount of the item"
+            ]
+        },
+        {
             "package_version": "0.1.11",
             "download_url": "https://github.com/highrow623/pseudoregalia_brooty/releases/download/0.1.11/pseudoregalia_brooty.zip",
             "sha256": "8d7970690c717615633eaa5888529da5add90130f55de8990de6d8ad9f7e3f3f",
